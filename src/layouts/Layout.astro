@@ -27,24 +27,10 @@ const applyTopMargin = Astro.props.applyTopMargin || false;
     <meta name="description" content={description} />
   </head>
   <body class="font-sans antialiased bg-black">
-    <Header client:idle />
-    <main class:list={[{ "mt-[80px] md:mt-[104px]": applyTopMargin }]}>
+    <Header client:load />
+    <main class:list={[{ "mt-[80px] md:mt-[108px]": applyTopMargin }]}>
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-
-<script>
-  const main = document.querySelector("main");
-  if (main?.dataset.applyTopMargin === "true") {
-    const applyTopMargin = () => {
-      const header = document.querySelector("header");
-      const headerHeight = header?.clientHeight;
-      main.style.marginTop = `${headerHeight}px`;
-    };
-
-    window.addEventListener("load", () => applyTopMargin());
-    window.addEventListener("resize", () => applyTopMargin());
-  }
-</script>

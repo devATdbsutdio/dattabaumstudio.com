@@ -1,5 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/Button";
 ---
 
-<Layout applyTopMargin />
+<Layout applyTopMargin>
+  <div class="p-5 space-x-5">
+    <Button variant="primary-dark">Join the waiting list</Button>
+    <Button variant="secondary-dark">Join the waiting list</Button>
+    <Button variant="tertiary-dark">Join the waiting list</Button>
+  </div>
+  <div class="bg-white p-5 space-x-5">
+    <Button variant="primary-light">Discover</Button>
+    <Button variant="secondary-light">Discover</Button>
+    <Button variant="tertiary-light">Discover</Button>
+  </div>
+</Layout>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import XIcon from "@/components/icons/XIcon";
+import Button from "@/components/Button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -13,37 +14,40 @@ export default function Header() {
   return (
     <>
       <header className="absolute left-0 right-0 top-0 bg-transparent p-5 xl:px-7">
-        <div className="relative flex items-center text-white">
+        <div className="relative flex items-center text-white md:py-5">
           <button
             className="p-2 transition-colors hover:bg-neutral-950 md:hidden"
             onClick={toggleMenu}
           >
             <MenuIcon />
           </button>
-          <a
+          <Button
+            variant="tertiary-dark"
             href="/watch"
-            className="hidden p-5 transition-colors hover:bg-neutral-950 md:block xl:text-lg"
+            className="hidden md:block md:text-lg"
           >
             Product/Watch
-          </a>
-          <a
+          </Button>
+
+          <Button
+            variant="tertiary-dark"
             href="/about"
-            className="hidden p-5 transition-colors hover:bg-neutral-950 md:block xl:text-lg"
+            className="hidden md:block md:text-lg"
           >
             About
-          </a>
+          </Button>
           <a
             href="/"
             className="p-2 font-medium md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:transform md:p-5 md:text-xl xl:text-2xl"
           >
             DATTA + BAUM
           </a>
-          <a
-            href="/about"
-            className="ml-auto p-2 transition-colors hover:bg-neutral-950 md:p-5 xl:text-lg"
+          <Button
+            variant="tertiary-dark"
+            className="ml-auto md:block md:text-lg"
           >
             Join the waiting list
-          </a>
+          </Button>
         </div>
       </header>
       <Transition

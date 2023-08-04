@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export default function XIcon({ className }: { className?: string }) {
+export default function ArrowUpIcon({ className }: { className?: string }) {
   return (
     <svg
       fill="none"
@@ -9,7 +9,7 @@ export default function XIcon({ className }: { className?: string }) {
       stroke="currentColor"
       className={cn("h-6 w-6 text-white", className)}
     >
-      <path d="M6 18L18 6M6 6l12 12" />
+      <path d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" strokeLinecap="round" />
     </svg>
   );
 }

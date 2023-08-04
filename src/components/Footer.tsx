@@ -1,48 +1,48 @@
 export default function Footer() {
   return (
-    <footer className="w-full flex flex-col text-white text-center xl:flex-row xl:items-center xl:py-10 xl:px-7">
-      <p className="text-opacity-70 p-5 border-y xl:border-none border-neutral-700 xl:order-1">
+    <footer className="flex w-full flex-col text-center text-white xl:flex-row xl:items-center xl:px-7 xl:py-10">
+      <p className="border-y border-neutral-700 p-5 text-opacity-70 xl:order-1 xl:border-none">
         © 2023 Datta+Baum
       </p>
-      <div className="p-5 flex flex-col xl:order-3 md:flex-row md:py-0 xl:p-0 md:justify-between xl:items-center xl:ml-auto">
+      <div className="flex flex-col p-5 md:flex-row md:justify-between md:py-0 xl:order-3 xl:ml-auto xl:items-center xl:p-0">
         <a
           href="/disclaimer"
-          className="hover:bg-neutral-950 transition-colors p-5"
+          className="p-5 transition-colors hover:bg-neutral-950"
         >
           Disclaimer
         </a>
-        <a href="/terms" className="hover:bg-neutral-950 transition-colors p-5">
+        <a href="/terms" className="p-5 transition-colors hover:bg-neutral-950">
           Terms & Conditions
         </a>
         <a
           href="/privacy"
-          className="hover:bg-neutral-950 transition-colors p-5"
+          className="p-5 transition-colors hover:bg-neutral-950"
         >
           Privacy Policy
         </a>
         <a
           href="/returns"
-          className="hover:bg-neutral-950 transition-colors p-5"
+          className="p-5 transition-colors hover:bg-neutral-950"
         >
           Returns & Refunds
         </a>
         <a
           href="/contact"
-          className="hover:bg-neutral-950 transition-colors p-5"
+          className="p-5 transition-colors hover:bg-neutral-950"
         >
           Contacts
         </a>
       </div>
-      <div className="flex border-y xl:border-none border-neutral-700 xl:order-2">
+      <div className="flex border-y border-neutral-700 xl:order-2 xl:border-none">
         <a
           href="#"
-          className="hover:bg-neutral-950 transition-colors p-5 w-full border-r border-neutral-700 xl:border-none"
+          className="w-full border-r border-neutral-700 p-5 transition-colors hover:bg-neutral-950 xl:border-none"
         >
           Github
         </a>
         <a
           href="#"
-          className="hover:bg-neutral-950 transition-colors p-5 w-full"
+          className="w-full p-5 transition-colors hover:bg-neutral-950"
         >
           Instagram
         </a>
