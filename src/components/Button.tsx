@@ -8,11 +8,11 @@ export const buttonVariants = cva(
       variant: {
         "primary-dark": "border-white bg-white hover:text-white hover:bg-black",
         "secondary-dark":
-          "border-white/30 text-white bg-black hover:border-white",
+          "border-white/30 text-white bg-transparent hover:border-white",
         "tertiary-dark": "text-white h-auto md:h-auto border-none px-2 md:px-5",
         "primary-light":
           "border-black bg-black text-white hover:text-black hover:bg-white",
-        "secondary-light": "border-black/30 bg-white hover:border-black",
+        "secondary-light": "border-black/30 bg-transparent hover:border-black",
         "tertiary-light":
           "text-black h-auto md:h-auto border-none px-2 md:px-5",
       },
