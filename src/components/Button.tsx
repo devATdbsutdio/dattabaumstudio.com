@@ -58,10 +58,10 @@ const Button = ({
     >
       {children}
       {variant === "tertiary-dark" && (
-        <span className="absolute bottom-0 left-2 h-px w-0 bg-white transition-colors group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
+        <span className="absolute bottom-0 left-2 h-0.5 w-0 bg-white transition-all group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
       )}
       {variant === "tertiary-light" && (
-        <span className="absolute bottom-0 left-2 h-px w-0 bg-black transition-colors group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
+        <span className="absolute bottom-0 left-2 h-0.5 w-0 bg-black transition-all group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
       )}
     </Component>
   );
