@@ -6,17 +6,17 @@ import Layout from "@/layouts/Layout.astro";
 
 <Layout>
   <div
-    class="relative min-h-screen px-5 md:px-8 xl:px-12 text-white pt-[80px] md:pt-[108px]"
+    class="relative px-5 md:px-8 xl:px-12 text-white pt-[80px] md:pt-[108px] pb-20 md:pb-32 xl:pb-60"
   >
     <img
       src="/about-us.png"
       alt=""
-      class="absolute hidden sm:block top-0 left-0 right-0 w-full h-full object-contain lg:object-cover object-top z-[-1] opacity-20"
+      class="absolute hidden sm:block top-0 left-0 right-0 w-full h-full object-cover object-top z-[-1] opacity-20"
     />
     <img
       src="/about-us-mobile.png"
       alt=""
-      class="absolute top-0 block sm:hidden left-0 right-0 w-full h-full object-contain object-top z-[-1] opacity-20"
+      class="absolute block sm:hidden top-0 left-0 right-0 w-full h-full object-cover object-top z-[-1] opacity-20"
     />
     <h1
       class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 md:mt-20 uppercase font-extralight"
@@ -37,12 +37,9 @@ import Layout from "@/layouts/Layout.astro";
        Datta + Baum Studio is a product design studio co-founded by us; Saurabh
       Datta and Benjamin Baum.
     </p>
-    <div
-      class:list={[
-        "mt-20 md:mt-32 xl:mt-60 max-w-3xl md:ml-32 lg:ml-64 xl:ml-96",
-        "copy",
-      ]}
-    >
+  </div>
+  <div class="md:ml-32 lg:ml-64 xl:ml-96 md:px-8 xl:px-12">
+    <div class:list={["max-w-3xl  text-white px-5 ", "copy"]}>
       <p class="text-lg md:text-xl lg:text-2xl mb-4">
         We aim to create (one may say, “re-design”) physical products that are
         simple, beautiful,  honest and personal. We share a passion for good
@@ -97,6 +94,15 @@ import Layout from "@/layouts/Layout.astro";
           start: 0,
           end: 1,
         },
+        shake: false,
+        slice: {
+          count: 6,
+          velocity: 15,
+          minHeight: 0.02,
+          maxHeight: 0.15,
+          hueRotate: true,
+        },
+        pulse: false,
       },
     );
 
