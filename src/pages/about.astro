@@ -1,0 +1,139 @@
+---
+import Button from "@/components/Button";
+import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <div
+    class="relative min-h-screen px-5 md:px-8 xl:px-12 text-white pt-[80px] md:pt-[108px]"
+  >
+    <img
+      src="/about-us.png"
+      alt=""
+      class="absolute hidden sm:block top-0 left-0 right-0 w-full h-full object-contain lg:object-cover object-top z-[-1] opacity-20"
+    />
+    <img
+      src="/about-us-mobile.png"
+      alt=""
+      class="absolute top-0 block sm:hidden left-0 right-0 w-full h-full object-contain object-top z-[-1] opacity-20"
+    />
+    <h1
+      class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 md:mt-20 uppercase font-extralight"
+    >
+      About
+    </h1>
+    <h2
+      class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-2 uppercase font-extralight md:ml-32 xl:ml-48"
+    >
+      DATTA + BAUM
+    </h2>
+    <p
+      class="text-xl sm:text-5xl lg:text-6xl xl:text-7xl mt-5 font-extralight ml-20 md:ml-32 xl:ml-48 relative mb-5"
+    >
+      <ArrowDownIcon
+        className="absolute -left-14 bottom-0.5 md:bottom-1.5 w-10 h-10"
+      />
+       Datta + Baum Studio is a product design studio co-founded by us; Saurabh
+      Datta and Benjamin Baum.
+    </p>
+    <div
+      class:list={[
+        "mt-20 md:mt-32 xl:mt-60 max-w-3xl md:ml-32 lg:ml-64 xl:ml-96",
+        "copy",
+      ]}
+    >
+      <p class="text-lg md:text-xl lg:text-2xl mb-4">
+        We aim to create (one may say, “re-design”) physical products that are
+        simple, beautiful,  honest and personal. We share a passion for good
+        design that is real, tangible and has a long lasting effect on people’s
+        lives. We love experimenting with our ideas, even though they are, after
+        all, simple familiar products. We started the studio because we wanted
+        to make things without compromise, as much as possible, with our own
+        hands and avoid being generic.
+      </p>
+      <p class="text-lg md:text-xl lg:text-2xl">
+        We are grateful that you have decided to be part of our journey and we
+        thank you for your support. We hope that you enjoy using our products
+        the way we have enjoyed making them.
+      </p>
+    </div>
+    <Button
+      href="/contact"
+      className="mt-6 lg:mt-10 mb-16 lg:mb-28 md:ml-32 lg:ml-64 xl:ml-96"
+      variant="secondary-dark"
+    >
+      Get in touch
+    </Button>
+  </div>
+</Layout>
+
+<script>
+  import { PowerGlitch } from "powerglitch";
+
+  const realCopy = [
+    "Datta+Baum Studio is a design studio that fearlessly confronts the absurdity of our existence. They reject traditional notions of purpose and functionality, instead creating thought-provoking designs that challenge established expectations. By embracing irony and contradiction, they encourage users to question the underlying assumptions of everyday objects and systems. Datta+Baum Studio aims to inspire rebellion, spark conversations, and invite individuals to find their own meaning within the inherent absurdity of the world.",
+    "At Datta+Baum Studio, authenticity and passion drive their designers. They cultivate a culture that embraces the absurdity in their lives and channels it into the creative process. By rebelling against the absurd, they create designs that resonate on a deeper level, evoking emotions and prompting contemplation.",
+  ];
+
+  let hasReplacedCopy = false;
+  const copyDiv = document.querySelector(".copy");
+
+  const replaceCopy = () => {
+    if (!copyDiv) {
+      return null;
+    }
+
+    const { startGlitch, stopGlitch } = PowerGlitch.glitch(
+      copyDiv as HTMLElement,
+      {
+        playMode: "manual",
+        hideOverflow: true,
+        timing: {
+          duration: 250,
+          iterations: 1,
+        },
+        glitchTimeSpan: {
+          start: 0,
+          end: 1,
+        },
+      },
+    );
+
+    startGlitch();
+
+    setTimeout(() => {
+      stopGlitch();
+      copyDiv.innerHTML = `<p class="text-lg md:text-xl lg:text-2xl mb-4">${realCopy[0]}</p><p class="text-lg md:text-xl lg:text-2xl">${realCopy[1]}</p>`;
+      hasReplacedCopy = true;
+    }, 250);
+  };
+
+  window.addEventListener("load", () => {
+    const aboutUsVisited = localStorage.getItem("about-us-visited") === "yes";
+
+    if (!aboutUsVisited) {
+      localStorage.setItem("about-us-visited", "yes");
+      return;
+    }
+
+    if (!copyDiv) {
+      return null;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!hasReplacedCopy && entry.isIntersecting) {
+            replaceCopy();
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    observer.observe(copyDiv);
+  });
+</script>

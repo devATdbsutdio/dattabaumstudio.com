@@ -3,13 +3,13 @@ import { cn } from "@/lib/utils";
 export default function ArrowLeftIcon({ className }: { className?: string }) {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 40 40"
       fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className={cn("h-6 w-6 text-white", className)}
+      className={cn("h-6 w-6 stroke-white", className)}
     >
-      <path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" strokeLinecap="round" />
+      <path d="M35 20L5 20" />
+      <path d="M15.375 10L5.375 20L15.375 30" />
     </svg>
   );
 }

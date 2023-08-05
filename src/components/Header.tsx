@@ -26,7 +26,7 @@ export default function Header({ solidBg }: HeaderProps) {
     <>
       <header
         className={cn(
-          "absolute left-0 right-0 top-0 z-10 p-5 text-white xl:px-7",
+          "absolute left-0 right-0 top-0 z-10 px-3 py-5 text-white xl:px-7",
           solidBg ? "bg-black" : "bg-transparent",
         )}
       >
