@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="flex w-full flex-col text-center text-white xl:flex-row xl:items-center xl:px-7 xl:py-10">
-      <p className="border-y border-neutral-700 p-5 text-opacity-70 xl:order-1 xl:border-none">
+    <footer className="flex w-full flex-col bg-black text-center text-white xl:flex-row xl:items-center xl:px-7 xl:py-10">
+      <p className="border-y border-neutral-700 p-5 text-white/70 text-opacity-70 xl:order-1 xl:border-none">
         © 2023 Datta+Baum
       </p>
       <div className="flex flex-col p-5 md:flex-row md:justify-between md:py-0 xl:order-3 xl:ml-auto xl:items-center xl:p-0">

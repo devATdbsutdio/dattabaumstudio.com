@@ -1,25 +1,20 @@
-import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded h-12 md:h-16 px-10 text-lg transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 border group relative",
+  "inline-flex items-center justify-center h-12 md:h-16 px-10 text-lg transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 border group relative focus-visible:ring-neutral-400",
   {
     variants: {
       variant: {
-        "primary-dark":
-          "border-white bg-white focus-visible:ring-white hover:text-white hover:bg-black",
+        "primary-dark": "border-white bg-white hover:text-white hover:bg-black",
         "secondary-dark":
-          "border-white/30 text-white focus-visible:ring-white bg-black hover:border-white",
-        "tertiary-dark":
-          "text-white focus-visible:ring-white h-auto md:h-auto border-none px-5",
+          "border-white/30 text-white bg-black hover:border-white",
+        "tertiary-dark": "text-white h-auto md:h-auto border-none px-2 md:px-5",
         "primary-light":
-          "border-black bg-black text-white focus-visible:ring-black hover:text-black hover:bg-white",
-        "secondary-light":
-          "border-black/30 focus-visible:ring-black bg-white hover:border-black",
+          "border-black bg-black text-white hover:text-black hover:bg-white",
+        "secondary-light": "border-black/30 bg-white hover:border-black",
         "tertiary-light":
-          "text-black focus-visible:ring-black h-auto md:h-auto border-none px-5",
+          "text-black h-auto md:h-auto border-none px-2 md:px-5",
       },
     },
     defaultVariants: {
@@ -28,34 +23,45 @@ export const buttonVariants = cva(
   },
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps {
+  className?: string;
+  children: React.ReactNode;
+  variant?: VariantProps<typeof buttonVariants>["variant"];
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
   href?: string;
+  target?: "_blank";
+  rel?: "noopener noreferrer";
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, variant, href, ...props }, ref) => {
-    const Comp = href ? "a" : "button";
+const Button = ({
+  className,
+  children,
+  variant,
+  href,
+  onClick,
+  type = "button",
+  target,
+  rel,
+}: ButtonProps) => {
+  const Component = href ? "a" : "button";
 
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, className }))}
-        ref={ref}
-        href={href}
-        {...props}
-      >
-        {children}
-        {variant === "tertiary-dark" && (
-          <span className="absolute bottom-0 left-5 h-px w-0 bg-white transition-all group-hover:w-[calc(100%_-_40px)] group-focus:w-[calc(100%_-_40px)]" />
-        )}
-        {variant === "tertiary-light" && (
-          <span className="absolute bottom-0 left-5 h-px w-0 bg-black transition-all group-hover:w-[calc(100%_-_40px)] group-focus:w-[calc(100%_-_40px)]" />
-        )}
-      </Comp>
-    );
-  },
-);
-Button.displayName = "Button";
+  return (
+    <Component
+      className={cn(buttonVariants({ variant, className }))}
+      onClick={onClick}
+      {...(href && { href, target, rel })}
+      {...(!href && { type })}
+    >
+      {children}
+      {variant === "tertiary-dark" && (
+        <span className="absolute bottom-0 left-2 h-px w-0 bg-white transition-colors group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
+      )}
+      {variant === "tertiary-light" && (
+        <span className="absolute bottom-0 left-2 h-px w-0 bg-black transition-colors group-hover:w-[calc(100%_-_16px)] md:left-5 md:group-hover:w-[calc(100%_-_40px)]" />
+      )}
+    </Component>
+  );
+};
 
 export default Button;

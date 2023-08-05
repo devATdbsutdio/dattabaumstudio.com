@@ -3,18 +3,34 @@ import { Dialog, Transition } from "@headlessui/react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import XIcon from "@/components/icons/XIcon";
 import Button from "@/components/Button";
+import { cn } from "@/lib/utils";
+import WaitingList from "./WaitingList";
 
-export default function Header() {
-  const [isOpen, setIsOpen] = React.useState(false);
+interface HeaderProps {
+  solidBg?: boolean;
+}
+
+export default function Header({ solidBg }: HeaderProps) {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isWaitingListOpen, setIsWaitingListOpen] = React.useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((o) => !o);
+    setIsMenuOpen((v) => !v);
+  };
+
+  const toggleWaitingList = () => {
+    setIsWaitingListOpen((v) => !v);
   };
 
   return (
     <>
-      <header className="absolute left-0 right-0 top-0 bg-transparent p-5 xl:px-7">
-        <div className="relative flex items-center text-white md:py-5">
+      <header
+        className={cn(
+          "absolute left-0 right-0 top-0 z-10 p-5 text-white xl:px-7",
+          solidBg ? "bg-black" : "bg-transparent",
+        )}
+      >
+        <div className="relative flex items-center md:py-5">
           <button
             className="p-2 transition-colors hover:bg-neutral-950 md:hidden"
             onClick={toggleMenu}
@@ -44,7 +60,8 @@ export default function Header() {
           </a>
           <Button
             variant="tertiary-dark"
-            className="ml-auto md:block md:text-lg"
+            className="ml-auto text-sm sm:text-base md:block md:text-lg"
+            onClick={toggleWaitingList}
           >
             Join the waiting list
           </Button>
@@ -58,13 +75,13 @@ export default function Header() {
         leave="ease-in duration-100"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        show={isOpen}
+        show={isMenuOpen}
         as={React.Fragment}
       >
-        <Dialog as="div" className="relative z-10" onClose={toggleMenu}>
-          <Dialog.Panel className="fixed inset-0 flex flex-col bg-black p-5 text-3xl text-white">
+        <Dialog as="div" className="relative z-20" onClose={toggleMenu}>
+          <Dialog.Panel className="fixed inset-0 flex flex-col bg-black px-4 py-6 text-3xl text-white">
             <button
-              className="mb-4 self-start p-2 transition-colors hover:bg-neutral-950"
+              className="mb-4 ml-auto self-start p-2 transition-colors hover:bg-neutral-950"
               onClick={toggleMenu}
             >
               <XIcon />
@@ -83,16 +100,19 @@ export default function Header() {
             >
               About
             </a>
-            <a
-              href="/about"
-              className="px-3 py-5 transition-colors hover:bg-neutral-950"
-              onClick={toggleMenu}
+            <button
+              className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
+              onClick={() => {
+                toggleMenu();
+                toggleWaitingList();
+              }}
             >
               Join the waiting list
-            </a>
+            </button>
           </Dialog.Panel>
         </Dialog>
       </Transition>
+      <WaitingList isOpen={isWaitingListOpen} toggle={toggleWaitingList} />
     </>
   );
 }
