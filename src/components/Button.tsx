@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center h-12 md:h-16 px-10 text-lg transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 border group relative focus-visible:ring-neutral-400",
+  "inline-flex items-center justify-center h-12 md:h-16 px-10 text-lg transition-colors disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 border group relative",
   {
     variants: {
       variant: {
@@ -27,6 +27,7 @@ export interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   variant?: VariantProps<typeof buttonVariants>["variant"];
+  disabled?: boolean;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   href?: string;
@@ -38,9 +39,10 @@ const Button = ({
   className,
   children,
   variant,
-  href,
+  disabled = false,
   onClick,
   type = "button",
+  href,
   target,
   rel,
 }: ButtonProps) => {
@@ -50,6 +52,7 @@ const Button = ({
     <Component
       className={cn(buttonVariants({ variant, className }))}
       onClick={onClick}
+      disabled={disabled}
       {...(href && { href, target, rel })}
       {...(!href && { type })}
     >

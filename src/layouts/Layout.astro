@@ -27,7 +27,7 @@ const topMargin = Astro.props.topMargin || false;
     <meta name="description" content={description} />
   </head>
   <body class="font-sans antialiased bg-black">
-    <Header solidBg={!topMargin} client:visible />
+    <Header solidBg={!topMargin} client:load />
     <main
       class:list={["relative z-0", { "mt-[80px] md:mt-[108px]": topMargin }]}
     >

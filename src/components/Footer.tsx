@@ -35,13 +35,13 @@ export default function Footer() {
       </div>
       <div className="flex border-y border-neutral-700 xl:order-2 xl:border-none">
         <a
-          href="#"
+          href="https://github.com/devATdbsutdio"
           className="w-full border-r border-neutral-700 p-5 transition-colors hover:bg-neutral-950 xl:border-none"
         >
           Github
         </a>
         <a
-          href="#"
+          href="https://www.instagram.com/dattabaumstudio"
           className="w-full p-5 transition-colors hover:bg-neutral-950"
         >
           Instagram

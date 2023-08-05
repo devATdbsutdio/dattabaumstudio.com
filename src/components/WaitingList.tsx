@@ -13,6 +13,10 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
     "idle" | "loading" | "success" | "error"
   >("idle");
 
+  const isLoading = status === "loading";
+  const isSuccess = status === "success";
+  const isError = status === "error";
+
   return (
     <>
       <Transition appear show={isOpen} as={React.Fragment}>
@@ -63,25 +67,29 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                       name="firstName"
                       placeholder="First name"
                       type="text"
-                      className="mb-5 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none md:mb-6 md:h-16"
+                      className="mb-5 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none disabled:opacity-50 md:mb-6 md:h-16"
                       required
+                      disabled={isLoading}
                     />
                     <input
                       name="lastName"
                       placeholder="Last name"
                       type="text"
-                      className="mb-5 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none md:mb-6 md:h-16"
+                      className="mb-5 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none disabled:opacity-50 md:mb-6 md:h-16"
                       required
+                      disabled={isLoading}
                     />
                     <input
                       name="email"
                       placeholder="Email"
                       type="email"
-                      className="mb-10 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none md:mb-14 md:h-16"
+                      className="mb-10 h-12 border-b border-b-black py-5 text-lg placeholder:text-black focus-visible:border-b-2 focus-visible:outline-none disabled:opacity-50 md:mb-14 md:h-16"
                       required
+                      disabled={isLoading}
                     />
                     <Button
                       type="submit"
+                      disabled={isLoading}
                       className="mt-auto text-center md:mt-0"
                       variant="primary-light"
                     >
