@@ -11,13 +11,16 @@ import Layout from "@/layouts/Layout.astro";
     <img
       src="/about-us.png"
       alt=""
-      class="absolute hidden sm:block top-0 left-0 right-0 w-full h-full object-cover object-top z-[-1] opacity-20"
+      class="absolute hidden sm:block top-0 left-0 right-0 w-full h-full object-cover object-top -z-10 opacity-20"
     />
     <img
       src="/about-us-mobile.png"
       alt=""
-      class="absolute block sm:hidden top-0 left-0 right-0 w-full h-full object-cover object-top z-[-1] opacity-20"
+      class="absolute block sm:hidden top-0 left-0 right-0 w-full h-full object-cover object-top -z-10 opacity-20"
     />
+    <span
+      class="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-t from-black to-transparent to-20% -z-0"
+    ></span>
     <h1
       class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 md:mt-20 uppercase font-extralight"
     >
@@ -38,7 +41,7 @@ import Layout from "@/layouts/Layout.astro";
       Datta and Benjamin Baum.
     </p>
   </div>
-  <div class="ml-20 md:ml-32 lg:ml-64 xl:ml-96 md:px-8 px-5 xl:px-12">
+  <div class="md:ml-32 lg:ml-64 xl:ml-96 md:px-8 px-5 xl:px-12">
     <div class:list={["max-w-3xl text-white ", "copy"]}>
       <p class="text-lg md:text-xl lg:text-2xl mb-4">
         We aim to create (one may say, “re-design”) physical products that are
