@@ -1,0 +1,17 @@
+---
+import TextPage from "@/components/TextPage.astro";
+import * as data from "@/data/lorem.md";
+
+const title = "Returns & Refunds";
+const description =
+  "We are pretty accommodating when it comes to our returns and refunds policy, as outline below.";
+const lastUpdated = "March 22, 2023";
+const content = data.compiledContent();
+---
+
+<TextPage
+  title={title}
+  description={description}
+  lastUpdated={lastUpdated}
+  content={content}
+/>

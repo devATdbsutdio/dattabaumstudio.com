@@ -1,0 +1,17 @@
+---
+import TextPage from "@/components/TextPage.astro";
+import * as data from "@/data/lorem.md";
+
+const title = "Terms & Conditions";
+const description =
+  "Our Terms and Conditions explains in details the terms of usage of our products and this website.";
+const lastUpdated = "March 22, 2023";
+const content = data.compiledContent();
+---
+
+<TextPage
+  title={title}
+  description={description}
+  lastUpdated={lastUpdated}
+  content={content}
+/>
