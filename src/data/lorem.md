@@ -1,15 +1,15 @@
-### Pariterque digna sollertia myricae quamquam Olympus Mycenae
+## Pariterque digna sollertia myricae quamquam Olympus Mycenae
 
 Lorem markdownum neque opacas specto arsit cuspide gemmas sine nec dominis
 simulacraque inter aditus percutit. Comites et dura nec resectas curvos?
 
-1. Ipse virgo pennas satyrique exclamat Tartessia esses
-2. Attenuarat resolvo Corinthus et misit metum tempora
-3. Auctor luco nec legendo congestis exclamat Theseus
-4. Certare dabat
-5. Patre duce fui Achillem
+1. **Ipse**: virgo pennas satyrique exclamat Tartessia esses
+2. **Attenuarat**: resolvo Corinthus et misit metum tempora
+3. **Auctor**: luco nec legendo congestis exclamat Theseus
+4. **Certare**: dabat
+5. **Patre**: duce fui Achillem
 
-### Pacis fieri deus cognosse creatus animo
+## Pacis fieri deus cognosse creatus animo
 
 Regnum tardo, iam tempus urgues extento pecudumque attonitus ex Pallade, ibat
 seges, tenere repleam, fugae. His carmen faciem nitidam quarum virorum in
@@ -19,11 +19,11 @@ succidit tectis; sanguine secutae, a cinerem proque oculos, sanguine. Ut non
 canaeque rupem admovit, hamadryadas Herculis, celebrandaque consonus Alexiroe
 Pyrame lapidem venenis Achilles pereant inquit.
 
-1. Moratos paelicis ore estis resupinus dixere
-2. Latet attollere
-3. Et sed exanimes se clamor dicentem lunae
+- **Moratos**: paelicis ore estis resupinus dixere
+- **Latet**: attollere
+- **Et sed**: exanimes se clamor dicentem lunae
 
-### Ponunt aliqua hospes mugitus sic est causamque
+## Ponunt aliqua hospes mugitus sic est causamque
 
 Vagus necemque peregrinis ferro turbavit tristes; quae fatemur, Iove inter
 lignoque, iaculum quid Procrin desierant At. Ad quod sua Thyesteis vincant
@@ -38,7 +38,7 @@ dubiis cum, et. Quae ignis carina trepidantem erili, vitamque et ceris querellis
 inmemor ille? Colle natando, pulvere et verba cupit inquit angues studio, Aeneas
 utraque Lelegeides est!
 
-### Oro parte clausere sanguine esse ecce tanto
+## Oro parte clausere sanguine esse ecce tanto
 
 Suum miserae, ponit dedi boves o tigno vir Myrmidonasque reparet meritisne
 raucis Ulixis quae potest amborum, sub. Vigil erat sunt iniqua. Puer gratia
@@ -56,6 +56,6 @@ conscia: nec senex non deae adhibere, erroribus decimo id titulum, tenax.
 Subductaque verba finito Icare. Iam cedere currus Achille solet flebant esses
 Hippasus posito fugitque canum.
 
-### Contact Us
+## Contact Us
 
 If you have any questions about this Disclaimer, You can contact Us by email: legal@dattabaumstudio.com
