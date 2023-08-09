@@ -3,13 +3,10 @@ import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
 import Layout from "@/layouts/Layout.astro";
 
 interface Props {
-  title: string;
-  description?: string;
-  lastUpdated?: string;
-  content: string;
+  frontmatter: any;
 }
 
-const { title, description, lastUpdated, content } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <Layout>
@@ -22,13 +19,17 @@ const { title, description, lastUpdated, content } = Astro.props;
       <h1
         class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl uppercase font-extralight mr-8"
       >
-        {title}
+        {frontmatter.title}
       </h1>
       <div
         class="pr-12 text-right text-xl md:text-2xl font-extralight relative mt-8 sm:ml-auto lg:mt-0 lg:ml-0 max-w-lg"
       >
-        {description && <p>{description}</p>}
-        {lastUpdated && <p class="mt-4 md:mt-6">Last updated: {lastUpdated}</p>}
+        {frontmatter.description && <p>{frontmatter.description}</p>}
+        {
+          frontmatter.lastUpdated && (
+            <p class="mt-4 md:mt-6">Last updated: {frontmatter.lastUpdated}</p>
+          )
+        }
         <button class="absolute right-0 bottom-0.5 scroll-trigger">
           <ArrowDownIcon className="w-10 h-10" />
         </button>
@@ -38,8 +39,9 @@ const { title, description, lastUpdated, content } = Astro.props;
   <div class="px-5 py-10 md:px-8 md:py-16 xl:px-12 xl:py-24 bg-white content">
     <div
       class="prose prose-lg md:prose-xl lg:prose-2xl mx-auto w-full max-w-5xl prose-headings:text-3xl md:prose-headings:text-4xl prose-headings:font-light font-light"
-      set:html={content}
-    />
+    >
+      <slot />
+    </div>
   </div>
 </Layout>
 

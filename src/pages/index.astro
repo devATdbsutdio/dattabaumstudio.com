@@ -1,10 +1,43 @@
 ---
+import Button from "@/components/Button";
+import HeroMarquee from "@/components/HeroMarquee";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout topMargin>
+<Layout>
   <div
-    class="min-h-[calc(100vh_-_492px_-_80px)] md:min-h-[calc(100vh_-_196px_-_108px)] xl:min-h-[calc(100vh_-_144px_-_108px)] px-5 md:px-12 py-20 md:py-10 flex flex-col justify-center bg-white"
+    class="min-h-[calc(100vh_-_492px)] md:min-h-[calc(100vh_-_196px)] xl:min-h-[calc(100vh_-_144px)] relative bg-modal"
   >
+    <div class="pt-32 md:pt-52 pb-14">
+      <div
+        class="h-[160px] sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[250px] overflow-hidden"
+      >
+        <HeroMarquee client:only />
+      </div>
+      <div class="ml-28 mt-14 md:ml-60 max-w-lg text-lg md:text-2xl">
+        <p class="text-white">
+          Introducing an exquisite timepiece, meticulously handcrafted from the
+          dis-comforts of a living room workshop.
+        </p>
+        <p class="mt-4 md:mt-6 text-white">
+          This functional jewellery is a true masterpiece for all you hipsters
+          and art aficionados out there.
+        </p>
+        <Button
+          variant="primary-dark"
+          href="/watch"
+          className="self-start mt-8 gap-5 md:gap-10 lg:px-20"
+        >
+          <span>
+            Discover
+            <span class="hidden md:inline-block">{" "}more</span>
+          </span>
+          <ArrowRightIcon
+            className="stroke-black group-hover:stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
+          />
+        </Button>
+      </div>
+    </div>
   </div>
 </Layout>
