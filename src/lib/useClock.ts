@@ -1,11 +1,20 @@
 import * as React from "react";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
 
 const getCurrentTime = () => {
-  const now = new Date();
-  const hours = now.getUTCHours().toString().padStart(2, "0");
-  const minutes = now.getUTCMinutes().toString().padStart(2, "0");
-
-  return `${hours}:${minutes} GMT`;
+  const now = dayjs();
+  const currentTime = now.format("HH:mm z");
+  console.log({
+    currentTime,
+  });
+  return currentTime;
 };
 
 export default function useClock() {

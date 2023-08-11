@@ -70,10 +70,12 @@ const homeVidMobile =
   const isDesktop = window.innerWidth > 480;
   const bgPicture = document.querySelector<HTMLPictureElement>("picture.bg");
   const bgVideo = document.querySelector<HTMLVideoElement>("video.bg");
+
   const hidePicture = () => {
     if (!bgPicture) return;
     bgPicture.classList.add("hidden");
   };
+
   const addSourceToVideo = (src: string) => {
     if (!bgVideo) return;
     const source = document.createElement("source");
@@ -82,6 +84,7 @@ const homeVidMobile =
     bgVideo.appendChild(source);
     bgVideo.classList.remove("hidden");
   };
+
   window.addEventListener("load", () => {
     if (!bgPicture || !bgVideo) return;
     if (isDesktop) {
@@ -91,10 +94,9 @@ const homeVidMobile =
       if (!bgVideo.dataset.mobile) return;
       addSourceToVideo(bgVideo.dataset.mobile);
     }
-  });
-  if (bgVideo) {
+
     bgVideo.addEventListener("loadeddata", () => {
       hidePicture();
     });
-  }
+  });
 </script>
