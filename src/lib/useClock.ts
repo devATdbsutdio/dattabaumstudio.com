@@ -11,9 +11,6 @@ dayjs.extend(advancedFormat);
 const getCurrentTime = () => {
   const now = dayjs();
   const currentTime = now.format("HH:mm z");
-  console.log({
-    currentTime,
-  });
   return currentTime;
 };
 
