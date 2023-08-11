@@ -8,22 +8,16 @@ import { getImage } from "astro:assets";
 
 const aboutUsImg = await getImage({ src: aboutUs });
 const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
-
-const sizes = `(max-width: ${aboutUsImgMobile.attributes.width}px) ${aboutUsImgMobile.attributes.width}px, ${aboutUsImg.attributes.width}px`;
-const srcset = `${aboutUsImgMobile.src} ${aboutUsImgMobile.attributes.width}w, ${aboutUsImg.src} ${aboutUsImg.attributes.width}w`;
 ---
 
 <Layout>
   <div
     class="relative px-5 md:px-8 xl:px-12 text-white pt-[80px] md:pt-[108px] pb-20 md:pb-32 xl:pb-60"
   >
-    <img
-      src={aboutUsImgMobile.src}
-      alt=""
-      sizes={sizes}
-      srcset={srcset}
-      class="absolute top-0 left-0 right-0 w-full h-full object-cover object-top -z-10 opacity-20"
-    />
+    <picture class="absolute top-0 left-0 right-0 -z-10 opacity-20">
+      <source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
+      <img src={aboutUsImg.src} class="w-full h-full object-cover object-top" />
+    </picture>
     <span
       class="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-t from-black to-transparent to-20% -z-0"
     ></span>
