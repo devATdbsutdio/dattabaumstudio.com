@@ -5,12 +5,14 @@ import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import Layout from "@/layouts/Layout.astro";
 import home from "@/assets/images/home.png";
 import homeMobile from "@/assets/images/home_mobile.png";
-import homeVid from "@/assets/videos/home.mp4";
-import homeVidMobile from "@/assets/videos/home_mobile.mp4";
 import { getImage } from "astro:assets";
 
 const homeImg = await getImage({ src: home });
 const homeImgMobile = await getImage({ src: homeMobile });
+const homeVid =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome.mp4?alt=media";
+const homeVidMobile =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome_mobile.mp4?alt=media";
 ---
 
 <Layout>

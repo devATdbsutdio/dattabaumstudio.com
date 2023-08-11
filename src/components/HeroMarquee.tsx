@@ -8,7 +8,7 @@ export default function HeroMarquee() {
 
   return (
     <Marquee
-      speed={144}
+      speed={256}
       className="h-fit overflow-y-hidden text-[160px] font-extralight leading-none text-white sm:text-[180px] md:text-[200px] lg:text-[220px] xl:text-[250px]"
     >
       <p className="ml-[100vw]">{content}</p>
