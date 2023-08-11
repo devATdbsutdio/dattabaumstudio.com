@@ -14,7 +14,9 @@ const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
   <div
     class="relative px-5 md:px-8 xl:px-12 text-white pt-[80px] md:pt-[108px] pb-20 md:pb-32 xl:pb-60"
   >
-    <picture class="absolute top-0 left-0 right-0 -z-10 opacity-20">
+    <picture
+      class="absolute top-0 left-0 right-0 -z-10 opacity-20 object-cover"
+    >
       <source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
       <img src={aboutUsImg.src} class="w-full h-full object-cover object-top" />
     </picture>
@@ -98,9 +100,7 @@ const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
   };
 
   const replaceCopy = () => {
-    if (!copyDiv) {
-      return null;
-    }
+    if (!copyDiv) return;
 
     const { startGlitch, stopGlitch } = PowerGlitch.glitch(
       copyDiv as HTMLElement,
@@ -141,13 +141,8 @@ const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
   };
 
   window.addEventListener("load", () => {
-    if (!copyDiv) {
-      return null;
-    }
-
-    if (!shouldReplaceCopy()) {
-      return null;
-    }
+    if (!copyDiv) return;
+    if (!shouldReplaceCopy()) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
