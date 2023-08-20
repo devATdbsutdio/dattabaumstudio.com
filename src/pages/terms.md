@@ -36,7 +36,7 @@ Your access to and use of the Service is conditioned on Your acceptance of and c
 By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.
 You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.
 
-Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our [Privacy Policy](www.dattabaumstudio.com/privacy) carefully before using Our Service.
+Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our [Privacy Policy](/privacy) carefully before using Our Service.
 
 ## Placing Orders for Goods
 
@@ -67,7 +67,7 @@ We reserve the right to refuse or cancel Your Order if fraud or an unauthorized 
 
 Any Goods you purchase can only be returned in accordance with these Terms and Conditions and Our Returns Policy.
 
-Our Returns Policy forms a part of these Terms and Conditions. Please read our [Returns Policy](www.dattabaumstudio.com/returns) to learn more about your right to cancel Your Order.
+Our Returns Policy forms a part of these Terms and Conditions. Please read our [Returns Policy](/returns) to learn more about your right to cancel Your Order.
 
 Your right to cancel an Order only applies to Goods that are returned in the same condition as You received them. You should also include all of the product's instructions, documents and wrappings. Goods that are damaged or not in the same condition as You received them or which are worn simply beyond opening the original packaging will not be refunded. You should therefore take reasonable care of the purchased Goods while they are in Your possession.
 
