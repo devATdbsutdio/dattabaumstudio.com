@@ -15,8 +15,8 @@ export default function HeroCarousel({ images }: { images: string[] }) {
   );
 
   return (
-    <div className="embla absolute inset-0 -z-10">
-      <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+    <div className="embla absolute inset-0 -z-10 overflow-hidden">
+      <div className="embla__viewport" ref={emblaRef}>
         <div
           className="embla__container flex"
           style={{
