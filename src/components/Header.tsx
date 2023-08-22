@@ -30,7 +30,7 @@ export default function Header({ solidBg }: HeaderProps) {
           solidBg ? "bg-black" : "bg-transparent",
         )}
       >
-        <div className="relative flex items-center md:py-5">
+        <div className="dbs-container relative flex items-center md:py-5">
           <button
             className="p-2 transition-colors hover:bg-neutral-950 md:hidden"
             onClick={toggleMenu}

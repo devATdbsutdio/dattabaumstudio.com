@@ -26,26 +26,28 @@ const contacts = [
 
 <Layout>
   <div
-    class="relative px-5 md:px-8 xl:px-12 text-white bg-black pt-[80px] md:pt-[108px] pb-8 md:pb-24"
+    class="px-5 md:px-8 xl:px-12 bg-black pt-[80px] md:pt-[108px] pb-8 md:pb-24"
   >
-    <div
-      class="mt-5 md:mt-20 flex flex-col lg:flex-row lg:items-end lg:justify-between"
-    >
-      <h1
-        class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl uppercase font-extralight mr-8"
-      >
-        Contacts
-      </h1>
+    <div class="dbs-container relative text-white">
       <div
-        class="pr-12 text-right text-xl md:text-2xl font-extralight relative mt-8 sm:ml-auto lg:mt-0 lg:ml-0 max-w-lg"
+        class="mt-5 md:mt-20 flex flex-col lg:flex-row lg:items-end lg:justify-between"
       >
-        <p>
-          Below, are the various ways you can reach us by writing. We usually
-          respond within 48 hours.
-        </p>
-        <button class="absolute right-0 bottom-0.5 scroll-trigger">
-          <ArrowDownIcon className="w-10 h-10" />
-        </button>
+        <h1
+          class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl uppercase font-extralight mr-8"
+        >
+          Contacts
+        </h1>
+        <div
+          class="pr-12 text-right text-xl md:text-2xl font-extralight relative mt-8 sm:ml-auto lg:mt-0 lg:ml-0 max-w-lg"
+        >
+          <p>
+            Below, are the various ways you can reach us by writing. We usually
+            respond within 48 hours.
+          </p>
+          <button class="absolute right-0 bottom-0.5 scroll-trigger">
+            <ArrowDownIcon className="w-10 h-10" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -54,30 +56,40 @@ const contacts = [
       contacts.map((contact, idx) => (
         <div
           class:list={[
-            "border-black py-8 md:py-16 md:flex md:items-end",
+            "border-black py-8 md:py-16 ",
             {
               "border-y": idx === 0,
               "border-b": idx !== 0,
             },
           ]}
         >
-          <div class="md:w-fit">
-            <h3 class="text-xl font-semibold">{contact.title}</h3>
-            <p class="mt-4 mr-24 md:w-full md:max-w-sm lg:mr-36 xl:mr-52">
-              {contact.description}
-            </p>
+          <div class="dbs-container md:flex md:items-end">
+            <div class="md:w-fit">
+              <h3 class="text-xl font-semibold">{contact.title}</h3>
+              <p class="mt-4 mr-24 md:w-full md:max-w-sm lg:mr-36 xl:mr-52">
+                {contact.description}
+              </p>
+            </div>
+            <a
+              href={`mailto:${contact.email}`}
+              class="text-2xl font-light mt-6 block underline w-fit rounded-none"
+            >
+              {contact.email}
+            </a>
           </div>
-          <a
-            href={`mailto:${contact.email}`}
-            class="text-2xl font-light mt-6 block underline w-fit rounded-none"
-          >
-            {contact.email}
-          </a>
         </div>
       ))
     }
   </div>
 </Layout>
+
+<style>
+  @media (min-width: 1920px) {
+    .dbs-container {
+      @apply px-5;
+    }
+  }
+</style>
 
 <script>
   const button = document.querySelector(".scroll-trigger");

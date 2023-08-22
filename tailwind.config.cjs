@@ -5,6 +5,10 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     theme: {
+      screens: {
+        ...defaultTheme.screens,
+        "3xl": "1920px",
+      },
       extend: {
         fontFamily: {
           sans: ["Inter", ...defaultTheme.fontFamily.sans],

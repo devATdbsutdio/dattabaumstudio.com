@@ -1,0 +1,31 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import watchHero1 from "@/assets/images/watch_hero_01.jpg";
+import watchHero2 from "@/assets/images/watch_hero_02.jpg";
+import watchHero3 from "@/assets/images/watch_hero_03.jpg";
+import watchHero4 from "@/assets/images/watch_hero_04.jpg";
+import watchHero5 from "@/assets/images/watch_hero_05.jpg";
+import { getImage } from "astro:assets";
+import HeroCarousel from "@/components/HeroCarousel";
+
+const watchHeroImg1 = await getImage({ src: watchHero1 });
+const watchHeroImg2 = await getImage({ src: watchHero2 });
+const watchHeroImg3 = await getImage({ src: watchHero3 });
+const watchHeroImg4 = await getImage({ src: watchHero4 });
+const watchHeroImg5 = await getImage({ src: watchHero5 });
+
+const watchHeroImgs = [
+  watchHeroImg1.src,
+  watchHeroImg2.src,
+  watchHeroImg3.src,
+  watchHeroImg4.src,
+  watchHeroImg5.src,
+];
+---
+
+<Layout>
+  <div class="min-h-screen relative flex items-center justify-center">
+    <HeroCarousel images={watchHeroImgs} client:load />
+    <h1 class="text-7xl font-black text-white">HELLO</h1>
+  </div>
+</Layout>
