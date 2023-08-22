@@ -19,57 +19,70 @@ const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
     >
       <source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
       <img src={aboutUsImg.src} class="w-full h-full object-cover object-top" />
+      <span
+        class="absolute bottom-0 left-0 right-0 w-full h-full bg-gradient-to-t from-black to-transparent to-20% -z-0"
+      ></span>
     </picture>
-    <span
-      class="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-t from-black to-transparent to-20% -z-0"
-    ></span>
-    <h1
-      class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 md:mt-20 uppercase font-extralight"
-    >
-      About
-    </h1>
-    <h2
-      class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-2 uppercase font-extralight md:ml-32 xl:ml-48"
-    >
-      DATTA + BAUM
-    </h2>
-    <p
-      class="text-xl sm:text-5xl lg:text-6xl xl:text-7xl mt-5 font-extralight ml-20 md:ml-32 xl:ml-48 relative mb-5"
-    >
-      <ArrowDownIcon
-        className="absolute -left-14 bottom-0.5 md:bottom-1.5 w-10 h-10"
-      />
-       Datta + Baum Studio is a product design studio co-founded by Saurabh
-      Datta and Benjamin Baum.
-    </p>
-  </div>
-  <div class="md:ml-32 lg:ml-64 xl:ml-96 md:px-8 px-5 xl:px-12">
-    <div class:list={["max-w-3xl text-white ", "copy"]}>
-      <p class="text-lg md:text-xl lg:text-2xl mb-4">
-        Datta+Baum Studio is driven by the passion for reimagining digital +
-        physical products in a beautiful, honest, and personal manner. They
-        believe in the power of genuine design that has a tangible presence and
-        leaves a lasting impression. Although the products they work on may seem
-        familiar, the studio enjoys experimenting with these ideas to ensure
-        they always have a fresh twist.
-      </p>
-      <p class="text-lg md:text-xl lg:text-2xl">
-        Datta+Baum Studio was founded on the principle of un-compromised
-        creation. They strive to handcraft their designs, steering clear of the
-        mundane and the generic. The Studio hopes that product owners will
-        appreciate the unique experience their products offer and cherish them
-        just as much as the studio has cherished crafting them.
+
+    <div class="dbs-container">
+      <h1
+        class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-5 md:mt-20 uppercase font-extralight"
+      >
+        About
+      </h1>
+      <h2
+        class="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl mt-2 uppercase font-extralight md:ml-32 xl:ml-48"
+      >
+        DATTA + BAUM
+      </h2>
+      <p
+        class="text-xl sm:text-5xl lg:text-6xl xl:text-7xl mt-5 font-extralight ml-20 md:ml-32 xl:ml-48 relative mb-5"
+      >
+        <ArrowDownIcon
+          className="absolute -left-14 bottom-0.5 md:bottom-1.5 w-10 h-10"
+        />
+         Datta + Baum Studio is a product design studio co-founded by Saurabh
+        Datta and Benjamin Baum.
       </p>
     </div>
-    <Button
-      href="/contact"
-      className="mt-6 lg:mt-10 mb-16 lg:mb-28"
-      variant="secondary-dark"
-    >
-      Get in touch
-    </Button>
+  </div>
+  <div class="dbs-container">
+    <div class="md:ml-32 lg:ml-64 xl:ml-96 md:px-8 px-5 xl:px-12">
+      <div class:list={["max-w-3xl text-white ", "copy"]}>
+        <p class="text-lg md:text-xl lg:text-2xl mb-4">
+          Datta+Baum Studio is driven by the passion for reimagining digital +
+          physical products in a beautiful, honest, and personal manner. They
+          believe in the power of genuine design that has a tangible presence
+          and leaves a lasting impression. Although the products they work on
+          may seem familiar, the studio enjoys experimenting with these ideas to
+          ensure they always have a fresh twist.
+        </p>
+        <p class="text-lg md:text-xl lg:text-2xl">
+          Datta+Baum Studio was founded on the principle of un-compromised
+          creation. They strive to handcraft their designs, steering clear of
+          the mundane and the generic. The Studio hopes that product owners will
+          appreciate the unique experience their products offer and cherish them
+          just as much as the studio has cherished crafting them.
+        </p>
+      </div>
+      <Button
+        href="/contact"
+        className="mt-6 lg:mt-10 mb-16 lg:mb-28"
+        variant="secondary-dark"
+      >
+        Get in touch
+      </Button>
+    </div>
   </div>
 </Layout>
+
+<style>
+  @media (min-width: 1920px) {
+    .dbs-container {
+      @apply px-5;
+    }
+  }
+</style>
 
 <script>
   import { PowerGlitch } from "powerglitch";
