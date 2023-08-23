@@ -8,7 +8,7 @@ export default function HeroCarousel({ images }: { images: string[] }) {
     },
     [
       Autoplay({
-        delay: 5000,
+        delay: 4000,
         rootNode: (emblaRoot) => emblaRoot.parentElement,
       }),
     ],

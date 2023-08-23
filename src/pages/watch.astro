@@ -7,6 +7,10 @@ import watchHero4 from "@/assets/images/watch_hero_04.jpg";
 import watchHero5 from "@/assets/images/watch_hero_05.jpg";
 import { getImage } from "astro:assets";
 import HeroCarousel from "@/components/HeroCarousel";
+import Button from "@/components/Button";
+import WaitingListButton from "@/components/WaitingListButton";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
+import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -24,8 +28,64 @@ const watchHeroImgs = [
 ---
 
 <Layout>
-  <div class="min-h-screen relative flex items-center justify-center">
+  <div class="min-h-screen relative">
     <HeroCarousel images={watchHeroImgs} client:load />
-    <h1 class="text-7xl font-black text-white">HELLO</h1>
+    <div class="absolute inset-0 z-10">
+      <div
+        class="dbs-container h-full flex flex-col justify-end px-5 md:px-8 xl:px-12 pb-10 md:pb-24"
+      >
+        <h1
+          class="text-white font-extralight text-7xl md:text-9xl lg:text-[144px] mb-9 md:mb-10"
+        >
+          WATCH
+        </h1>
+        <div
+          class="flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between"
+        >
+          <div class="flex flex-wrap items-center gap-5">
+            <WaitingListButton client:load />
+            <Button variant="secondary-dark" href="/faq" className="gap-10">
+              FAQ
+              <ArrowRightIcon
+                className="stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
+              />
+            </Button>
+          </div>
+          <div
+            class="text-right text-base md:text-2xl font-extralight relative pr-12 md:pr-16 text-white max-w-xs sm:max-w-none ml-auto"
+          >
+            <p>Bringing digital watches to a higher pedestal.</p>
+            <button class="absolute right-0 bottom-0.5 scroll-trigger">
+              <ArrowDownIcon className="w-10 h-10" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="bg-black content min-h-screen"></div>
 </Layout>
+
+<style>
+  @media (min-width: 1920px) {
+    .dbs-container {
+      @apply px-5;
+    }
+  }
+</style>
+
+<script>
+  const button = document.querySelector(".scroll-trigger");
+  if (button) {
+    button.addEventListener("click", () => {
+      const content = document.querySelector(".content");
+      if (content) {
+        content.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
+    });
+  }
+</script>
