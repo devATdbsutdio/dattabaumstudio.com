@@ -4,7 +4,7 @@ import { getDatabase } from "firebase-admin/database";
 
 export const prerender = false;
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   const body = await request.json();
   const { firstName, lastName, email } = body;
 

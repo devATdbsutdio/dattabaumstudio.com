@@ -28,19 +28,19 @@ const watchHeroImgs = [
 ---
 
 <Layout>
-  <div class="min-h-screen relative">
+  <div class="relative min-h-screen">
     <HeroCarousel images={watchHeroImgs} client:load />
-    <div class="absolute inset-0 z-10">
+    <div class="pointer-events-none absolute inset-0 z-10">
       <div
-        class="dbs-container h-full flex flex-col justify-end px-5 md:px-8 xl:px-12 pb-10 md:pb-24"
+        class="dbs-container flex h-full flex-col justify-end px-5 pb-10 md:px-8 md:pb-24 xl:px-12"
       >
         <h1
-          class="text-white font-extralight text-7xl md:text-9xl lg:text-[144px] mb-9 md:mb-10"
+          class="mb-9 text-7xl font-extralight text-white md:mb-10 md:text-9xl lg:text-[144px]"
         >
           WATCH
         </h1>
         <div
-          class="flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between"
+          class="pointer-events-auto flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between"
         >
           <div class="flex flex-wrap items-center gap-5">
             <WaitingListButton client:load />
@@ -52,10 +52,10 @@ const watchHeroImgs = [
             </Button>
           </div>
           <div
-            class="text-right text-base md:text-2xl font-extralight relative pr-12 md:pr-16 text-white max-w-xs sm:max-w-none ml-auto"
+            class="relative ml-auto max-w-xs pr-12 text-right text-base font-extralight text-white sm:max-w-none md:pr-16 md:text-2xl"
           >
             <p>Bringing digital watches to a higher pedestal.</p>
-            <button class="absolute right-0 bottom-0.5 scroll-trigger">
+            <button class="scroll-trigger absolute bottom-0.5 right-0">
               <ArrowDownIcon className="w-10 h-10" />
             </button>
           </div>
@@ -63,7 +63,46 @@ const watchHeroImgs = [
       </div>
     </div>
   </div>
-  <div class="bg-black content min-h-screen"></div>
+  <div class="content relative min-h-screen bg-black">
+    <div
+      class="content-nav-container fixed left-0 right-0 top-6 hidden items-center justify-center sm:top-10 md:top-16"
+    >
+      <div
+        class="content-nav flex overflow-hidden rounded border border-white/30 bg-black"
+      >
+        <button
+          id="watch-button"
+          class="p-5 pl-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pl-12 md:text-base"
+        >
+          <span class="hidden sm:inline-block">The</span>{" "}Watch</button
+        >
+        <button
+          id="craftsmanship-button"
+          class="p-5 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:text-base"
+          >Craftsmanship</button
+        >
+        <button
+          id="specs-button"
+          class="p-5 pr-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pr-12 md:text-base"
+        >
+          <span class="hidden sm:inline-block">The</span>{" "}Specs</button
+        >
+        <WaitingListButton
+          client:load
+          className="border-none hidden md:h-full md:py-6 md:block rounded-none"
+        />
+      </div>
+    </div>
+    <div id="watch" class="content-section min-h-screen bg-green-500">
+      THE WATCH
+    </div>
+    <div id="craftsmanship" class="content-section min-h-screen bg-blue-500">
+      THE CRAFTSMANSHIP
+    </div>
+    <div id="specs" class="content-section min-h-screen bg-red-500">
+      THE SPECS
+    </div>
+  </div>
 </Layout>
 
 <style>
@@ -88,4 +127,132 @@ const watchHeroImgs = [
       }
     });
   }
+
+  window.addEventListener("load", () => {
+    const contentNavContainer = document.querySelector(
+      ".content-nav-container",
+    );
+    const watchSection = document.querySelector("#watch");
+    const watchButton = document.querySelector("#watch-button");
+    const craftsmanshipSection = document.querySelector("#craftsmanship");
+    const craftsmanshipButton = document.querySelector("#craftsmanship-button");
+    const specsSection = document.querySelector("#specs");
+    const specsButton = document.querySelector("#specs-button");
+
+    const highlightButton = (button: Element | null) => {
+      button?.classList.remove("opacity-30");
+      button?.classList.add("opacity-100");
+    };
+
+    const unhighlightButton = (button: Element | null) => {
+      button?.classList.remove("opacity-100");
+      button?.classList.add("opacity-30");
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries.filter((entry) => entry.isIntersecting)[0];
+        if (entry.target.id === "watch") {
+          highlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+          unhighlightButton(specsButton);
+        } else if (entry.target.id === "craftsmanship") {
+          highlightButton(craftsmanshipButton);
+          unhighlightButton(watchButton);
+          unhighlightButton(specsButton);
+        } else if (entry.target.id === "specs") {
+          highlightButton(specsButton);
+          unhighlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+        } else {
+          unhighlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+          unhighlightButton(specsButton);
+        }
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    if (watchSection) {
+      observer.observe(watchSection);
+      watchButton?.addEventListener("click", () => {
+        watchSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+
+    if (craftsmanshipSection) {
+      observer.observe(craftsmanshipSection);
+      craftsmanshipButton?.addEventListener("click", () => {
+        craftsmanshipSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+
+    if (specsSection) {
+      observer.observe(specsSection);
+      specsButton?.addEventListener("click", () => {
+        specsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+
+    const showContentNav = () => {
+      if (
+        contentNavContainer &&
+        contentNavContainer.classList.contains("hidden")
+      ) {
+        contentNavContainer.classList.remove("hidden");
+        contentNavContainer.classList.add(
+          "flex",
+          "animate-in",
+          "fade-in",
+          "zoom-in-75",
+        );
+      }
+    };
+
+    const hideContentNav = () => {
+      if (
+        contentNavContainer &&
+        !contentNavContainer.classList.contains("hidden")
+      ) {
+        contentNavContainer.classList.add("hidden");
+        contentNavContainer.classList.remove(
+          "flex",
+          "animate-in",
+          "fade-in",
+          "zoom-in-75",
+        );
+      }
+    };
+
+    const handleContentNavVisibility = () => {
+      if (contentNavContainer) {
+        const shouldNavBeHidden = window.scrollY < window.innerHeight;
+        if (shouldNavBeHidden) {
+          hideContentNav();
+        } else {
+          showContentNav();
+        }
+      }
+    };
+
+    handleContentNavVisibility();
+
+    window.addEventListener("scroll", () => {
+      handleContentNavVisibility();
+    });
+  });
 </script>

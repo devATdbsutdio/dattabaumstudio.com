@@ -1,8 +1,10 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
+import ArrowLeftIcon from "@/components/icons/ArrowLeftIcon";
 
 export default function HeroCarousel({ images }: { images: string[] }) {
-  const [emblaRef] = useEmblaCarousel(
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
     },
@@ -15,30 +17,60 @@ export default function HeroCarousel({ images }: { images: string[] }) {
   );
 
   return (
-    <div className="embla absolute inset-0 -z-10 overflow-hidden">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div
-          className="embla__container flex"
-          style={{
-            backfaceVisibility: "hidden",
-          }}
-        >
-          {images.map((imgSrc, index) => (
-            <div
-              className="embla__slide flex-grow-1 relative min-w-0 flex-shrink-0 basis-full"
-              key={index}
-            >
-              <picture className="block h-screen w-screen object-cover">
-                <img
-                  alt=""
-                  src={imgSrc}
-                  className="h-screen w-screen object-cover object-center"
-                />
-              </picture>
-            </div>
-          ))}
+    <>
+      <div className="embla absolute inset-0 -z-10 overflow-hidden">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div
+            className="embla__container flex"
+            style={{
+              backfaceVisibility: "hidden",
+            }}
+          >
+            {images.map((imgSrc, index) => (
+              <div
+                className="embla__slide flex-grow-1 relative min-w-0 flex-shrink-0 basis-full"
+                key={index}
+              >
+                <picture className="block h-screen w-screen object-cover">
+                  <img
+                    alt=""
+                    src={imgSrc}
+                    className="h-screen w-screen object-cover object-center"
+                  />
+                </picture>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+      {emblaApi && (
+        <div className="absolute left-0 right-0 top-1/2 mx-3 my-5 hidden -translate-y-1/2 text-white md:block xl:mx-7">
+          <div className="dbs-container relative">
+            <button
+              className="absolute left-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
+              onClick={() => {
+                emblaApi.scrollPrev();
+                if (emblaApi.plugins()?.autoplay) {
+                  emblaApi.plugins().autoplay.stop();
+                }
+              }}
+            >
+              <ArrowLeftIcon className="h-8 w-8 md:h-10 md:w-10" />
+            </button>
+            <button
+              className="absolute right-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
+              onClick={() => {
+                emblaApi.scrollNext();
+                if (emblaApi.plugins()?.autoplay) {
+                  emblaApi.plugins().autoplay.stop();
+                }
+              }}
+            >
+              <ArrowRightIcon className="h-8 w-8 md:h-10 md:w-10" />
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
