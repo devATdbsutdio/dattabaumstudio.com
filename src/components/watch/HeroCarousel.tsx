@@ -50,8 +50,8 @@ export default function HeroCarousel({ images }: { images: string[] }) {
               className="absolute left-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
               onClick={() => {
                 emblaApi.scrollPrev();
-                if (emblaApi.plugins()?.autoplay) {
-                  emblaApi.plugins().autoplay.stop();
+                if (emblaApi.plugins().autoplay) {
+                  emblaApi.plugins().autoplay?.stop();
                 }
               }}
             >
@@ -61,8 +61,8 @@ export default function HeroCarousel({ images }: { images: string[] }) {
               className="absolute right-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
               onClick={() => {
                 emblaApi.scrollNext();
-                if (emblaApi.plugins()?.autoplay) {
-                  emblaApi.plugins().autoplay.stop();
+                if (emblaApi.plugins().autoplay) {
+                  emblaApi.plugins().autoplay?.stop();
                 }
               }}
             >

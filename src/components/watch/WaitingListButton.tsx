@@ -1,11 +1,11 @@
 import * as React from "react";
-import WaitingList from "./WaitingList";
-import Button from "./Button";
+import WaitingList from "../WaitingList";
+import Button from "../Button";
 
 export default function WaitingListButton({
   className,
 }: {
-  className: string;
+  className?: string;
 }) {
   const [isWaitingListOpen, setIsWaitingListOpen] = React.useState(false);
 

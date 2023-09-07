@@ -6,11 +6,12 @@ import watchHero3 from "@/assets/images/watch_hero_03.jpg";
 import watchHero4 from "@/assets/images/watch_hero_04.jpg";
 import watchHero5 from "@/assets/images/watch_hero_05.jpg";
 import { getImage } from "astro:assets";
-import HeroCarousel from "@/components/HeroCarousel";
 import Button from "@/components/Button";
-import WaitingListButton from "@/components/WaitingListButton";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
+import HeroCarousel from "@/components/watch/HeroCarousel";
+import WaitingListButton from "@/components/watch/WaitingListButton";
+import WatchSection from "@/components/watch/WatchSection.astro";
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -63,12 +64,12 @@ const watchHeroImgs = [
       </div>
     </div>
   </div>
-  <div class="content relative min-h-screen bg-black">
+  <div class="content relative min-h-screen">
     <div
       class="content-nav-container fixed left-0 right-0 top-6 hidden items-center justify-center sm:top-10 md:top-16"
     >
       <div
-        class="content-nav flex overflow-hidden rounded border border-white/30 bg-black"
+        class="content-nav z-50 flex overflow-hidden rounded border border-white/30 bg-black"
       >
         <button
           id="watch-button"
@@ -93,9 +94,8 @@ const watchHeroImgs = [
         />
       </div>
     </div>
-    <div id="watch" class="content-section min-h-screen bg-green-500">
-      THE WATCH
-    </div>
+    <WatchSection />
+
     <div id="craftsmanship" class="content-section min-h-screen bg-blue-500">
       THE CRAFTSMANSHIP
     </div>
@@ -214,12 +214,7 @@ const watchHeroImgs = [
         contentNavContainer.classList.contains("hidden")
       ) {
         contentNavContainer.classList.remove("hidden");
-        contentNavContainer.classList.add(
-          "flex",
-          "animate-in",
-          "fade-in",
-          "zoom-in-75",
-        );
+        contentNavContainer.classList.add("flex", "animate-in", "fade-in");
       }
     };
 
@@ -229,18 +224,13 @@ const watchHeroImgs = [
         !contentNavContainer.classList.contains("hidden")
       ) {
         contentNavContainer.classList.add("hidden");
-        contentNavContainer.classList.remove(
-          "flex",
-          "animate-in",
-          "fade-in",
-          "zoom-in-75",
-        );
+        contentNavContainer.classList.remove("flex", "animate-in", "fade-in");
       }
     };
 
     const handleContentNavVisibility = () => {
       if (contentNavContainer) {
-        const shouldNavBeHidden = window.scrollY < window.innerHeight;
+        const shouldNavBeHidden = window.scrollY < (3 * window.innerHeight) / 4;
         if (shouldNavBeHidden) {
           hideContentNav();
         } else {

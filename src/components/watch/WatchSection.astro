@@ -1,0 +1,111 @@
+---
+import home from "@/assets/images/home.png";
+import homeMobile from "@/assets/images/home_mobile.png";
+import { getImage } from "astro:assets";
+
+const homeImg = await getImage({ src: home });
+const homeImgMobile = await getImage({ src: homeMobile });
+const homeVid =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome.mp4?alt=media";
+const homeVidMobile =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome_mobile.mp4?alt=media";
+---
+
+<div id="watch" class="content-section pointer-events-none">
+  <div
+    id="watch-video"
+    class="pointer-events-auto relative -z-10 flex h-screen items-center justify-center overflow-hidden"
+  >
+    <picture class="bg absolute inset-0 -z-20 object-cover">
+      <source media="(max-width: 480px)" srcset={homeImgMobile.src} />
+      <img src={homeImg.src} class="h-full w-full object-cover object-center" />
+    </picture>
+    <video
+      preload="auto"
+      loop=""
+      muted=""
+      playsinline=""
+      class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
+      data-desktop={homeVid}
+      data-mobile={homeVidMobile}
+    >
+    </video>
+    <button
+      data-state="paused"
+      class="bg-modal isolate z-10 h-24 w-24 rounded-full border border-white/20 text-white"
+    >
+      Play
+    </button>
+  </div>
+</div>
+
+<script>
+  const isDesktop = window.innerWidth > 480;
+  const watchSection = document.querySelector("#watch");
+  const bgPicture = document.querySelector<HTMLPictureElement>("picture.bg");
+  const bgVideo = document.querySelector<HTMLVideoElement>("video.bg");
+  const playButton = document.querySelector<HTMLButtonElement>(
+    "#watch-video button",
+  );
+
+  const hidePicture = () => {
+    if (!bgPicture) return;
+    bgPicture.classList.add("hidden");
+  };
+
+  const addSourceToVideo = (src: string) => {
+    if (!bgVideo) return;
+    const source = document.createElement("source");
+    source.src = src;
+    source.type = "video/mp4";
+    bgVideo.appendChild(source);
+    bgVideo.classList.remove("hidden");
+  };
+
+  window.addEventListener("load", () => {
+    if (!bgPicture || !bgVideo) return;
+    if (isDesktop) {
+      if (!bgVideo.dataset.desktop) return;
+      addSourceToVideo(bgVideo.dataset.desktop);
+    } else {
+      if (!bgVideo.dataset.mobile) return;
+      addSourceToVideo(bgVideo.dataset.mobile);
+    }
+
+    bgVideo.addEventListener("loadeddata", () => {
+      hidePicture();
+    });
+  });
+
+  playButton?.addEventListener("click", () => {
+    if (playButton.dataset.state === "playing") {
+      playButton.dataset.state = "paused";
+      playButton.textContent = "Play";
+      bgVideo?.pause();
+    } else {
+      playButton.dataset.state = "playing";
+      playButton.textContent = "Pause";
+      bgVideo?.play();
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting) {
+        if (playButton) {
+          playButton.dataset.state = "paused";
+          playButton.textContent = "Play";
+        }
+        bgVideo?.pause();
+      }
+    },
+    {
+      threshold: 0.5,
+    },
+  );
+
+  if (watchSection) {
+    observer.observe(watchSection);
+  }
+</script>
