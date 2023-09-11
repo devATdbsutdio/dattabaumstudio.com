@@ -123,6 +123,8 @@ const watchClip2Vid =
   const bgVideo = document.querySelector<HTMLVideoElement>("video.bg");
   const clip1Video = document.querySelector<HTMLVideoElement>("video.clip-1");
   const clip2Video = document.querySelector<HTMLVideoElement>("video.clip-2");
+  const watchVideoContainer =
+    document.querySelector<HTMLDivElement>("#watch-video");
   const playButton = document.querySelector<HTMLButtonElement>(
     "#watch-video button",
   );
@@ -179,8 +181,8 @@ const watchClip2Vid =
     },
   );
 
-  if (watchSection) {
-    observer.observe(watchSection);
+  if (watchVideoContainer) {
+    observer.observe(watchVideoContainer);
   }
 
   const clipObservernew = new IntersectionObserver(
@@ -195,7 +197,7 @@ const watchClip2Vid =
       });
     },
     {
-      threshold: 0.5,
+      threshold: 0.25,
     },
   );
 

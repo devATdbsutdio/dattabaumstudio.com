@@ -54,6 +54,7 @@ import WaitingListButton from "./WaitingListButton";
 
     const observer = new IntersectionObserver(
       (entries) => {
+        entries.forEach((entry) => console.dir(entry.target));
         const entry = entries.filter((entry) => entry.isIntersecting)[0];
         if (!entry) return;
         if (entry.target.id === "watch") {
@@ -75,7 +76,7 @@ import WaitingListButton from "./WaitingListButton";
         }
       },
       {
-        threshold: 0.5,
+        threshold: 0.1,
       },
     );
 
