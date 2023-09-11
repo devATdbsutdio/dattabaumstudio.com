@@ -1,6 +1,7 @@
 ---
 import home from "@/assets/images/home.png";
 import homeMobile from "@/assets/images/home_mobile.png";
+import watch7Segment from "@/assets/images/watch_7_segment.png";
 import { getImage } from "astro:assets";
 
 const homeImg = await getImage({ src: home });
@@ -9,12 +10,18 @@ const homeVid =
   "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome.mp4?alt=media";
 const homeVidMobile =
   "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome_mobile.mp4?alt=media";
+
+const watch7SegmentImg = await getImage({ src: watch7Segment });
+const watchClip1Vid =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fwatch_clip_1.mp4?alt=media";
+const watchClip2Vid =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fwatch_clip_2.mp4?alt=media";
 ---
 
-<div id="watch" class="content-section pointer-events-none">
+<div id="watch">
   <div
     id="watch-video"
-    class="pointer-events-auto relative -z-10 flex h-screen items-center justify-center overflow-hidden"
+    class="pointer-events-auto relative flex h-screen items-center justify-center overflow-hidden"
   >
     <picture class="bg absolute inset-0 -z-20 object-cover">
       <source media="(max-width: 480px)" srcset={homeImgMobile.src} />
@@ -37,6 +44,76 @@ const homeVidMobile =
       Play
     </button>
   </div>
+  <div class="bg-black px-5 md:px-8 xl:px-12">
+    <div class="dbs-container text-white">
+      <h1
+        class="mt-12 text-4xl font-extralight uppercase sm:text-6xl md:mt-20 lg:text-7xl xl:text-8xl"
+      >
+        A BRUTALIST<br /> AND VERSATILE<br /> DIGITAL WATCH
+      </h1>
+      <div
+        class="mb-12 mt-6 flex flex-col gap-10 md:mb-20 md:mt-20 md:gap-12 lg:flex-row"
+      >
+        <div
+          class="max-w-sm space-y-2 text-lg font-light md:space-y-4 md:text-2xl"
+        >
+          <p>
+            We set out to create a digital timepiece that is bold yet humble;
+            timeless and yet something that can age with you.
+          </p>
+          <p>A minimal piece of jewellery that is also functional.</p>
+          <p>
+            An elegant product that was meticulously and painstakingly crafted
+            for a niche few, like you.
+          </p>
+        </div>
+
+        <video
+          preload="auto"
+          autoplay=""
+          loop=""
+          muted=""
+          playsinline=""
+          class="clip-2 z-10 aspect-[16/10] h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center md:ml-auto md:rounded-3xl lg:max-w-[60%]"
+        >
+          <source src={watchClip2Vid} type="video/mp4" />
+        </video>
+      </div>
+      <div
+        class="mb-12 flex flex-col-reverse gap-6 md:mb-20 md:mt-20 xl:flex-row"
+      >
+        <video
+          preload="auto"
+          autoplay=""
+          loop=""
+          muted=""
+          playsinline=""
+          class="clip-1 z-10 aspect-square h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center md:rounded-3xl lg:max-w-[55%]"
+        >
+          <source src={watchClip1Vid} type="video/mp4" />
+        </video>
+        <div
+          class="flex basis-full flex-col-reverse items-start gap-10 sm:flex-row md:gap-12 xl:flex-col"
+        >
+          <picture
+            class="h-64 w-64 rounded-2xl border border-white/30 md:h-80 md:w-80 md:rounded-3xl"
+          >
+            <img
+              src={watch7SegmentImg.src}
+              class="h-full w-full object-cover object-center"
+            />
+          </picture>
+          <p
+            class="max-w-xs space-y-2 text-lg font-light sm:ml-auto md:mt-auto md:space-y-4 md:text-2xl"
+          >
+            This watch incorporates classic LED 7 segment displays and aerospace
+            grade real-time clock housed in a durable black cast titanium case
+            of the highest achievable quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -44,14 +121,11 @@ const homeVidMobile =
   const watchSection = document.querySelector("#watch");
   const bgPicture = document.querySelector<HTMLPictureElement>("picture.bg");
   const bgVideo = document.querySelector<HTMLVideoElement>("video.bg");
+  const clip1Video = document.querySelector<HTMLVideoElement>("video.clip-1");
+  const clip2Video = document.querySelector<HTMLVideoElement>("video.clip-2");
   const playButton = document.querySelector<HTMLButtonElement>(
     "#watch-video button",
   );
-
-  const hidePicture = () => {
-    if (!bgPicture) return;
-    bgPicture.classList.add("hidden");
-  };
 
   const addSourceToVideo = (src: string) => {
     if (!bgVideo) return;
@@ -73,7 +147,7 @@ const homeVidMobile =
     }
 
     bgVideo.addEventListener("loadeddata", () => {
-      hidePicture();
+      bgPicture.classList.add("hidden");
     });
   });
 
@@ -107,5 +181,28 @@ const homeVidMobile =
 
   if (watchSection) {
     observer.observe(watchSection);
+  }
+
+  const clipObservernew = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target instanceof HTMLVideoElement)
+          if (entry.isIntersecting) {
+            entry.target.play();
+          } else {
+            entry.target.pause();
+          }
+      });
+    },
+    {
+      threshold: 0.5,
+    },
+  );
+
+  if (clip1Video) {
+    clipObservernew.observe(clip1Video);
+  }
+  if (clip2Video) {
+    clipObservernew.observe(clip2Video);
   }
 </script>

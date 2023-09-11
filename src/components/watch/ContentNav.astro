@@ -1,0 +1,152 @@
+---
+import WaitingListButton from "./WaitingListButton";
+---
+
+<div
+  class="content-nav-container fixed left-0 right-0 top-6 z-50 hidden items-center justify-center sm:top-10 md:top-16"
+>
+  <div
+    class="content-nav flex overflow-hidden rounded border border-white/30 bg-black"
+  >
+    <button
+      id="watch-button"
+      class="p-5 pl-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pl-12 md:text-base"
+    >
+      <span class="hidden sm:inline-block">The</span>{" "}Watch</button
+    >
+    <button
+      id="craftsmanship-button"
+      class="p-5 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:text-base"
+      >Craftsmanship</button
+    >
+    <button
+      id="specs-button"
+      class="p-5 pr-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pr-12 md:text-base"
+    >
+      <span class="hidden sm:inline-block">The</span>{" "}Specs</button
+    >
+    <WaitingListButton
+      client:load
+      className="border-none hidden md:h-full md:py-6 md:block rounded-none"
+    />
+  </div>
+</div>
+
+<script>
+  const contentNavContainer = document.querySelector(".content-nav-container");
+  const watchSection = document.querySelector("#watch");
+  const watchButton = document.querySelector("#watch-button");
+  const craftsmanshipSection = document.querySelector("#craftsmanship");
+  const craftsmanshipButton = document.querySelector("#craftsmanship-button");
+  const specsSection = document.querySelector("#specs");
+  const specsButton = document.querySelector("#specs-button");
+
+  window.addEventListener("load", () => {
+    const highlightButton = (button: Element | null) => {
+      button?.classList.remove("opacity-30");
+      button?.classList.add("opacity-100");
+    };
+
+    const unhighlightButton = (button: Element | null) => {
+      button?.classList.remove("opacity-100");
+      button?.classList.add("opacity-30");
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries.filter((entry) => entry.isIntersecting)[0];
+        if (!entry) return;
+        if (entry.target.id === "watch") {
+          highlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+          unhighlightButton(specsButton);
+        } else if (entry.target.id === "craftsmanship") {
+          highlightButton(craftsmanshipButton);
+          unhighlightButton(watchButton);
+          unhighlightButton(specsButton);
+        } else if (entry.target.id === "specs") {
+          highlightButton(specsButton);
+          unhighlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+        } else {
+          unhighlightButton(watchButton);
+          unhighlightButton(craftsmanshipButton);
+          unhighlightButton(specsButton);
+        }
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    if (watchSection) {
+      observer.observe(watchSection);
+      watchButton?.addEventListener("click", () => {
+        watchSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+
+    if (craftsmanshipSection) {
+      observer.observe(craftsmanshipSection);
+      craftsmanshipButton?.addEventListener("click", () => {
+        craftsmanshipSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+
+    if (specsSection) {
+      observer.observe(specsSection);
+      specsButton?.addEventListener("click", () => {
+        specsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      });
+    }
+  });
+
+  const showContentNav = () => {
+    if (
+      contentNavContainer &&
+      contentNavContainer.classList.contains("hidden")
+    ) {
+      contentNavContainer.classList.remove("hidden");
+      contentNavContainer.classList.add("flex", "animate-in", "fade-in");
+    }
+  };
+
+  const hideContentNav = () => {
+    if (
+      contentNavContainer &&
+      !contentNavContainer.classList.contains("hidden")
+    ) {
+      contentNavContainer.classList.add("hidden");
+      contentNavContainer.classList.remove("flex", "animate-in", "fade-in");
+    }
+  };
+
+  const handleContentNavVisibility = () => {
+    if (contentNavContainer) {
+      const shouldNavBeHidden = window.scrollY < (3 * window.innerHeight) / 4;
+      if (shouldNavBeHidden) {
+        hideContentNav();
+      } else {
+        showContentNav();
+      }
+    }
+  };
+
+  handleContentNavVisibility();
+
+  window.addEventListener("scroll", () => {
+    handleContentNavVisibility();
+  });
+</script>
