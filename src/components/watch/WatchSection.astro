@@ -44,10 +44,10 @@ const watchClip2Vid =
       Play
     </button>
   </div>
-  <div class="bg-black px-5 md:px-8 xl:px-12">
+  <div class="bg-modal px-5 md:px-8 xl:px-12">
     <div class="dbs-container text-white">
       <h1
-        class="mt-12 text-4xl font-extralight uppercase sm:text-6xl md:mt-20 lg:text-7xl xl:text-8xl"
+        class="pt-12 text-4xl font-extralight uppercase sm:text-6xl md:pt-20 lg:text-7xl xl:text-8xl"
       >
         A BRUTALIST<br /> AND VERSATILE<br /> DIGITAL WATCH
       </h1>
@@ -74,24 +74,27 @@ const watchClip2Vid =
           loop=""
           muted=""
           playsinline=""
-          class="clip-2 z-10 aspect-[16/10] h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center md:ml-auto md:rounded-3xl lg:max-w-[60%]"
+          class="clip-2 z-10 aspect-[16/10] h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:ml-auto md:rounded-3xl lg:max-w-[60%]"
         >
           <source src={watchClip2Vid} type="video/mp4" />
         </video>
       </div>
       <div
-        class="mb-12 flex flex-col-reverse gap-6 md:mb-20 md:mt-20 xl:flex-row"
+        class="flex flex-col-reverse gap-6 pb-12 md:mt-20 md:pb-20 xl:flex-row"
       >
-        <video
-          preload="auto"
-          autoplay=""
-          loop=""
-          muted=""
-          playsinline=""
-          class="clip-1 z-10 aspect-square h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center md:rounded-3xl lg:max-w-[55%]"
-        >
-          <source src={watchClip1Vid} type="video/mp4" />
-        </video>
+        <div class="flex w-full max-w-3xl flex-col gap-4 lg:max-w-[55%]">
+          <video
+            preload="auto"
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            class="clip-1 z-10 aspect-square h-full w-full rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:rounded-3xl"
+          >
+            <source src={watchClip1Vid} type="video/mp4" />
+          </video>
+          <p class="text-sm md:text-base">* Can be worn as a Necklace!</p>
+        </div>
         <div
           class="flex basis-full flex-col-reverse items-start gap-10 sm:flex-row md:gap-12 xl:flex-col"
         >
@@ -104,7 +107,7 @@ const watchClip2Vid =
             />
           </picture>
           <p
-            class="max-w-xs space-y-2 text-lg font-light sm:ml-auto md:mt-auto md:space-y-4 md:text-2xl"
+            class="max-w-xs space-y-2 text-lg font-light sm:ml-auto md:mt-auto md:space-y-4 md:text-2xl xl:mb-10"
           >
             This watch incorporates classic LED 7 segment displays and aerospace
             grade real-time clock housed in a durable black cast titanium case
