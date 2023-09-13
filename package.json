@@ -25,6 +25,7 @@
     "dayjs": "^1.11.9",
     "embla-carousel-autoplay": "^8.0.0-rc12",
     "embla-carousel-react": "^8.0.0-rc12",
+    "embla-carousel-wheel-gestures": "^8.0.0-rc04",
     "firebase-admin": "^11.10.1",
     "powerglitch": "^2.3.2",
     "react": "^18.2.0",

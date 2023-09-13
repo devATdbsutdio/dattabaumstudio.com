@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import craft1 from "@/assets/images/craft_1.png";
 import craft2 from "@/assets/images/craft_2.png";
 import craft3 from "@/assets/images/craft_3.png";
@@ -70,6 +71,23 @@ interface CraftDetailProps {
   craft: (typeof CRAFTS)[0];
 }
 
+const renderDetail = (detail: string) => {
+  const faqIndex = detail.indexOf("FAQs");
+  if (faqIndex === -1) {
+    return detail;
+  }
+
+  return (
+    <>
+      {detail.slice(0, faqIndex)}
+      <a href="/watch/faq" className="text-primary-500 underline">
+        FAQs
+      </a>
+      {detail.slice(faqIndex + 4)}
+    </>
+  );
+};
+
 const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
   const onClose = () => {
     toggle();
@@ -126,7 +144,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
                         className={cn("mb-2 text-lg md:mb-4 md:text-xl")}
                         key={index}
                       >
-                        {detail}
+                        {renderDetail(detail)}
                       </p>
                     ))}
                   </div>
@@ -171,11 +189,14 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
 };
 
 export default function CraftCarousel() {
-  const [emblaRef] = useEmblaCarousel({
-    loop: false,
-    dragThreshold: 5,
-    align: "start",
-  });
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: false,
+      dragThreshold: 15,
+      align: "start",
+    },
+    [WheelGesturesPlugin()],
+  );
 
   return (
     <>
