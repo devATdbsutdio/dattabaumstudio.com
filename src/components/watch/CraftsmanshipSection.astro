@@ -1,0 +1,29 @@
+---
+import CraftCarousel from "./CraftCarousel";
+---
+
+<div id="craftsmanship" class="pointer-events-auto overflow-x-clip">
+  <div class="bg-craftsmanship px-5 md:px-8 xl:px-12">
+    <div class="dbs-container pb-6">
+      <h1
+        class="pt-32 text-4xl font-extralight uppercase text-white sm:text-6xl md:pt-64 lg:text-7xl xl:text-8xl"
+      >
+        RIGOUR FOR<br /> QUALITY AND STYLE
+      </h1>
+
+      <CraftCarousel client:visible />
+    </div>
+  </div>
+</div>
+
+<style>
+  .bg-craftsmanship {
+    background-repeat: repeat;
+    background-image: radial-gradient(
+        ellipse closest-side at 30% 30%,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.9)
+      ),
+      url("/noise.svg");
+  }
+</style>

@@ -39,12 +39,12 @@ const watchClip2Vid =
     </video>
     <button
       data-state="paused"
-      class="bg-modal isolate z-10 h-24 w-24 rounded-full border border-white/20 text-white"
+      class="bg-watch isolate z-10 h-24 w-24 rounded-full border border-white/20 text-white"
     >
       Play
     </button>
   </div>
-  <div class="bg-modal px-5 md:px-8 xl:px-12">
+  <div class="bg-watch px-5 md:px-8 xl:px-12">
     <div class="dbs-container text-white">
       <h1
         class="pt-12 text-4xl font-extralight uppercase sm:text-6xl md:pt-20 lg:text-7xl xl:text-8xl"
@@ -211,3 +211,15 @@ const watchClip2Vid =
     clipObservernew.observe(clip2Video);
   }
 </script>
+
+<style>
+  .bg-watch {
+    background-repeat: repeat;
+    background-image: radial-gradient(
+        circle at 50% 10%,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.9)
+      ),
+      url("/noise.svg");
+  }
+</style>

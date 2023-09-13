@@ -3,7 +3,7 @@ import WaitingListButton from "./WaitingListButton";
 ---
 
 <div
-  class="content-nav-container fixed left-0 right-0 top-6 z-50 hidden items-center justify-center sm:top-10 md:top-16"
+  class="content-nav-container fixed left-0 right-0 top-6 z-40 hidden items-center justify-center sm:top-6 md:top-10"
 >
   <div
     class="content-nav flex overflow-hidden rounded border border-white/30 bg-black"
@@ -54,7 +54,6 @@ import WaitingListButton from "./WaitingListButton";
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => console.dir(entry.target));
         const entry = entries.filter((entry) => entry.isIntersecting)[0];
         if (!entry) return;
         if (entry.target.id === "watch") {

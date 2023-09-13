@@ -13,6 +13,7 @@ import HeroCarousel from "@/components/watch/HeroCarousel";
 import WaitingListButton from "@/components/watch/WaitingListButton";
 import WatchSection from "@/components/watch/WatchSection.astro";
 import ContentNav from "@/components/watch/ContentNav.astro";
+import CraftsmanshipSection from "@/components/watch/CraftsmanshipSection.astro";
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -68,10 +69,7 @@ const watchHeroImgs = [
   <div class="content relative min-h-screen">
     <ContentNav />
     <WatchSection />
-
-    <div id="craftsmanship" class="min-h-screen bg-blue-500">
-      THE CRAFTSMANSHIP
-    </div>
+    <CraftsmanshipSection />
     <div id="specs" class="min-h-screen bg-red-500">THE SPECS</div>
   </div>
 </Layout>
