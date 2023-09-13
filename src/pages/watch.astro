@@ -1,10 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import watchHero1 from "@/assets/images/watch_hero_01.jpg";
-import watchHero2 from "@/assets/images/watch_hero_02.jpg";
-import watchHero3 from "@/assets/images/watch_hero_03.jpg";
-import watchHero4 from "@/assets/images/watch_hero_04.jpg";
-import watchHero5 from "@/assets/images/watch_hero_05.jpg";
+import watchHero1 from "@/assets/images/watch_hero_less_grain_01.jpg";
+import watchHero2 from "@/assets/images/watch_hero_less_grain_02.jpg";
+import watchHero3 from "@/assets/images/watch_hero_less_grain_03.jpg";
+import watchHero4 from "@/assets/images/watch_hero_less_grain_04.jpg";
+import watchHero5 from "@/assets/images/watch_hero_less_grain_05.jpg";
 import { getImage } from "astro:assets";
 import Button from "@/components/Button";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
@@ -14,6 +14,7 @@ import WaitingListButton from "@/components/watch/WaitingListButton";
 import WatchSection from "@/components/watch/WatchSection.astro";
 import ContentNav from "@/components/watch/ContentNav.astro";
 import CraftsmanshipSection from "@/components/watch/CraftsmanshipSection.astro";
+import SpecsSection from "@/components/watch/SpecsSection.astro";
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -70,7 +71,7 @@ const watchHeroImgs = [
     <ContentNav />
     <WatchSection />
     <CraftsmanshipSection />
-    <div id="specs" class="min-h-screen bg-red-500">THE SPECS</div>
+    <SpecsSection />
   </div>
 </Layout>
 

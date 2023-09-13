@@ -1,0 +1,240 @@
+---
+import Button from "../Button";
+import ArrowRightIcon from "../icons/ArrowRightIcon";
+import WaitingListButton from "./WaitingListButton";
+import specs from "@/assets/images/specs.svg";
+import specsMobile from "@/assets/images/specs_mobile.png";
+import DownloadIcon from "../icons/DownloadIcon";
+
+const SPEC_GROUPS = [
+  [
+    {
+      label: "Time Format",
+      value: "24 hrs.",
+    },
+    {
+      label: "Outer Length",
+      value: "40 mm",
+    },
+    {
+      label: "Outer Breadth",
+      value: "40 mm",
+    },
+    {
+      label: "Outer Thickness",
+      value: "15 mm",
+    },
+    {
+      label: "IP Rating",
+      value: "IP-65",
+    },
+    {
+      label: "Water Resistance",
+      value: "10 m depth",
+    },
+  ],
+  [
+    {
+      label: "Body Material",
+      value: "Coated Titanium",
+    },
+    {
+      label: "Wrist Band",
+      value: "Silicone with embedded magnets",
+    },
+    {
+      label: "Front Panel",
+      value: "Flexible and shatterproof glass",
+    },
+    {
+      label: "Weight (incl. Belt)",
+      value: "78 gms",
+    },
+    {
+      label: "Weight (exl. Belt)",
+      value: "40 gms",
+    },
+  ],
+  [
+    {
+      label: "Battery (LiPo)",
+      value: "3.7 V, 1200 mAh",
+    },
+    {
+      label: "Battery Life (LiPo)",
+      value: "Approximately 10 years",
+    },
+    {
+      label: "RTC Battery (Coin cell)",
+      value: "1.5V, 7.5 mAh",
+    },
+    {
+      label: "RTC Accuracy",
+      value: "+/- 30 seconds per month (TBD)",
+    },
+    {
+      label: "Display",
+      value: "2x2” 7 segment white LED displays",
+    },
+  ],
+];
+---
+
+<div id="specs" class="pointer-events-auto overflow-x-clip">
+  <div class="bg-specs px-5 pb-6 pt-32 md:px-8 md:pt-40 xl:px-12">
+    <div class="dbs-container">
+      <h2
+        class="text-4xl font-extralight uppercase text-white sm:text-6xl lg:text-7xl xl:text-8xl"
+      >
+        TECHNICAL<br /> SPECIFICATIONS<br /> IN A GLIMPSE
+      </h2>
+
+      <div class="flex w-full items-end gap-16 xl:gap-0">
+        <div class="flex w-full flex-shrink-0 flex-col md:w-fit">
+          <div class="mt-2 text-xs text-white sm:text-base md:mt-4 md:pr-20">
+            {
+              SPEC_GROUPS.map((specs) => {
+                return (
+                  <div class="mt-8 md:mt-12">
+                    {specs.map((spec) => {
+                      return (
+                        <div class="flex">
+                          <div class="w-40 flex-shrink-0 py-2 font-medium sm:w-48 md:w-56">
+                            {spec.label}:
+                          </div>
+                          <div class="flex-grow-0 py-2 font-light">
+                            {spec.value}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })
+            }
+          </div>
+          <hr class="my-12 border-white/20 md:my-16" />
+          <div class="flex text-white md:pr-20">
+            <div class="w-40 flex-shrink-0 py-2 font-medium sm:w-48 md:w-56">
+              In the box:
+            </div>
+            <div class="flex-grow-0 space-y-2 py-2 font-light">
+              <p>The watch</p>
+              <p>The belt</p>
+              <p>A micro USB cable (20cm)</p>
+              <p>Instruction manual</p>
+              <p>Warranty card</p>
+              <p>Compliance information</p>
+            </div>
+          </div>
+          <div class="mt-12 block w-full basis-full md:hidden">
+            <img src={specsMobile.src} alt="" class="w-full" />
+          </div>
+          <div class="mt-12 flex flex-wrap items-center gap-5 md:mt-16">
+            <WaitingListButton client:visible />
+            <Button variant="secondary-dark" href="/faq" className="gap-10">
+              FAQ
+              <ArrowRightIcon
+                className="stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
+              />
+            </Button>
+          </div>
+        </div>
+
+        <div class="mb-16 hidden w-full basis-full md:block lg:hidden">
+          <img src={specsMobile.src} alt="" class="w-full" />
+        </div>
+        <div class="mb-16 hidden w-full basis-full lg:block">
+          <img src={specs.src} alt="" class="w-full" />
+        </div>
+      </div>
+
+      <div class="bg-specs2 z-10">
+        <hr class="my-12 border-white/20 md:my-16" />
+        <h3
+          class="text-3xl font-extralight uppercase text-white sm:text-4xl md:text-5xl lg:text-6xl"
+        >
+          NOTICE: READ THIS FIRST.
+        </h3>
+        <p
+          class="mt-6 font-medium text-white md:mt-10 md:text-2xl md:font-light"
+        >
+          All the safety instructions should be read before the watch is used.
+          They should be retained for future reference and all warnings about
+          the watch should be adhered to.
+        </p>
+        <div
+          class="mt-6 max-w-6xl columns-2 space-y-4 text-sm text-white/80 md:mt-10 md:text-lg md:text-white"
+        >
+          <p>
+            Store the watch out of the reach of children and infants. if
+            accidentally swallowed, contact an emergency medicine doctor
+            immediately.
+          </p><p>Avoid using the watch near nuclear facilities.</p><p>
+            The watch should not be exposed to objects filled with liquids, such
+            as vases or swimming pools. As with any electronic products, use
+            care not to spill liquids into any part of the system. Liquids can
+            cause a failure and/or a fire hazard, even though it is IP-65 rated.
+            Light dripping like light rains is fine but try to avoid them.
+          </p> When the watch exhibits a distinct change in performance, this
+          indicates a need for service. Please contact us and connect us with
+          your service technician who has used replacement parts specified by us
+          or have the same characteristics as the original part. Unauthorized
+          substitutions may cause a risk of fire or other hazards.<p>
+            Replacing the batteries with an incorrect type or incorrect
+            orientation may cause shorts, excessive heating and eventually a
+            potential explosion. Please read the battery details below.
+          </p><p>
+            Disposing the batteries into a fire or a hot oven, mechanically
+            crushing or cutting the battery, may result in explosions. Leaving
+            the batteries in an extremely high temperature environment may also
+            result in explosions or the leakage of flammable liquid or gas.
+            Exposing the batteries to extremely low air pressure may result in
+            explosions or the leakage of flammable liquid or gas.
+          </p><p>
+            Do not try to charge or use a unit with a seemingly damaged battery.
+            Only a battery supplied by Datta and Baum Studio Company Limited, or
+            the model number specified later and installed by qualified
+            personnel should be used.
+          </p><p>
+            Be sure to charge the watch using only a trusted USB power source
+            rated at 5V, such as that from the USB ports of a computer, or by
+            using a dedicated USB charger that is stable and noise-less.
+          </p>
+        </div>
+        <Button
+          variant="secondary-dark"
+          href="Product Statements.pdf"
+          className="gap-10 mt-16 md:mt-20 mb-20"
+          download
+        >
+          Download product statment
+          <DownloadIcon
+            className="stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
+          />
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* .bg-specs {
+    background-repeat: repeat;
+    background: radial-gradient(
+        ellipse closest-side at 30% 450px,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.9)
+      ),
+      url("/noise.svg");
+  }
+  .bg-specs2 {
+    background-repeat: repeat;
+    background: radial-gradient(
+        ellipse closest-side at 50% 25%,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.9)
+      ),
+      url("/noise.svg");
+  } */
+</style>

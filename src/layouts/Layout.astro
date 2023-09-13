@@ -55,6 +55,17 @@ const topMargin = Astro.props.topMargin || false;
       url("/noise.svg");
   }
 
+  .bg-content {
+    background-repeat: repeat;
+    background-image: radial-gradient(
+        circle at 50% 100%,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.5) 10%,
+        rgba(0, 0, 0, 1)
+      ),
+      url("/noise.svg");
+  }
+
   .dbs-container {
     width: 100%;
     max-width: 1920px;

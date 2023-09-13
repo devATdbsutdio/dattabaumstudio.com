@@ -52,22 +52,34 @@ import WaitingListButton from "./WaitingListButton";
       button?.classList.add("opacity-30");
     };
 
+    const highlightWatch = () => {
+      highlightButton(watchButton);
+      unhighlightButton(craftsmanshipButton);
+      unhighlightButton(specsButton);
+    };
+
+    const highlightCraftsmanship = () => {
+      highlightButton(craftsmanshipButton);
+      unhighlightButton(watchButton);
+      unhighlightButton(specsButton);
+    };
+
+    const highlightSpecs = () => {
+      highlightButton(specsButton);
+      unhighlightButton(watchButton);
+      unhighlightButton(craftsmanshipButton);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries.filter((entry) => entry.isIntersecting)[0];
         if (!entry) return;
         if (entry.target.id === "watch") {
-          highlightButton(watchButton);
-          unhighlightButton(craftsmanshipButton);
-          unhighlightButton(specsButton);
+          highlightWatch();
         } else if (entry.target.id === "craftsmanship") {
-          highlightButton(craftsmanshipButton);
-          unhighlightButton(watchButton);
-          unhighlightButton(specsButton);
+          highlightCraftsmanship();
         } else if (entry.target.id === "specs") {
-          highlightButton(specsButton);
-          unhighlightButton(watchButton);
-          unhighlightButton(craftsmanshipButton);
+          highlightSpecs();
         } else {
           unhighlightButton(watchButton);
           unhighlightButton(craftsmanshipButton);
@@ -82,6 +94,7 @@ import WaitingListButton from "./WaitingListButton";
     if (watchSection) {
       observer.observe(watchSection);
       watchButton?.addEventListener("click", () => {
+        highlightWatch();
         watchSection.scrollIntoView({
           behavior: "smooth",
           block: "start",
@@ -93,6 +106,7 @@ import WaitingListButton from "./WaitingListButton";
     if (craftsmanshipSection) {
       observer.observe(craftsmanshipSection);
       craftsmanshipButton?.addEventListener("click", () => {
+        highlightCraftsmanship();
         craftsmanshipSection.scrollIntoView({
           behavior: "smooth",
           block: "start",
@@ -104,6 +118,7 @@ import WaitingListButton from "./WaitingListButton";
     if (specsSection) {
       observer.observe(specsSection);
       specsButton?.addEventListener("click", () => {
+        highlightSpecs();
         specsSection.scrollIntoView({
           behavior: "smooth",
           block: "start",
