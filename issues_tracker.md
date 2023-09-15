@@ -30,9 +30,11 @@
 0. [HOME PAGE]
       1. Can the video be started a bit faster? May be chop some frames from begining? 
 2. [WATCH PAGE]
-      1. Cards: They have a small call to action __+__ at the bottom which is not clickable right now. Let's make it clickable. 
+      1. Video: Can the Video is missing audio: Are you using __compressed__ ver of https://drive.google.com/file/d/1J92kC6CTK1wjyxtZWTtS6W-K3ciB4yyV/view?usp=drive_link
+      2. 
+      3. Cards: They have a small call to action __+__ at the bottom which is not clickable right now. Let's make it clickable. 
         <img width="320" alt="Screenshot 2023-09-15 at 21 39 40" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9d4051c4-6044-4edb-a587-cf0aa840e79e">
-      2. Cards: Can the slide/drag of the cards be anchored with reduced elasticity?
+      4. Cards: Can the slide/drag of the cards be anchored with reduced elasticity?
          ![anim](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/ac3ccce9-47d4-457c-8f71-58cb98835d36)
 
 
