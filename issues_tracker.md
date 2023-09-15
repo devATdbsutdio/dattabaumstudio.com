@@ -31,7 +31,7 @@
       1. Can the video be started a bit faster? May be chop some frames from begining? 
 2. [WATCH PAGE]
       1. Video: Can the Video is missing audio: Are you using __compressed__ ver of https://drive.google.com/file/d/1J92kC6CTK1wjyxtZWTtS6W-K3ciB4yyV/view?usp=drive_link
-      2. 
+      2. Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video) 
       3. Cards: They have a small call to action __+__ at the bottom which is not clickable right now. Let's make it clickable. 
         <img width="320" alt="Screenshot 2023-09-15 at 21 39 40" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9d4051c4-6044-4edb-a587-cf0aa840e79e">
       4. Cards: Can the slide/drag of the cards be anchored with reduced elasticity?
@@ -43,6 +43,7 @@
       1. Can the video be started a bit faster? May be chop some frames from begining? 
 2. [WATCH PAGE]
       1. Video: Can the Video is missing audio: Are you using __compressed__ ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link
+      2. Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video) 
    
 
 
