@@ -26,7 +26,7 @@
    </figure>
    </br>
      3. Cards: They have a small call to action __+__ at the bottom which is not clickable right now. Let's make it clickable. 
-        <img width="893" alt="Screenshot 2023-09-15 at 21 39 40" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9d4051c4-6044-4edb-a587-cf0aa840e79e">
+        <img width="320" alt="Screenshot 2023-09-15 at 21 39 40" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9d4051c4-6044-4edb-a587-cf0aa840e79e">
 
     
    
