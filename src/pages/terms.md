@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PolicyPageLayout.astro
 title: Terms & Conditions
-description: Our Terms and Conditions explains in details the terms of usage of our products and this website.
+description: Our Terms and Conditions below provide a detailed explanation of the terms of use for our products and website
 lastUpdated: "March 22, 2023"
 ---
 
