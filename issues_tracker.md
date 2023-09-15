@@ -42,6 +42,7 @@
 0. [HOME PAGE]
       1. Can the video be started a bit faster? May be chop some frames from begining? 
 2. [WATCH PAGE]
+      1. Video: Can the Video is missing audio: Are you using __compressed__ ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link
    
 
 
