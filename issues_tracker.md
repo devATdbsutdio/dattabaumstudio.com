@@ -56,7 +56,11 @@
       1. Can the video be started a bit faster? May be chop some frames from begining? 
 2. [WATCH PAGE]
       1. Video: Can the Video is missing audio: Are you using __compressed__ ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link
-      2. Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video) 
+      2. Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video)
+3. [PRIVACY Policy] is rendered weirdly:
+   
+      <img width="320" alt="Mobile Privacy" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/a0a580ac-370f-40ee-9f75-fb768419c247">
+
    
 
 
