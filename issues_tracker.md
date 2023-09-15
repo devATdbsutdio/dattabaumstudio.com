@@ -35,7 +35,9 @@
 # TBD
 1. Cookie Policy? How do we deal with that? The banner need to be deisgned?
 2. Where are you currently storing the assets? (Sorry if I'm asking it again)
-3. Documentation of the site dev (in README (and remove the astro stuff )):
+3. [Datta] Check copy of cards
+4. [Datta] Check remaining part of Terms Page (TBD Oct)
+5. Documentation of the site dev (in README (and remove the astro stuff )):
     1. Where Assets are? I see some in github ... We were thinking of moving them to Shopify correct? (Highlight that in the documentation) 
     2. About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).
     3. Show and give a light instructions on how and where people can edit contents.
