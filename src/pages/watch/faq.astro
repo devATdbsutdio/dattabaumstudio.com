@@ -1,0 +1,176 @@
+---
+import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
+import FaqItem from "@/components/watch/FaqItem";
+import Layout from "@/layouts/Layout.astro";
+import watchCharging from "@/assets/images/charging.svg";
+import watchCharged from "@/assets/images/charged.svg";
+import { Image } from "astro:assets";
+---
+
+<Layout>
+  <div
+    class="bg-content px-5 pb-8 pt-[80px] md:px-8 md:pb-24 md:pt-[108px] xl:px-12"
+  >
+    <div class="dbs-container relative text-white">
+      <div
+        class="mt-5 flex flex-col md:mt-20 lg:flex-row lg:items-end lg:justify-between"
+      >
+        <h1
+          class="mr-8 text-4xl font-extralight uppercase sm:text-6xl lg:text-7xl xl:text-8xl"
+        >
+          You may have some questions...
+        </h1>
+        <div
+          class="relative mt-8 max-w-lg pr-12 text-right text-xl font-extralight sm:ml-auto md:text-2xl lg:ml-0 lg:mt-0"
+        >
+          <p>
+            We tried to answer some of those questions that may pop in your
+            curious head. For anything else, you can always shoot us an email.
+          </p>
+          <button class="scroll-trigger absolute bottom-0.5 right-0">
+            <ArrowDownIcon className="w-10 h-10" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content bg-white px-5 py-10 md:px-8 md:py-16 xl:px-12 xl:py-24">
+    <div
+      id="general"
+      class="dbs-container relative flex flex-col border-y border-black md:flex-row"
+    >
+      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
+        <h2
+          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+        >
+          <span class="mr-3">1.</span> General
+        </h2>
+      </div>
+      <div class="basis-full">
+        <FaqItem title="Is it water resistant?" showBottomBorder client:idle>
+          Yes kind of, you can shower but don’t swim with it.
+          <br />
+           We got an IP65 rating, to be precise!
+        </FaqItem>
+        <FaqItem
+          title="How does it handle high and low temperatures?"
+          showBottomBorder
+          client:idle
+        >
+          Pretty well to our surprise. We tested our samples at high temperature
+          of 85°C and a low of -20°C for 24 hours. We also checked if the watch
+          functions under high humidity (85% Relative Humidity to be precise)
+          and also tested for 24 hours under thermal shock.
+        </FaqItem>
+        <!-- TODO: -->
+        <FaqItem title="How often do I have to charge the watch?" client:idle>
+          On full charge, if clicked for 25 times per day, you might need to
+          charge the watch after few weeks (or even a month), it depends heavily
+          on your usage.
+          <br />
+           We made our own automatic robot testing jig to put the theory to
+          test. Watch it here.
+        </FaqItem>
+      </div>
+    </div>
+    <div
+      id="maintenance"
+      class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-y"
+    >
+      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
+        <h2
+          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+        >
+          <span class="mr-3">1.</span> Maintenance
+        </h2>
+      </div>
+      <div class="basis-full">
+        <!-- TODO: -->
+        <FaqItem
+          title="How do I reset time (and date)?"
+          showBottomBorder
+          client:idle
+        >
+          Yes kind of, you can shower but don’t swim with it.
+          <br />
+           We got an IP65 rating, to be precise!
+        </FaqItem>
+        <FaqItem
+          title="How can I change the duration for which the watch displays time on button press?"
+          showBottomBorder
+          client:idle
+        >
+          So, we call it the “stay awake” duration and by default it is set to 5
+          sec. You can change it by following the previous step of “How do I
+          reset time (and Date)?” There, you will see a section, that says,
+          “Select Stay awake duration”. But be mindful that a longer stay awake
+          duration will lead to faster battery drainage.
+        </FaqItem>
+        <!-- TODO: -->
+        <FaqItem title="How often do I have to charge the watch?" client:idle>
+          It’s just like how you charge your other USB devices. Use the provided
+          micro USB cable to plug one end of it to the watch and the other to
+          any standard 5V DC USB power source (e.g. commonly found phone
+          charger). The Yellow light indicated “charging” while the Green means
+          “fully charged”.
+
+          <div class="mt-10 flex flex-col gap-6 md:mt-16 md:flex-row">
+            <Image src={watchCharging} alt="" />
+            <Image src={watchCharged} alt="" />
+          </div>
+        </FaqItem>
+      </div>
+    </div>
+    <div
+      id="accessories"
+      class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-y"
+    >
+      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
+        <h2
+          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+        >
+          <span class="mr-3">1.</span> Accessories
+        </h2>
+      </div>
+      <div class="basis-full">
+        <FaqItem title="Can I change the belts?" client:idle>
+          At the moment the watch ships with the custom belt that we have
+          designed and manufactured. In the short term we do not have any plans
+          to create a new belt design. But if you would be interested and have
+          any suggestions, we are open to the idea. We suggest that you kindly
+          drop us a line to share your interests and ideas.
+          <br />
+          <br />
+           Also, since it is so simple to remove the belt, you can experiment
+          yourself as well. Currently we are talking to a friend and are
+          planning to design an Albert Chain/Necklace for it. We will keep you
+          posted about it’s status.
+        </FaqItem>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  @media (min-width: 1920px) {
+    .dbs-container {
+      @apply px-5;
+    }
+  }
+</style>
+
+<script>
+  const button = document.querySelector(".scroll-trigger");
+  if (button) {
+    button.addEventListener("click", () => {
+      const content = document.querySelector(".content");
+      if (content) {
+        content.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
+    });
+  }
+</script>
