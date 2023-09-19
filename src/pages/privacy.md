@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PolicyPageLayout.astro
 title: Privacy Policy
-description: We care about your privacy and our below policy explains that how we handle the data.
+description: We care about your privacy, and our policy below explains how we handle your data
 lastUpdated: "March 22, 2023"
 ---
 

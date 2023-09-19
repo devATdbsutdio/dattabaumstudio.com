@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/PolicyPageLayout.astro
 title: Returns & Refunds
-description: We are pretty accommodating when it comes to our returns and refunds policy, as outline below.
+description: We are quite accommodating when it comes to our returns and refunds policy, as outlined below
 lastUpdated: "March 22, 2023"
 ---
 
