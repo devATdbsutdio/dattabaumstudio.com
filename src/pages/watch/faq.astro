@@ -70,6 +70,57 @@ import { Image } from "astro:assets";
           <br />
            We made our own automatic robot testing jig to put the theory to
           test. Watch it here.
+          <div class="mt-6 text-sm md:mt-8 md:text-base">
+            <div class="flex w-full border-t border-black/10">
+              <p class="py-6">Internal LiPo Battery’s capacity:</p>
+              <p class="ml-auto w-32 py-6 text-right">≈ 1200 mAh</p>
+            </div>
+            <div class="flex w-full border-t border-black/10">
+              <p class="py-6">
+                Realtime clock’s backup cell’s capacity:<br /> (Only kicks in if
+                the the LiPo battery is drained, to keep the RTC ticking)
+              </p>
+              <p class="ml-auto w-32 py-6 text-right">≈ 7.5 mAh</p>
+            </div>
+            <div class="flex w-full border-t border-black/10">
+              <p class="py-6">Power consumption when not doing anything:</p>
+              <p class="ml-auto w-32 py-6 text-right">≈ 0.7-0.9 uA</p>
+            </div>
+            <div class="flex w-full border-t border-black/10">
+              <p class="py-6">Power consumption when checking time & date:</p>
+              <p class="ml-auto w-32 py-6 text-right">≈ 27-31 mA</p>
+            </div>
+            <div class="flex w-full border-t border-black/10">
+              <p class="w-40 py-6 md:w-auto">Battery’s life:</p>
+              <div class="ml-auto w-full max-w-sm">
+                <p class="pb-2 pt-6 text-center">Battery Capacity (mAh)</p>
+                <p class="border-t border-black/10 pb-6 pt-2 text-center">
+                  Consumption (mAh) * (1 - discharge safety)
+                </p>
+              </div>
+            </div>
+            <div class="flex w-full border-t border-black/10">
+              <p class="w-40 py-6 md:w-auto">e.g. Battery’s life:</p>
+              <div class="ml-auto w-full max-w-sm">
+                <p class="pb-2 pt-6 text-center">
+                  1000 mAh (it’s never exact as written in data-sheet)
+                </p>
+                <p class="border-t border-black/10 pb-4 pt-2 text-center">
+                  28 mAh (let’s say in avg.) * (1 - 20%)
+                </p>
+                <ArrowDownIcon className="w-8 h-8 stroke-black mx-auto" />
+                <p class="hidden pt-3 text-center sm:block">
+                  ≈
+                  <br />
+                   28.57 hrs
+                  <br />
+                   (approximately, just above 1 day,
+                  <br />
+                   if the watch stays on continuously)
+                </p>
+              </div>
+            </div>
+          </div>
         </FaqItem>
       </div>
     </div>
@@ -106,8 +157,7 @@ import { Image } from "astro:assets";
           “Select Stay awake duration”. But be mindful that a longer stay awake
           duration will lead to faster battery drainage.
         </FaqItem>
-        <!-- TODO: -->
-        <FaqItem title="How often do I have to charge the watch?" client:idle>
+        <FaqItem title="How do I charge the watch?" client:idle>
           It’s just like how you charge your other USB devices. Use the provided
           micro USB cable to plug one end of it to the watch and the other to
           any standard 5V DC USB power source (e.g. commonly found phone
