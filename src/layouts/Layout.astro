@@ -1,5 +1,4 @@
 ---
-import "@fontsource-variable/inter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -26,7 +25,7 @@ const topMargin = Astro.props.topMargin || false;
     <title>{title}</title>
     <meta name="description" content={description} />
   </head>
-  <body class="bg-black font-sans antialiased">
+  <body class="font-main bg-black antialiased">
     <Header solidBg={topMargin} client:load />
     <main class:list={["relative", { "mt-[80px] md:mt-[108px]": topMargin }]}>
       <slot />
@@ -43,6 +42,10 @@ const topMargin = Astro.props.topMargin || false;
   button:focus-visible,
   a:focus-visible {
     @apply outline-none ring-1 ring-neutral-400;
+  }
+
+  .font-main {
+    font-family: "ABC Diatype", sans-serif;
   }
 
   .bg-modal {
@@ -70,5 +73,143 @@ const topMargin = Astro.props.topMargin || false;
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
+  }
+
+  /* FONTS */
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-BlackItalic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype Ultra";
+    src: url("/fonts/ABCDiatype-UltraItalic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype Ultra";
+    src: url("/fonts/ABCDiatype-Ultra.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-ThinItalic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype Variable";
+    src: url("/fonts/ABCDiatypeVariable-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-HeavyItalic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABC Diatype";
+    src: url("/fonts/ABCDiatype-Heavy.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
   }
 </style>
