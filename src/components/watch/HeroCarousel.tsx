@@ -18,16 +18,14 @@ export default function HeroCarousel({
     [
       Autoplay({
         delay: 4000,
-
         rootNode: (emblaRoot) => emblaRoot.parentElement,
       }),
     ],
   );
 
-  console.log(images);
   return (
     <>
-      <div className="embla pointer-events-auto absolute inset-0 -z-10 overflow-hidden">
+      <div className="embla pointer-events-auto absolute inset-0 -z-0 overflow-hidden">
         <div className="embla__viewport" ref={emblaRef}>
           <div
             className="embla__container pointer-events-auto flex"
