@@ -34,7 +34,6 @@ import WaitingListButton from "./WaitingListButton";
 
 <script>
   const setActiveLink: IntersectionObserverCallback = (entries) => {
-    console.log(entries);
     for (let entry of entries) {
       const { id } = entry.target;
       const linkEl = document.querySelector(`.content-nav a[href='#${id}']`);

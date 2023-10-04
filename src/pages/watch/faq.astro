@@ -35,167 +35,210 @@ import { Image } from "astro:assets";
     </div>
   </div>
   <div class="content bg-white px-5 py-10 md:px-8 md:py-16 xl:px-12 xl:py-24">
-    <div
-      id="general"
-      class="dbs-container relative flex flex-col border-y border-black md:flex-row"
-    >
-      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
-        <h2
-          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+    <div class="relative md:flex md:border-y md:border-black">
+      <div
+        class="content-nav sticky top-5 z-10 mt-10 hidden w-fit space-y-3 self-start bg-white py-1 md:block"
+      >
+        <a
+          href="#general"
+          class="block w-48 border-b border-black/30 bg-white text-black md:border-b-0 md:text-2xl lg:w-64 xl:w-80"
         >
-          <span class="mr-3">1.</span> General
-        </h2>
+          <span class="inline-block w-8">1.</span>General
+        </a>
+        <a
+          href="#maintenance"
+          class="block w-48 border-b border-black/30 bg-white text-black md:border-b-0 md:text-2xl lg:w-64 xl:w-80"
+        >
+          <span class="inline-block w-8">2.</span>Maintenance
+        </a>
+        <a
+          href="#accessories"
+          class="block w-48 border-b border-black/30 bg-white text-black md:border-b-0 md:text-2xl lg:w-64 xl:w-80"
+        >
+          <span class="inline-block w-8">3.</span>Accessories
+        </a>
       </div>
-      <div class="basis-full">
-        <FaqItem title="Is it water resistant?" showBottomBorder client:idle>
-          Yes kind of, you can shower but don’t swim with it.
-          <br />
-           We got an IP65 rating, to be precise!
-        </FaqItem>
-        <FaqItem
-          title="How does it handle high and low temperatures?"
-          showBottomBorder
-          client:idle
+      <div class="w-full">
+        <div id="general"></div>
+        <div
+          class="dbs-container relative flex flex-col border-y border-black md:flex-row md:border-y-0"
         >
-          Pretty well to our surprise. We tested our samples at high temperature
-          of 85°C and a low of -20°C for 24 hours. We also checked if the watch
-          functions under high humidity (85% Relative Humidity to be precise)
-          and also tested for 24 hours under thermal shock.
-        </FaqItem>
-        <!-- TODO: -->
-        <FaqItem title="How often do I have to charge the watch?" client:idle>
-          On full charge, if clicked for 25 times per day, you might need to
-          charge the watch after few weeks (or even a month), it depends heavily
-          on your usage.
-          <br />
-           We made our own automatic robot testing jig to put the theory to
-          test. Watch it here.
-          <div class="mt-6 text-sm md:mt-8 md:text-base">
-            <div class="flex w-full border-t border-black/10">
-              <p class="py-6">Internal LiPo Battery’s capacity:</p>
-              <p class="ml-auto w-32 py-6 text-right">≈ 1200 mAh</p>
-            </div>
-            <div class="flex w-full border-t border-black/10">
-              <p class="py-6">
-                Realtime clock’s backup cell’s capacity:<br /> (Only kicks in if
-                the the LiPo battery is drained, to keep the RTC ticking)
-              </p>
-              <p class="ml-auto w-32 py-6 text-right">≈ 7.5 mAh</p>
-            </div>
-            <div class="flex w-full border-t border-black/10">
-              <p class="py-6">Power consumption when not doing anything:</p>
-              <p class="ml-auto w-32 py-6 text-right">≈ 0.7-0.9 uA</p>
-            </div>
-            <div class="flex w-full border-t border-black/10">
-              <p class="py-6">Power consumption when checking time & date:</p>
-              <p class="ml-auto w-32 py-6 text-right">≈ 27-31 mA</p>
-            </div>
-            <div class="flex w-full border-t border-black/10">
-              <p class="w-40 py-6 md:w-auto">Battery’s life:</p>
-              <div class="ml-auto w-full max-w-sm">
-                <p class="pb-2 pt-6 text-center">Battery Capacity (mAh)</p>
-                <p class="border-t border-black/10 pb-6 pt-2 text-center">
-                  Consumption (mAh) * (1 - discharge safety)
-                </p>
-              </div>
-            </div>
-            <div class="flex w-full border-t border-black/10">
-              <p class="w-40 py-6 md:w-auto">e.g. Battery’s life:</p>
-              <div class="ml-auto w-full max-w-sm">
-                <p class="pb-2 pt-6 text-center">
-                  1000 mAh (it’s never exact as written in data-sheet)
-                </p>
-                <p class="border-t border-black/10 pb-4 pt-2 text-center">
-                  28 mAh (let’s say in avg.) * (1 - 20%)
-                </p>
-                <ArrowDownIcon className="w-8 h-8 stroke-black mx-auto" />
-                <p class="hidden pt-3 text-center sm:block">
-                  ≈
-                  <br />
-                   28.57 hrs
-                  <br />
-                   (approximately, just above 1 day,
-                  <br />
-                   if the watch stays on continuously)
-                </p>
-              </div>
-            </div>
+          <div class="sticky top-0 z-10 w-full self-start md:hidden">
+            <h2
+              class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+            >
+              <span class="mr-3">1.</span> General
+            </h2>
           </div>
-        </FaqItem>
-      </div>
-    </div>
-    <div
-      id="maintenance"
-      class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-y"
-    >
-      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
-        <h2
-          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+          <div class="basis-full">
+            <FaqItem
+              title="Is it water resistant?"
+              showBottomBorder
+              client:idle
+            >
+              Yes kind of, you can shower but don’t swim with it.
+              <br />
+               We got an IP65 rating, to be precise!
+            </FaqItem>
+            <FaqItem
+              title="How does it handle high and low temperatures?"
+              showBottomBorder
+              client:idle
+            >
+              Pretty well to our surprise. We tested our samples at high
+              temperature of 85°C and a low of -20°C for 24 hours. We also
+              checked if the watch functions under high humidity (85% Relative
+              Humidity to be precise) and also tested for 24 hours under thermal
+              shock.
+            </FaqItem>
+            <!-- TODO: -->
+            <FaqItem
+              title="How often do I have to charge the watch?"
+              client:idle
+            >
+              On full charge, if clicked for 25 times per day, you might need to
+              charge the watch after few weeks (or even a month), it depends
+              heavily on your usage.
+              <br />
+               We made our own automatic robot testing jig to put the theory to
+              test. Watch it here.
+              <div class="mt-6 text-sm md:mt-8 md:text-base">
+                <div class="flex w-full border-t border-black/10">
+                  <p class="py-6">Internal LiPo Battery’s capacity:</p>
+                  <p class="ml-auto w-32 py-6 text-right">≈ 1200 mAh</p>
+                </div>
+                <div class="flex w-full border-t border-black/10">
+                  <p class="py-6">
+                    Realtime clock’s backup cell’s capacity:<br /> (Only kicks
+                    in if the the LiPo battery is drained, to keep the RTC
+                    ticking)
+                  </p>
+                  <p class="ml-auto w-32 py-6 text-right">≈ 7.5 mAh</p>
+                </div>
+                <div class="flex w-full border-t border-black/10">
+                  <p class="py-6">Power consumption when not doing anything:</p>
+                  <p class="ml-auto w-32 py-6 text-right">≈ 0.7-0.9 uA</p>
+                </div>
+                <div class="flex w-full border-t border-black/10">
+                  <p class="py-6">
+                    Power consumption when checking time & date:
+                  </p>
+                  <p class="ml-auto w-32 py-6 text-right">≈ 27-31 mA</p>
+                </div>
+                <div class="flex w-full border-t border-black/10">
+                  <p class="w-40 py-6 md:w-auto">Battery’s life:</p>
+                  <div class="ml-auto w-full max-w-sm">
+                    <p class="pb-2 pt-6 text-center">Battery Capacity (mAh)</p>
+                    <p class="border-t border-black/10 pb-6 pt-2 text-center">
+                      Consumption (mAh) * (1 - discharge safety)
+                    </p>
+                  </div>
+                </div>
+                <div class="flex w-full border-t border-black/10">
+                  <p class="w-40 py-6 md:w-auto">e.g. Battery’s life:</p>
+                  <div class="ml-auto w-full max-w-sm">
+                    <p class="pb-2 pt-6 text-center">
+                      1000 mAh (it’s never exact as written in data-sheet)
+                    </p>
+                    <p class="border-t border-black/10 pb-4 pt-2 text-center">
+                      28 mAh (let’s say in avg.) * (1 - 20%)
+                    </p>
+                    <ArrowDownIcon className="w-8 h-8 stroke-black mx-auto" />
+                    <p class="hidden pt-3 text-center sm:block">
+                      ≈
+                      <br />
+                       28.57 hrs
+                      <br />
+                       (approximately, just above 1 day,
+                      <br />
+                       if the watch stays on continuously)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </FaqItem>
+          </div>
+        </div>
+        <hr
+          class="absolute left-0 right-0 hidden border-0 border-b border-black md:block"
+        />
+        <div id="maintenance"></div>
+        <div
+          class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-b-0"
         >
-          <span class="mr-3">1.</span> Maintenance
-        </h2>
-      </div>
-      <div class="basis-full">
-        <!-- TODO: -->
-        <FaqItem
-          title="How do I reset time (and date)?"
-          showBottomBorder
-          client:idle
-        >
-          Yes kind of, you can shower but don’t swim with it.
-          <br />
-           We got an IP65 rating, to be precise!
-        </FaqItem>
-        <FaqItem
-          title="How can I change the duration for which the watch displays time on button press?"
-          showBottomBorder
-          client:idle
-        >
-          So, we call it the “stay awake” duration and by default it is set to 5
-          sec. You can change it by following the previous step of “How do I
-          reset time (and Date)?” There, you will see a section, that says,
-          “Select Stay awake duration”. But be mindful that a longer stay awake
-          duration will lead to faster battery drainage.
-        </FaqItem>
-        <FaqItem title="How do I charge the watch?" client:idle>
-          It’s just like how you charge your other USB devices. Use the provided
-          micro USB cable to plug one end of it to the watch and the other to
-          any standard 5V DC USB power source (e.g. commonly found phone
-          charger). The Yellow light indicated “charging” while the Green means
-          “fully charged”.
+          <div class="sticky top-0 z-10 w-full self-start md:hidden">
+            <h2
+              class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+            >
+              <span class="mr-3">2.</span> Maintenance
+            </h2>
+          </div>
+          <div class="basis-full">
+            <!-- TODO: -->
+            <FaqItem
+              title="How do I reset time (and date)?"
+              showBottomBorder
+              client:idle
+            >
+              Yes kind of, you can shower but don’t swim with it.
+              <br />
+               We got an IP65 rating, to be precise!
+            </FaqItem>
+            <FaqItem
+              title="How can I change the duration for which the watch displays time on button press?"
+              showBottomBorder
+              client:idle
+            >
+              So, we call it the “stay awake” duration and by default it is set
+              to 5 sec. You can change it by following the previous step of “How
+              do I reset time (and Date)?” There, you will see a section, that
+              says, “Select Stay awake duration”. But be mindful that a longer
+              stay awake duration will lead to faster battery drainage.
+            </FaqItem>
+            <FaqItem title="How do I charge the watch?" client:idle>
+              It’s just like how you charge your other USB devices. Use the
+              provided micro USB cable to plug one end of it to the watch and
+              the other to any standard 5V DC USB power source (e.g. commonly
+              found phone charger). The Yellow light indicated “charging” while
+              the Green means “fully charged”.
 
-          <div class="mt-10 flex flex-col gap-6 md:mt-16 md:flex-row">
-            <Image src={watchCharging} alt="" />
-            <Image src={watchCharged} alt="" />
+              <div class="mt-10 flex flex-col gap-6 md:mt-16 md:flex-row">
+                <Image src={watchCharging} alt="" />
+                <Image src={watchCharged} alt="" />
+              </div>
+            </FaqItem>
           </div>
-        </FaqItem>
-      </div>
-    </div>
-    <div
-      id="accessories"
-      class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-y"
-    >
-      <div class="sticky top-0 z-10 w-full self-start md:w-fit">
-        <h2
-          class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+        </div>
+        <hr
+          class="absolute left-0 right-0 hidden border-0 border-b border-black md:block"
+        />
+        <div id="accessories"></div>
+        <div
+          class="dbs-container relative flex flex-col border-b border-black md:flex-row md:border-b-0"
         >
-          <span class="mr-3">1.</span> Accessories
-        </h2>
-      </div>
-      <div class="basis-full">
-        <FaqItem title="Can I change the belts?" client:idle>
-          At the moment the watch ships with the custom belt that we have
-          designed and manufactured. In the short term we do not have any plans
-          to create a new belt design. But if you would be interested and have
-          any suggestions, we are open to the idea. We suggest that you kindly
-          drop us a line to share your interests and ideas.
-          <br />
-          <br />
-           Also, since it is so simple to remove the belt, you can experiment
-          yourself as well. Currently we are talking to a friend and are
-          planning to design an Albert Chain/Necklace for it. We will keep you
-          posted about it’s status.
-        </FaqItem>
+          <div class="sticky top-0 z-10 w-full self-start md:hidden">
+            <h2
+              class="w-full space-y-3 border-b border-black/30 bg-white py-6 text-black md:w-48 md:border-b-0 md:py-10 md:text-2xl lg:w-64 xl:w-80"
+            >
+              <span class="mr-3">3.</span> Accessories
+            </h2>
+          </div>
+          <div class="basis-full">
+            <FaqItem title="Can I change the belts?" client:idle>
+              At the moment the watch ships with the custom belt that we have
+              designed and manufactured. In the short term we do not have any
+              plans to create a new belt design. But if you would be interested
+              and have any suggestions, we are open to the idea. We suggest that
+              you kindly drop us a line to share your interests and ideas.
+              <br />
+              <br />
+               Also, since it is so simple to remove the belt, you can
+              experiment yourself as well. Currently we are talking to a friend
+              and are planning to design an Albert Chain/Necklace for it. We
+              will keep you posted about it’s status.
+            </FaqItem>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -208,6 +251,47 @@ import { Image } from "astro:assets";
     }
   }
 </style>
+
+<script>
+  const setActiveLink: IntersectionObserverCallback = (entries) => {
+    for (let entry of entries) {
+      const { id } = entry.target;
+      const linkEl = document.querySelector(`.content-nav a[href='#${id}']`);
+      if (!linkEl) return;
+
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".content-nav a").forEach((e) => {
+          e.classList.remove("opacity-100");
+          e.classList.add("opacity-30");
+        });
+        linkEl.classList.remove("opacity-30");
+        linkEl.classList.add("opacity-100");
+      }
+    }
+  };
+
+  const observerOptions = {
+    threshold: 1,
+    rootMargin: "0px 0px -33%",
+  };
+
+  const observer = new IntersectionObserver(setActiveLink, observerOptions);
+  const generalSection = document.querySelector("#general");
+  const maintenanceSection = document.querySelector("#maintenance");
+  const accessoriesSection = document.querySelector("#accessories");
+
+  if (generalSection) {
+    observer.observe(generalSection);
+  }
+
+  if (maintenanceSection) {
+    observer.observe(maintenanceSection);
+  }
+
+  if (accessoriesSection) {
+    observer.observe(accessoriesSection);
+  }
+</script>
 
 <script>
   const button = document.querySelector(".scroll-trigger");
