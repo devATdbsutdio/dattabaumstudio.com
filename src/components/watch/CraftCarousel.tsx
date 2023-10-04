@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import useEmblaCarousel from "embla-carousel-react";
-import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 import craft1 from "@/assets/images/craft_1.png";
 import craft2 from "@/assets/images/craft_2.png";
 import craft3 from "@/assets/images/craft_3.png";
@@ -13,6 +12,8 @@ import craftDetail4 from "@/assets/images/craft_detail_4.png";
 import PlusIcon from "@/components/icons/PlusIcon";
 import XIcon from "@/components/icons/XIcon";
 import { cn } from "@/lib/utils";
+import ArrowLeftIcon from "../icons/ArrowLeftIcon";
+import ArrowRightIcon from "../icons/ArrowRightIcon";
 
 const CRAFTS = [
   {
@@ -189,18 +190,44 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
 };
 
 export default function CraftCarousel() {
-  const [emblaRef] = useEmblaCarousel(
+  const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: false,
       dragThreshold: 15,
       align: "start",
     },
-    [WheelGesturesPlugin()],
+    [],
   );
 
   return (
     <>
-      <div className="embla mt-10 md:mt-16">
+      <div className="relative mt-10 md:mt-16">
+        {emblaApi && (
+          <div className="dbs-container absolute -top-28 left-0 hidden justify-end gap-4 lg:flex">
+            <button
+              className="z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
+              onClick={() => {
+                emblaApi.scrollPrev();
+                if (emblaApi.plugins().autoplay) {
+                  emblaApi.plugins().autoplay?.stop();
+                }
+              }}
+            >
+              <ArrowLeftIcon className="h-8 w-8 md:h-10 md:w-10" />
+            </button>
+            <button
+              className="z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
+              onClick={() => {
+                emblaApi.scrollNext();
+                if (emblaApi.plugins().autoplay) {
+                  emblaApi.plugins().autoplay?.stop();
+                }
+              }}
+            >
+              <ArrowRightIcon className="h-8 w-8 md:h-10 md:w-10" />
+            </button>
+          </div>
+        )}
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container flex touch-pan-y">
             {CRAFTS.map((craft, index) => (
