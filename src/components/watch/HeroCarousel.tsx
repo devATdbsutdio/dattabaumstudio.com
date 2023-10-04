@@ -3,7 +3,14 @@ import Autoplay from "embla-carousel-autoplay";
 import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
 import ArrowLeftIcon from "@/components/icons/ArrowLeftIcon";
 
-export default function HeroCarousel({ images }: { images: string[] }) {
+export default function HeroCarousel({
+  images,
+}: {
+  images: {
+    desktop: any;
+    mobile: any;
+  }[];
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -11,30 +18,33 @@ export default function HeroCarousel({ images }: { images: string[] }) {
     [
       Autoplay({
         delay: 4000,
+
         rootNode: (emblaRoot) => emblaRoot.parentElement,
       }),
     ],
   );
 
+  console.log(images);
   return (
     <>
-      <div className="embla absolute inset-0 -z-10 overflow-hidden">
+      <div className="embla pointer-events-auto absolute inset-0 -z-10 overflow-hidden">
         <div className="embla__viewport" ref={emblaRef}>
           <div
-            className="embla__container flex"
-            style={{
-              backfaceVisibility: "hidden",
+            className="embla__container pointer-events-auto flex"
+            onClick={() => {
+              alert("clicked");
             }}
           >
-            {images.map((imgSrc, index) => (
+            {images.map((img, index) => (
               <div
                 className="embla__slide flex-grow-1 relative min-w-0 flex-shrink-0 basis-full"
                 key={index}
               >
                 <picture className="block h-screen w-screen object-cover">
+                  <source media="(max-width: 480px)" srcSet={img.mobile.src} />
                   <img
                     alt=""
-                    src={imgSrc}
+                    src={img.desktop.src}
                     className="h-screen w-screen object-cover object-center"
                   />
                 </picture>

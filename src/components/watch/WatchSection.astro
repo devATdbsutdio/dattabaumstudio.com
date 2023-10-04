@@ -1,15 +1,15 @@
 ---
-import home from "@/assets/images/home.png";
-import homeMobile from "@/assets/images/home_mobile.png";
+import watchTrailer from "@/assets/images/watch_trailer.png";
+import watchTrailerMobile from "@/assets/images/watch_trailer_mobile.png";
 import watch7Segment from "@/assets/images/watch_7_segment.png";
 import { getImage } from "astro:assets";
 
-const homeImg = await getImage({ src: home });
-const homeImgMobile = await getImage({ src: homeMobile });
-const homeVid =
-  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome.mp4?alt=media";
-const homeVidMobile =
-  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fhome_mobile.mp4?alt=media";
+const watchTrailerImg = await getImage({ src: watchTrailer });
+const watchTrailerImgMobile = await getImage({ src: watchTrailerMobile });
+const watchVid =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fwatch.mp4?alt=media";
+const watchVidMobile =
+  "https://firebasestorage.googleapis.com/v0/b/dattabaumstudio.appspot.com/o/public%2Fwatch_mobile.mp4?alt=media";
 
 const watch7SegmentImg = await getImage({ src: watch7Segment });
 const watchClip1Vid =
@@ -24,22 +24,23 @@ const watchClip2Vid =
     class="pointer-events-auto relative flex h-screen items-center justify-center overflow-hidden"
   >
     <picture class="bg absolute inset-0 -z-20 object-cover">
-      <source media="(max-width: 480px)" srcset={homeImgMobile.src} />
-      <img src={homeImg.src} class="h-full w-full object-cover object-center" />
+      <source media="(max-width: 480px)" srcset={watchTrailerImgMobile.src} />
+      <img
+        src={watchTrailerImg.src}
+        class="h-full w-full object-cover object-center"
+      />
     </picture>
     <video
       preload="auto"
-      loop=""
-      muted=""
       playsinline=""
       class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
-      data-desktop={homeVid}
-      data-mobile={homeVidMobile}
+      data-desktop={watchVid}
+      data-mobile={watchVidMobile}
     >
     </video>
     <button
       data-state="paused"
-      class="bg-watch isolate z-10 h-24 w-24 rounded-full border border-white/20 text-white"
+      class="bg-modal isolate z-10 h-24 w-24 rounded-full border border-white/20 text-white backdrop-blur-sm"
     >
       Play
     </button>
@@ -148,8 +149,17 @@ const watchClip2Vid =
       addSourceToVideo(bgVideo.dataset.mobile);
     }
 
-    bgVideo.addEventListener("loadeddata", () => {
+    bgVideo.addEventListener("play", () => {
       bgPicture.classList.add("hidden");
+    });
+
+    bgVideo.addEventListener("ended", () => {
+      bgPicture.classList.remove("hidden");
+
+      if (playButton) {
+        playButton.dataset.state = "paused";
+        playButton.textContent = "Play";
+      }
     });
   });
 
@@ -174,6 +184,12 @@ const watchClip2Vid =
           playButton.textContent = "Play";
         }
         bgVideo?.pause();
+      } else {
+        if (playButton) {
+          playButton.dataset.state = "playing";
+          playButton.textContent = "Pause";
+        }
+        bgVideo?.play();
       }
     },
     {

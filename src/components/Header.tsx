@@ -79,7 +79,7 @@ export default function Header({ solidBg }: HeaderProps) {
         as={React.Fragment}
       >
         <Dialog as="div" className="relative z-20" onClose={toggleMenu}>
-          <Dialog.Panel className="fixed inset-0 flex flex-col bg-black px-4 py-6 text-3xl text-white">
+          <Dialog.Panel className="fixed inset-0 flex flex-col bg-black px-4 py-6 text-3xl font-light text-white">
             <button
               className="mb-4 ml-auto self-start p-2 transition-colors hover:bg-neutral-950"
               onClick={toggleMenu}
