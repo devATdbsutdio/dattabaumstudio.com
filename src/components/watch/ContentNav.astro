@@ -8,22 +8,22 @@ import WaitingListButton from "./WaitingListButton";
   <div
     class="content-nav flex overflow-hidden rounded border border-white/30 bg-black"
   >
-    <button
-      id="watch-button"
+    <a
+      href="#watch"
       class="p-5 pl-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pl-12 md:text-base"
     >
-      <span class="hidden sm:inline-block">The</span>{" "}Watch</button
+      <span class="hidden sm:inline-block">The</span>{" "}Watch</a
     >
-    <button
-      id="craftsmanship-button"
+    <a
+      href="#craftsmanship"
       class="p-5 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:text-base"
-      >Craftsmanship</button
+      >Craftsmanship</a
     >
-    <button
-      id="specs-button"
+    <a
+      href="#specs"
       class="p-5 pr-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pr-12 md:text-base"
     >
-      <span class="hidden sm:inline-block">The</span>{" "}Specs</button
+      <span class="hidden sm:inline-block">The</span>{" "}Specs</a
     >
     <WaitingListButton
       client:load
@@ -33,100 +33,48 @@ import WaitingListButton from "./WaitingListButton";
 </div>
 
 <script>
-  const contentNavContainer = document.querySelector(".content-nav-container");
+  const setActiveLink: IntersectionObserverCallback = (entries) => {
+    console.log(entries);
+    for (let entry of entries) {
+      const { id } = entry.target;
+      const linkEl = document.querySelector(`.content-nav a[href='#${id}']`);
+      if (!linkEl) return;
+
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".content-nav a").forEach((e) => {
+          e.classList.remove("opacity-100");
+          e.classList.add("opacity-30");
+        });
+        linkEl.classList.remove("opacity-30");
+        linkEl.classList.add("opacity-100");
+      }
+    }
+  };
+
+  const observerOptions = {
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver(setActiveLink, observerOptions);
   const watchSection = document.querySelector("#watch");
-  const watchButton = document.querySelector("#watch-button");
   const craftsmanshipSection = document.querySelector("#craftsmanship");
-  const craftsmanshipButton = document.querySelector("#craftsmanship-button");
   const specsSection = document.querySelector("#specs");
-  const specsButton = document.querySelector("#specs-button");
 
-  window.addEventListener("load", () => {
-    const highlightButton = (button: Element | null) => {
-      button?.classList.remove("opacity-30");
-      button?.classList.add("opacity-100");
-    };
+  if (watchSection) {
+    observer.observe(watchSection);
+  }
 
-    const unhighlightButton = (button: Element | null) => {
-      button?.classList.remove("opacity-100");
-      button?.classList.add("opacity-30");
-    };
+  if (craftsmanshipSection) {
+    observer.observe(craftsmanshipSection);
+  }
 
-    const highlightWatch = () => {
-      highlightButton(watchButton);
-      unhighlightButton(craftsmanshipButton);
-      unhighlightButton(specsButton);
-    };
+  if (specsSection) {
+    observer.observe(specsSection);
+  }
+</script>
 
-    const highlightCraftsmanship = () => {
-      highlightButton(craftsmanshipButton);
-      unhighlightButton(watchButton);
-      unhighlightButton(specsButton);
-    };
-
-    const highlightSpecs = () => {
-      highlightButton(specsButton);
-      unhighlightButton(watchButton);
-      unhighlightButton(craftsmanshipButton);
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries.filter((entry) => entry.isIntersecting)[0];
-        if (!entry) return;
-        if (entry.target.id === "watch") {
-          highlightWatch();
-        } else if (entry.target.id === "craftsmanship") {
-          highlightCraftsmanship();
-        } else if (entry.target.id === "specs") {
-          highlightSpecs();
-        } else {
-          unhighlightButton(watchButton);
-          unhighlightButton(craftsmanshipButton);
-          unhighlightButton(specsButton);
-        }
-      },
-      {
-        threshold: 0.1,
-      },
-    );
-
-    if (watchSection) {
-      observer.observe(watchSection);
-      watchButton?.addEventListener("click", () => {
-        highlightWatch();
-        watchSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      });
-    }
-
-    if (craftsmanshipSection) {
-      observer.observe(craftsmanshipSection);
-      craftsmanshipButton?.addEventListener("click", () => {
-        highlightCraftsmanship();
-        craftsmanshipSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      });
-    }
-
-    if (specsSection) {
-      observer.observe(specsSection);
-      specsButton?.addEventListener("click", () => {
-        highlightSpecs();
-        specsSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      });
-    }
-  });
+<script>
+  const contentNavContainer = document.querySelector(".content-nav-container");
 
   const showContentNav = () => {
     if (
