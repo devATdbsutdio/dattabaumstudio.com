@@ -1,0 +1,81 @@
+---
+import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
+import XIcon from "@/components/icons/XIcon";
+
+interface Props {
+  title: string;
+  step: string;
+  showBackBtn?: boolean;
+}
+
+const { title, step, showBackBtn } = Astro.props;
+
+const id = `sync-time-step-${step}`;
+
+const ACTIVE_CLASSES: Record<string, string> = {
+  "1": "group-data-[active-step='1']/sync-steps:flex",
+  "2": "group-data-[active-step='2']/sync-steps:flex",
+  "3": "group-data-[active-step='3']/sync-steps:flex",
+  "4": "group-data-[active-step='4']/sync-steps:flex",
+};
+---
+
+<div class={`relative z-30 ${ACTIVE_CLASSES[step]} hidden`} id={id}>
+  <div class="bg-modal fixed inset-0"></div>
+  <div class="fixed inset-0 overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center text-center md:p-4">
+      <div
+        class="relative min-h-screen w-screen transform flex-col overflow-hidden bg-white px-4 py-6 text-left align-middle shadow-xl transition-all only:flex md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl md:px-14 md:py-14"
+      >
+        <div class="flex items-center justify-between">
+          {
+            showBackBtn && (
+              <button class="sync-time-step-back mb-4 inline-flex items-center gap-2 self-start p-2 transition-colors">
+                <ChevronDownIcon className="stroke-black rotate-90 stroke-2" />
+                Back
+              </button>
+            )
+          }
+          <button
+            class="sync-time-step-close mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
+          >
+            Close
+            <XIcon className="text-black" />
+          </button>
+        </div>
+        <h3 class="mb-4 max-w-3xl text-3xl uppercase md:text-5xl">{title}</h3>
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const stepsWrapper = document.querySelector("#steps-wrapper") as HTMLElement;
+
+  const closeBtns = document.querySelectorAll(".sync-time-step-close");
+  closeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      stepsWrapper.dataset.activeStep = "0";
+    });
+
+    console.log("*** CLOSE");
+  });
+
+  const backBtns = document.querySelectorAll(".sync-time-step-back");
+  backBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (stepsWrapper.dataset.activeStep === "1") {
+        stepsWrapper.dataset.activeStep = "0";
+      } else if (stepsWrapper.dataset.activeStep === "2") {
+        stepsWrapper.dataset.activeStep = "1";
+      } else if (stepsWrapper.dataset.activeStep === "3") {
+        stepsWrapper.dataset.activeStep = "2";
+      } else if (stepsWrapper.dataset.activeStep === "4") {
+        stepsWrapper.dataset.activeStep = "3";
+      }
+
+      console.log("*** GOING BACK");
+    });
+  });
+</script>

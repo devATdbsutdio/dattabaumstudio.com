@@ -79,7 +79,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
               >
                 <Dialog.Panel className="relative min-h-screen w-screen transform flex-col overflow-hidden bg-white px-4 py-6 text-left align-middle shadow-xl transition-all only:flex md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl md:px-14 md:py-14">
                   <button
-                    className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors hover:bg-neutral-50"
+                    className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
                     onClick={onClose}
                   >
                     Close
