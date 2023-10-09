@@ -1,3 +1,7 @@
+---
+import Button from "../Button";
+---
+
 <div class="space-y-10">
   <div class="space-y-6">
     <p>
@@ -40,6 +44,38 @@
       noticed it too late; we will fix that in next version!)
     </p>
   </div>
+  <p id="sync-time-notice" class="hidden font-bold text-red-500">
+    Sorry, but your browser does not support web-serial which is used to sync
+    time. Please use Google Chrome or Microsoft Edge.
+  </p>
+  <Button
+    id="btn-sync-time-start"
+    variant="primary-light"
+    className="w-full disabled:opacity-10"
+  >
+    Change time and date
+  </Button>
 </div>
 
-<script></script>
+<script>
+  console.log("*** CHECKING WEB SERIAL SUPPORT");
+
+  const btnSyncTimeStart = document.querySelector(
+    "#btn-sync-time-start",
+  ) as HTMLElement;
+  const syncTimeNotice = document.querySelector(
+    "#sync-time-notice",
+  ) as HTMLElement;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const navigator: any = window.navigator;
+
+    if (navigator.serial) {
+      console.log("*** WEB SERIAL SUPPORTED");
+    } else {
+      syncTimeNotice.classList.remove("hidden");
+      console.log("*** WEB SERIAL NOT SUPPORTED");
+      btnSyncTimeStart.setAttribute("disabled", "true");
+    }
+  });
+</script>

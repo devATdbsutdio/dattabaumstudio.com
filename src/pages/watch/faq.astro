@@ -1,6 +1,6 @@
 ---
 import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
-import FaqItem from "@/components/watch/FaqItem";
+import FaqItem from "@/components/watch/FaqItem.astro";
 import Layout from "@/layouts/Layout.astro";
 import watchCharging from "@/assets/images/charging.svg";
 import watchCharged from "@/assets/images/charged.svg";
@@ -174,17 +174,17 @@ import ResetTime from "@/components/watch/ResetTime.astro";
               <span class="mr-3">2.</span> Maintenance
             </h2>
           </div>
-          <div class="group basis-full" id="maintenance-group">
+          <div class="group/maintenance basis-full" id="maintenance-group">
             <!-- TODO: -->
             <FaqItem
               title="How do I reset time (and date)?"
               showBottomBorder
-              client:idle
+              client:load
             >
-              <div class="group-data-[device=mobile]:hidden">
+              <div class="group-data-[device=mobile]/maintenance:hidden">
                 <ResetTime />
               </div>
-              <div class="group-data-[device=computer]:hidden">
+              <div class="group-data-[device=computer]/maintenance:hidden">
                 Sorry, but to proceed, you will need a computer (Windows or Mac)
                 with USB ports and access to this page using Google Chrome or
                 Microsoft Edge.
@@ -321,18 +321,24 @@ import ResetTime from "@/components/watch/ResetTime.astro";
       }
     });
   }
+</script>
 
-  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
-    navigator.userAgent,
-  );
-
+<!-- CHECK IF COMPUTER DEVICE -->
+<script>
   const maintenanceGroup = document.querySelector(
     "#maintenance-group",
   ) as HTMLDivElement;
 
+  console.log("*** CHECKING DEVICE");
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+    navigator.userAgent,
+  );
+
   if (maintenanceGroup && isMobileDevice) {
+    console.log("*** IS MOBILE DEVICE, SETTING TIME NOT AVAILABLE");
     maintenanceGroup.dataset.device = "mobile";
   } else {
+    console.log("*** IS COMPUTER DEVICE, SETTING TIME AVAILABLE");
     maintenanceGroup.dataset.device = "computer";
   }
 </script>

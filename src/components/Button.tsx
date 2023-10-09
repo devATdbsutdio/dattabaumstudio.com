@@ -25,6 +25,7 @@ export const buttonVariants = cva(
 );
 
 export interface ButtonProps {
+  id?: string;
   className?: string;
   children: React.ReactNode;
   variant?: VariantProps<typeof buttonVariants>["variant"];
@@ -38,6 +39,7 @@ export interface ButtonProps {
 }
 
 const Button = ({
+  id,
   className,
   children,
   variant,
@@ -53,6 +55,7 @@ const Button = ({
 
   return (
     <Component
+      id={id}
       className={cn(buttonVariants({ variant, className }))}
       onClick={onClick}
       disabled={disabled}
