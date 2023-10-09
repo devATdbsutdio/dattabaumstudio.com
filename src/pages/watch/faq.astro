@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro";
 import watchCharging from "@/assets/images/charging.svg";
 import watchCharged from "@/assets/images/charged.svg";
 import { Image } from "astro:assets";
+import ResetTime from "@/components/watch/ResetTime.astro";
 ---
 
 <Layout>
@@ -173,27 +174,40 @@ import { Image } from "astro:assets";
               <span class="mr-3">2.</span> Maintenance
             </h2>
           </div>
-          <div class="basis-full">
+          <div class="group basis-full" id="maintenance-group">
             <!-- TODO: -->
             <FaqItem
               title="How do I reset time (and date)?"
               showBottomBorder
               client:idle
             >
-              Yes kind of, you can shower but don’t swim with it.
-              <br />
-               We got an IP65 rating, to be precise!
+              <div class="group-data-[device=mobile]:hidden">
+                <ResetTime />
+              </div>
+              <div class="group-data-[device=computer]:hidden">
+                Sorry, but to proceed, you will need a computer (Windows or Mac)
+                with USB ports and access to this page using Google Chrome or
+                Microsoft Edge.
+              </div>
             </FaqItem>
             <FaqItem
               title="How can I change the duration for which the watch displays time on button press?"
               showBottomBorder
               client:idle
             >
-              So, we call it the “stay awake” duration and by default it is set
-              to 5 sec. You can change it by following the previous step of “How
-              do I reset time (and Date)?” There, you will see a section, that
-              says, “Select Stay awake duration”. But be mindful that a longer
-              stay awake duration will lead to faster battery drainage.
+              <div class="group-data-[device=mobile]:hidden">
+                So, we call it the “stay awake” duration and by default it is
+                set to 5 sec. You can change it by following the previous step
+                of “How do I reset time (and Date)?” There, you will see a
+                section, that says, “Select Stay awake duration”. But be mindful
+                that a longer stay awake duration will lead to faster battery
+                drainage.
+              </div>
+              <div class="group-data-[device=computer]:hidden">
+                Sorry, but to proceed, you will need a computer (Windows or Mac)
+                with USB ports and access to this page using Google Chrome or
+                Microsoft Edge.
+              </div>
             </FaqItem>
             <FaqItem title="How do I charge the watch?" client:idle>
               It’s just like how you charge your other USB devices. Use the
@@ -306,5 +320,19 @@ import { Image } from "astro:assets";
         });
       }
     });
+  }
+
+  const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(
+    navigator.userAgent,
+  );
+
+  const maintenanceGroup = document.querySelector(
+    "#maintenance-group",
+  ) as HTMLDivElement;
+
+  if (maintenanceGroup && isMobileDevice) {
+    maintenanceGroup.dataset.device = "mobile";
+  } else {
+    maintenanceGroup.dataset.device = "computer";
   }
 </script>
