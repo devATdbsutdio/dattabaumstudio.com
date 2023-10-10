@@ -72,11 +72,7 @@ import ResetTime from "@/components/watch/ResetTime.astro";
             </h2>
           </div>
           <div class="basis-full">
-            <FaqItem
-              title="Is it water resistant?"
-              showBottomBorder
-              client:idle
-            >
+            <FaqItem title="Is it water resistant?" showBottomBorder>
               Yes kind of, you can shower but don’t swim with it.
               <br />
                We got an IP65 rating, to be precise!
@@ -84,7 +80,6 @@ import ResetTime from "@/components/watch/ResetTime.astro";
             <FaqItem
               title="How does it handle high and low temperatures?"
               showBottomBorder
-              client:idle
             >
               Pretty well to our surprise. We tested our samples at high
               temperature of 85°C and a low of -20°C for 24 hours. We also
@@ -93,10 +88,7 @@ import ResetTime from "@/components/watch/ResetTime.astro";
               shock.
             </FaqItem>
             <!-- TODO: -->
-            <FaqItem
-              title="How often do I have to charge the watch?"
-              client:idle
-            >
+            <FaqItem title="How often do I have to charge the watch?">
               On full charge, if clicked for 25 times per day, you might need to
               charge the watch after few weeks (or even a month), it depends
               heavily on your usage.
@@ -176,11 +168,7 @@ import ResetTime from "@/components/watch/ResetTime.astro";
           </div>
           <div class="group/maintenance basis-full" id="maintenance-group">
             <!-- TODO: -->
-            <FaqItem
-              title="How do I reset time (and date)?"
-              showBottomBorder
-              client:load
-            >
+            <FaqItem title="How do I reset time (and date)?" showBottomBorder>
               <div class="group-data-[device=mobile]/maintenance:hidden">
                 <ResetTime />
               </div>
@@ -193,7 +181,6 @@ import ResetTime from "@/components/watch/ResetTime.astro";
             <FaqItem
               title="How can I change the duration for which the watch displays time on button press?"
               showBottomBorder
-              client:idle
             >
               <div class="group-data-[device=mobile]:hidden">
                 So, we call it the “stay awake” duration and by default it is
@@ -209,7 +196,7 @@ import ResetTime from "@/components/watch/ResetTime.astro";
                 Microsoft Edge.
               </div>
             </FaqItem>
-            <FaqItem title="How do I charge the watch?" client:idle>
+            <FaqItem title="How do I charge the watch?">
               It’s just like how you charge your other USB devices. Use the
               provided micro USB cable to plug one end of it to the watch and
               the other to any standard 5V DC USB power source (e.g. commonly
@@ -238,7 +225,7 @@ import ResetTime from "@/components/watch/ResetTime.astro";
             </h2>
           </div>
           <div class="basis-full">
-            <FaqItem title="Can I change the belts?" client:idle>
+            <FaqItem title="Can I change the belts?">
               At the moment the watch ships with the custom belt that we have
               designed and manufactured. In the short term we do not have any
               plans to create a new belt design. But if you would be interested
