@@ -38,7 +38,7 @@ import StepWrapper from "./StepWrapper.astro";
   });
 
   stayAwakeDuration.addEventListener("change", () => {
-    console.log("*** STAY AWAKE DURATION CHANGED");
+    console.log("*** STAY AWAKE DURATION CHANGED", stayAwakeDuration.value);
     stepsWrapper.dataset.stayAwakeDuration = stayAwakeDuration.value;
   });
 </script>

@@ -14,7 +14,7 @@ import StepWrapper from "./StepWrapper.astro";
 
   btnSyncTimeStep2.addEventListener("click", async () => {
     console.log("*** ATTEMPTING TO CONNECT TO PORT");
-    const port = await navigator.serial.requestPort();
+    port = await navigator.serial.requestPort();
 
     console.log("*** PORT REQUESTED", port);
 
@@ -28,7 +28,6 @@ import StepWrapper from "./StepWrapper.astro";
         outputStream = encoder.writable;
 
         serialConnected = true;
-        btnSyncTimeStep2.innerHTML = "DISCONNECT PORT";
 
         disconnectCounter = 0;
 

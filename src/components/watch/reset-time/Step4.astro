@@ -74,6 +74,22 @@ import StepWrapper from "./StepWrapper.astro";
 
     syncTimeCompleteDiv.classList.remove("hidden");
     syncTimeCompleteDiv.classList.add("flex");
+
+    if (outputStream) {
+      console.log("*** CLOSE OUTPUT STREAM");
+      await outputStream.getWriter().close();
+      await outputDone;
+      outputStream = null;
+      outputDone = null;
+    }
+    if (port) {
+      console.log("*** CLOSE PORT");
+      await port.close();
+      console.log("*** SERIAL DISCONNECTED");
+      port = null;
+      serialConnected = false;
+      disconnectCounter = 0;
+    }
   };
 
   function writeToStream(...lines) {
