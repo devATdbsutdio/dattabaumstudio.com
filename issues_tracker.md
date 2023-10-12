@@ -11,6 +11,7 @@
    - ![Screenshot 2023-10-12 at 19 45 29](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9377046e-8980-41a8-a050-d671bd6e5e4b)
 
    - All the policy pages have huge spacing between them.
+   - Navigation, scroll downwards feels very rough. Can these be smoothed?  
 
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 2 links missing (video - i.e. video card needs implementation and driver link).
