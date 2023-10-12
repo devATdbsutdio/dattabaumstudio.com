@@ -19,7 +19,7 @@
 5. Can the Home page video start a bit faster?  
   - _Waiting on Shopify migration and tsting needs to be done from various location_
 6. Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
-7. Provide OG Image for link preview [Datta].
+7. ~~Provide OG Image for link preview [Datta]~~
 8. Implement OG Image for link preview [Zaid] 
 9. ~~Webserial: Implement~~
 10. Webserial: Thorough Test [Datta]
@@ -29,7 +29,8 @@
 14. Migrate all the big assets (video etc.) to shopify. [Zaid]
 15. Cards have a small call to action __+__ at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
 16. All video playback speed - check after migration to shopify.
-17. Lock down firebase. 
+17. Lock down firebase.
+18.  
 
 
 ### [DESKTOP]   
@@ -54,6 +55,7 @@
       4. ~~[PRIVACY Policy] is rendered weirdly:~~
    
       <img width="320" alt="Mobile Privacy" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/a0a580ac-370f-40ee-9f75-fb768419c247">
+      
       5. Android chrome, the watch page slide show first image is cropped. 
 
    
