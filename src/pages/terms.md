@@ -137,24 +137,14 @@ Without limiting the foregoing, neither the Company nor any of the company's pro
 
 Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.
 
-> {Governing Law} Please Double check and update the below section according to HK laws.
-
-The laws of the Country i.e. Hong Kong SAR, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.
-
-> {Disputes Resolution} Litigation in HK can be updated after attorney's suggestion
-
-If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.
-
-> Waiting for suggestion on how to handle this in HK.
-
-```text
+The laws of the Country i.e. Hong Kong SAR, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws. If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.
 
 For European Union (EU) Users
 If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which you are resident in.
 
 United States Legal Compliance
 You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
-```
+
 
 ## Severability and Waiver
 
