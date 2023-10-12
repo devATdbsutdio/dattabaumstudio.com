@@ -27,7 +27,8 @@
 13. Shopify setup for other things in the backend [WIP] [Datta]
 14. Migrate all the big assets (video etc.) to shopify. [Zaid]
 15. Cards have a small call to action __+__ at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
-16. All video playback speed - check after migration to shopify. 
+16. All video playback speed - check after migration to shopify.
+17. Lock down firebase. 
 
 
 ### [DESKTOP]   
@@ -52,13 +53,12 @@
       4. ~~[PRIVACY Policy] is rendered weirdly:~~
    
       <img width="320" alt="Mobile Privacy" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/a0a580ac-370f-40ee-9f75-fb768419c247">
+      5. Android chrome, the watch page slide show first image is cropped. 
 
    
 
-
 # TBD
 1. Cookie Policy? How do we deal with that? The banner need to be deisgned?
-2. Lock down firebase
 4. ~~[Datta] Check remaining part of Terms Page (TBD Oct)~~
 5. Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.
 6. About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).
