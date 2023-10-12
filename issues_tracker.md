@@ -26,6 +26,7 @@
      <img src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/2d9dddd6-86e8-4815-a3e0-b8f9b1963487" alt="From Figma" width="320">
      <figcaption>From Figma</figcaption>
     </figure>
+5. Provide OG Image for link preview
 
 
 ### [DESKTOP]   
