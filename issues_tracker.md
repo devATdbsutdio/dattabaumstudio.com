@@ -13,7 +13,7 @@
    - video link for the robot
    - Video for the graph.
    - ~~driver link~~.
-4. FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
+4. [WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
 5. Can the Home page video start a bit faster? - _Waiting on Shopify migration and tsting needs to be done from various location_
 6. Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
 7. ~~Provide OG Image for link preview [Datta]~~
