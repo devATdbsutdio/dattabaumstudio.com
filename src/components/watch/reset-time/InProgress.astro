@@ -34,7 +34,7 @@ const syncImg = await getImage({ src: sync });
             <img src={syncImg.src} class="h-full w-full object-contain" />
           </picture>
           <div
-            class="animate-bounceLeft h-0 w-0 border-b-[10px] border-r-[15px] border-t-[10px] border-b-transparent border-r-black border-t-transparent"
+            class="animate-bounceLeft mt-12 h-0 w-0 border-b-[10px] border-r-[15px] border-t-[10px] border-b-transparent border-r-black border-t-transparent"
           >
           </div>
         </div>
@@ -61,17 +61,17 @@ const syncImg = await getImage({ src: sync });
 
 <style>
   .animate-bounceLeft {
-    animation: bounceLeft 1s infinite;
+    animation: bounceLeft 1.5s infinite;
   }
 
   @keyframes bounceLeft {
     0%,
     100% {
-      transform: translateX(-25%);
+      transform: translateX(0);
       animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
     }
     50% {
-      transform: translateX(0);
+      transform: translateX(-50%);
       animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
   }
