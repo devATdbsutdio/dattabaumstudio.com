@@ -174,22 +174,20 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
   };
 
   return (
-    <>
-      <div
-        onClick={toggleDetail}
-        className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md flex-shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
-      >
-        <img src={craft.image.src} />
-        <button className="absolute bottom-2 right-2 z-10 p-3 md:bottom-7 md:right-7">
-          <PlusIcon className="h-6 w-6 text-black" />
-        </button>
-        <div className="absolute inset-5 z-0 flex flex-col justify-end md:inset-10">
-          <h4 className="mb-2 text-2xl md:mb-4 md:text-4xl">{craft.title}</h4>
-          <p className="text-sm font-light md:text-base">{craft.description}</p>
-        </div>
+    <div
+      onClick={toggleDetail}
+      className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md flex-shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
+    >
+      <img src={craft.image.src} />
+      <button className="absolute bottom-2 right-2 z-10 p-3 md:bottom-7 md:right-7">
+        <PlusIcon className="h-6 w-6 text-black" />
+      </button>
+      <div className="absolute inset-5 z-0 flex flex-col justify-end md:inset-10">
+        <h4 className="mb-2 text-2xl md:mb-4 md:text-4xl">{craft.title}</h4>
+        <p className="text-sm font-light md:text-base">{craft.description}</p>
       </div>
       <CraftDetail isOpen={isDetailOpen} toggle={toggleDetail} craft={craft} />
-    </>
+    </div>
   );
 };
 
