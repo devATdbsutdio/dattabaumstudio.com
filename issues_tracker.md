@@ -10,11 +10,11 @@
    - Navigation, scroll downwards feels very rough. Can these be smoothed?
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 3 links
-   - video link for the robot
+   - video link for the robot.
    - Video for the graph.
    - ~~driver link~~.
-4. [WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
-5. Can the Home page video start a bit faster? - _Waiting on Shopify migration and tsting needs to be done from various location_
+4. [Zaid] Migrate all the big assets (video etc.) to shopify and relink.
+5. Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_
 6. Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
 7. ~~Provide OG Image for link preview [Datta]~~
 8. ~~Implement OG Image for link preview [Zaid]~~
@@ -23,8 +23,7 @@
 11. Check all the copy [Datta]
 12. ~~Shopify srtore setup [Datta]~~
 13. Shopify setup for other things in the backend [WIP] [Datta]
-14. Migrate all the big assets (video etc.) to shopify. [Zaid]
-15. Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
+15. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
 16. All video playback speed - check after migration to shopify.
 17. ~~Lock down firebase.~~
 
@@ -43,7 +42,8 @@
 
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
-   7. "Reset Time" cards: Should habve all the same size. 
+   7. [WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
+   8. [WIP] FAQ Page, "Reset Time" cards: Should have all the same size. Use the same gradient for 
 
 ### [MOBILE PAGE]
 
