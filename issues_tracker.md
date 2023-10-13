@@ -26,7 +26,7 @@
 14. Migrate all the big assets (video etc.) to shopify. [Zaid]
 15. Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
 16. All video playback speed - check after migration to shopify.
-17. Lock down firebase.
+17. ~~Lock down firebase.~~
 
 ### [DESKTOP]
 
