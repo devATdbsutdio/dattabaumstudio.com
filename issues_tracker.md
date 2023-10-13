@@ -3,7 +3,7 @@
 ### [DESKTOP & MOBILE]
 
 1. Please double check with figma, all the char spacing and line gaps (imp).
-   - Replace all the fonts and corrcet all the fornt weights as according to figma.
+   - Replace all the fonts and correct all the fornt weights as according to figma.
    - Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
    - ~~After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.~~
    - ~~Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.~~
