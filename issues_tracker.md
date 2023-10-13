@@ -51,7 +51,7 @@
 
 2. [WATCH PAGE]
 
-   1. ~~VVideo: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~V
+   1. ~~VVideo: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~
    2. ~~VVideo: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported~~Vfrom the video)
    3. ~~Cards: The "close X" has a gray outline~~
    4. ~~[PRIVACY Policy] is rendered weirdly:~~
