@@ -11,9 +11,12 @@
    - Navigation, scroll downwards feels very rough. Can these be smoothed?
 
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
-3. FAQ Page, 2 links missing (video - i.e. video card needs implementation and driver link).
-4. FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
-5. Can the Home page video start a bit faster?
+3. FAQ Page, 3 links
+4. - video link for the robot
+   - Video for the graph.
+   - ~~driver link~~.
+5. FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
+6. Can the Home page video start a bit faster?
 
 - _Waiting on Shopify migration and tsting needs to be done from various location_
 
