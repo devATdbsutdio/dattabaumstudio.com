@@ -4,8 +4,14 @@ import FaqItem from "@/components/watch/FaqItem.astro";
 import Layout from "@/layouts/Layout.astro";
 import watchCharging from "@/assets/images/charging.svg";
 import watchCharged from "@/assets/images/charged.svg";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import ResetTime from "@/components/watch/ResetTime.astro";
+import sync from "@/assets/images/sync-in-progress.png";
+
+const syncImg = await getImage({ src: sync });
+
+const currentVid =
+  "https://cdn.shopify.com/videos/c/o/v/92509d6c5be74951ac35d31f068daa2e.mp4";
 ---
 
 <Layout>
@@ -87,7 +93,6 @@ import ResetTime from "@/components/watch/ResetTime.astro";
               Humidity to be precise) and also tested for 24 hours under thermal
               shock.
             </FaqItem>
-            <!-- TODO: -->
             <FaqItem title="How often do I have to charge the watch?">
               On full charge, if clicked for 25 times per day, you might need to
               charge the watch after few weeks (or even a month), it depends
@@ -147,6 +152,32 @@ import ResetTime from "@/components/watch/ResetTime.astro";
                        if the watch stays on continuously)
                     </p>
                   </div>
+                </div>
+              </div>
+              <div class="mt-10 hidden items-center gap-16 md:flex">
+                <div class="flex">
+                  <picture class="h-36 w-36">
+                    <img
+                      src={syncImg.src}
+                      class="h-full w-full object-contain"
+                    />
+                  </picture>
+                  <div
+                    class="ml-1 mt-10 h-0 w-0 border-b-[10px] border-r-[15px] border-t-[10px] border-b-transparent border-r-black border-t-transparent"
+                  >
+                  </div>
+                </div>
+                <div class="basis-full">
+                  <video
+                    preload="auto"
+                    autoplay=""
+                    loop=""
+                    muted=""
+                    playsinline=""
+                    class="w-full"
+                  >
+                    <source src={currentVid} type="video/mp4" />
+                  </video>
                 </div>
               </div>
             </FaqItem>
@@ -251,8 +282,6 @@ import ResetTime from "@/components/watch/ResetTime.astro";
       @apply px-5;
     }
   }
-
-
 </style>
 
 <script>
