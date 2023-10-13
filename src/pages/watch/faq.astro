@@ -167,11 +167,11 @@ import ResetTime from "@/components/watch/ResetTime.astro";
             </h2>
           </div>
           <div class="group/maintenance basis-full" id="maintenance-group">
-            <!-- TODO: -->
             <FaqItem title="How do I reset time (and date)?" showBottomBorder>
               <div class="group-data-[device=mobile]/maintenance:hidden">
                 <ResetTime />
               </div>
+
               <div class="group-data-[device=computer]/maintenance:hidden">
                 Sorry, but to proceed, you will need a computer (Windows or Mac)
                 with USB ports and access to this page using Google Chrome or
@@ -249,6 +249,22 @@ import ResetTime from "@/components/watch/ResetTime.astro";
   @media (min-width: 1920px) {
     .dbs-container {
       @apply px-5;
+    }
+  }
+
+  .animate-bounceLeft {
+    animation: bounceLeft 1s infinite;
+  }
+
+  @keyframes bounceLeft {
+    0%,
+    100% {
+      transform: translateX(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateX(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
     }
   }
 </style>

@@ -195,6 +195,7 @@ export default function CraftCarousel() {
       loop: false,
       dragThreshold: 15,
       align: "start",
+      containScroll: "keepSnaps",
     },
     [],
   );

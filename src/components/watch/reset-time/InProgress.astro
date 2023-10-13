@@ -29,9 +29,15 @@ const syncImg = await getImage({ src: sync });
            , for it to accept the new date and time (press couple of times, just
           to be safe).
         </p>
-        <picture class="mx-auto h-36 w-36">
-          <img src={syncImg.src} class="h-full w-full object-contain" />
-        </picture>
+        <div class="mx-auto flex">
+          <picture class="h-36 w-36">
+            <img src={syncImg.src} class="h-full w-full object-contain" />
+          </picture>
+          <div
+            class="animate-bounceLeft h-0 w-0 border-b-[10px] border-r-[15px] border-t-[10px] border-b-transparent border-r-black border-t-transparent"
+          >
+          </div>
+        </div>
         <div id="sync-time-complete" class="mt-24 hidden items-center gap-4">
           <Button
             id="btn-sync-time-restart"
