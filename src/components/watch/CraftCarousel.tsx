@@ -90,6 +90,8 @@ const renderDetail = (detail: string) => {
 };
 
 const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
+  const nullRef = React.useRef(null);
+
   const onClose = () => {
     toggle();
   };
@@ -97,7 +99,12 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
   return (
     <>
       <Transition appear show={isOpen} as={React.Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={onClose} initialFocus={null}>
+        <Dialog
+          as="div"
+          className="relative z-50"
+          onClose={onClose}
+          initialFocus={nullRef}
+        >
           <Transition.Child
             as={React.Fragment}
             enter="ease-out duration-100"
@@ -121,7 +128,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="relative flex w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
+                <Dialog.Panel className="relative flex min-h-screen w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
                   <img
                     className="hidden object-cover md:block md:w-2/5"
                     src={craft.detailImage.src}
