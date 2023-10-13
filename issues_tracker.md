@@ -41,8 +41,9 @@
 
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
-   7. [WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
-   8. [WIP] FAQ Page, "Reset Time" cards: Should have all the same size. Use the same gradient for 
+   7. ~~[WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anim at the end - refer figma).~~
+   8. [WIP] FAQ Page, "Reset Time" cards: Should have all the same size.
+   9. [WIP] Crop the anim page watch image
 
 ### [MOBILE PAGE]
 
