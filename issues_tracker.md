@@ -44,7 +44,7 @@
    4. ~~Cards: Last card needs anchoring.~~
       ![Screenshot 2023-10-12 at 19 48 18](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/c4799c65-c4c7-4db7-8d54-f65760c742c2)
 
-   5. Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)
+   5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).
 
 ### [MOBILE PAGE]
