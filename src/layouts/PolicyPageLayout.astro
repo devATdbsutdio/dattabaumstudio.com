@@ -23,7 +23,7 @@ const { frontmatter } = Astro.props;
           {frontmatter.title}
         </h1>
         <div
-          class="relative mt-8 max-w-lg pr-12 text-right text-xl font-extralight sm:ml-auto md:text-2xl lg:ml-0 lg:mt-0"
+          class="relative mt-8 flex max-w-lg flex-col pr-12 text-right text-xl font-extralight sm:ml-auto md:text-2xl lg:ml-0 lg:mt-0"
         >
           {frontmatter.description && <p>{frontmatter.description}</p>}
           {

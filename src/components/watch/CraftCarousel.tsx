@@ -121,9 +121,9 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="relative flex min-h-screen w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
+                <Dialog.Panel className="relative flex w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
                   <img
-                    className="hidden h-[calc(100vh_-_2rem)] object-cover md:block md:w-2/5"
+                    className="hidden object-cover md:block md:w-2/5"
                     src={craft.detailImage.src}
                   />
                   <div className="flex w-full flex-col bg-neutral-100 px-4 py-6 md:w-3/5 md:px-14 md:py-14">
@@ -173,16 +173,13 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
         className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md flex-shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
       >
         <img src={craft.image.src} />
-        <div className="absolute inset-5 flex flex-col justify-end md:inset-10">
+        <button className="absolute bottom-2 right-2 z-10 p-3 md:bottom-7 md:right-7">
+          <PlusIcon className="h-6 w-6 text-black" />
+        </button>
+        <div className="absolute inset-5 z-0 flex flex-col justify-end md:inset-10">
           <h4 className="mb-2 text-2xl md:mb-4 md:text-4xl">{craft.title}</h4>
           <p className="text-sm font-light md:text-base">{craft.description}</p>
         </div>
-        <button
-          className="absolute bottom-2 right-2 p-3 md:bottom-7 md:right-7"
-          onClick={toggleDetail}
-        >
-          <PlusIcon className="h-6 w-6 text-black" />
-        </button>
       </div>
       <CraftDetail isOpen={isDetailOpen} toggle={toggleDetail} craft={craft} />
     </>
