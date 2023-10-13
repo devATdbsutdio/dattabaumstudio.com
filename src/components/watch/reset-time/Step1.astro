@@ -1,9 +1,28 @@
 ---
+import { getImage } from "astro:assets";
 import Button from "@/components/Button";
 import StepWrapper from "./StepWrapper.astro";
+import sync from "@/assets/images/sync-1.png";
+
+const syncImg = await getImage({ src: sync });
 ---
 
 <StepWrapper step="1" title="1/4: Connect the Watch to your computer via USB">
+  <div class="mb-14 flex gap-10">
+    <div class="space-y-8">
+      <p>
+        You can use any generic micro usb data cable to connect the watch to
+        your computer's USB port.
+      </p>
+      <p>
+        We have also provided a micro usb data cable in the box, in case you
+        don't have one laying around (especially, in this USB-C era).
+      </p>
+    </div>
+    <picture class="h-64 basis-full">
+      <img src={syncImg.src} class="h-full w-full object-contain" />
+    </picture>
+  </div>
   <Button id="btn-sync-time-step-1" variant="primary-light" className="w-full">
     Done
   </Button>

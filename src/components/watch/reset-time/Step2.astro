@@ -4,6 +4,20 @@ import StepWrapper from "./StepWrapper.astro";
 ---
 
 <StepWrapper step="2" title="2/4: Select the connected computer port">
+  <div class="mb-14 space-y-8">
+    <p>
+      On mac, the right port is going to show up as
+      <strong> /dev/tty/serial.xxx</strong>
+      <br />
+       On windows, the ports are going to show up as
+      <strong> COM-xx</strong>
+    </p>
+    <p>
+      If you have multiple ports showing up and you are not sure which one has
+      been assigned to the watch, firstly, disconnect the watch, check the ports
+      again and reconnect the watch to find the right port.
+    </p>
+  </div>
   <Button id="btn-sync-time-step-2" variant="primary-light" className="w-full">
     Select Port
   </Button>
