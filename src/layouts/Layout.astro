@@ -24,6 +24,13 @@ const topMargin = Astro.props.topMargin || false;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og.png" />
+    <!-- twitter meta tags -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/og.png" />
   </head>
   <body class="font-main bg-black antialiased">
     <Header solidBg={topMargin} client:load />
