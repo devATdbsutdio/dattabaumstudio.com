@@ -97,7 +97,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
   return (
     <>
       <Transition appear show={isOpen} as={React.Fragment}>
-        <Dialog as="div" className="relative z-50" onClose={onClose}>
+        <Dialog as="div" className="relative z-50" onClose={onClose} initialFocus={null}>
           <Transition.Child
             as={React.Fragment}
             enter="ease-out duration-100"
@@ -128,7 +128,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
                   />
                   <div className="flex w-full flex-col bg-neutral-100 px-4 py-6 md:w-3/5 md:px-14 md:py-14">
                     <button
-                      className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors hover:bg-neutral-50"
+                      className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
                       onClick={onClose}
                     >
                       Close
