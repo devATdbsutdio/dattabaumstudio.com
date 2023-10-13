@@ -5,14 +5,8 @@
 1. Please double check with figma, all the char spacing and line gaps (imp).
 
    - Replace all the fonts and corrcet all the fornt weights as according to figma.
-   - After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.
-   - ![Screenshot 2023-10-12 at 18 56 15](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/23793361-8ae3-49ea-97eb-28d6e8c0bcfa)
-   - ![Screenshot 2023-10-12 at 18 56 06](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/1fef52c6-9095-4531-838a-418186f8680f)
-
-   - Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.
-   - ![Screenshot 2023-10-12 at 19 22 44](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/590daf7e-0003-4ee4-a3d1-d5283f55500e)
-   - ![Screenshot 2023-10-12 at 19 45 29](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9377046e-8980-41a8-a050-d671bd6e5e4b)
-
+   - ~~After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.~~
+   - ~~Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.~~
    - All the policy pages have huge spacing between them.
    - Navigation, scroll downwards feels very rough. Can these be smoothed?
 
