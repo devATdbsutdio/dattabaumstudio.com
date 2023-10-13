@@ -21,7 +21,11 @@ import StepWrapper from "./StepWrapper.astro";
        , so the watch can wake up and receive the time and date data.
     </p>
   </div>
-  <Button id="btn-sync-time-step-4" variant="primary-light" className="w-full">
+  <Button
+    id="btn-sync-time-step-4"
+    variant="primary-light"
+    className="w-full mt-auto"
+  >
     Sync time and date
   </Button>
 </StepWrapper>
@@ -84,9 +88,14 @@ import StepWrapper from "./StepWrapper.astro";
     }
 
     const syncTimeCompleteDiv = document.querySelector("#sync-time-complete");
+    const syncTimeInProgressDiv = document.querySelector(
+      "#sync-time-in-progress",
+    );
 
     syncTimeCompleteDiv.classList.remove("hidden");
     syncTimeCompleteDiv.classList.add("flex");
+    syncTimeInProgressDiv.classList.remove("flex");
+    syncTimeInProgressDiv.classList.add("hidden");
 
     if (outputStream) {
       console.log("*** CLOSE OUTPUT STREAM");
