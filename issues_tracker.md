@@ -3,26 +3,18 @@
 ### [DESKTOP & MOBILE]
 
 1. Please double check with figma, all the char spacing and line gaps (imp).
-
    - Replace all the fonts and corrcet all the fornt weights as according to figma.
-   - After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.
-   - ![Screenshot 2023-10-12 at 18 56 15](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/23793361-8ae3-49ea-97eb-28d6e8c0bcfa)
-   - ![Screenshot 2023-10-12 at 18 56 06](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/1fef52c6-9095-4531-838a-418186f8680f)
-
-   - Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.
-   - ![Screenshot 2023-10-12 at 19 22 44](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/590daf7e-0003-4ee4-a3d1-d5283f55500e)
-   - ![Screenshot 2023-10-12 at 19 45 29](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/9377046e-8980-41a8-a050-d671bd6e5e4b)
-
+   - ~~After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.~~
+   - ~~Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.~~
    - All the policy pages have huge spacing between them.
    - Navigation, scroll downwards feels very rough. Can these be smoothed?
-
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
-3. FAQ Page, 2 links missing (video - i.e. video card needs implementation and driver link).
+3. FAQ Page, 3 links
+   - video link for the robot
+   - Video for the graph.
+   - ~~driver link~~.
 4. FAQ Page, content missing on the "Reset Time" cards (Note there's a small anium at the end - refer figma).
-5. Can the Home page video start a bit faster?
-
-- _Waiting on Shopify migration and tsting needs to be done from various location_
-
+5. Can the Home page video start a bit faster? - _Waiting on Shopify migration and tsting needs to be done from various location_
 6. Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
 7. ~~Provide OG Image for link preview [Datta]~~
 8. ~~Implement OG Image for link preview [Zaid]~~
@@ -35,7 +27,6 @@
 15. Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
 16. All video playback speed - check after migration to shopify.
 17. Lock down firebase.
-18.
 
 ### [DESKTOP]
 
@@ -50,14 +41,14 @@
    4. ~~Cards: Last card needs anchoring.~~
       ![Screenshot 2023-10-12 at 19 48 18](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/c4799c65-c4c7-4db7-8d54-f65760c742c2)
 
-   5. Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)
+   5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).
 
 ### [MOBILE PAGE]
 
 2. [WATCH PAGE]
 
-   1. ~~VVideo: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~V
+   1. ~~VVideo: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~
    2. ~~VVideo: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported~~Vfrom the video)
    3. ~~Cards: The "close X" has a gray outline~~
    4. ~~[PRIVACY Policy] is rendered weirdly:~~
