@@ -26,7 +26,7 @@
 14. Migrate all the big assets (video etc.) to shopify. [Zaid]
 15. Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.
 16. All video playback speed - check after migration to shopify.
-17. Lock down firebase.
+17. ~~Lock down firebase.~~
 
 ### [DESKTOP]
 
@@ -42,7 +42,8 @@
       ![Screenshot 2023-10-12 at 19 48 18](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/c4799c65-c4c7-4db7-8d54-f65760c742c2)
 
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
-   6. Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).
+   6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
+   7. "Reset Time" cards: Should habve all the same size. 
 
 ### [MOBILE PAGE]
 
