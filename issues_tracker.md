@@ -4,6 +4,7 @@
 
 1. Please double check with figma, all the char spacing and line gaps (imp).
    - Replace all the fonts and corrcet all the fornt weights as according to figma.
+   - Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
    - ~~After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.~~
    - ~~Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.~~
    - All the policy pages have huge spacing between them.
@@ -13,9 +14,8 @@
    - video link for the robot.
    - Video for the graph.
    - ~~driver link~~.
-4. [Zaid] Migrate all the big assets (video etc.) to shopify and relink.
-5. Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_
-6. Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.
+4. ~~Migrate all the big assets (video etc.) to shopify and relink.~~
+5. ~~Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_~~
 7. ~~Provide OG Image for link preview [Datta]~~
 8. ~~Implement OG Image for link preview [Zaid]~~
 9. ~~Webserial: Implement~~
@@ -23,9 +23,8 @@
 11. Check all the copy [Datta]
 12. ~~Shopify srtore setup [Datta]~~
 13. Shopify setup for other things in the backend [WIP] [Datta]
-15. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
-16. All video playback speed - check after migration to shopify.
-17. ~~Lock down firebase.~~
+14. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
+15. ~~Lock down firebase.~~
 
 ### [DESKTOP]
 
