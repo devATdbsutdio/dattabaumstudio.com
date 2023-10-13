@@ -59,6 +59,24 @@ const syncImg = await getImage({ src: sync });
   </div>
 </div>
 
+<style>
+  .animate-bounceLeft {
+    animation: bounceLeft 1s infinite;
+  }
+
+  @keyframes bounceLeft {
+    0%,
+    100% {
+      transform: translateX(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateX(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+</style>
+
 <script is:inline>
   const syncTimeComplete = document.querySelector("#sync-time-complete");
 
