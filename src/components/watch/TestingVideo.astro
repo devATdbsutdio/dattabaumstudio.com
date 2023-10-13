@@ -1,0 +1,65 @@
+---
+import XIcon from "@/components/icons/XIcon";
+
+const testingVid =
+  "https://cdn.shopify.com/videos/c/o/v/805ec19fc0454a3ab9883e5b4108f55e.mp4";
+---
+
+<div>
+  <button id="testing-video-open" class="underline">Watch it here</button>
+  <div class={`relative z-30 hidden`} id="testing-video-container">
+    <div class="bg-modal fixed inset-0"></div>
+    <div class="fixed inset-0 overflow-y-auto">
+      <div
+        class="flex min-h-full items-center justify-center text-center md:p-4"
+      >
+        <div
+          class="relative min-h-screen w-screen transform flex-col overflow-hidden bg-white px-4 py-6 text-left align-middle shadow-xl transition-all only:flex md:h-[672px] md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl md:px-10 md:py-10"
+        >
+          <div class="flex items-center justify-between">
+            <button
+              id="testing-video-close"
+              class="z-10 mb-4 ml-auto inline-flex items-center gap-2 self-start bg-black/10 p-2 text-white backdrop-blur-sm transition-colors"
+            >
+              Close
+              <XIcon className="text-white" />
+            </button>
+          </div>
+          <div class="absolute inset-0 h-full w-full bg-black">
+            <video
+              id="testing-video"
+              preload="auto"
+              controls="controls"
+              class="h-full w-full"
+            >
+              <source src={testingVid} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const testingVideo = document.querySelector("#testing-video");
+  const testingVideoContainer = document.querySelector(
+    "#testing-video-container",
+  );
+
+  const closeBtn = document.querySelector("#testing-video-close");
+  closeBtn.addEventListener("click", () => {
+    console.log("*** CLOSE");
+    testingVideoContainer.classList.remove("flex");
+    testingVideoContainer.classList.add("hidden");
+    testingVideo.pause();
+  });
+
+  const openBtn = document.querySelector("#testing-video-open");
+  openBtn.addEventListener("click", () => {
+    console.log("*** OPEN");
+    testingVideoContainer.classList.remove("hidden");
+    testingVideoContainer.classList.add("flex");
+    testingVideo.play();
+  });
+</script>

@@ -7,6 +7,7 @@ import watchCharged from "@/assets/images/charged.svg";
 import { Image, getImage } from "astro:assets";
 import ResetTime from "@/components/watch/ResetTime.astro";
 import sync from "@/assets/images/sync-in-progress.png";
+import TestingVideo from "@/components/watch/TestingVideo.astro";
 
 const syncImg = await getImage({ src: sync });
 
@@ -99,7 +100,7 @@ const currentVid =
               heavily on your usage.
               <br />
                We made our own automatic robot testing jig to put the theory to
-              test. Watch it here.
+              test. <TestingVideo />
               <div class="mt-6 text-sm md:mt-8 md:text-base">
                 <div class="flex w-full border-t border-black/10">
                   <p class="py-6">Internal LiPo Battery’s capacity:</p>
