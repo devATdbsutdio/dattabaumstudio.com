@@ -11,8 +11,8 @@
    - Navigation, scroll downwards feels very rough. Can these be smoothed?
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 3 links
-   - video link for the robot.
-   - Video for the graph.
+   - ~~video link for the robot.~~
+   - Video for the graph. (dissapears in mobile)
    - ~~driver link~~.
 4. ~~Migrate all the big assets (video etc.) to shopify and relink.~~
 5. ~~Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_~~
@@ -28,7 +28,7 @@
 
 ### [DESKTOP]
 
-2. [WATCH PAGE]
+1. [WATCH PAGE]
 
    1. ~~Video: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/1J92kC6CTK1wjyxtZWTtS6W-K3ciB4yyV/view?usp=drive_link~~
    2. ~~Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video)~~
@@ -42,8 +42,8 @@
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
    7. ~~[WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anim at the end - refer figma).~~
-   8. [WIP] FAQ Page, "Reset Time" cards: Should have all the same size.
-   9. [WIP] Crop the anim page watch image
+   8.  ~~FAQ Page, "Reset Time" cards: Should have all the same size.~~ (Now the last card buttons are un-responsive)
+   9.  ~~Crop the anim page watch image.~~
 
 ### [MOBILE PAGE]
 
