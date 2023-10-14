@@ -7,8 +7,8 @@
    - ~~Check fonts, font weight and char & line spacing and image scaling across all elements in both desktop & Mobile.~~
    - ~~After Migration from Zaid's Vercel top Saurabh's vercel some scaling issues have emerged.~~
    - ~~Check the Technical Diagram scale and position as well. Because it is an image, the fonts in the technical diagram are not same size as the fonts next to it - they should be equal in size and for please refer to figma for the font weight.~~
-   - All the policy pages have huge spacing between them.
-   - Navigation, scroll downwards feels very rough. Can these be smoothed?
+   - ~~All the policy pages have huge spacing between them~~
+   - ~~Navigation, scroll downwards feels very rough. Can these be smoothed?~~
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 3 links
    - ~~video link for the robot.~~
@@ -44,8 +44,8 @@
 
 2. [WATCH PAGE]
 
-   1. ~~VVideo: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~
-   2. ~~VVideo: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported~~Vfrom the video)
+   1. ~~Video: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/14V0pz5vW__E53Iow-PrHEfMn9DRmo8uQ/view?usp=drive_link~~
+   2. ~~Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported~~Vfrom the video)
    3. ~~Cards: The "close X" has a gray outline~~
    4. ~~[PRIVACY Policy] is rendered weirdly:~~
    5. Android chrome, the watch page slide show first image is cropped.
