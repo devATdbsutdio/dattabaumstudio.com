@@ -33,12 +33,7 @@
    1. ~~Video: Can the Video is missing audio: Are you using **compressed** ver of https://drive.google.com/file/d/1J92kC6CTK1wjyxtZWTtS6W-K3ciB4yyV/view?usp=drive_link~~
    2. ~~Video: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported from the video)~~
    3. ~~Cards: Tune elasticity and implement arrows in desktop~~
-
-      ![anim](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/ac3ccce9-47d4-457c-8f71-58cb98835d36)
-
    4. ~~Cards: Last card needs anchoring.~~
-      ![Screenshot 2023-10-12 at 19 48 18](https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/c4799c65-c4c7-4db7-8d54-f65760c742c2)
-
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
    7. ~~[WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anim at the end - refer figma).~~
@@ -53,9 +48,6 @@
    2. ~~VVideo: We can't have a diff thumbnail image right (From what I could remember)? If it can be, then can we use the image being used in figma? It's literally a frame (which can be exported~~Vfrom the video)
    3. ~~Cards: The "close X" has a gray outline~~
    4. ~~[PRIVACY Policy] is rendered weirdly:~~
-
-     <img width="320" alt="Mobile Privacy" src="https://github.com/devATdbsutdio/dattabaumstudio.com/assets/4619862/a0a580ac-370f-40ee-9f75-fb768419c247">
-
    5. Android chrome, the watch page slide show first image is cropped.
 
 # TBD
