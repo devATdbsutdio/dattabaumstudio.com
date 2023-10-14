@@ -47,16 +47,16 @@ const testingVid =
     "#testing-video-container",
   );
 
-  const closeBtn = document.querySelector("#testing-video-close");
-  closeBtn.addEventListener("click", () => {
+  const testingCloseBtn = document.querySelector("#testing-video-close");
+  testingCloseBtn.addEventListener("click", () => {
     console.log("*** CLOSE");
     testingVideoContainer.classList.remove("flex");
     testingVideoContainer.classList.add("hidden");
     testingVideo.pause();
   });
 
-  const openBtn = document.querySelector("#testing-video-open");
-  openBtn.addEventListener("click", () => {
+  const testingOpenBtn = document.querySelector("#testing-video-open");
+  testingOpenBtn.addEventListener("click", () => {
     console.log("*** OPEN");
     testingVideoContainer.classList.remove("hidden");
     testingVideoContainer.classList.add("flex");
