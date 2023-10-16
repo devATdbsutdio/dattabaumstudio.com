@@ -32,11 +32,11 @@ const CRAFTS = [
     title: "Precision",
     description: "Aerospace grade Swiss crystal",
     details: [
-      "The Realtime Clock (RTC) that is used to keep track of time and date is a super low power and hyper accurate RTC. ",
-      "It is an automotive, industrial and aerospace grade RTC. At the end of the day it is a Swiss crystal after all.",
-      "Amongst other tricks under the sleeve, it has automatic compensation for micro deviations and automatic leap year correction.",
-      "Additionally, there is a backup power cell inside the watch to keep the correct timing (without loosing a single bit). Check our FAQs for more details",
-      "The crystal itself can operate  across a temperature range of -40°C to +85°C (but let’s not push the boundaries here).",
+      "The Realtime Clock (RTC), a Swiss crystal, is used here to track time and date. It is highly accurate with very low power consumption and is primarily used for automotive, industrial, and aerospace applications.",
+      "The crystal itself can operate in a temperature range of -40°C to +85°C. However, it is recommended not to push the boundaries too much."      
+      "Among other tricks up its sleeve, it has automatic compensation for micro-deviations and automatic leap year correction.",
+      "Additionally, the watch also includes a backup power cell to ensure accurate timekeeping without any loss.", 
+      "Check our FAQs for more details",
     ],
     image: craft2,
     detailImage: craftDetail2,
