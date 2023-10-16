@@ -20,11 +20,10 @@
 8. ~~Implement OG Image for link preview [Zaid]~~
 9. ~~Webserial: Implement~~
 10. Webserial: Thorough Test [Datta]
-11. Check all the copy [Datta]
+11. ~~Check all the copy [Datta]~~
 12. ~~Shopify srtore setup [Datta]~~
-13. Shopify setup for other things in the backend [WIP] [Datta]
-14. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
-15. ~~Lock down firebase.~~
+13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
+14. ~~Lock down firebase.~~
 
 ### [DESKTOP]
 
@@ -54,5 +53,8 @@
 
 1. ~~Cookie Policy? How do we deal with that? The banner need to be deisgned?~~
 2. ~~[Datta] Check remaining part of Terms Page (TBD Oct)~~
-3. Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.
-4. ~~About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).~~
+3. ~~About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).~~
+4. Speed and access test from various regions. 
+5. Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.
+6. [Datta] [WIP] Shopify setup for other things in the backend.
+7. Sync on next engagement with Zaid
