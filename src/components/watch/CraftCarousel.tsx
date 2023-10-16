@@ -47,7 +47,7 @@ const CRAFTS = [
     details: [
       "Although we suggest our customers that this is not a sports watch but rather a delicate time piece for your *special moments, we have tried our best to keep style with durability, hand in hand.",
       "We tested our samples rigorously under high & low temperatures, gave them thermal shocks under various humid conditions and found that the functional limit, in terms of temperature and relative humidity, is set between -20°C & 85°C at 85% relative humidity.",
-      "We also tested for dust and liquid ingress under various pressures. The USB port for charging and programming time, is rated at IP67 for complete protection against dust and liquid over extended period time.",
+      "We also tested for dust and liquid ingress under various pressures. The USB port for charging and programming is rated IP65, providing complete protection against dust and liquid over an extended period of time.",
     ],
     image: craft3,
     detailImage: craftDetail3,
