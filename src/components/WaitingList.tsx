@@ -48,7 +48,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
 
   const description = isSuccess
     ? "You will be hearing from us soon. :)"
-    : "We’ll keep you updated on the watch’s progress and the let you know when shop’s open.";
+    : "We will keep you updated on the progress of the watch and inform you when the shop is open.";
 
   return (
     <>
