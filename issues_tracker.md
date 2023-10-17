@@ -12,7 +12,7 @@
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 3 links
    - ~~video link for the robot.~~
-   - Video for the graph. (dissapears in mobile)
+   - ~~Video for the graph. (dissapears in mobile)~~
    - ~~driver link~~.
 4. ~~Migrate all the big assets (video etc.) to shopify and relink.~~
 5. ~~Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_~~
@@ -24,6 +24,7 @@
 12. ~~Shopify srtore setup [Datta]~~
 13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
 14. ~~Lock down firebase.~~
+15. (watch Page) Remmove the Pause Bubble when the video is playing, only show the play bubble.
 
 ### [DESKTOP]
 
