@@ -24,7 +24,7 @@
 12. ~~Shopify srtore setup [Datta]~~
 13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
 14. ~~Lock down firebase.~~
-15. (watch Page) Remmove the Pause Bubble when the video is playing, only show the play bubble.
+15. (watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.
 
 ### [DESKTOP]
 
