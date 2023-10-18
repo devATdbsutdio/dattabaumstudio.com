@@ -17,6 +17,9 @@ import StepWrapper from "./StepWrapper.astro";
       been assigned to the watch, firstly, disconnect the watch, check the ports
       again and reconnect the watch to find the right port.
     </p>
+    <p id="serial-disconnected-message" class="hidden text-red-500">
+      Serial Port was disconnected. Please connect again.
+    </p>
   </div>
   <Button
     id="btn-sync-time-step-2"
@@ -31,6 +34,25 @@ import StepWrapper from "./StepWrapper.astro";
   const btnSyncTimeStep2 = document.querySelector("#btn-sync-time-step-2");
 
   btnSyncTimeStep2.addEventListener("click", async () => {
+    if (port && port.writable && port.readable) {
+      console.log("*** PORT ALREADY CONNECTED");
+
+      console.log("*** CLOSE PORT");
+      await port.close();
+      console.log("*** SERIAL DISCONNECTED");
+      port = null;
+      serialConnected = false;
+      disconnectCounter = 0;
+
+      if (outputStream) {
+        console.log("*** CLOSE OUTPUT STREAM");
+        await outputStream.getWriter().close();
+        await outputDone;
+        outputStream = null;
+        outputDone = null;
+      }
+    }
+
     console.log("*** ATTEMPTING TO CONNECT TO PORT");
     port = await navigator.serial.requestPort();
 
@@ -51,6 +73,7 @@ import StepWrapper from "./StepWrapper.astro";
 
         console.log("*** PORT CONNECTED");
 
+        serialDisconnectedMessage.classList.add("hidden");
         stepsWrapper.dataset.activeStep = "3";
         console.log("*** MOVE TO STEP 3");
       }

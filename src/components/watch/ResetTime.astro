@@ -138,10 +138,41 @@ import Step4 from "./reset-time/Step4.astro";
   const btnSyncTimeStart = document.querySelector("#btn-sync-time-start");
   const syncTimeNotice = document.querySelector("#sync-time-notice");
   const stepsWrapper = document.querySelector("#steps-wrapper");
+  const serialDisconnectedMessage = document.querySelector(
+    "#serial-disconnected-message",
+  );
 
   document.addEventListener("DOMContentLoaded", () => {
     if (navigator.serial) {
       console.log("*** WEB SERIAL SUPPORTED");
+
+      navigator.serial.addEventListener("disconnect", (event) => {
+        disconnectCounter += 1;
+        if (disconnectCounter <= 1) {
+          console.log("*** SERIAL DISCONNECTED BY USER");
+          // -- Reset to Step 2
+          stepsWrapper.dataset.activeStep = "2";
+
+          // Show disconnected message
+          serialDisconnectedMessage.classList.remove("hidden");
+
+          // -- Update some var's states accordingly
+          // ** These vars are used later for serial port interaction
+          serialConnected = false;
+
+          // Remove port pointer
+          port = null;
+          event.port = null;
+          event.target = null;
+
+          // Set stream related objects to null
+          outputStream = null;
+          outputDone = null;
+          disconnectCounter = 0;
+        } else {
+          disconnectCounter = 0;
+        }
+      });
     } else {
       syncTimeNotice.classList.remove("hidden");
       console.log("*** WEB SERIAL NOT SUPPORTED");
