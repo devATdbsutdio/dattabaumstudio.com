@@ -164,14 +164,24 @@ const watchClip2Vid =
   });
 
   playButton?.addEventListener("click", () => {
+    playButton.dataset.state = "playing";
+    playButton.textContent = "Pause";
+    bgVideo?.play();
+    playButton.classList.add("hidden");
+  });
+
+  watchVideoContainer?.addEventListener("click", () => {
+    if (!playButton) return;
     if (playButton.dataset.state === "playing") {
       playButton.dataset.state = "paused";
       playButton.textContent = "Play";
       bgVideo?.pause();
+      playButton.classList.remove("hidden");
     } else {
       playButton.dataset.state = "playing";
       playButton.textContent = "Pause";
       bgVideo?.play();
+      playButton.classList.add("hidden");
     }
   });
 
@@ -182,12 +192,14 @@ const watchClip2Vid =
         if (playButton) {
           playButton.dataset.state = "paused";
           playButton.textContent = "Play";
+          playButton.classList.remove("hidden");
         }
         bgVideo?.pause();
       } else {
         if (playButton) {
           playButton.dataset.state = "playing";
           playButton.textContent = "Pause";
+          playButton.classList.add("hidden");
         }
         bgVideo?.play();
       }
