@@ -25,7 +25,7 @@
 13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
 14. ~~Lock down firebase.~~
 15. ~~(watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.~~
-16. Implement handling webserial exceptions (as we discussed)
+16. ~~Implement handling webserial exceptions (as we discussed)~~
 17. ~~Change the favicon (check figma components)~~
 18. ~~Blend mode for Header.~~
 19. Speed test (Mobile images resize and compress for bandwidth)
