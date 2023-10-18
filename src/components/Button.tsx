@@ -36,6 +36,7 @@ export interface ButtonProps {
   target?: "_blank";
   rel?: "noopener noreferrer";
   download?: boolean;
+  ariaLabel?: string;
 }
 
 const Button = ({
@@ -50,6 +51,7 @@ const Button = ({
   target,
   rel,
   download,
+  ariaLabel,
 }: ButtonProps) => {
   const Component = href ? "a" : "button";
 
@@ -59,6 +61,7 @@ const Button = ({
       className={cn(buttonVariants({ variant, className }))}
       onClick={onClick}
       disabled={disabled}
+      aria-label={ariaLabel}
       {...(href && { href, target, rel, download })}
       {...(!href && { type })}
     >

@@ -34,6 +34,7 @@ export default function Header({ solidBg }: HeaderProps) {
           <button
             className="p-2 transition-colors hover:bg-neutral-950 md:hidden"
             onClick={toggleMenu}
+            aria-label="Open Menu"
           >
             <MenuIcon />
           </button>
@@ -41,6 +42,7 @@ export default function Header({ solidBg }: HeaderProps) {
             variant="tertiary-dark"
             href="/watch"
             className="hidden md:block md:text-lg"
+            ariaLabel="Product/Watch"
           >
             Product/Watch
           </Button>
@@ -49,6 +51,7 @@ export default function Header({ solidBg }: HeaderProps) {
             variant="tertiary-dark"
             href="/about"
             className="hidden md:block md:text-lg"
+            ariaLabel="About"
           >
             About
           </Button>
@@ -62,6 +65,7 @@ export default function Header({ solidBg }: HeaderProps) {
             variant="tertiary-dark"
             className="ml-auto text-sm sm:text-base md:block md:text-lg"
             onClick={toggleWaitingList}
+            ariaLabel="Join the waiting list"
           >
             Join the waiting list
           </Button>

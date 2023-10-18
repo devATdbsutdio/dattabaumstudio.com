@@ -18,6 +18,7 @@ export default function WaitingListButton({
         variant="primary-dark"
         onClick={toggleWaitingList}
         className={className}
+        ariaLabel="Join the waiting list"
       >
         Join the waiting list
       </Button>

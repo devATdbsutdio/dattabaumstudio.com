@@ -92,6 +92,7 @@ const watchHeroImgs = [
               variant="secondary-dark"
               href="/watch/faq"
               className="gap-10"
+              ariaLabel="FAQ"
             >
               FAQ
               <ArrowRightIcon
@@ -103,7 +104,10 @@ const watchHeroImgs = [
             class="relative ml-auto max-w-xs pr-12 text-right text-base font-extralight text-white sm:max-w-none md:pr-16 md:text-2xl"
           >
             <p>Bringing digital watches to a higher pedestal.</p>
-            <button class="scroll-trigger absolute bottom-0.5 right-0">
+            <button
+              class="scroll-trigger absolute bottom-0.5 right-0"
+              aria-label="Scroll down"
+            >
               <ArrowDownIcon className="w-10 h-10" />
             </button>
           </div>

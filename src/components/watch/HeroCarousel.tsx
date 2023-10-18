@@ -50,6 +50,7 @@ export default function HeroCarousel({
         <div className="absolute left-0 right-0 top-1/2 mx-3 my-5 hidden -translate-y-1/2 text-white md:block xl:mx-7">
           <div className="dbs-container relative">
             <button
+              aria-label="Previous"
               className="absolute left-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
               onClick={() => {
                 emblaApi.scrollPrev();
@@ -61,6 +62,7 @@ export default function HeroCarousel({
               <ArrowLeftIcon className="h-8 w-8 md:h-10 md:w-10" />
             </button>
             <button
+              aria-label="Next"
               className="absolute right-0 top-1/2 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
               onClick={() => {
                 emblaApi.scrollNext();

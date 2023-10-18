@@ -81,6 +81,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                   <button
                     className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
                     onClick={onClose}
+                    aria-label="Close"
                   >
                     Close
                     <XIcon className="text-black" />
@@ -109,6 +110,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                       className="mt-auto text-center"
                       variant="primary-light"
                       onClick={onClose}
+                      ariaLabel="Close"
                     >
                       Close
                     </Button>
@@ -146,6 +148,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                         disabled={isLoading}
                         className="mt-auto text-center md:mt-0"
                         variant="primary-light"
+                        ariaLabel="Join the waiting list"
                       >
                         Join the waiting list
                       </Button>
