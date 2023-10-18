@@ -26,9 +26,9 @@ Most of the other content is either inline in code or as JavaScript Objects.
 When editing any of these care must be taken to ensure that the content is valid HTML/JavaScript.
 
       Share which parts of the contents are located where, specifically "text contents"? 
-      For example: "Here are the policy texts...", "here are the main page texts ...",  etc.
+      For example: "here are the main page texts ...",  etc.
       Can you show where are the assets (where they are pulled from, for example)? 
-      For example: "Images here here ...", "video are here ...", "some other things are here ... " etc.
+      For example: "Images locally are here ...", "video are here ...", "some other things are here ... " etc.
       What specific care should be taken? for example: "Do not leave white space ..." 
 
 ## 🔌 What's connected to what ... 🧐 ?? 
