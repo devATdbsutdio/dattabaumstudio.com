@@ -27,12 +27,7 @@ export default function HeroCarousel({
     <>
       <div className="embla pointer-events-auto absolute inset-0 -z-0 overflow-hidden">
         <div className="embla__viewport" ref={emblaRef}>
-          <div
-            className="embla__container pointer-events-auto flex"
-            onClick={() => {
-              alert("clicked");
-            }}
-          >
+          <div className="embla__container pointer-events-auto flex">
             {images.map((img, index) => (
               <div
                 className="embla__slide flex-grow-1 relative min-w-0 flex-shrink-0 basis-full"

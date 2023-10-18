@@ -27,7 +27,7 @@ export default function Header({ solidBg }: HeaderProps) {
       <header
         className={cn(
           "absolute left-0 right-0 top-0 z-10 px-3 py-5 text-white xl:px-7",
-          solidBg ? "bg-black" : "bg-transparent",
+          solidBg ? "bg-black" : "bg-transparent mix-blend-difference",
         )}
       >
         <div className="dbs-container relative flex items-center md:py-5">

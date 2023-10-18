@@ -163,7 +163,8 @@ const watchClip2Vid =
     });
   });
 
-  playButton?.addEventListener("click", () => {
+  playButton?.addEventListener("click", (e) => {
+    e.stopPropagation();
     playButton.dataset.state = "playing";
     playButton.textContent = "Pause";
     bgVideo?.play();
