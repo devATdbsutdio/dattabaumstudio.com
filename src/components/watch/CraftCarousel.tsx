@@ -180,9 +180,10 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
       onClick={toggleDetail}
       className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md flex-shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
     >
-      <img src={craft.image.src} alt="" />
-      <button className="absolute bottom-2 right-2 z-10 p-3 md:bottom-7 md:right-7"
-      aria-label="View details"
+      <img src={craft.image.src} className="h-full w-full" alt="" />
+      <button
+        className="absolute bottom-2 right-2 z-10 p-3 md:bottom-7 md:right-7"
+        aria-label="View details"
       >
         <PlusIcon className="h-6 w-6 text-black" />
       </button>
@@ -212,7 +213,7 @@ export default function CraftCarousel() {
         {emblaApi && (
           <div className="dbs-container absolute -top-28 left-0 hidden justify-end gap-4 lg:flex">
             <button
-            aria-label="Previous"
+              aria-label="Previous"
               className="z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
               onClick={() => {
                 emblaApi.scrollPrev();
@@ -224,7 +225,7 @@ export default function CraftCarousel() {
               <ArrowLeftIcon className="h-8 w-8 md:h-10 md:w-10" />
             </button>
             <button
-            aria-label="Next"
+              aria-label="Next"
               className="z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
               onClick={() => {
                 emblaApi.scrollNext();
