@@ -143,7 +143,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
                       <XIcon className="text-black" />
                     </button>
                     <Dialog.Title
-                      as="h3"
+                      as="h4"
                       className={cn("mb-7 max-w-3xl text-3xl md:text-4xl")}
                     >
                       {craft.title}
@@ -184,7 +184,7 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
         <PlusIcon className="h-6 w-6 text-black" />
       </button>
       <div className="absolute inset-5 z-0 flex flex-col justify-end md:inset-10">
-        <h4 className="mb-2 text-2xl md:mb-4 md:text-4xl">{craft.title}</h4>
+        <h3 className="mb-2 text-2xl md:mb-4 md:text-4xl">{craft.title}</h3>
         <p className="text-sm font-light md:text-base">{craft.description}</p>
       </div>
       <CraftDetail isOpen={isDetailOpen} toggle={toggleDetail} craft={craft} />
