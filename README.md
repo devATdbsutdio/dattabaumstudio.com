@@ -44,14 +44,15 @@ sequenceDiagram
       participant Firebase cloudfunction
       Participant email
       end
-      
       Github-->>Website: Static Small Assets (images, files etc.)
       Shopify (Content)-->>Website: Static Large Assets (videos etc.)
       AmazonS3 Bucket-->>Website: Drivers
       Note over AmazonS3 Bucket,Website : For serial port access in windows
       Website-->>+Firebase RTDB: "Waiting List" data
       Firebase RTDB-->>-Firebase cloudfunction: Event
+      Firebase cloudfunction-->>Firebase RTDB: 
       Firebase cloudfunction-->>email: Autoreply
+      
 ```
 
 
