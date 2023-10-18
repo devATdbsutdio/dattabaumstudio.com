@@ -27,8 +27,8 @@
 15. (watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.
 16. Implement handling webserial exceptions (as we discussed)
 17. Change the favicon (check figma components)
-18. Speed test (Mobile images resize and compress for bandwidth)
-19. Blend mode for Header
+18. Blend mode for Header
+19. Speed test (Mobile images resize and compress for bandwidth)
 20. email template support
 
 ### [DESKTOP]
