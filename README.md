@@ -33,20 +33,24 @@ Most of the other content is either inline in code or as JavaScript Objects. Whe
 
 ```mermaid
 sequenceDiagram
+      box Gray Asset Hosting 
       Participant Github
       Participant Shopify (Content)
       Participant AmazonS3 Bucket
+      end
       participant Website
+      box Purple Waiting List Stuff 
       participant Firebase RTDB
       participant Firebase cloudfunction
       Participant email
+      end
       
       Github-->>Website: Static Small Assets (images, files etc.)
       Shopify (Content)-->>Website: Static Large Assets (videos etc.)
       AmazonS3 Bucket-->>Website: Drivers
       Note over AmazonS3 Bucket,Website : For serial port access in windows
-      Website-->>Firebase RTDB: Waiting List data
-      Firebase RTDB-->>Firebase cloudfunction: Event
+      Website-->>+Firebase RTDB: "Waiting List" data
+      Firebase RTDB-->>-Firebase cloudfunction: Event
       Firebase cloudfunction-->>email: Autoreply
 ```
 
