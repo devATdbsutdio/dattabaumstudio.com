@@ -21,7 +21,9 @@ The policy pages are written in markdown and can be found:
 
 ## ✍🏼 Editing other content 
 
-Most of the other content is either inline in code or as JavaScript Objects. When editing any of these care must be taken to ensure that the content is valid HTML/JavaScript.
+Most of the other content is either inline in code or as JavaScript Objects. 
+
+When editing any of these care must be taken to ensure that the content is valid HTML/JavaScript.
 
       Share which parts of the contents are located where, specifically "text contents"? 
       For example: "Here are the policy texts...", "here are the main page texts ...",  etc.
@@ -58,8 +60,10 @@ sequenceDiagram
 
 ## 👨🏻‍💻 Deployment
 
-- The site is automatically deployed on every push to the `main` branch.
+- The site is automatically deployed in [Vercel](https://vercel.com/dev-datta-baum-studio/dattabaumstudio-com) on every push to the `main` branch.
 - To create preview deployments before making it live, create a new branch, push to it and then create a pull request to `main`.
 - This will create a preview deployment that can be shared with others.
 - Once satified with the changes, merge the pull request into `main` to make it live.
+
+__Note:__ Use the same email in github & vercel.  
 
