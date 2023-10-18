@@ -8,7 +8,7 @@ import homeMobile from "@/assets/images/home_mobile.png";
 import { getImage } from "astro:assets";
 
 const homeImg = await getImage({ src: home });
-const homeImgMobile = await getImage({ src: homeMobile });
+const homeImgMobile = await getImage({ src: homeMobile, width: 480 });
 const homeVid =
   "https://cdn.shopify.com/videos/c/o/v/2c1735c530ea4f4db1bc5bba59ac2d48.mp4";
 const homeVidMobile =

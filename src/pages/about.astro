@@ -7,7 +7,7 @@ import aboutUsMobile from "@/assets/images/about_us_mobile.png";
 import { getImage } from "astro:assets";
 
 const aboutUsImg = await getImage({ src: aboutUs });
-const aboutUsImgMobile = await getImage({ src: aboutUsMobile });
+const aboutUsImgMobile = await getImage({ src: aboutUsMobile, width: 480 });
 ---
 
 <Layout>

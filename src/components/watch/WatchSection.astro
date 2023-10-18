@@ -5,7 +5,10 @@ import watch7Segment from "@/assets/images/watch_7_segment.png";
 import { getImage } from "astro:assets";
 
 const watchTrailerImg = await getImage({ src: watchTrailer });
-const watchTrailerImgMobile = await getImage({ src: watchTrailerMobile });
+const watchTrailerImgMobile = await getImage({
+  src: watchTrailerMobile,
+  width: 480,
+});
 const watchVid =
   "https://cdn.shopify.com/videos/c/o/v/30848e7e592f4ba6915d22892eaffb69.mp4";
 const watchVidMobile =
