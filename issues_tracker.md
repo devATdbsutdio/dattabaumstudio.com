@@ -12,7 +12,7 @@
 2. ~~FAQ page haven't been rendered yet (Can't see).~~
 3. FAQ Page, 3 links
    - ~~video link for the robot.~~
-   - Video for the graph. (dissapears in mobile)
+   - ~~Video for the graph. (dissapears in mobile)~~
    - ~~driver link~~.
 4. ~~Migrate all the big assets (video etc.) to shopify and relink.~~
 5. ~~Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_~~
@@ -24,6 +24,12 @@
 12. ~~Shopify srtore setup [Datta]~~
 13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
 14. ~~Lock down firebase.~~
+15. (watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.
+16. Implement handling webserial exceptions (as we discussed)
+17. Change the favicon (check figma components)
+18. Blend mode for Header
+19. Speed test (Mobile images resize and compress for bandwidth)
+20. email template support
 
 ### [DESKTOP]
 
