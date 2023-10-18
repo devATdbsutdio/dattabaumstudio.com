@@ -130,7 +130,7 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
               >
                 <Dialog.Panel className="relative flex min-h-screen w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
                   <img
-                    className="hidden object-cover md:block md:w-2/5"
+                    className="hidden h-full object-cover md:block md:w-2/5"
                     alt=""
                     src={craft.detailImage.src}
                   />
