@@ -29,7 +29,7 @@
 17. ~~Change the favicon (check figma components)~~
 18. ~~Blend mode for Header.~~
 19. Speed test (Mobile images resize and compress for bandwidth)
-20. email template support
+20. ~~email template support.~~
 
 ### [DESKTOP]
 
