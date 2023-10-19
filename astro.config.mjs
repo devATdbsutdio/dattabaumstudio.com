@@ -12,6 +12,6 @@ export default defineConfig({
     imageService: true,
     devImageService: "sharp",
     sizes: [320, 640, 750, 828, 1080, 1200],
-    minimumCacheTTL: 2_629_746,
+    minimumCacheTTL: 60,
   }),
 });
