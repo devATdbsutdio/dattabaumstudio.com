@@ -9,9 +9,9 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   adapter: vercel({
     functionPerRoute: false,
-    imageService: true,
-    devImageService: "sharp",
-    sizes: [320, 640, 750, 828, 1080, 1200],
-    minimumCacheTTL: 60,
+    // imageService: true,
+    // devImageService: "sharp",
+    // sizes: [320, 640, 750, 828, 1080, 1200],
+    // minimumCacheTTL: 60,
   }),
 });
