@@ -20,7 +20,7 @@ const CRAFTS = [
     title: "Unique built quality",
     description: "Coated Titanium body for ultimate strength",
     details: [
-      "The entire body was partly cast and partly milled in titanium. We chose titanium because of its lightweight yet high density and strength",
+      "The entire body was partly cast and partly milled in titanium. We chose titanium because of its lightweight yet high density and strength.",
       "Certain mechanisms, like the button, were shaped using the EDM process as it was so small that it couldn't be traditionally milled.",
       "Even the 4 back screws were custom cast in a brass alloy as nothing off-the-shelf could fit our design.",
       "Due to the challenges of working with titanium, we use molecular bonding to apply color instead of traditional painting methods. This prevents color from chipping.",
