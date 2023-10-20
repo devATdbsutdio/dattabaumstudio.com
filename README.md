@@ -1,6 +1,6 @@
 # Datta Baum Studio
 
-The Studio's public facing website with built in store. 
+The Studio's public facing website with built in store.
 
 Public Facing: [dattabaumstudio.com](https://www.dattabaumstudio.com/)
 
@@ -10,7 +10,7 @@ For Testing and unlinked: [dattabaumstudio.vercel.app](https://dattabaumstudio.v
 
 🌐 Built with [Astro](https://astro.build/) and [TailwindCSS](https://tailwindcss.com/) and hosted in (Linked To) [Vercel](https://vercel.com/dev-datta-baum-studio)
 
-## ⚖️ Editing policy pages 
+## ⚖️ Editing policy pages
 
 The policy pages are written in markdown and can be found:
 
@@ -19,29 +19,40 @@ The policy pages are written in markdown and can be found:
 3. [Returns](/src/pages/returns.md)
 4. [Disclaimer](/src/pages/disclaimer.md)
 
-## ✍🏼 Editing other content 
+## ✍🏼 Editing other content
 
-Most of the other content is either inline in code or as JavaScript Objects. 
+- Most of the other content is either inline in code or as JavaScript Objects.
+- When editing any of these care must be taken to ensure that the content is **Valid HTML / JavaScript**.
+- This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
 
-When editing any of these care must be taken to ensure that the content is valid HTML/JavaScript.
+## 💾 Where is the content stored?
 
-      Share which parts of the contents are located where, specifically "text contents"? 
-      For example: "here are the main page texts ...",  etc.
-      Can you show where are the assets (where they are pulled from, for example)? 
-      For example: "Images locally are here ...", "video are here ...", "some other things are here ... " etc.
-      What specific care should be taken? for example: "Do not leave white space ..." 
+- All images are stored in the [assets/images](/arc/assets/images) folder.
+- All videos are stored in [shopify](https://admin.shopify.com/store/f2888f-3/content/files).
+- Content for the main pages is as follows:
 
-## 🔌 What's connected to what ... 🧐 ?? 
+1. [Home](/src/pages/index.astro)
+   - [Marquee](/src/components/HeroMarquee.tsx)
+2. [About](/src/pages/about.astro)
+3. [Contact](/src/pages/contact.astro)
+4. [Watch](/src/pages/watch/index.astro)
+   - [Watch Section](/src/components/watch/WatchSection.astro)
+   - [Craftsmanship Section](/src/components/watch/CraftsmanshipSection.astro)
+   - [Specs Section](/src/components/watch/SpecsSection.astro)
+5. [FAQ](/src/pages/watch/faq.astro)
+   - [Reset Time](/src/components/watch/ResetTime.astro)
+
+## 🔌 What's connected to what ... 🧐 ??
 
 ```mermaid
 sequenceDiagram
-      box Gray Asset Hosting 
+      box Gray Asset Hosting
       Participant Github
       Participant Shopify (Content)
       Participant AmazonS3 Bucket
       end
       participant Website
-      box Purple Waiting List Stuff 
+      box Purple Waiting List Stuff
       participant Firebase RTDB
       participant Firebase cloudfunction
       Participant email
@@ -52,11 +63,10 @@ sequenceDiagram
       Note over AmazonS3 Bucket,Website : For serial port access in windows
       Website-->>+Firebase RTDB: "Waiting List" data
       Firebase RTDB-->>-Firebase cloudfunction: Event
-      Firebase cloudfunction-->>Firebase RTDB: 
+      Firebase cloudfunction-->>Firebase RTDB:
       Firebase cloudfunction-->>email: Autoreply
-      
-```
 
+```
 
 ## 👨🏻‍💻 Deployment
 
@@ -65,5 +75,4 @@ sequenceDiagram
 - This will create a preview deployment that can be shared with others.
 - Once satified with the changes, merge the pull request into `main` to make it live.
 
-__Note:__ Use the same email in github & vercel.  
-
+**Note:** Use the same email in github & vercel.
