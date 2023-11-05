@@ -18,9 +18,9 @@ export default function WaitingListButton({
         variant="primary-dark"
         onClick={toggleWaitingList}
         className={className}
-        ariaLabel="Join the waiting list"
+        ariaLabel="Add to Cart"
       >
-        Join the waiting list
+        Add to Cart
       </Button>
       <WaitingList isOpen={isWaitingListOpen} toggle={toggleWaitingList} />
     </>

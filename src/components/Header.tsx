@@ -65,9 +65,9 @@ export default function Header({ solidBg }: HeaderProps) {
             variant="tertiary-dark"
             className="ml-auto text-sm sm:text-base md:block md:text-lg"
             onClick={toggleWaitingList}
-            ariaLabel="Join the waiting list"
+            ariaLabel="Add to Cart"
           >
-            Join the waiting list
+            Add to Cart
           </Button>
         </div>
       </header>
@@ -111,7 +111,7 @@ export default function Header({ solidBg }: HeaderProps) {
                 toggleWaitingList();
               }}
             >
-              Join the waiting list
+             Add to Cart
             </button>
           </Dialog.Panel>
         </Dialog>

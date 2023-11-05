@@ -148,9 +148,9 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                         disabled={isLoading}
                         className="mt-auto text-center md:mt-0"
                         variant="primary-light"
-                        ariaLabel="Join the waiting list"
+                        ariaLabel="Add to Cart"
                       >
-                        Join the waiting list
+                        Add to Cart
                       </Button>
                       {isError && (
                         <small className="mt-2 text-red-500">
