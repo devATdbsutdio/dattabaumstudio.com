@@ -5,7 +5,7 @@ import Button from "./Button";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
 import ArrowRightIcon from "./icons/ArrowRightIcon";
-
+import craftDetail4 from "@/assets/images/craft_detail_4.png";
 type CartType = {
   itemNumber?: number;
   image?: string;
@@ -14,20 +14,23 @@ type CartType = {
 
 export const Cart = (props: CartType) => {
   const { itemNumber = 1, image, quantity = 2 } = props;
+
+  const [disable, setDisable] = React.useState();
+
   return (
-    <div className="bg-white p-7">
+    <div className="bg-gray-100">
       <div className="w-full">
         <div className="flex flex-col">
-          <h1 className="text-3xl sm:text-5xl">Cart ({itemNumber})</h1>
+          <h1 className="mx-5 text-5xl sm:text-7xl font-extralight">CART ({itemNumber})</h1>
           <div className="my-2 overflow-x-auto sm:mx-6 lg:mx-8">
-            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <div className="overflow-hidden border-b border-gray-200  sm:rounded-lg">
+            <div className="inline-block min-w-full py-2 align-middle">
+              <div className="overflow-hidden border-b border-gray-400  ">
                 <table className="min-w-full divide-y divide-gray-400">
                   <thead className="items-start">
                     <tr>
                       <th
                         scope="col"
-                        className="w-2/6 px-4 py-3 text-left text-xs font-semibold tracking-wider text-black sm:px-6 sm:text-sm"
+                        className="w-2/6 py-3 text-left text-xs font-semibold tracking-wider text-black sm:text-sm"
                       >
                         Products
                       </th>
@@ -51,17 +54,20 @@ export const Cart = (props: CartType) => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 bg-white">
+                  <tbody className="divide-y divide-gray-200 ">
                     <tr>
                       <td className="p-4 sm:p-6">
-                        <div className="flex items-center">
-                          <img src="../assets/images/craft_4.png" alt="" />
-                          <div className="flex flex-col">
-                            <h1 className="text-lg sm:text-xl">Watch</h1>
+                        <div className="flex items-center gap-2">
+                          <img
+                            src={craftDetail4.src}
+                            alt="demoImage"
+                            className="h-32  object-bottom "
+                          />
+                          <div className="flex flex-col space-y-14">
+                            <h1 className="text-lg sm:text-xl">watch</h1>
                             <button className="underline">Remove</button>
                           </div>
                         </div>
-                        <img src="../assets/images/craft_4.png" alt="demo" />
                       </td>
                       <td className="px-4 py-4 sm:px-6 sm:py-6">Dropdown</td>
                       <td className="px-4 py-4 sm:px-6 sm:py-6">
@@ -84,15 +90,11 @@ export const Cart = (props: CartType) => {
                 </table>
               </div>
 
-              <div className="my-6 flex flex-col justify-between text-black sm:my-10 sm:flex-row">
+              <div className="my-6 flex flex-col justify-between gap-5 sm:my-10  sm:flex-row sm:gap-0">
                 <h1>Shipping will be calculated during checkout</h1>
-                <Button
-                  variant="secondary-dark"
-                  href="/watch/"
-                  className="mt-4"
-                  ariaLabel="Check Out"
-                >
-                  <ArrowRightIcon className="h-8 w-8 stroke-white stroke-1 sm:h-10 sm:w-10" />
+                <Button className="gap-6 bg-black text-white hover:bg-black font-extralight">
+                  Check Out
+                  <ArrowRightIcon className="h-6 w-6 stroke-white stroke-1 sm:h-8 sm:w-10" />
                 </Button>
               </div>
             </div>
