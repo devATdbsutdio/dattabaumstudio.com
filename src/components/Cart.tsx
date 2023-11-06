@@ -63,7 +63,7 @@ export const Cart = (props: CartType) => {
                           <img
                             src={craftDetail4.src}
                             alt="demoImage"
-                            className="h-32  object-bottom "
+                            className="h-32 object-bottom "
                           />
                           <div className="flex flex-col space-y-14">
                             <h1 className="text-lg sm:text-2xl">watch</h1>
@@ -94,7 +94,7 @@ export const Cart = (props: CartType) => {
                 </table>
               </div>
 
-              <div className="my-6 flex flex-col justify-between gap-5 sm:my-10  sm:flex-row sm:gap-0">
+              <div className="my-6 flex flex-col justify-between gap-5 sm:my-10  sm:flex-row sm:gap-0 items-center">
                 <h1>Shipping will be calculated during checkout</h1>
                 <Button className="gap-6 bg-black font-extralight text-white hover:bg-black">
                   Check Out
