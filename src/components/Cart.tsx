@@ -57,13 +57,13 @@ export const Cart = (props: CartType) => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 ">
-                    <tr>
+                    <tr> 
                       <td className="p-4 sm:p-6">
                         <div className="flex items-center gap-2">
                           <img
                             src={craftDetail4.src}
                             alt="demoImage"
-                            className="h-32 object-bottom "
+                            className="h-32 object-bottom w-2/6  "
                           />
                           <div className="flex flex-col space-y-14">
                             <h1 className="text-lg sm:text-2xl">watch</h1>
