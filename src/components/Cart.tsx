@@ -18,10 +18,12 @@ export const Cart = (props: CartType) => {
   const [disable, setDisable] = React.useState();
 
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 px-5 py-24 ">
       <div className="w-full">
         <div className="flex flex-col">
-          <h1 className="mx-5 text-5xl sm:text-7xl font-extralight">CART ({itemNumber})</h1>
+          <h1 className="mx-0 text-5xl font-extralight sm:mx-5 sm:text-7xl">
+            CART ({itemNumber})
+          </h1>
           <div className="my-2 overflow-x-auto sm:mx-6 lg:mx-8">
             <div className="inline-block min-w-full py-2 align-middle">
               <div className="overflow-hidden border-b border-gray-400  ">
@@ -64,8 +66,10 @@ export const Cart = (props: CartType) => {
                             className="h-32  object-bottom "
                           />
                           <div className="flex flex-col space-y-14">
-                            <h1 className="text-lg sm:text-xl">watch</h1>
-                            <button className="underline">Remove</button>
+                            <h1 className="text-lg sm:text-2xl">watch</h1>
+                            <button className="underline sm:text-sm">
+                              Remove
+                            </button>
                           </div>
                         </div>
                       </td>
@@ -92,7 +96,7 @@ export const Cart = (props: CartType) => {
 
               <div className="my-6 flex flex-col justify-between gap-5 sm:my-10  sm:flex-row sm:gap-0">
                 <h1>Shipping will be calculated during checkout</h1>
-                <Button className="gap-6 bg-black text-white hover:bg-black font-extralight">
+                <Button className="gap-6 bg-black font-extralight text-white hover:bg-black">
                   Check Out
                   <ArrowRightIcon className="h-6 w-6 stroke-white stroke-1 sm:h-8 sm:w-10" />
                 </Button>
