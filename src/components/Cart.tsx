@@ -58,14 +58,14 @@ export const Cart = (props: CartType) => {
                   </thead>
                   <tbody className="divide-y divide-gray-200 ">
                     <tr> 
-                      <td className="p-4 sm:p-6">
-                        <div className="flex items-center gap-2">
+                      <td className="py-4 sm:py-6 ">
+                        <div className="sm:flex  items-center sm:gap-2 ">
                           <img
                             src={craftDetail4.src}
                             alt="demoImage"
-                            className="h-32 object-bottom w-2/6  "
+                            className="sm:h-32 h-20 object-bottom md:w-2/6 sm:w-3/6  w-4/6  "
                           />
-                          <div className="flex flex-col space-y-14">
+                          <div className="flex flex-col sm:space-y-14 sm:text-start text-center">
                             <h1 className="text-lg sm:text-2xl">watch</h1>
                             <button className="underline sm:text-sm">
                               Remove
@@ -73,7 +73,7 @@ export const Cart = (props: CartType) => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-4 sm:px-6 sm:py-6">Dropdown</td>
+                      <td className="px-4 py-4 sm:px-6 sm:py-6 items-start">Dropdown</td>
                       <td className="px-4 py-4 sm:px-6 sm:py-6">
                         <div className="flex items-center gap-2 sm:gap-5">
                           <button className="border border-gray-500 p-2 text-black sm:p-3">
@@ -94,14 +94,14 @@ export const Cart = (props: CartType) => {
                 </table>
               </div>
 
+            </div>
               <div className="my-6 flex flex-col justify-between gap-5 sm:my-10  sm:flex-row sm:gap-0 items-center">
                 <h1>Shipping will be calculated during checkout</h1>
                 <Button className="gap-6 bg-black font-extralight text-white hover:bg-black">
                   Check Out
-                  <ArrowRightIcon className="h-6 w-6 stroke-white stroke-1 sm:h-8 sm:w-10" />
+                  <ArrowRightIcon className="h-6 w-6 stroke-white stroke-1 sm:h-7 sm:w-8" />
                 </Button>
               </div>
-            </div>
           </div>
         </div>
       </div>
