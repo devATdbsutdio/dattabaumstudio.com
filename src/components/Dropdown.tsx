@@ -11,9 +11,14 @@ const people = [
   { name: 'Hellen Schmidt' },
 ]
 
-export default function Dropdown() {
-  const [selected, setSelected] = useState(people[0])
 
+
+export default function Dropdown(props  : any) {
+  const { variants } = props
+  const [selected, setSelected]= useState(people[0])
+
+  const options = variants || people
+ 
   return (
       <Listbox value={selected} onChange={setSelected}>
         <div className="w-40 mt-1">
@@ -33,18 +38,18 @@ export default function Dropdown() {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute w-40 mt-1 max-h-60 overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-              {people.map((person, personIdx) => (
+              {options.map((variant: any, variantIdx: number) => (
                 <Listbox.Option
-                  key={personIdx}
+                  key={variantIdx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-3 pr-4 ${
                       active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                     }`
                   }
-                  value={person}
+                  value={variant}
                 >
                   {({ selected }) => {
-                    console.log({selected, person})
+                    console.log({selected, variant})
                     return (
                     <>
                       <span
@@ -52,7 +57,7 @@ export default function Dropdown() {
                           selected ? 'font-extrabold' : 'font-normal'
                         }`}
                       >
-                        {person.name}
+                        {variant.type}
                       </span>
                     </>
                   )}}

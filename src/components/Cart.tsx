@@ -14,11 +14,46 @@ type CartType = {
   quantity?: string;
 };
 
+const YOUR_SHOPIFY_STORE_NAME = "shaukat-store2";
+const PRODUCT_ID = "8189178904828";
+const API_VERSION = "2023-10";
+const API_URL = "https://shaukat-store2.myshopify.com/admin/api/2023-10/products/8189178904828.json";
+
 export const CartComponent = (props: CartType) => {
   const { itemNumber = 1, image } = props;
 
   const [disable, setDisable] = useState<Boolean | undefined>();
   const [quantity, setQuantity] = useState<number>(0);
+
+  const [productData, setProductData] = useState<any>(null);
+
+ 
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const response = await fetch(API_URL, {
+          headers: {
+            "X-Shopify-Access-Token": "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",
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setProductData(data);
+          console.log(data);
+        } else {
+          throw new Error("Failed to fetch data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchProductData();
+  }, []);
+
+  console.log(productData);
 
   const decreaseQuantity = () => {
     if (quantity <= 0) {
@@ -31,12 +66,8 @@ export const CartComponent = (props: CartType) => {
 
   const increaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
-    setDisable(false); 
+    setDisable(false);
   };
-
-useEffect(()=>{
-
-},[])
 
   return (
     <div className="bg-gray-100 px-3 py-12 sm:px-5 sm:py-24 ">
@@ -100,16 +131,21 @@ useEffect(()=>{
                       <td className="p-2 sm:p-3 ">
                         <div className="flex  items-center  gap-2 sm:gap-5   ">
                           <button
-                            className="border border-gray-500 p-2 text-black sm:p-3"
+                            className={
+                              disable
+                                ? "border border-gray-100 p-2 sm:p-3"
+                                : "  border border-gray-500 p-2 text-black sm:p-3"
+                            }
                             onClick={() => decreaseQuantity()}
                             disabled={!!disable}
                           >
                             <MinusIcon className="h-2 w-2 text-black sm:h-3 sm:w-3" />
                           </button>
-                          <h1 className={disable ?  "text-gray-300" : "text-black"}>
-
+                          <h1
+                            className={disable ? "text-gray-300" : "text-black"}
+                          >
                             {quantity}
-                            </h1>
+                          </h1>
                           <button
                             className="border border-gray-500 p-2 sm:p-3"
                             aria-label="View details"
