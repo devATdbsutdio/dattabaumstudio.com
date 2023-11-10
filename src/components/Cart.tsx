@@ -8,19 +8,25 @@ import ArrowRightIcon from "./icons/ArrowRightIcon";
 import craftDetail4 from "@/assets/images/craft_detail_4.png";
 import Dropdown from "@/components/Dropdown";
 
+
+
+
+
+
+
 type CartType = {
   itemNumber?: number;
   image?: string;
   quantity?: string;
 };
 
-const YOUR_SHOPIFY_STORE_NAME = "shaukat-store2";
-const PRODUCT_ID = "8189178904828";
-const API_VERSION = "2023-10";
-const API_URL =
-  "https://shaukat-store2.myshopify.com/admin/api/2023-10/products/8189178904828.json";
+// const YOUR_SHOPIFY_STORE_NAME = "shaukat-store2";
+// const PRODUCT_ID = "8189178904828";
+// const API_VERSION = "2023-10";
+// const API_URL =
+//   "https://shaukat-store2.myshopify.com/admin/api/2023-10/products/8189178904828.json";
 
-export const CartComponent = (props: CartType) => {
+ const CartComponent = (props: CartType) => {
   const { itemNumber = 1 } = props;
 
   // const [disable, setDisable] = useState<Boolean | undefined>();
@@ -32,42 +38,27 @@ export const CartComponent = (props: CartType) => {
 
   const minusSignDisabled = quantity === 0;
 
-  const fetchProductData = async () => {
+
+
+  const getProducts = async() => {
     try {
-      const response = await fetch(API_URL, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Shopify-Access-Token": "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",
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setProductData(data);
-        const variants = productData.product.variants;
-        setProductVariants(variants);
-        const image = productData.image.src;
-        setImage(image);
-        console.log(data);
-      } else {
-        throw new Error("Failed to fetch data");
-      }
+     let response = await fetch("/api/shopify/product" , {
+      method:"GET"
+     })
+     response = await response.json()
+      console.log("Products:", response);
     } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
+      console.error("Error fetching products", error);  
+    }  };
+  
   useEffect(() => {
-    fetchProductData();
+    console.log("WORKING!!!")
+    getProducts()
+
   }, []);
 
   const decreaseQuantity = () => {
-    // if (quantity <= 0) {
-    //   setDisable(true);
-    //   return;
-    // }
-    setQuantity((prevQuantity) => prevQuantity - 1);
+        setQuantity((prevQuantity) => prevQuantity - 1);
     // setDisable(false);
   };
 
@@ -76,7 +67,6 @@ export const CartComponent = (props: CartType) => {
     // setDisable(false);
   };
 
-  console.log("QUANTITY: ", quantity, quantity === 0)
 
   return (
     <div className="bg-gray-100 px-3 py-12">
@@ -142,19 +132,15 @@ export const CartComponent = (props: CartType) => {
                           <button
                             className={
                               minusSignDisabled
-                                ? "cursor-not-allowed border p-2 border-gray-100 opacity-50 "
+                                ? "cursor-not-allowed border border-gray-100 p-2 opacity-50 "
                                 : "border border-gray-500 p-2 text-black "
                             }
-                            onClick={() =>   decreaseQuantity()}
+                            onClick={() => decreaseQuantity()}
                             disabled={minusSignDisabled}
                           >
                             <MinusIcon className="h-2  text-black sm:h-3 sm:w-3" />
                           </button>
-                          <h1
-                            className={"text-black"}
-                          >
-                            {quantity}
-                          </h1>
+                          <h1 className={"text-black"}>{quantity}</h1>
                           <button
                             className="border border-gray-500 p-2"
                             aria-label="View details"
@@ -183,3 +169,6 @@ export const CartComponent = (props: CartType) => {
     </div>
   );
 };
+ 
+
+export default CartComponent
