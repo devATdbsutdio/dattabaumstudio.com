@@ -9,11 +9,6 @@ import craftDetail4 from "@/assets/images/craft_detail_4.png";
 import Dropdown from "@/components/Dropdown";
 
 
-
-
-
-
-
 type CartType = {
   itemNumber?: number;
   image?: string;
@@ -59,12 +54,11 @@ type CartType = {
 
   const decreaseQuantity = () => {
         setQuantity((prevQuantity) => prevQuantity - 1);
-    // setDisable(false);
   };
 
   const increaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
-    // setDisable(false);
+ 
   };
 
 
