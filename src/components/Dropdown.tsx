@@ -12,16 +12,18 @@ const people = [
 ]
 
 
+type variant={
+  [key :string] : string
+}
 
 export default function Dropdown(props  : any) {
-  const { variants } = props
+    const { variants } = props
   const [selected, setSelected]= useState(people[0])
-
   const options = variants || people
  
   return (
       <Listbox value={selected} onChange={setSelected}>
-        <div className="w-40 mt-1">
+        <div className="sm:w-40 w-28 mt-1 z-50">
           <Listbox.Button className="relative w-full cursor-default rounded-sm py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-black focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.name}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -37,30 +39,28 @@ export default function Dropdown(props  : any) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute w-40 mt-1 max-h-60 overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute w-40 z-40 mt-1 max-h-60 overflow-auto rounded-md py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
               {options.map((variant: any, variantIdx: number) => (
                 <Listbox.Option
                   key={variantIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-3 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                    `relative cursor-default select-none py-2 pl-3 pr-4 z-50 ${
+                      active ? 'bg-gray-300' : 'text-gray-900'
                     }`
                   }
                   value={variant}
                 >
-                  {({ selected }) => {
-                    console.log({selected, variant})
-                    return (
+                  {({ selected }) => (
                     <>
                       <span
-                        className={`block truncate ${
-                          selected ? 'font-extrabold' : 'font-normal'
+                        className={`block truncate z-50 ${
+                          selected ? 'font-bold' : 'font-normal'
                         }`}
                       >
-                        {variant.type}
+                        {variant.name}
                       </span>
                     </>
-                  )}}
+                  )}
                 </Listbox.Option>
               ))}
             </Listbox.Options>
