@@ -64,21 +64,21 @@ const CartComponent = () => {
     }
   };
 
-  const checkout = async () => {
-    try {
-      let checkout = await fetch("/api/shopify/checkout", {
-        method: "POST",
-        body: JSON.stringify({
-          variantId: selectedVariant?.value,
-          quantity,
-        }),
-      });
-      checkout = await checkout.json();
-      console.log("checkout", checkout);
-    } catch (error) {
-      console.error("Error checkout", error);
-    }
-  };
+  // const checkout = async () => {
+  //   try {
+  //     let checkout = await fetch("/api/shopify/checkout", {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         variantId: selectedVariant?.value,
+  //         quantity,
+  //       }),
+  //     });
+  //     checkout = await checkout.json();
+  //     console.log("checkout", checkout);
+  //   } catch (error) {
+  //     console.error("Error checkout", error);
+  //   }
+  // };
 
   useEffect(() => {
     getProducts();

@@ -22,6 +22,10 @@ export default function Header({ solidBg }: HeaderProps) {
     setIsWaitingListOpen((v) => !v);
   };
 
+  const redirectToCartPage = () => {
+    window.location.href = "/cart"
+  }
+
   return (
     <>
       <header
@@ -61,10 +65,18 @@ export default function Header({ solidBg }: HeaderProps) {
           >
             DATTA + BAUM
           </a>
-          <Button
+          {/* <Button
             variant="tertiary-dark"
             className="ml-auto text-sm sm:text-base md:block md:text-lg"
             onClick={toggleWaitingList}
+            ariaLabel="Join the waiting list"
+          >
+            Join the waiting list
+          </Button> */}
+          <Button
+            variant="tertiary-dark"
+            className="ml-auto text-sm sm:text-base md:block md:text-lg"
+            onClick={redirectToCartPage}
             ariaLabel="Add to Cart"
           >
             Add to Cart
@@ -104,12 +116,18 @@ export default function Header({ solidBg }: HeaderProps) {
             >
               About
             </a>
-            <button
+            {/* <button
               className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
               onClick={() => {
                 toggleMenu();
                 toggleWaitingList();
               }}
+            >
+              Join the waiting list
+            </button> */}
+            <button
+              className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
+              onClick={redirectToCartPage}
             >
               Add to Cart
             </button>
