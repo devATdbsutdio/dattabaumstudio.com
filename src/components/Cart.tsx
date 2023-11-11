@@ -14,7 +14,7 @@ const API_VERSION = "2023-10";
 const API_URL =
   "https://shaukat-store2.myshopify.com/admin/api/2023-10/products/8189178904828.json";
 
-export const CartComponent = () => {
+const CartComponent = () => {
   const [quantity, setQuantity] = useState<number>(0);
   const [productData, setProductData] = useState<any>(null);
   const [productVariants, setProductVariants] = useState<any>(null);
@@ -26,34 +26,21 @@ export const CartComponent = () => {
   const minusSignDisabled = quantity === 0;
   const plusSignDisabled = false;
 
-  const fetchProductData = async () => {
+  const getProducts = async () => {
     try {
-      const response = await fetch(API_URL, {
+      let response = await fetch("/api/shopify/product", {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Shopify-Access-Token": "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",
-        },
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        setProductData(data);
-        const variants = productData.product.variants;
-        setProductVariants(variants);
-        const image = productData.image.src;
-        setImage(image);
-        console.log(data);
-      } else {
-        throw new Error("Failed to fetch data");
-      }
+      response = await response.json();
+      console.log("Products:", response);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching products", error);
     }
   };
 
   useEffect(() => {
-    fetchProductData();
+    console.log("WORKING!!!");
+    getProducts();
   }, []);
 
   const decreaseQuantity = () => {
@@ -158,3 +145,5 @@ export const CartComponent = () => {
     </div>
   );
 };
+
+export default CartComponent;
