@@ -111,7 +111,7 @@ export default function Header({ solidBg }: HeaderProps) {
                 toggleWaitingList();
               }}
             >
-             Add to Cart
+              Add to Cart
             </button>
           </Dialog.Panel>
         </Dialog>
