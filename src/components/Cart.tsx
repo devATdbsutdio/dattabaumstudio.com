@@ -85,7 +85,7 @@ const CartComponent = () => {
         </h1>
         <div className="relative mt-10 overflow-x-auto">
           {loading ? (
-            <div className="absolute inset-0 z-50 h-full w-full bg-black bg-opacity-40">
+            <div className="absolute inset-0 z-50 h-full w-full bg-black bg-opacity-10">
               <div className="flex h-full items-center justify-center">
                 <Spinner className="h-16 w-16" />
               </div>
@@ -110,7 +110,7 @@ const CartComponent = () => {
             </thead>
             <tbody className={loading ? "invisible" : "visible"}>
               <tr className="align-top">
-                <td className="py-8">
+                <td className="py-8 pr-4">
                   <div className="flex gap-6">
                     <img
                       src={image}
