@@ -6,6 +6,7 @@ import ArrowRightIcon from "./icons/ArrowRightIcon";
 import Watch from "@/assets/images/craft_detail_4.png";
 import Dropdown from "@/components/Dropdown";
 import Spinner from "./Spinner";
+import { formatPrice } from "@/lib/utils";
 
 const CartComponent = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,21 +21,22 @@ const CartComponent = () => {
   } | null>(null);
 
   const price = selectedVariant?.price || 0;
-  // const price = quantity * (selectedVariant?.price || 0);
+  const total = quantity * price;
 
   const minusSignDisabled = quantity === 0;
   const plusSignDisabled = selectedVariant?.quantity === quantity;
 
   const { title, image, variants } = useMemo(() => {
     let title = productData?.title;
-    let image = productData?.image?.src || Watch.src;
+    let image = productData?.image?.src;
 
     let variants = productData?.variants?.map((variant: any) => {
       return {
         label: variant.title,
-        value: variant.inventory_item_id,
+        value: variant.id,
         quantity: variant.inventory_quantity,
         price: Number(variant.price),
+        disabled: variant.inventory_quantity === 0,
       };
     });
 
@@ -43,9 +45,9 @@ const CartComponent = () => {
     return { title, image, variants };
   }, [productData]);
 
-  // useEffect(() => {
-  //   setQuantity(0);
-  // }, [selectedVariant]);
+  useEffect(() => {
+    setQuantity(0);
+  }, [selectedVariant]);
 
   const getProducts = async () => {
     try {
@@ -90,18 +92,26 @@ const CartComponent = () => {
     setQuantity((prev) => prev + 1);
   };
 
-  // if (loading) return ;
+  console.log(
+    `https://f2888f-3.myshopify.com/cart/${selectedVariant?.value}:${quantity}`,
+  );
 
   return (
     <div className="bg-gray-100 px-6 py-12 md:px-8 md:py-20 xl:px-12">
       <div className="flex flex-col">
-        <h1 className="text-5xl font-extralight md:text-6xl lg:text-7xl">
-          CART
-          {/* {quantity ? ` (${quantity})` : null} */}
-        </h1>
+        <div className="flex items-end justify-between gap-6">
+          <h1 className="text-5xl font-extralight md:text-6xl lg:text-7xl">
+            CART
+            {/* {quantity ? ` (${quantity})` : null} */}
+          </h1>
+          <h4 className="font-semibold tracking-widest">
+            Total: € {formatPrice(total)}
+          </h4>
+        </div>
+
         <div className="relative mt-10 overflow-x-auto">
           {loading ? (
-            <div className="absolute inset-0 z-50 h-full w-full bg-black bg-opacity-10">
+            <div className="absolute inset-0 z-50 h-full w-full">
               <div className="flex h-full items-center justify-center">
                 <Spinner className="h-16 w-16" />
               </div>
@@ -176,7 +186,7 @@ const CartComponent = () => {
                   </div>
                 </td>
                 <td className="py-10 align-top text-base font-medium">
-                  € {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  € {formatPrice(price)}
                 </td>
               </tr>
             </tbody>
@@ -189,7 +199,9 @@ const CartComponent = () => {
           <Button
             className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black"
             disabled={quantity === 0}
-            onClick={checkout}
+            onClick={() => {
+              window.location.href = `https://f2888f-3.myshopify.com/cart/${selectedVariant?.value}:${quantity}`;
+            }}
           >
             Check Out
             <ArrowRightIcon className="stroke-white stroke-2" />

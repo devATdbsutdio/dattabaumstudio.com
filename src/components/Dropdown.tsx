@@ -29,9 +29,10 @@ export default function Dropdown(props: any) {
                 className={({ active }) =>
                   `relative z-50 cursor-default select-none px-3 py-2 ${
                     active ? "bg-gray-300" : "text-gray-900"
-                  }`
+                  } ${option.disabled ? "cursor-not-allowed opacity-50" : ""}`
                 }
                 value={option}
+                disabled={option.disabled}
               >
                 {({ selected }) => (
                   <span
