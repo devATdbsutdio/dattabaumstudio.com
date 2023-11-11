@@ -1,35 +1,19 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-
-const people = [
-  { name: "Wade Cooper" },
-  { name: "Arlene Mccoy" },
-  { name: "Devon Webb" },
-  { name: "Tom Cook" },
-  { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
-];
-
-type variant = {
-  [key: string]: string;
-};
+import ChevronUpDownIcon from "./icons/ChevronUpDownIcon";
 
 export default function Dropdown(props: any) {
-  const { variants } = props;
-  const [selected, setSelected] = useState(people[0]);
-  const options = variants || people;
+  const { options, selected, setSelected } = props;
+
+  if (!options?.length) return null;
 
   return (
     <Listbox value={selected} onChange={setSelected}>
       <div className="z-50 w-44">
         <Listbox.Button className="relative w-full cursor-default rounded-[0.25rem] border border-gray-400 px-3 py-2 text-left">
-          <span className="block truncate text-base">{selected.name}</span>
+          <span className="block truncate text-base">{selected.label}</span>
           <span className="pointer-events-none absolute inset-y-0 right-[8px] flex items-center">
-            <ChevronUpDownIcon
-              className="h-5 w-5 text-gray-400"
-              aria-hidden="true"
-            />
+            <ChevronUpDownIcon className="h-5 w-5" aria-hidden="true" />
           </span>
         </Listbox.Button>
         <Transition
@@ -39,15 +23,15 @@ export default function Dropdown(props: any) {
           leaveTo="opacity-0"
         >
           <Listbox.Options className="absolute !z-[10000000000] mt-1 max-h-60 w-44 overflow-auto rounded-[0.25rem] bg-gray-100 py-1 text-sm shadow-lg">
-            {options.map((variant: any, variantIdx: number) => (
+            {options.map((option: any) => (
               <Listbox.Option
-                key={variantIdx}
+                key={option.value}
                 className={({ active }) =>
                   `relative z-50 cursor-default select-none px-3 py-2 ${
                     active ? "bg-gray-300" : "text-gray-900"
                   }`
                 }
-                value={variant.name}
+                value={option}
               >
                 {({ selected }) => (
                   <span
@@ -55,7 +39,7 @@ export default function Dropdown(props: any) {
                       selected ? "font-bold" : "font-normal"
                     }`}
                   >
-                    {variant.name}
+                    {option.label}
                   </span>
                 )}
               </Listbox.Option>

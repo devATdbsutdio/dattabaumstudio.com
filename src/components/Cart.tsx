@@ -1,45 +1,68 @@
-import Layout from "@/layouts/Layout.astro";
-import React, { useEffect, useState } from "react";
-import DemoPic from "@/assets/images/craft_4.png";
+import { useEffect, useMemo, useState } from "react";
 import Button from "./Button";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
 import ArrowRightIcon from "./icons/ArrowRightIcon";
-import craftDetail4 from "@/assets/images/craft_detail_4.png";
+import Watch from "@/assets/images/craft_detail_4.png";
 import Dropdown from "@/components/Dropdown";
-
-const YOUR_SHOPIFY_STORE_NAME = "shaukat-store2";
-const PRODUCT_ID = "8189178904828";
-const API_VERSION = "2023-10";
-const API_URL =
-  "https://shaukat-store2.myshopify.com/admin/api/2023-10/products/8189178904828.json";
+import Spinner from "./Spinner";
 
 const CartComponent = () => {
+  const [loading, setLoading] = useState<boolean>(true);
   const [quantity, setQuantity] = useState<number>(0);
   const [productData, setProductData] = useState<any>(null);
-  const [productVariants, setProductVariants] = useState<any>(null);
-  const [image, setImage] = useState<any>("");
-  // const price = productData?.variants[0].price;
 
-  const price = quantity * 350;
+  const [selectedVariant, setSelectedVariant] = useState<{
+    label: string;
+    value: string;
+    quantity: number;
+    price: number;
+  } | null>(null);
+
+  const price = selectedVariant?.price || 0;
+  // const price = quantity * (selectedVariant?.price || 0);
 
   const minusSignDisabled = quantity === 0;
-  const plusSignDisabled = false;
+  const plusSignDisabled = selectedVariant?.quantity === quantity;
+
+  const { title, image, variants } = useMemo(() => {
+    let title = productData?.title;
+    let image = productData?.image?.src || Watch.src;
+
+    let variants = productData?.variants?.map((variant: any) => {
+      return {
+        label: variant.title,
+        value: variant.inventory_item_id,
+        quantity: variant.inventory_quantity,
+        price: Number(variant.price),
+      };
+    });
+
+    setSelectedVariant(variants?.[0]);
+
+    return { title, image, variants };
+  }, [productData]);
+
+  // useEffect(() => {
+  //   setQuantity(0);
+  // }, [selectedVariant]);
 
   const getProducts = async () => {
     try {
-      let response = await fetch("/api/shopify/product", {
+      setLoading(true);
+      let product = await fetch("/api/shopify/product", {
         method: "GET",
       });
-      response = await response.json();
-      console.log("Products:", response);
+      product = await product.json();
+      setProductData(product);
     } catch (error) {
       console.error("Error fetching products", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    console.log("WORKING!!!");
     getProducts();
   }, []);
 
@@ -51,7 +74,7 @@ const CartComponent = () => {
     setQuantity((prev) => prev + 1);
   };
 
-  console.log("QUANTITY: ", quantity, quantity === 0);
+  // if (loading) return ;
 
   return (
     <div className="bg-gray-100 px-6 py-12 md:px-8 md:py-20 xl:px-12">
@@ -60,7 +83,14 @@ const CartComponent = () => {
           CART
           {/* {quantity ? ` (${quantity})` : null} */}
         </h1>
-        <div className="mt-10 overflow-x-auto">
+        <div className="relative mt-10 overflow-x-auto">
+          {loading ? (
+            <div className="absolute inset-0 z-50 h-full w-full bg-black bg-opacity-40">
+              <div className="flex h-full items-center justify-center">
+                <Spinner className="h-16 w-16" />
+              </div>
+            </div>
+          ) : null}
           <table className="min-h-[350px] w-full divide-y-2 divide-gray-400">
             <thead className="text-left text-base font-bold tracking-wider lg:text-lg">
               <tr>
@@ -78,25 +108,29 @@ const CartComponent = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={loading ? "invisible" : "visible"}>
               <tr className="align-top">
                 <td className="py-8">
                   <div className="flex gap-6">
                     <img
-                      src={image || craftDetail4.src}
-                      alt="demoImage"
+                      src={image}
+                      alt={title}
                       className="h-44 w-44 rounded-2xl border border-gray-200 object-cover object-bottom"
                     />
                     <div>
                       <h1 className="flex-1 text-3xl font-light md:text-4xl">
-                        watch
+                        {title}
                       </h1>
                       {/* <button className="text-sm underline ">Remove</button> */}
                     </div>
                   </div>
                 </td>
                 <td className="translate-x-[-12px] py-8 align-top">
-                  <Dropdown variants={productVariants} />
+                  <Dropdown
+                    options={variants}
+                    selected={selectedVariant}
+                    setSelected={setSelectedVariant}
+                  />
                 </td>
                 <td className="py-8 align-top">
                   <div className="flex items-center gap-6">
@@ -136,7 +170,10 @@ const CartComponent = () => {
           <h4 className="text-base">
             Shipping will be calculated during checkout
           </h4>
-          <Button className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black">
+          <Button
+            className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black"
+            disabled={quantity === 0}
+          >
             Check Out
             <ArrowRightIcon className="stroke-white stroke-2" />
           </Button>
