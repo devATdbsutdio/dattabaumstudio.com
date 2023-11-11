@@ -74,7 +74,6 @@ const CartComponent = () => {
   //       }),
   //     });
   //     checkout = await checkout.json();
-  //     console.log("checkout", checkout);
   //   } catch (error) {
   //     console.error("Error checkout", error);
   //   }
@@ -105,7 +104,7 @@ const CartComponent = () => {
           </h4>
         </div>
 
-        <div className="relative mt-10 overflow-x-auto">
+        <div className="cart-table relative mt-10 overflow-x-hidden hover:overflow-x-auto">
           {loading ? (
             <div className="absolute inset-0 z-50 h-full w-full">
               <div className="flex h-full items-center justify-center">
@@ -196,7 +195,9 @@ const CartComponent = () => {
             className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black"
             disabled={quantity === 0}
             onClick={() => {
-              window.location.href = `https://f2888f-3.myshopify.com/cart/${selectedVariant?.value}:${quantity}`;
+              window.location.href = `https://${
+                import.meta.env.PUBLIC_SHOPIFY_SHOP_NAME
+              }.myshopify.com/cart/${selectedVariant?.value}:${quantity}`;
             }}
           >
             Check Out

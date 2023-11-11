@@ -80,6 +80,22 @@ const topMargin = Astro.props.topMargin || false;
     position: initial;
   }
 
+
+  .cart-table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .cart-table::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-lg;
+  }
+
+  .cart-table::-webkit-scrollbar-track {
+    @apply bg-gray-400 rounded-lg;
+  }
+
+
+
+
   /* FONTS */
 
   @font-face {
