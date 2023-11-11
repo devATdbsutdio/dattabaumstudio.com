@@ -92,10 +92,6 @@ const CartComponent = () => {
     setQuantity((prev) => prev + 1);
   };
 
-  console.log(
-    `https://f2888f-3.myshopify.com/cart/${selectedVariant?.value}:${quantity}`,
-  );
-
   return (
     <div className="bg-gray-100 px-6 py-12 md:px-8 md:py-20 xl:px-12">
       <div className="flex flex-col">
