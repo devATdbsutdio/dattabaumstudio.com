@@ -62,6 +62,22 @@ const CartComponent = () => {
     }
   };
 
+  const checkout = async () => {
+    try {
+      let checkout = await fetch("/api/shopify/checkout", {
+        method: "POST",
+        body: JSON.stringify({
+          variantId: selectedVariant?.value,
+          quantity,
+        }),
+      });
+      checkout = await checkout.json();
+      console.log("checkout", checkout);
+    } catch (error) {
+      console.error("Error checkout", error);
+    }
+  };
+
   useEffect(() => {
     getProducts();
   }, []);
@@ -173,6 +189,7 @@ const CartComponent = () => {
           <Button
             className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black"
             disabled={quantity === 0}
+            onClick={checkout}
           >
             Check Out
             <ArrowRightIcon className="stroke-white stroke-2" />
