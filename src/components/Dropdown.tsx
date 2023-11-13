@@ -9,7 +9,7 @@ export default function Dropdown(props: any) {
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <div className="z-50 w-44">
+      <div className="z-50 w-full">
         <Listbox.Button className="relative w-full cursor-default rounded-[0.25rem] border border-gray-400 px-3 py-2 text-left">
           <span className="block truncate text-base">{selected.label}</span>
           <span className="pointer-events-none absolute inset-y-0 right-[8px] flex items-center">
@@ -22,7 +22,7 @@ export default function Dropdown(props: any) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute !z-[10000000000] mt-1 max-h-60 w-44 overflow-auto rounded-[0.25rem] bg-gray-100 py-1 text-sm shadow-lg">
+          <Listbox.Options className="absolute z-50 mt-1 max-h-60 w-full overflow-auto  rounded-[0.25rem] bg-gray-100 py-1 text-sm shadow-lg">
             {options.map((option: any) => (
               <Listbox.Option
                 key={option.value}

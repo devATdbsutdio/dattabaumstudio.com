@@ -112,10 +112,10 @@ const CartComponent = () => {
               </div>
             </div>
           ) : null}
-          <table className="min-h-[350px] w-full divide-y-2 divide-gray-400">
-            <thead className="text-left text-base font-bold tracking-wider lg:text-lg">
+          <table className="w-full divide-y-2 divide-gray-400  border-b-2 border-b-gray-400">
+            <thead className="hidden text-left text-base font-bold tracking-wider lg:table-header-group lg:text-lg">
               <tr>
-                <th scope="col" className="w-6/12 min-w-[400px] pb-3">
+                <th scope="col" className="w-6/12 min-w-[350px] pb-3">
                   Products
                 </th>
                 <th scope="col" className="w-2/12 min-w-[200px] pb-3">
@@ -130,31 +130,37 @@ const CartComponent = () => {
               </tr>
             </thead>
             <tbody className={loading ? "invisible" : "visible"}>
-              <tr className="align-top">
-                <td className="py-8 pr-4">
-                  <div className="flex gap-6">
+              {/* !!! */}
+              <tr className="flex flex-col align-top md:table-row ">
+                <td className="py-4 sm:py-8">
+                  <div className="flex gap-4">
                     <img
                       src={image}
                       alt={title}
-                      className="h-44 w-44 rounded-2xl border border-gray-200 object-cover object-bottom"
+                      className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom"
                     />
-                    <div>
-                      <h1 className="flex-1 text-3xl font-light md:text-4xl">
+
+                    <div className="flex flex-col lg:justify-between">
+                      <h1 className="flex-1 text-2xl font-light md:text-4xl">
                         {title}
                       </h1>
                       {/* <button className="text-sm underline ">Remove</button> */}
                     </div>
+
+                    <div className="flex w-full justify-end text-base font-bold md:hidden md:py-10">
+                      € {formatPrice(price)}
+                    </div>
                   </div>
                 </td>
-                <td className="translate-x-[-12px] py-8 align-top">
+                <td className="pt-4 sm:py-8 md:w-auto md:translate-x-[-12px] md:align-top ">
                   <Dropdown
                     options={variants}
                     selected={selectedVariant}
                     setSelected={setSelectedVariant}
                   />
                 </td>
-                <td className="py-8 align-top">
-                  <div className="flex items-center gap-6">
+                <td className="py-5 align-top md:py-8">
+                  <div className="flex items-center  justify-between gap-6 md:justify-normal">
                     <button
                       className={`border border-gray-400 p-3 ${
                         minusSignDisabled
@@ -180,19 +186,17 @@ const CartComponent = () => {
                     </button>
                   </div>
                 </td>
-                <td className="py-10 align-top text-base font-medium">
+
+                <td className="hidden align-top text-base font-medium md:flex md:py-10">
                   € {formatPrice(price)}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="mb-6 mt-6 flex flex-col-reverse items-center justify-between gap-6 md:flex-row md:gap-12">
-          <h4 className="text-base">
-            Shipping will be calculated during checkout
-          </h4>
+        <div className="mb-6 mt-6 flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse  md:gap-12 ">
           <Button
-            className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black"
+            className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black "
             disabled={quantity === 0}
             onClick={() => {
               window.location.href = `https://${
@@ -201,8 +205,11 @@ const CartComponent = () => {
             }}
           >
             Check Out
-            <ArrowRightIcon className="stroke-white stroke-2" />
+            <ArrowRightIcon className=" stroke-white stroke-2" />
           </Button>
+          <h4 className="text-base">
+            Shipping will be calculated during checkout
+          </h4>
         </div>
       </div>
     </div>
