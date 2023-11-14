@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BandSize from "@/components/BandSize";
+import BandSizeButton from "@/components/watch/BandSizeButton";
+---
+
+<Layout>
+  <div class="relative pt-[80px] md:pt-[108px]">
+    <BandSizeButton client:load />
+  </div>
+</Layout>
