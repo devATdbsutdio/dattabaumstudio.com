@@ -99,7 +99,7 @@ const CartComponent = () => {
             CART
             {/* {quantity ? ` (${quantity})` : null} */}
           </h1>
-          <h4 className="font-semibold tracking-widest">
+          <h4 className="text-base font-semibold tracking-widest lg:text-lg">
             Total: € {formatPrice(total)}
           </h4>
         </div>
@@ -112,55 +112,55 @@ const CartComponent = () => {
               </div>
             </div>
           ) : null}
-          <table className="w-full divide-y-2 divide-gray-400  border-b-2 border-b-gray-400">
+          <table className="w-full divide-y-2 divide-black  border-b-2 border-b-black">
             <thead className="hidden text-left text-base font-bold tracking-wider lg:table-header-group lg:text-lg">
               <tr>
-                <th scope="col" className="w-6/12 min-w-[350px] pb-3">
+                <th scope="col" className="w-[50%] pb-3">
                   Products
                 </th>
-                <th scope="col" className="w-2/12 min-w-[200px] pb-3">
-                  Size
+                <th scope="col" className="w-[20%] pb-3">
+                  Band Size
                 </th>
-                <th scope="col" className="w-3/12 min-w-[200px] pb-3">
+                <th scope="col" className="w-[20%] pb-3">
                   Quantity
                 </th>
-                <th scope="col" className="w-1/12 min-w-[75px] pb-3">
+                <th scope="col" className="w-[10%] pb-3">
                   Price
                 </th>
               </tr>
             </thead>
             <tbody className={loading ? "invisible" : "visible"}>
               {/* !!! */}
-              <tr className="flex flex-col align-top md:table-row ">
-                <td className="py-4 sm:py-8">
+              <tr className="flex flex-col align-top lg:table-row">
+                <td className="pb-4 pt-8 lg:py-8">
                   <div className="flex gap-4">
                     <img
                       src={image}
                       alt={title}
-                      className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom"
+                      className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom sm:h-44 sm:w-44"
                     />
 
                     <div className="flex flex-col lg:justify-between">
-                      <h1 className="flex-1 text-2xl font-light md:text-4xl">
+                      <h1 className="flex-1 text-2xl font-light lg:text-4xl">
                         {title}
                       </h1>
                       {/* <button className="text-sm underline ">Remove</button> */}
                     </div>
 
-                    <div className="flex w-full justify-end text-base font-bold md:hidden md:py-10">
+                    <h4 className="flex w-full justify-end text-base font-medium lg:hidden">
                       € {formatPrice(price)}
-                    </div>
+                    </h4>
                   </div>
                 </td>
-                <td className="pt-4 sm:py-8 md:w-auto md:translate-x-[-12px] md:align-top ">
+                <td className="m-auto w-full max-w-[400px] py-4 pr-0 align-top lg:w-fit lg:translate-x-[-12px] lg:py-8 lg:pr-6">
                   <Dropdown
                     options={variants}
                     selected={selectedVariant}
                     setSelected={setSelectedVariant}
                   />
                 </td>
-                <td className="py-5 align-top md:py-8">
-                  <div className="flex items-center  justify-between gap-6 md:justify-normal">
+                <td className="m-auto w-full max-w-[400px] pb-8 pt-4 align-top lg:py-8">
+                  <div className="flex items-center justify-between gap-6 lg:justify-normal">
                     <button
                       className={`border border-gray-400 p-3 ${
                         minusSignDisabled
@@ -186,17 +186,16 @@ const CartComponent = () => {
                     </button>
                   </div>
                 </td>
-
-                <td className="hidden align-top text-base font-medium md:flex md:py-10">
+                <td className="hidden py-10 align-top text-base font-medium lg:flex">
                   € {formatPrice(price)}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="mb-6 mt-6 flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse  md:gap-12 ">
+        <div className="my-8 flex flex-col-reverse items-center justify-between gap-6 lg:flex-row-reverse ">
           <Button
-            className="initial gap-6 bg-black text-lg font-light text-white hover:bg-black "
+            className="initial w-full max-w-[400px] gap-6 bg-black text-lg font-light text-white lg:max-w-[250px]"
             disabled={quantity === 0}
             onClick={() => {
               window.location.href = `https://${

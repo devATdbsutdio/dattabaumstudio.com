@@ -9,9 +9,11 @@ export default function Dropdown(props: any) {
 
   return (
     <Listbox value={selected} onChange={setSelected}>
-      <div className="z-50 w-full">
+      <div className="relative z-50 w-full">
         <Listbox.Button className="relative w-full cursor-default rounded-[0.25rem] border border-gray-400 px-3 py-2 text-left">
-          <span className="block truncate text-base">{selected.label}</span>
+          <span className="block w-[calc(100%-1.25rem)] truncate text-base">
+            {selected.label}
+          </span>
           <span className="pointer-events-none absolute inset-y-0 right-[8px] flex items-center">
             <ChevronUpDownIcon className="h-5 w-5" aria-hidden="true" />
           </span>
