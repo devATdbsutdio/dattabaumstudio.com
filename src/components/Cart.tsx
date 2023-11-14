@@ -195,7 +195,7 @@ const CartComponent = () => {
         </div>
         <div className="my-8 flex flex-col-reverse items-center justify-between gap-6 lg:flex-row-reverse ">
           <Button
-            className="initial w-full max-w-[400px] gap-6 bg-black text-lg font-light text-white lg:max-w-[250px]"
+            className="initial w-full max-w-[400px] gap-6 bg-black text-lg font-light text-white hover:bg-gray-900 lg:max-w-[250px]"
             disabled={quantity === 0}
             onClick={() => {
               window.location.href = `https://${
