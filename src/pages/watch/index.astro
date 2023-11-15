@@ -21,6 +21,7 @@ import ContentNav from "@/components/watch/ContentNav.astro";
 import CraftsmanshipSection from "@/components/watch/CraftsmanshipSection.astro";
 import SpecsSection from "@/components/watch/SpecsSection.astro";
 import AddToCartButton from "@/components/watch/AddToCart";
+import BandSizeButton from "@/components/watch/BandSizeButton";
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -89,7 +90,8 @@ const watchHeroImgs = [
         >
           <div class="flex flex-wrap items-center gap-5">
             <!-- <WaitingListButton client:idle /> -->
-            <AddToCartButton client:idle />
+            <!-- <AddToCartButton client:idle /> -->
+            <BandSizeButton client:load />
             <Button
               variant="secondary-dark"
               href="/watch/faq"

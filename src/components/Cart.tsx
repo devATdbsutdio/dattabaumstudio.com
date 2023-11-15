@@ -153,7 +153,7 @@ const CartComponent = () => {
                       <h1 className="text-2xl font-light lg:text-4xl">
                         {title}
                       </h1>
-                      <button className="ml-1 text-start text-xs font-semibold text-black md:text-sm">
+                      <button className="ml-1 text-start text-xs font-medium text-black md:text-sm">
                         Color : {color}
                       </button>
                     </div>
