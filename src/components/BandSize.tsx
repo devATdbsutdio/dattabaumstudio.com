@@ -8,13 +8,14 @@ const DATA = [
   {
     id: "1",
     size: "Standard Stretch",
-    description: `For the not-too-big, not-too-small wrists \n.\n
-       Belt length = 24 cm`,
+    description: "For the not-too-big, not-too-small wrists.",
+    sizeDescription: "Belt length = 24 cm",
   },
   {
     id: "2",
     size: "Extended Edition",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    description: "For those who like a little extra around their wrist",
+    sizeDescription: "Belt length = 27 cm",
   },
 ];
 
@@ -31,6 +32,8 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
   const isLoading = status === "loading";
   const isSuccess = status === "success";
   const isError = status === "error";
+
+  const [activeIndex, setActiveIndex] = React.useState<boolean | number>();
 
   const onClose = () => {
     toggle();
@@ -84,12 +87,12 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                   </Dialog.Title>
                   <h4
                     className={cn(
-                      "mb-7 text-center text-sm font-light md:text-base ",
+                      "mb-7 text-center text-base font-normal text-gray-900 md:text-base ",
                       isSuccess && "text-center ",
                     )}
                   >
-                    Select the wristband size that you think would fit your
-                    wrist best, and then add it to your cart.
+                    Please select the appropriate wristband size first and add
+                    it to your cart
                   </h4>
                   {isSuccess ? (
                     <Button
@@ -107,14 +110,30 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                       className="flex flex-grow flex-col "
                       // onSubmit={onSubmit}
                     >
-                      <div className="grid grid-cols-1 place-items-center gap-6 pb-4 text-center sm:grid-cols-2">
-                        {DATA.map((_d) => (
-                          <div className="extralight min-h-full w-full  gap-6 border-2 border-gray-300 px-11 pb-16 pt-32 ">
-                            <h2 className="text-4xl font-light uppercase lg:px-11">
+                      <div
+                        className={`grid grid-cols-1 place-items-center gap-10 pb-4 text-center sm:grid-cols-2`}
+                      >
+                        {DATA.map((_d, idx) => (
+                          <div
+                            className={`extralight min-h-full w-full justify-center gap-6 rounded border-2 border-gray-300 px-11 pb-20 pt-32   ${
+                              idx !== activeIndex
+                                ? "opacity-75"
+                                : "border-2 border-gray-950 opacity-100"
+                            }`}
+                            onClick={() => setActiveIndex(idx)}
+                          >
+                            <h2
+                              className={`text-3xl uppercase lg:px-11 lg:text-5xl ${
+                                idx !== activeIndex ? "font-light" : "font-bold"
+                              }`}
+                            >
                               {_d.size}
                             </h2>
-                            <p className="min-h-full gap-4 text-sm">
+                            <p className="mx-0 mt-4 min-h-full w-full justify-center gap-6 text-sm  lg:mx-10 lg:text-base">
                               {_d.description}
+                            </p>
+                            <p className="mt-2 min-h-full w-full gap-6 text-sm lg:text-base   ">
+                              {_d.sizeDescription}
                             </p>
                           </div>
                         ))}
@@ -123,7 +142,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                       <Button
                         type="submit"
                         disabled={isLoading}
-                        className="mt-auto text-center md:mt-0"
+                        className="mt-2 text-center "
                         variant="primary-light"
                         ariaLabel="Add to Cart"
                       >

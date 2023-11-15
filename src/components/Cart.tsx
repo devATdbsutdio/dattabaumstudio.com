@@ -10,7 +10,7 @@ import { formatPrice } from "@/lib/utils";
 
 const CartComponent = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
   const [productData, setProductData] = useState<any>(null);
 
   const [selectedVariant, setSelectedVariant] = useState<{
@@ -26,13 +26,18 @@ const CartComponent = () => {
   const minusSignDisabled = quantity === 0;
   const plusSignDisabled = selectedVariant?.quantity === quantity;
 
-  const { title, image, variants } = useMemo(() => {
+  const { title, image, variants, color } = useMemo(() => {
     let title = productData?.title;
     let image = productData?.image?.src;
 
+    let sizeVariantIndex = productData?.options?.findIndex((option: any) => {
+      return option?.name.toLowerCase() === "belt length";
+    });
+    console.log(sizeVariantIndex);
+
     let variants = productData?.variants?.map((variant: any) => {
       return {
-        label: variant.title,
+        label: variant[`option${sizeVariantIndex + 1}`],
         value: variant.id,
         quantity: variant.inventory_quantity,
         price: Number(variant.price),
@@ -42,14 +47,18 @@ const CartComponent = () => {
 
     setSelectedVariant(variants?.[0]);
 
-    return { title, image, variants };
+    let colorOptions = productData?.options?.find((option: any) => {
+      return option?.name?.toLowerCase() === "color";
+    });
+
+    return { title, image, variants, color: colorOptions?.values?.join(", ") };
   }, [productData]);
 
   useEffect(() => {
-    setQuantity(0);
+    setQuantity(1);
   }, [selectedVariant]);
 
-  const getProducts = async () => {
+  const getProduct = async () => {
     try {
       setLoading(true);
       let product = await fetch("/api/shopify/product", {
@@ -80,7 +89,7 @@ const CartComponent = () => {
   // };
 
   useEffect(() => {
-    getProducts();
+    getProduct();
   }, []);
 
   const decreaseQuantity = () => {
@@ -97,7 +106,7 @@ const CartComponent = () => {
         <div className="flex items-end justify-between gap-6">
           <h1 className="text-5xl font-extralight md:text-6xl lg:text-7xl">
             CART
-            {/* {quantity ? ` (${quantity})` : null} */}
+            {quantity ? ` (${quantity})` : null}
           </h1>
           <h4 className="text-base font-semibold tracking-widest lg:text-lg">
             Total: € {formatPrice(total)}
@@ -140,11 +149,13 @@ const CartComponent = () => {
                       className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom sm:h-44 sm:w-44"
                     />
 
-                    <div className="flex flex-col lg:justify-between">
-                      <h1 className="flex-1 text-2xl font-light lg:text-4xl">
+                    <div className="flex flex-col ">
+                      <h1 className="text-2xl font-light lg:text-4xl">
                         {title}
                       </h1>
-                      {/* <button className="text-sm underline ">Remove</button> */}
+                      <button className="ml-1 text-start text-xs font-semibold text-black md:text-sm">
+                        Color : {color}
+                      </button>
                     </div>
 
                     <h4 className="flex w-full justify-end text-base font-medium lg:hidden">
