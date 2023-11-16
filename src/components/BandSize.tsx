@@ -114,6 +114,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                     >
                       {DATA.map((_d, idx) => (
                         <div
+                          key={idx}
                           className={`extralight min-h-full w-full justify-center gap-6 rounded border-2 border-gray-300 px-11 pb-20 pt-36   ${
                             idx !== activeIndex
                               ? "opacity-75"

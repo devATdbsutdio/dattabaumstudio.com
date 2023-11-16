@@ -1,5 +1,4 @@
 import * as React from "react";
-import WaitingList from "../WaitingList";
 import Button from "../Button";
 import BandSize from "../BandSize";
 
