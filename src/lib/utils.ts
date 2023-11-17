@@ -6,5 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const formatPrice = (price: number) => {
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  if (!price) `€ 0.00`;
+  let formattedPrice = price.toLocaleString("en-US", {
+    style: "currency",
+    currency: "EUR",
+  });
+  return formattedPrice.replace("€", "€ ");
 };

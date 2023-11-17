@@ -1,10 +1,11 @@
-import * as React from "react";
+import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import XIcon from "@/components/icons/XIcon";
 import Button from "@/components/Button";
 import { cn } from "@/lib/utils";
 import WaitingList from "./WaitingList";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface HeaderProps {
   solidBg?: boolean;
@@ -13,6 +14,21 @@ interface HeaderProps {
 export default function Header({ solidBg }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isWaitingListOpen, setIsWaitingListOpen] = React.useState(false);
+
+  const [cartQuantity, setCartQuantity] = React.useState<number>(0);
+
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      setCartQuantity(Number(window.localStorage.getItem("CART_QUANTITY")));
+    };
+
+    handleStorageChange();
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen((v) => !v);
@@ -23,8 +39,8 @@ export default function Header({ solidBg }: HeaderProps) {
   };
 
   const redirectToCartPage = () => {
-    window.location.href = "/cart"
-  }
+    window.location.href = "/cart";
+  };
 
   return (
     <>
@@ -77,9 +93,9 @@ export default function Header({ solidBg }: HeaderProps) {
             variant="tertiary-dark"
             className="ml-auto text-sm sm:text-base md:block md:text-lg"
             onClick={redirectToCartPage}
-            ariaLabel="Add to Cart"
+            ariaLabel="Cart"
           >
-            Add to Cart
+            Cart {cartQuantity ? `(${cartQuantity})` : ""}
           </Button>
         </div>
       </header>

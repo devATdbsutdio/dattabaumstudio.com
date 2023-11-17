@@ -12,7 +12,7 @@ export default function Dropdown(props: any) {
       <div className="relative z-50 w-full">
         <Listbox.Button className="relative w-full cursor-default rounded-[0.25rem] border border-gray-400 px-3 py-2 text-left">
           <span className="block w-[calc(100%-1.25rem)] truncate text-base">
-            {selected.label}
+            {selected?.label}
           </span>
           <span className="pointer-events-none absolute inset-y-0 right-[8px] flex items-center">
             <ChevronUpDownIcon className="h-5 w-5" aria-hidden="true" />
