@@ -6,6 +6,7 @@ import watchCharging from "@/assets/images/charging.svg";
 import watchCharged from "@/assets/images/charged.svg";
 import { Image, getImage } from "astro:assets";
 import ResetTime from "@/components/watch/ResetTime.astro";
+import UsingButton from "@/components/UsingButton";
 import sync from "@/assets/images/sync-in-progress.png";
 import TestingVideo from "@/components/watch/TestingVideo.astro";
 
@@ -189,15 +190,47 @@ const currentVid =
           <div class="group/maintenance basis-full" id="maintenance-group">
             <FaqItem title="How do I reset time (and date)?" showBottomBorder>
               <div class="group-data-[device=mobile]/maintenance:hidden">
-                <ResetTime />
-              </div>
+                <p>
+                  Note: <br />
+                   We will already set the time, according to your timezone,
+                  before shipping and hopefully you won't need to set them very
+                  often.
+                </p>
+                <!-- <FaqItem title="Using a computer (*preferred method)" /> -->
+                <div
+                  class="group/maintenance basis-full"
+                  id="maintenance-group"
+                >
+                  <FaqItem title="Using the button" showBottomBorder>
+                    <div class="group-data-[device=mobile]/maintenance:hidden">
+                      <UsingButton />
+                    </div>
+                  </FaqItem>
+                </div>
+                <div
+                  class="group/maintenance basis-full"
+                  id="maintenance-group"
+                >
+                  <FaqItem
+                    title="Using a computer (*preferred method)"
+                    showBottomBorder
+                  >
+                    <div class="group-data-[device=mobile]/maintenance:hidden">
+                      <ResetTime />
+                    </div>
 
-              <div class="group-data-[device=computer]/maintenance:hidden">
-                Sorry, but to proceed, you will need a computer (Windows or Mac)
-                with USB ports and access to this page using Google Chrome or
-                Microsoft Edge.
+                    <div
+                      class="group-data-[device=computer]/maintenance:hidden"
+                    >
+                      Sorry, but to proceed, you will need a computer (Windows
+                      or Mac) with USB ports and access to this page using
+                      Google Chrome or Microsoft Edge.
+                    </div>
+                  </FaqItem>
+                </div>
               </div>
             </FaqItem>
+
             <FaqItem
               title="How can I change the duration for which the watch displays time on button press?"
               showBottomBorder
