@@ -1,23 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import XIcon from "./icons/XIcon";
 import Button from "./Button";
-import { cn } from "@/lib/utils";
-
-const DATA = [
-  {
-    id: "1",
-    size: "Standard Stretch",
-    description: "For the not-too-big, not-too-small wrists.",
-    sizeDescription: "Belt length = 24 cm",
-  },
-  {
-    id: "2",
-    size: "Extended Edition",
-    description: "For those who like a little extra around their wrist",
-    sizeDescription: "Belt length = 27 cm",
-  },
-];
+import Spinner from "./Spinner";
+import useProduct from "@/hooks/useProduct";
 
 interface BandSizeProps {
   isOpen: boolean;
@@ -25,19 +11,14 @@ interface BandSizeProps {
 }
 
 export default function BandSize({ isOpen, toggle }: BandSizeProps) {
-  const [status, setStatus] = React.useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const { status, variants } = useProduct();
 
   const isLoading = status === "loading";
-  const isSuccess = status === "success";
-  const isError = status === "error";
 
-  const [activeIndex, setActiveIndex] = React.useState<number>(-1);
+  const [selectedVariant, setSelectedVariant] = React.useState<number>(-1);
 
   const onClose = () => {
     toggle();
-    setStatus("idle");
   };
 
   return (
@@ -68,7 +49,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
             >
               <Dialog.Panel className="relative min-h-screen w-screen transform flex-col overflow-hidden bg-white px-4 py-6 text-left align-middle shadow-xl transition-all only:flex md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl md:px-14 md:py-14">
                 <button
-                  className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
+                  className="ml-auto inline-flex items-center gap-2 self-start transition-colors"
                   onClick={onClose}
                   aria-label="Close"
                 >
@@ -77,86 +58,67 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                 </button>
                 <Dialog.Title
                   as="h3"
-                  className={cn(
-                    "mb-4 max-w-3xl text-3xl uppercase md:text-5xl",
-                    isSuccess && "mx-auto md:text-center",
-                  )}
-                >
-                  {/* {title} */}
-                </Dialog.Title>
-                <h4
-                  className={cn(
-                    "mb-5 text-center text-base font-normal text-gray-900 md:text-base ",
-                    isSuccess && "text-center ",
-                  )}
+                  className={
+                    "my-4 text-center text-base font-normal text-gray-900 md:text-base"
+                  }
                 >
                   Please select the appropriate wristband size first and add it
                   to your cart
-                </h4>
-                {isSuccess ? (
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="mt-auto text-center"
-                    variant="primary-light"
-                    onClick={onClose}
-                    ariaLabel="Close"
-                  >
-                    Close
-                  </Button>
+                </Dialog.Title>
+                {isLoading ? (
+                  <div className="flex h-full items-center justify-center pb-40 pt-32">
+                    <Spinner className="h-16 w-16" />
+                  </div>
                 ) : (
-                  <div
-                    className="flex flex-grow flex-col "
-                    // onSubmit={onSubmit}
-                  >
+                  <div className="flex flex-grow flex-col">
                     <div
-                      className={`grid grid-cols-1 place-items-center gap-10 pb-4 text-center sm:grid-cols-2 `}
+                      className={`grid grid-cols-1 place-items-center gap-6 text-center lg:grid-cols-2`}
                     >
-                      {DATA.map((_d, idx) => (
+                      {variants?.map((_d: any) => (
                         <div
-                          key={idx}
-                          className={`extralight min-h-full w-full justify-center gap-6 rounded border-2 border-gray-300 px-11 pb-20 pt-36   ${
-                            idx !== activeIndex
-                              ? "opacity-75"
-                              : "border-2 border-gray-950 opacity-100"
+                          key={_d.id}
+                          className={`extralight relative h-full w-full gap-6 rounded border-2 border-gray-300 px-4 pb-28 pt-32 ${
+                            selectedVariant === _d.id
+                              ? "border-gray-950"
+                              : "opacity-75"
+                          } ${
+                            _d.disabled
+                              ? "cursor-not-allowed opacity-75"
+                              : "cursor-pointer"
                           }`}
                           onClick={() => {
-                            setActiveIndex(idx);
+                            if (!_d.disabled) setSelectedVariant(_d.id);
                           }}
                         >
                           <h2
-                            className={`text-3xl uppercase lg:px-11 lg:text-5xl ${
-                              idx !== activeIndex ? "font-light" : "font-medium"
+                            className={`text-3xl uppercase md:text-5xl ${
+                              selectedVariant === _d.id
+                                ? "font-medium"
+                                : "font-light"
                             }`}
                           >
-                            {_d.size}
+                            {_d.label}
                           </h2>
-                          <p className="mx-0  mt-4 min-h-full w-full justify-center gap-6 text-sm  lg:mx-2 lg:text-base">
+                          <p className="mx-auto my-2 w-[55%] text-sm md:text-base">
                             {_d.description}
                           </p>
-                          <p className="mt-2 min-h-full w-full gap-6 text-sm lg:text-base   ">
+                          <p className="mx-auto w-[55%] text-sm md:text-base">
                             {_d.sizeDescription}
                           </p>
                         </div>
                       ))}
                     </div>
-
                     <Button
-                      // type="submit"
-                      disabled={activeIndex === -1}
-                      className={`mt-2 text-center`}
+                      disabled={selectedVariant === -1}
+                      className={`mt-6 text-center`}
                       variant="primary-light"
                       ariaLabel="Add to Cart"
-                      onClick={() => (window.location.href = "/cart")}
+                      onClick={() =>
+                        (window.location.href = `/cart?quantity=1&variant=${selectedVariant}`)
+                      }
                     >
                       Add to Cart
                     </Button>
-
-                    {isError && (
-                      <small className="mt-2 text-red-500">
-                        Something went WRONG. Please Try again!
-                      </small>
-                    )}
                   </div>
                 )}
               </Dialog.Panel>
