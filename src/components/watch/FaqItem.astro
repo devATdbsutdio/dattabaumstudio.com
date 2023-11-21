@@ -1,6 +1,6 @@
 ---
 import ChevronDownIcon from "../icons/ChevronDownIcon";
-const { title, showBottomBorder } = Astro.props;
+const { title, showBottomBorder, isSmallSize } = Astro.props;
 ---
 
 <div
@@ -11,10 +11,14 @@ const { title, showBottomBorder } = Astro.props;
   ]}
 >
   <button
-  aria-label="Expand FAQ item"
-    class="flex w-full items-center justify-between gap-5 rounded-none py-6 text-left text-lg font-light md:py-10 md:text-4xl"
+    aria-label="Expand FAQ item"
+    class:list={[
+      "flex w-full items-center justify-between gap-5 rounded-none py-6 text-left text-lg font-light md:py-10 md:text-4xl",
+    ]}
   >
-    <span class="max-w-3xl">{title}</span>
+    <span class="max-w-3xl" class:list={[isSmallSize && "text-2xl"]}
+      >{title}</span
+    >
     <ChevronDownIcon
       className="h-10 w-10 transform group-data-[state=open]:rotate-180"
     />
