@@ -40,8 +40,8 @@ The policy pages are written in markdown and can be found:
    - [Craftsmanship Section](/src/components/watch/CraftsmanshipSection.astro)
    - [Specs Section](/src/components/watch/SpecsSection.astro)
 5. [FAQ](/src/pages/watch/faq.astro)
-   - [Reset Time Using Serial](/src/components/watch/ResetTime.astro)
-   - [Reset Time Using Button](/src/components/watch/UsingButton.astro)
+   - [Reset Time Using Serial](/src/components/watch/ResetTimeUsingSerial.astro)
+   - [Reset Time Using Button](/src/components/watch/ResetTimeUsingButton.astro)
 
 ## 🔌 What's connected to what ... 🧐 ??
 
