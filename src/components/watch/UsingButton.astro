@@ -19,7 +19,7 @@ import { Image } from "astro:assets";
         <span class="font-medium">Entering Reset Mode:</span>
          To make adjustments to the watch settings, perform a long press and
         hold the button for approximately 1.5 seconds. This will take you to the
-        RESET mode. The first thing you can reset is the HOUR.
+        RESET mode. The first thing you can reset is the hour, meaning you are in "reset hour" mode.
         <ol
           class="mt-7 list-inside list-[lower-latin] space-y-5 md:list-outside md:pl-9"
         >
@@ -97,8 +97,8 @@ import { Image } from "astro:assets";
     <p class="mt-6 font-medium">Notes :</p>
     <ol class="mt-5 list-inside list-decimal space-y-1 md:list-outside md:pl-9">
       <li>
-        Year rolls over 2100 to be easy on the fingers and the button in manual
-        mode
+        The "Year" value rolls over after approaching 2100. This decision was made 
+to make it easier on the fingers while manually resetting components with the button.
       </li>
       <li>
         Always make sure that you have set the correct values for each component
