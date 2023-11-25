@@ -113,9 +113,12 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                       className={`mt-6 text-center`}
                       variant="primary-light"
                       ariaLabel="Add to Cart"
-                      onClick={() =>
-                        (window.location.href = `/cart?quantity=1&variant=${selectedVariant}`)
-                      }
+                      onClick={() => {
+                        let quantity =
+                          window.localStorage.getItem("CART_QUANTITY");
+                        quantity = String(quantity ? Number(quantity) + 1 : 1);
+                        window.location.href = `/cart?quantity=${quantity}&variant=${selectedVariant}`;
+                      }}
                     >
                       Add to Cart
                     </Button>
