@@ -22,7 +22,9 @@ export const config = {
 
 export const GET: APIRoute = async () => {
   try {
+    console.log("Fetching product");
     let product = await shopify.product.get(Number(PRODUCT_ID));
+    console.log({ product });
     let response = new Response(JSON.stringify(product), {
       status: 200,
     });
