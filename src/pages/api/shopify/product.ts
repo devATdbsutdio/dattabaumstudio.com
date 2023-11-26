@@ -26,7 +26,10 @@ export const GET: APIRoute = async () => {
     let response = new Response(JSON.stringify(product), {
       status: 200,
     });
-    response.headers.set("Cache-Control", "public, s-maxage=1");
+    response.headers.set(
+      "Cache-Control",
+      "no-cache, no-store, max-age=0, must-revalidate",
+    );
     return response;
   } catch (error) {
     console.error("Error fetching product", error);
