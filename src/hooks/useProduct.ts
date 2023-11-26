@@ -57,6 +57,7 @@ function useProduct() {
       setStatus("loading");
       let product = await fetch("/api/shopify/product", {
         method: "GET",
+        cache: "no-cache",
       });
       product = await product.json();
       setProductData(product);
