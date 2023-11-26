@@ -10,6 +10,7 @@ export default defineConfig({
   adapter: vercel({
     functionPerRoute: false,
     imageService: false,
+    edgeMiddleware: true,
     // devImageService: "sharp",
     // sizes: [320, 640, 750, 828, 1080, 1200],
     // minimumCacheTTL: 60,
