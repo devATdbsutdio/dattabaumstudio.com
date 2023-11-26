@@ -13,6 +13,10 @@ const VARIANTS_DATA = [
   },
 ];
 
+export const config = {
+  runtime: "edge",
+};
+
 function useProduct() {
   const [productData, setProductData] = React.useState<any>(null);
   const [status, setStatus] = React.useState<"idle" | "loading">("loading");
@@ -57,7 +61,7 @@ function useProduct() {
       setStatus("loading");
       let product = await fetch("/api/shopify/product", {
         method: "GET",
-        cache: "no-store",
+        cache: "no-cache",
       });
       product = await product.json();
       setProductData(product);

@@ -22,17 +22,13 @@ export const config = {
 
 export const GET: APIRoute = async () => {
   try {
-    console.log("Fetching product");
     let product = await shopify.product.get(Number(PRODUCT_ID));
-    console.log({ product });
-    let response = new Response(JSON.stringify(product), {
+    return new Response(JSON.stringify(product), {
       status: 200,
+      headers: {
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+      },
     });
-    response.headers.set(
-      "Cache-Control",
-      "no-cache, no-store, max-age=0, must-revalidate",
-    );
-    return response;
   } catch (error) {
     console.error("Error fetching product", error);
     return new Response(
