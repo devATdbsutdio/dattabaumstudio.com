@@ -17,6 +17,8 @@ const shopify = new Shopify({
 });
 
 export const fetchCache = "force-no-store";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const GET: APIRoute = async () => {
   try {

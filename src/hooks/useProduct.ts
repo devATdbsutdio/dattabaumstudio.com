@@ -14,6 +14,8 @@ const VARIANTS_DATA = [
 ];
 
 export const fetchCache = "force-no-store";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 function useProduct() {
   const [productData, setProductData] = React.useState<any>(null);
@@ -61,10 +63,7 @@ function useProduct() {
         "https://www.dattabaumstudio.store/api/shopify/product",
         {
           method: "GET",
-          headers: {
-            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          },
-          cache: "no-store",
+          cache: "no-cache",
         },
       );
       product = await product.json();
