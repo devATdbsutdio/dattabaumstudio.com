@@ -16,18 +16,11 @@ const shopify = new Shopify({
   accessToken: ACCESS_TOKEN,
 });
 
-export const fetchCache = "force-no-store";
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 export const GET: APIRoute = async () => {
   try {
     let product = await shopify.product.get(Number(PRODUCT_ID));
     return new Response(JSON.stringify(product), {
       status: 200,
-      headers: {
-        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
-      },
     });
   } catch (error) {
     console.error("Error fetching product", error);
