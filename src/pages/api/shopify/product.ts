@@ -17,9 +17,6 @@ const shopify = new Shopify({
 });
 
 export const fetchCache = "force-no-store";
-export const config = {
-  runtime: "edge",
-};
 
 export const GET: APIRoute = async () => {
   try {

@@ -13,6 +13,8 @@ const VARIANTS_DATA = [
   },
 ];
 
+export const fetchCache = "force-no-store";
+
 function useProduct() {
   const [productData, setProductData] = React.useState<any>(null);
   const [status, setStatus] = React.useState<"idle" | "loading">("loading");
@@ -55,10 +57,16 @@ function useProduct() {
   const getProduct = async () => {
     try {
       setStatus("loading");
-      let product = await fetch("/api/shopify/product", {
-        method: "GET",
-        cache: "no-store",
-      });
+      let product = await fetch(
+        "https://www.dattabaumstudio.store/api/shopify/product",
+        {
+          method: "GET",
+          headers: {
+            "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          },
+          cache: "no-store",
+        },
+      );
       product = await product.json();
       setProductData(product);
     } catch (error) {
