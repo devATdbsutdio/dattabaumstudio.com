@@ -16,12 +16,18 @@ const shopify = new Shopify({
   accessToken: ACCESS_TOKEN,
 });
 
+export const config = {
+  runtime: "edge",
+};
+
 export const GET: APIRoute = async () => {
   try {
     let product = await shopify.product.get(Number(PRODUCT_ID));
-    return new Response(JSON.stringify(product), {
+    let response = new Response(JSON.stringify(product), {
       status: 200,
     });
+    response.headers.set("Cache-Control", "public, s-maxage=1");
+    return response;
   } catch (error) {
     console.error("Error fetching product", error);
     return new Response(
