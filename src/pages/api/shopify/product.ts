@@ -16,6 +16,7 @@ const shopify = new Shopify({
   accessToken: ACCESS_TOKEN,
 });
 
+export const fetchCache = "force-no-store";
 export const config = {
   runtime: "edge",
 };
