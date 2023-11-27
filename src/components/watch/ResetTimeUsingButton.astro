@@ -9,24 +9,24 @@ import { Image } from "astro:assets";
 ---
 
 <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm md:text-lg">
-  <div class="col-span-2">
-    <ol class="list-inside list-decimal space-y-6 md:list-outside md:pl-9">
+  <div class="col-span-3 sm:col-span-2">
+    <ol class="list-outside list-decimal space-y-6 pl-6 sm:pl-9">
       <li class="grid-cols-3">
         <span class="font-medium">Waking Up the Watch:</span>
-         Press the button once to wake up the watch. Upon waking up, the watch will first display the current time.
+         Press the button once to wake up the watch. Upon waking up, the watch
+        will first display the current time.
       </li>
       <li>
         <span class="font-medium">Entering Reset Mode:</span>
          To make adjustments to the watch settings, perform a long press and
         hold the button for approximately 1.5 seconds. This will take you to the
-        RESET mode. The first thing you can reset is the hour, meaning you are in "reset hour" mode.
-        <ol
-          class="mt-7 list-inside list-[lower-latin] space-y-5 md:list-outside md:pl-9"
-        >
+        RESET mode. The first thing you can reset is the hour, meaning you are
+        in "reset hour" mode.
+        <ol class="mt-7 list-outside list-[lower-latin] space-y-5 pl-6 sm:pl-9">
           <li>
             <span class="font-medium"> Adjusting the Hour:</span>
             <ol
-              class="mt-1 list-inside list-[lower-roman] space-y-1 md:list-outside md:pl-9"
+              class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9"
             >
               <li>
                 Once in RESET mode, the display will show “hr” (for few
@@ -50,7 +50,7 @@ import { Image } from "astro:assets";
             <li>
               <span class="font-medium">Adjusting the Minute</span>
               <ol
-                class="mt-1 list-inside list-[lower-roman] space-y-1 md:list-outside md:pl-9"
+                class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9"
               >
                 <li>
                   Following the hour adjustment, the display will show “nin”.
@@ -95,10 +95,11 @@ import { Image } from "astro:assets";
       </li>
     </ol>
     <p class="mt-6 font-medium">Notes :</p>
-    <ol class="mt-5 list-inside list-decimal space-y-1 md:list-outside md:pl-9">
+    <ol class="mb-6 mt-5 list-outside list-decimal space-y-1 pl-6 sm:pl-9">
       <li>
-        The "Year" value rolls over after approaching 2100. This decision was made 
-to make it easier on the fingers while manually resetting components with the button.
+        The "Year" value rolls over after approaching 2100. This decision was
+        made to make it easier on the fingers while manually resetting
+        components with the button.
       </li>
       <li>
         Always make sure that you have set the correct values for each component
@@ -107,17 +108,17 @@ to make it easier on the fingers while manually resetting components with the bu
     </ol>
   </div>
 
-  <div class="col-span-1 flex flex-col items-end gap-8">
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+  <div class="col-span-3 flex flex-col items-end gap-8 sm:col-span-1">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetHr} alt="Reset Hour" class="aspect-square w-44" />
-      <div class="text-xs md:w-44">
+      <div class="w-full text-xs sm:w-44">
         <p class="font-medium">Image 1</p>
         <p>HOUR (hr): Now you can change the hour</p>
       </div>
     </div>
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetMin} alt="Reset Minute" class="aspect-square w-44" />
-      <div class="md:w-44">
+      <div class="w-full text-xs sm:w-44">
         <p class="font-medium">Image 2</p>
         <p>
           MINUTE (Shown as nin - as it is hard to represent in 7 segment): Now
@@ -125,23 +126,23 @@ to make it easier on the fingers while manually resetting components with the bu
         </p>
       </div>
     </div>
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetSec} alt="Reset Second" class="aspect-square w-44" />
-      <div class="md:w-44">
+      <div class="w-full text-xs sm:w-44">
         <p class="font-medium">Image 3</p>
         <p>SECOND (sec) : Now you can change the seconds.</p>
       </div>
     </div>
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetDate} alt="Reset Date" class="aspect-square w-44" />
-      <div class="md:w-44">
+      <div class="w-full text-xs sm:w-44">
         <p class="font-medium">Image 4</p>
         <p>DATE (date): Now you can change the date.</p>
       </div>
     </div>
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetMonth} alt="Reset Month" class="aspect-square w-44" />
-      <div class="md:w-44">
+      <div class="w-full text-xs sm:w-44">
         <p class="font-medium">Image 5</p>
         <p>
           MONTH (Shown as non - as it is hard to represent in 7 segment): Now
@@ -149,9 +150,9 @@ to make it easier on the fingers while manually resetting components with the bu
         </p>
       </div>
     </div>
-    <div class="flex w-20 flex-col items-end gap-4 text-xs md:w-44">
+    <div class="flex w-full flex-col gap-4 text-xs sm:w-44 sm:items-end">
       <Image src={resetYear} alt="Reset Year" class="aspect-square w-44" />
-      <div class="md:w-44">
+      <div class="w-44">
         <p class="font-medium">Image 6</p>
         <p>YEAR (year ): Now you can change the year.</p>
       </div>
