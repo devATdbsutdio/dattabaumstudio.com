@@ -4,13 +4,9 @@ import FaqItem from "@/components/watch/FaqItem.astro";
 import Layout from "@/layouts/Layout.astro";
 import watchCharging from "@/assets/images/charging.svg";
 import watchCharged from "@/assets/images/charged.svg";
-import { Image, getImage } from "astro:assets";
-import ResetTime from "@/components/watch/ResetTimeUsingSerial.astro";
-import UsingButton from "@/components/watch/ResetTimeUsingButton.astro";
-import sync from "@/assets/images/sync-in-progress.png";
+import { Image } from "astro:assets";
 import TestingVideo from "@/components/watch/TestingVideo.astro";
-
-const syncImg = await getImage({ src: sync });
+import ResetTime from "@/components/watch/ResetTime.astro";
 
 const currentVid =
   "https://cdn.shopify.com/videos/c/o/v/92509d6c5be74951ac35d31f068daa2e.mp4";
@@ -189,47 +185,7 @@ const currentVid =
           </div>
           <div class="group/maintenance basis-full" id="maintenance-group">
             <FaqItem title="How do I reset time (and date)?" showBottomBorder>
-              <div>
-                <p>
-                  <span class="font-medium">Note:</span> We will already set the time, according to your timezone,
-                  before shipping and hopefully you won't need to set them very
-                  often.
-                </p>
-                <div
-                  class="group/maintenance mt-10 basis-full border-t border-black/30"
-                  id="maintenance-group"
-                >
-                  <FaqItem
-                    title="Using the button (when there's no computer around)"
-                    showBottomBorder
-                    isSmallSize
-                  >
-                    <UsingButton />
-                  </FaqItem>
-                </div>
-                <div
-                  class="group/maintenance basis-full"
-                  id="maintenance-group"
-                >
-                  <FaqItem
-                    title="Using a computer (*preferred)"
-                    showBottomBorder
-                    isSmallSize
-                  >
-                    <div class="group-data-[device=mobile]/maintenance:hidden">
-                      <ResetTime />
-                    </div>
-
-                    <div
-                      class="group-data-[device=computer]/maintenance:hidden"
-                    >
-                      Sorry, but to proceed, you will need a computer (Windows
-                      or Mac) with USB ports and access to this page using
-                      Google Chrome or Microsoft Edge.
-                    </div>
-                  </FaqItem>
-                </div>
-              </div>
+              <ResetTime />
             </FaqItem>
 
             <FaqItem

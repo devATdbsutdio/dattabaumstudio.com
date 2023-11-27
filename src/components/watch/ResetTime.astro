@@ -1,0 +1,105 @@
+---
+import ChevronDownIcon from "../icons/ChevronDownIcon";
+import FaqItem from "./FaqItem.astro";
+import ResetTimeUsingButton from "./ResetTimeUsingButton.astro";
+import ResetTimeUsingSerial from "./ResetTimeUsingSerial.astro";
+---
+
+<div id="maintenance-group" class="group/maintenance">
+  <p>
+    <span class="font-medium">Note:</span> We will already set the time,
+    according to your timezone, before shipping and hopefully you won't need to
+    set them very often.
+  </p>
+  <div
+    data-state="closed"
+    id="reset-time-options"
+    class="group mt-10 basis-full border-t border-black/30"
+  >
+    <div id="reset-time-options-button">
+      <button
+        class:list={[
+          "flex w-full items-center justify-between gap-5 rounded-none text-left",
+          "border-b border-black/30 py-6 text-lg font-medium group-data-[state=button]:border-b-0 md:py-8 md:text-2xl",
+        ]}
+      >
+        <span class="max-w-3xl"
+          >Using the button (when there's no computer around)</span
+        >
+        <ChevronDownIcon
+          className="h-10 w-10 min-w-[2.5rem] transform group-data-[state=button]:rotate-180"
+        />
+      </button>
+      <div
+        class="hidden max-w-3xl border-b border-black/30 pb-6 font-light group-data-[state=button]:block md:pb-10 md:text-2xl"
+      >
+        <ResetTimeUsingButton />
+      </div>
+    </div>
+    <div id="reset-time-options-computer">
+      <button
+        class:list={[
+          "flex w-full items-center justify-between gap-5 rounded-none text-left",
+          "border-b border-black/30 py-6 text-lg font-medium group-data-[state=computer]:border-b-0 md:py-8 md:text-2xl",
+        ]}
+      >
+        <span class="max-w-3xl">Using a computer (*preferred)</span>
+        <ChevronDownIcon
+          className="h-10 w-10 min-w-[2.5rem] transform group-data-[state=computer]:rotate-180"
+        />
+      </button>
+      <div
+        class="hidden max-w-3xl border-b border-black/30 pb-6 font-light group-data-[state=computer]:block md:pb-10 md:text-2xl"
+      >
+        <div class="group-data-[device=mobile]/maintenance:hidden">
+          <ResetTimeUsingSerial />
+        </div>
+
+        <div class="group-data-[device=computer]/maintenance:hidden">
+          Sorry, but to proceed, you will need a computer (Windows or Mac) with
+          USB ports and access to this page using Google Chrome or Microsoft
+          Edge.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const optionsContainer = document.getElementById("reset-time-options");
+  const optionsButtonContainer = document.getElementById(
+    "reset-time-options-button",
+  );
+  const optionsButtonButton = document.querySelector(
+    "#reset-time-options-button button",
+  );
+  const optionsComputerContainer = document.getElementById(
+    "reset-time-options-computer",
+  );
+  const optionsComputerButton = document.querySelector(
+    "#reset-time-options-computer button",
+  );
+
+  if (
+    optionsContainer &&
+    optionsButtonContainer &&
+    optionsButtonButton &&
+    optionsComputerContainer &&
+    optionsComputerButton
+  ) {
+    optionsButtonButton?.addEventListener("click", () => {
+      const state = optionsContainer.dataset.state;
+      optionsContainer.dataset.state = state === "button" ? "closed" : "button";
+      optionsContainer.removeChild(optionsButtonContainer);
+      optionsContainer.appendChild(optionsButtonContainer);
+    });
+
+    optionsComputerButton?.addEventListener("click", () => {
+      const state = optionsContainer.dataset.state;
+      optionsContainer.dataset.state =
+        state === "computer" ? "closed" : "computer";
+      optionsContainer.removeChild(optionsComputerContainer);
+      optionsContainer.appendChild(optionsComputerContainer);
+    });
+  }
+</script>
