@@ -108,68 +108,81 @@ const CartComponent = () => {
             </thead>
             <tbody className={isLoading ? "invisible" : "visible"}>
               <tr className="flex flex-col align-top lg:table-row">
-                <td className="pb-4 pt-8 lg:py-8">
-                  <div className="flex gap-4">
-                    <img
-                      src={image}
-                      alt={title}
-                      className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom sm:h-44 sm:w-44"
-                    />
+                {quantity === 0 && !isLoading ? (
+                  <td
+                    className="py-32 text-center text-base font-medium lg:py-24"
+                    colSpan={4}
+                  >
+                    Your cart is empty
+                  </td>
+                ) : (
+                  <>
+                    <td className="pb-4 pt-8 lg:py-8">
+                      <div className="flex gap-4">
+                        <img
+                          src={image}
+                          alt={title}
+                          className="h-32 w-32 rounded-2xl border border-gray-200 object-cover object-bottom sm:h-44 sm:w-44"
+                        />
 
-                    <div className="flex flex-col ">
-                      <h1 className="text-2xl font-light lg:text-4xl">
-                        {title}
-                      </h1>
-                      <p className="ml-1 text-start text-xs font-light text-black md:text-sm">
-                        Color : {color}
-                      </p>
-                    </div>
+                        <div className="flex flex-col ">
+                          <h1 className="text-2xl font-light lg:text-4xl">
+                            {title}
+                          </h1>
+                          <p className="ml-1 text-start text-xs font-light text-black md:text-sm">
+                            Color : {color}
+                          </p>
+                        </div>
 
-                    <h4 className="flex w-full justify-end text-base font-medium lg:hidden">
+                        <h4 className="flex w-full justify-end text-base font-medium lg:hidden">
+                          {formatPrice(price)}
+                        </h4>
+                      </div>
+                    </td>
+                    <td className="m-auto w-full max-w-[400px] py-4 pr-0 align-top lg:w-fit lg:translate-x-[-12px] lg:py-8 lg:pr-6">
+                      <Dropdown
+                        options={variants}
+                        selected={selectedVariant}
+                        setSelected={(value: any) => {
+                          setSelectedVariant(value);
+                          setQuantity(1);
+                        }}
+                      />
+                    </td>
+                    <td className="m-auto w-full max-w-[400px] pb-8 pt-4 align-top lg:w-fit lg:py-8">
+                      <div className="flex items-center justify-between gap-6 lg:justify-normal">
+                        <button
+                          className={`border border-gray-400 p-3 ${
+                            minusSignDisabled
+                              ? "cursor-not-allowed opacity-60"
+                              : "opacity-100"
+                          }`}
+                          onClick={() => decreaseQuantity()}
+                          disabled={minusSignDisabled}
+                        >
+                          <MinusIcon className="h-4 w-4 text-black" />
+                        </button>
+                        <span className={"font-medium text-black"}>
+                          {quantity}
+                        </span>
+                        <button
+                          className={`border border-gray-400 p-3 ${
+                            plusSignDisabled
+                              ? "cursor-not-allowed opacity-60"
+                              : "opacity-100"
+                          }`}
+                          onClick={() => increaseQuantity()}
+                          disabled={plusSignDisabled}
+                        >
+                          <PlusIcon className="h-4 w-4 text-black" />
+                        </button>
+                      </div>
+                    </td>
+                    <td className="hidden py-10 align-top text-base font-medium lg:flex">
                       {formatPrice(price)}
-                    </h4>
-                  </div>
-                </td>
-                <td className="m-auto w-full max-w-[400px] py-4 pr-0 align-top lg:w-fit lg:translate-x-[-12px] lg:py-8 lg:pr-6">
-                  <Dropdown
-                    options={variants}
-                    selected={selectedVariant}
-                    setSelected={(value: any) => {
-                      setSelectedVariant(value);
-                      setQuantity(1);
-                    }}
-                  />
-                </td>
-                <td className="m-auto w-full max-w-[400px] pb-8 pt-4 align-top lg:w-fit lg:py-8">
-                  <div className="flex items-center justify-between gap-6 lg:justify-normal">
-                    <button
-                      className={`border border-gray-400 p-3 ${
-                        minusSignDisabled
-                          ? "cursor-not-allowed opacity-60"
-                          : "opacity-100"
-                      }`}
-                      onClick={() => decreaseQuantity()}
-                      disabled={minusSignDisabled}
-                    >
-                      <MinusIcon className="h-4 w-4 text-black" />
-                    </button>
-                    <span className={"font-medium text-black"}>{quantity}</span>
-                    <button
-                      className={`border border-gray-400 p-3 ${
-                        plusSignDisabled
-                          ? "cursor-not-allowed opacity-60"
-                          : "opacity-100"
-                      }`}
-                      onClick={() => increaseQuantity()}
-                      disabled={plusSignDisabled}
-                    >
-                      <PlusIcon className="h-4 w-4 text-black" />
-                    </button>
-                  </div>
-                </td>
-                <td className="hidden py-10 align-top text-base font-medium lg:flex">
-                  {formatPrice(price)}
-                </td>
+                    </td>
+                  </>
+                )}
               </tr>
             </tbody>
           </table>
