@@ -69,7 +69,7 @@ sequenceDiagram
     Note over AmazonS3 Bucket,Website: For serial port access in windows
     Website->>+Firebase RTDB: "Waiting List" data
     Firebase RTDB->>-Firebase cloudfunction: Event
-    Firebase cloudfunction->>Firebase RTDB: 
+    Firebase cloudfunction->>Firebase RTDB:
     Firebase cloudfunction->>email: Autoreply
     Website->>Shopify (Store): Checkout
     Shopify (Store)->>Shopify (Dropshipping Agent): Order details
