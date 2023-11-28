@@ -86,7 +86,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                               : "opacity-75"
                           } ${
                             _d.disabled
-                              ? "cursor-not-allowed opacity-75"
+                              ? "cursor-not-allowed text-gray-400"
                               : "cursor-pointer"
                           }`}
                           onClick={() => {
