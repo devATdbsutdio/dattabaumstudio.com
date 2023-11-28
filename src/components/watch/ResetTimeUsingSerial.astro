@@ -1,0 +1,174 @@
+---
+import Button from "../Button";
+import InProgress from "./reset-time/InProgress.astro";
+import Step1 from "./reset-time/Step1.astro";
+import Step2 from "./reset-time/Step2.astro";
+import Step3 from "./reset-time/Step3.astro";
+import Step4 from "./reset-time/Step4.astro";
+---
+
+<div class="space-y-10 text-lg">
+  <div class="space-y-6">
+    <p>
+      Typically, inexpensive digital watches utilize a single button for
+      programming the date and time (as mentioned earlier). This process often
+      involves multiple steps, requiring different types of button presses and
+      nested interactions. It can be cumbersome and therefore easily forgotten
+      or difficult to operate without consulting the instruction manual.
+      Moreover, who typically keeps the provided instruction manual handy at all
+      times!
+    </p>
+    <p>
+      So, we decided to use a computer for resetting/programming the time and we
+      call it, “time syncing”. Setting time from here is super simple.
+    </p>
+    <p>You can also set the duration for how long the display stays on.</p>
+    <p>
+      Now, if you are ready to reset time and date now click the button and
+      follow the instructions, step by step.
+    </p>
+  </div>
+  <div class="border border-black p-10 text-xl">
+    <p class="mb-1 font-bold">Important note before proceeding:</p>
+    <p>
+      If you are on Windows, please
+      <a
+        class="underline"
+        href="https://ch334drivers.s3.ap-northeast-1.amazonaws.com/Windows/CH341SER.EXE"
+        >download</a
+      >
+      {" "}
+       and install the driver first. Also, Linux (Tested on Debian derivatives)
+      is not supported currently, unfortunately because of some kernel driver
+      issues for our chip (we noticed it too late; we will fix that in next
+      version!)
+    </p>
+  </div>
+  <p id="sync-time-notice" class="hidden font-bold text-red-500">
+    Sorry, but your browser does not support web-serial which is used to sync
+    time. Please use Google Chrome or Microsoft Edge.
+  </p>
+  <Button
+    id="btn-sync-time-start"
+    variant="primary-light"
+    className="w-full disabled:opacity-10"
+  >
+    Change time and date
+  </Button>
+  <div id="steps-wrapper" class="group/sync-steps">
+    <Step1 />
+    <Step2 />
+    <Step3 />
+    <Step4 />
+    <InProgress />
+  </div>
+</div>
+
+<script is:inline>
+  let headerFont;
+  let footerFont;
+  let mainClockFont;
+
+  let reqIsFromComputerBrowser = false;
+  const show_serial_data_on_frontend = true;
+
+  //--------- DATE & TIME RELATED ----------//
+  let currDate;
+  let currMonth;
+  let currYear;
+  let currWeekday;
+  let currHour;
+  let currMinute;
+  let currSeconds;
+  let weekdays = [
+    "SUNDAY",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+  ];
+  let delay_in_ms = 5;
+
+  //--------- SERIAL PORT RELATED ----------//
+  let webSerialSupported = false;
+
+  let disconnectCounter = 0;
+
+  let port;
+
+  const defaultVID = 0x0403;
+  const customVID = 0x2bd3;
+  var filterVID;
+
+  const baudrate = 115200;
+
+  let outputDone;
+  let outputStream;
+  let serialConnected = false;
+  let syncElems;
+
+  var serialData;
+
+  /*
+	Variables defining at what frequency data needs to be writtent to serial port and for how long
+	e.g: write data 10 times at a frequency of 1 sec between writes.
+*/
+  let writeFor = 10000; // in ms
+  const writeFrequency = 1000; // in ms
+  let maxWrites = writeFor / writeFrequency;
+  let currWriteCount = 0;
+</script>
+<script is:inline>
+  console.log("*** CHECKING WEB SERIAL SUPPORT");
+
+  const btnSyncTimeStart = document.querySelector("#btn-sync-time-start");
+  const syncTimeNotice = document.querySelector("#sync-time-notice");
+  const stepsWrapper = document.querySelector("#steps-wrapper");
+  const serialDisconnectedMessage = document.querySelector(
+    "#serial-disconnected-message",
+  );
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (navigator.serial) {
+      console.log("*** WEB SERIAL SUPPORTED");
+
+      navigator.serial.addEventListener("disconnect", (event) => {
+        disconnectCounter += 1;
+        if (disconnectCounter <= 1) {
+          console.log("*** SERIAL DISCONNECTED BY USER");
+          // -- Reset to Step 2
+          stepsWrapper.dataset.activeStep = "2";
+
+          // Show disconnected message
+          serialDisconnectedMessage.classList.remove("hidden");
+
+          // -- Update some var's states accordingly
+          // ** These vars are used later for serial port interaction
+          serialConnected = false;
+
+          // Remove port pointer
+          port = null;
+          event.port = null;
+          event.target = null;
+
+          // Set stream related objects to null
+          outputStream = null;
+          outputDone = null;
+          disconnectCounter = 0;
+        } else {
+          disconnectCounter = 0;
+        }
+      });
+    } else {
+      syncTimeNotice.classList.remove("hidden");
+      console.log("*** WEB SERIAL NOT SUPPORTED");
+      btnSyncTimeStart.setAttribute("disabled", "true");
+    }
+  });
+
+  btnSyncTimeStart.addEventListener("click", () => {
+    stepsWrapper.dataset.activeStep = "1";
+  });
+</script>
