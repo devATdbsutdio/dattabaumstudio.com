@@ -13,8 +13,8 @@ interface BandSizeProps {
 
 export default function BandSize({ isOpen, toggle }: BandSizeProps) {
   const { status, variants } = useProduct();
-  const [variant] = useLocalStorage<any>("CART_SELECTED_VARIANT", null);
-  const [quantity] = useLocalStorage<number>("CART_QUANTITY", 1);
+  const [variant] = useLocalStorage<any>("CART_SELECTED_VARIANT");
+  const [quantity] = useLocalStorage<number>("CART_QUANTITY");
 
   const isLoading = status === "loading";
 

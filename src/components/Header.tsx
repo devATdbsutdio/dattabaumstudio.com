@@ -5,7 +5,6 @@ import XIcon from "@/components/icons/XIcon";
 import Button from "@/components/Button";
 import { cn } from "@/lib/utils";
 import WaitingList from "./WaitingList";
-import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface HeaderProps {
   solidBg?: boolean;

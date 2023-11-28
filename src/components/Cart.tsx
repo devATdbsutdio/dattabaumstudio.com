@@ -17,7 +17,7 @@ const CartComponent = () => {
   const { quantity: quantityParam, variant: variantParam } = useParams();
   const [quantityLocalStorage, setQuantity] = useLocalStorage<number>(
     "CART_QUANTITY",
-    1,
+    0,
   );
 
   const quantity = quantityLocalStorage || 0;
