@@ -40,7 +40,8 @@ The policy pages are written in markdown and can be found:
    - [Craftsmanship Section](/src/components/watch/CraftsmanshipSection.astro)
    - [Specs Section](/src/components/watch/SpecsSection.astro)
 5. [FAQ](/src/pages/watch/faq.astro)
-   - [Reset Time](/src/components/watch/ResetTime.astro)
+   - [Reset Time Using Serial](/src/components/watch/ResetTimeUsingSerial.astro)
+   - [Reset Time Using Button](/src/components/watch/ResetTimeUsingButton.astro)
 
 ## 🔌 What's connected to what ... 🧐 ??
 
@@ -57,6 +58,10 @@ sequenceDiagram
         participant Firebase cloudfunction
         participant email
     end
+    box Red Order fulfilment Stuff
+        participant Shopify (Store)
+        participant Shopify (Dropshipping Agent)
+    end
 
     Github->>Website: Static Small Assets (images, files etc.)
     Shopify (Content)->>Website: Static Large Assets (videos etc.)
@@ -64,8 +69,12 @@ sequenceDiagram
     Note over AmazonS3 Bucket,Website: For serial port access in windows
     Website->>+Firebase RTDB: "Waiting List" data
     Firebase RTDB->>-Firebase cloudfunction: Event
-    Firebase cloudfunction->>Firebase RTDB: 
+    Firebase cloudfunction->>Firebase RTDB:
     Firebase cloudfunction->>email: Autoreply
+    Website->>Shopify (Store): Checkout
+    Shopify (Store)->>Shopify (Dropshipping Agent): Order details
+    Shopify (Dropshipping Agent)->>Shopify (Store): Fulfilment Status
+    Shopify (Store)->>Website: Fulfilment Status
 ```
 
 ## 👨🏻‍💻 Deployment
