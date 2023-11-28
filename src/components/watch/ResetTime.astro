@@ -1,186 +1,105 @@
 ---
-import Button from "../Button";
-import InProgress from "./reset-time/InProgress.astro";
-import Step1 from "./reset-time/Step1.astro";
-import Step2 from "./reset-time/Step2.astro";
-import Step3 from "./reset-time/Step3.astro";
-import Step4 from "./reset-time/Step4.astro";
+import ChevronDownIcon from "../icons/ChevronDownIcon";
+import FaqItem from "./FaqItem.astro";
+import ResetTimeUsingButton from "./ResetTimeUsingButton.astro";
+import ResetTimeUsingSerial from "./ResetTimeUsingSerial.astro";
 ---
 
-<div class="space-y-10">
-  <div class="space-y-6">
-    <p>
-      Since there is only one button, we decided to use a computer for
-      resetting/programming the time and we call it, “time syncing”.
-    </p>
-    <p>
-      But, “ why using a computer ... ”, you may ask. Usually cheap digital
-      watches, all the time, are using one single button to program the date and
-      time and is usually a multi step process with various press types and
-      multiple nested pressing interactions. They are cumbersome and are very
-      easy to forget. Additionally, who usually keeps the provided instruction
-      manual, all the time around?
-    </p>
-    <p>
-      Notes:
-      <ul class="ml-8 list-disc space-y-2">
-        <li>
-          We will already set the time, according to your timezone, before
-          shipping and hopefully you won’t need to set them very often.
-        </li>
-        <li>
-          Hoping you are not a frequent international traveller as then changing
-          time and date, while in the flight, can be tricky. (Sorry) Anyways,
-          get past it. It is what it is. Setting time from here is super simple.
-        </li>
-      </ul>
-    </p>
-    <p class="font-bold">
-      If you are ready to reset time and date now click the button and follow
-      the instructions, step by step.
-    </p>
-  </div>
-  <div class="border border-black p-10">
-    <p class="font-bold">Important note before proceeding:</p>
-    <p>
-      If you are on Windows, please
-      <a
-        class="underline"
-        href="https://ch334drivers.s3.ap-northeast-1.amazonaws.com/Windows/CH341SER.EXE"
-        >download</a
-      >
-      {" "}
-       and install the driver first. Also, Linux (Tested on Debian derivatives)
-      is not supported currently, unfortunately because of some kernel driver
-      issues for our chip (we noticed it too late; we will fix that in next
-      version!)
-    </p>
-  </div>
-  <p id="sync-time-notice" class="hidden font-bold text-red-500">
-    Sorry, but your browser does not support web-serial which is used to sync
-    time. Please use Google Chrome or Microsoft Edge.
+<div id="maintenance-group" class="group/maintenance">
+  <p>
+    <span class="font-medium">Note:</span> We will already set the time,
+    according to your timezone, before shipping and hopefully you won't need to
+    set them very often.
   </p>
-  <Button
-    id="btn-sync-time-start"
-    variant="primary-light"
-    className="w-full disabled:opacity-10"
+  <div
+    data-state="closed"
+    id="reset-time-options"
+    class="group mt-10 basis-full border-t border-black/30"
   >
-    Change time and date
-  </Button>
-  <div id="steps-wrapper" class="group/sync-steps">
-    <Step1 />
-    <Step2 />
-    <Step3 />
-    <Step4 />
-    <InProgress />
+    <div id="reset-time-options-button">
+      <button
+        class:list={[
+          "flex w-full items-center justify-between gap-5 rounded-none text-left",
+          "border-b border-black/30 py-6 text-lg font-medium group-data-[state=button]:border-b-0 md:py-8 md:text-2xl",
+        ]}
+      >
+        <span class="max-w-3xl"
+          >Using the button (when there's no computer around)</span
+        >
+        <ChevronDownIcon
+          className="h-10 w-10 min-w-[2.5rem] transform group-data-[state=button]:rotate-180"
+        />
+      </button>
+      <div
+        class="hidden max-w-3xl border-b border-black/30 pb-6 font-light group-data-[state=button]:block md:pb-10 md:text-2xl"
+      >
+        <ResetTimeUsingButton />
+      </div>
+    </div>
+    <div id="reset-time-options-computer">
+      <button
+        class:list={[
+          "flex w-full items-center justify-between gap-5 rounded-none text-left",
+          "border-b border-black/30 py-6 text-lg font-medium group-data-[state=computer]:border-b-0 md:py-8 md:text-2xl",
+        ]}
+      >
+        <span class="max-w-3xl">Using a computer (*preferred)</span>
+        <ChevronDownIcon
+          className="h-10 w-10 min-w-[2.5rem] transform group-data-[state=computer]:rotate-180"
+        />
+      </button>
+      <div
+        class="hidden max-w-3xl border-b border-black/30 pb-6 font-light group-data-[state=computer]:block md:pb-10 md:text-2xl"
+      >
+        <div class="group-data-[device=mobile]/maintenance:hidden">
+          <ResetTimeUsingSerial />
+        </div>
+
+        <div class="group-data-[device=computer]/maintenance:hidden">
+          Sorry, but to proceed, you will need a computer (Windows or Mac) with
+          USB ports and access to this page using Google Chrome or Microsoft
+          Edge.
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<script is:inline>
-  let headerFont;
-  let footerFont;
-  let mainClockFont;
-
-  let reqIsFromComputerBrowser = false;
-  const show_serial_data_on_frontend = true;
-
-  //--------- DATE & TIME RELATED ----------//
-  let currDate;
-  let currMonth;
-  let currYear;
-  let currWeekday;
-  let currHour;
-  let currMinute;
-  let currSeconds;
-  let weekdays = [
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
-  ];
-  let delay_in_ms = 5;
-
-  //--------- SERIAL PORT RELATED ----------//
-  let webSerialSupported = false;
-
-  let disconnectCounter = 0;
-
-  let port;
-
-  const defaultVID = 0x0403;
-  const customVID = 0x2bd3;
-  var filterVID;
-
-  const baudrate = 115200;
-
-  let outputDone;
-  let outputStream;
-  let serialConnected = false;
-  let syncElems;
-
-  var serialData;
-
-  /*
-	Variables defining at what frequency data needs to be writtent to serial port and for how long
-	e.g: write data 10 times at a frequency of 1 sec between writes.
-*/
-  let writeFor = 10000; // in ms
-  const writeFrequency = 1000; // in ms
-  let maxWrites = writeFor / writeFrequency;
-  let currWriteCount = 0;
-</script>
-<script is:inline>
-  console.log("*** CHECKING WEB SERIAL SUPPORT");
-
-  const btnSyncTimeStart = document.querySelector("#btn-sync-time-start");
-  const syncTimeNotice = document.querySelector("#sync-time-notice");
-  const stepsWrapper = document.querySelector("#steps-wrapper");
-  const serialDisconnectedMessage = document.querySelector(
-    "#serial-disconnected-message",
+<script>
+  const optionsContainer = document.getElementById("reset-time-options");
+  const optionsButtonContainer = document.getElementById(
+    "reset-time-options-button",
+  );
+  const optionsButtonButton = document.querySelector(
+    "#reset-time-options-button button",
+  );
+  const optionsComputerContainer = document.getElementById(
+    "reset-time-options-computer",
+  );
+  const optionsComputerButton = document.querySelector(
+    "#reset-time-options-computer button",
   );
 
-  document.addEventListener("DOMContentLoaded", () => {
-    if (navigator.serial) {
-      console.log("*** WEB SERIAL SUPPORTED");
+  if (
+    optionsContainer &&
+    optionsButtonContainer &&
+    optionsButtonButton &&
+    optionsComputerContainer &&
+    optionsComputerButton
+  ) {
+    optionsButtonButton?.addEventListener("click", () => {
+      const state = optionsContainer.dataset.state;
+      optionsContainer.dataset.state = state === "button" ? "closed" : "button";
+      optionsContainer.removeChild(optionsButtonContainer);
+      optionsContainer.appendChild(optionsButtonContainer);
+    });
 
-      navigator.serial.addEventListener("disconnect", (event) => {
-        disconnectCounter += 1;
-        if (disconnectCounter <= 1) {
-          console.log("*** SERIAL DISCONNECTED BY USER");
-          // -- Reset to Step 2
-          stepsWrapper.dataset.activeStep = "2";
-
-          // Show disconnected message
-          serialDisconnectedMessage.classList.remove("hidden");
-
-          // -- Update some var's states accordingly
-          // ** These vars are used later for serial port interaction
-          serialConnected = false;
-
-          // Remove port pointer
-          port = null;
-          event.port = null;
-          event.target = null;
-
-          // Set stream related objects to null
-          outputStream = null;
-          outputDone = null;
-          disconnectCounter = 0;
-        } else {
-          disconnectCounter = 0;
-        }
-      });
-    } else {
-      syncTimeNotice.classList.remove("hidden");
-      console.log("*** WEB SERIAL NOT SUPPORTED");
-      btnSyncTimeStart.setAttribute("disabled", "true");
-    }
-  });
-
-  btnSyncTimeStart.addEventListener("click", () => {
-    stepsWrapper.dataset.activeStep = "1";
-  });
+    optionsComputerButton?.addEventListener("click", () => {
+      const state = optionsContainer.dataset.state;
+      optionsContainer.dataset.state =
+        state === "computer" ? "closed" : "computer";
+      optionsContainer.removeChild(optionsComputerContainer);
+      optionsContainer.appendChild(optionsComputerContainer);
+    });
+  }
 </script>
