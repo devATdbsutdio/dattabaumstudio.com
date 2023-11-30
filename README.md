@@ -49,32 +49,32 @@ The policy pages are written in markdown and can be found:
 sequenceDiagram
     box Gray Asset Hosting
         participant Github
-        participant Shopify (Content)
-        participant AmazonS3 Bucket
+        participant ShopifyContent as Shopify (Content)
+        participant AmazonS3
     end
     participant Website
     box Purple Waiting List Stuff
-        participant Firebase RTDB
-        participant Firebase cloudfunction
-        participant email
+        participant FirebaseDB as Firebase RTDB
+        participant FirebaseFunction as Firebase cloudfunction
+        participant Email
     end
-    box Red Order fulfilment Stuff
-        participant Shopify (Store)
-        participant Shopify (Dropshipping Agent)
+    box Red Order Fulfilment Stuff
+        participant ShopifyStore as Shopify (Store)
+        participant ShopifyAgent as Shopify (Dropshipping Agent)
     end
 
     Github->>Website: Static Small Assets (images, files etc.)
-    Shopify (Content)->>Website: Static Large Assets (videos etc.)
-    AmazonS3 Bucket->>Website: Drivers
-    Note over AmazonS3 Bucket,Website: For serial port access in windows
-    Website->>+Firebase RTDB: "Waiting List" data
-    Firebase RTDB->>-Firebase cloudfunction: Event
-    Firebase cloudfunction->>Firebase RTDB:
-    Firebase cloudfunction->>email: Autoreply
-    Website->>Shopify (Store): Checkout
-    Shopify (Store)->>Shopify (Dropshipping Agent): Order details
-    Shopify (Dropshipping Agent)->>Shopify (Store): Fulfilment Status
-    Shopify (Store)->>Website: Fulfilment Status
+    ShopifyContent->>Website: Static Large Assets (videos etc.)
+    AmazonS3->>Website: Drivers
+    Note over AmazonS3,Website: For serial port access in Windows
+    Website->>+FirebaseDB: "Waiting List" data
+    FirebaseDB->>-FirebaseFunction: Event
+    FirebaseFunction->>FirebaseDB: [Description of Action]
+    FirebaseFunction->>Email: Autoreply
+    Website->>ShopifyStore: Checkout
+    ShopifyStore->>ShopifyAgent: Order details
+    ShopifyAgent->>ShopifyStore: Fulfilment Status
+    ShopifyStore->>Website: Fulfilment Status
 ```
 
 ## 👨🏻‍💻 Deployment
