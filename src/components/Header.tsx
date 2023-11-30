@@ -18,7 +18,15 @@ export default function Header({ solidBg }: HeaderProps) {
 
   React.useEffect(() => {
     const handleStorageChange = () => {
-      setCartQuantity(Number(window.localStorage.getItem("CART_QUANTITY")));
+      let localStorageSelectedVariants = window.localStorage.getItem(
+        "CART_SELECTED_VARIANTS",
+      );
+      let variant = localStorageSelectedVariants
+        ? JSON.parse(localStorageSelectedVariants)
+        : "";
+      let variantArr = variant?.split("<,>") || [];
+      variantArr = variantArr.filter(Boolean);
+      setCartQuantity(variantArr?.length || 0);
     };
 
     handleStorageChange();

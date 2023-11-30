@@ -4,7 +4,7 @@ import XIcon from "./icons/XIcon";
 import Button from "./Button";
 import Spinner from "./Spinner";
 import useProduct from "@/hooks/useProduct";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import useCart from "@/hooks/useCart";
 
 interface BandSizeProps {
   isOpen: boolean;
@@ -13,8 +13,7 @@ interface BandSizeProps {
 
 export default function BandSize({ isOpen, toggle }: BandSizeProps) {
   const { status, variants } = useProduct();
-  const [variant] = useLocalStorage<any>("CART_SELECTED_VARIANT");
-  const [quantity] = useLocalStorage<number>("CART_QUANTITY");
+  const { updateSelectedVariants } = useCart();
 
   const isLoading = status === "loading";
 
@@ -117,11 +116,8 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                       variant="primary-light"
                       ariaLabel="Add to Cart"
                       onClick={() => {
-                        let _quantity =
-                          quantity && variant?.id === selectedVariant
-                            ? quantity + 1
-                            : 1;
-                        window.location.href = `/cart?quantity=${_quantity}&variant=${selectedVariant}`;
+                        updateSelectedVariants(selectedVariant, "add");
+                        window.location.href = `/cart`;
                       }}
                     >
                       Add to Cart
