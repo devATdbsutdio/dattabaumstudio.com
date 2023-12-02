@@ -58,7 +58,8 @@ import StepWrapper from "./StepWrapper.astro";
       var month_ = now.getMonth() + 1;
 
       let stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || "5";
-      let stayAwakeDurationMs = Number(stayAwakeDuration) * 1000;
+      // let stayAwakeDurationMs = Number(stayAwakeDuration) * 1000;
+      let stayAwakeDuration = Number(stayAwakeDuration);
 
       serialData =
         now.getHours() +
@@ -75,7 +76,7 @@ import StepWrapper from "./StepWrapper.astro";
         ":" +
         now.getFullYear() +
         ":" +
-        stayAwakeDurationMs;
+        stayAwakeDuration; // stayAwakeDurationMs; 
 
       if (port != null && port.writable) writeToStream(serialData);
       else
