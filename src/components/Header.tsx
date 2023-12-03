@@ -148,12 +148,12 @@ export default function Header({ solidBg }: HeaderProps) {
             >
               Join the waiting list
             </button> */}
-            <button
+            {/* <button
               className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
               onClick={redirectToCartPage}
             >
-              Add to Cart
-            </button>
+              Cart {cartQuantity ? `(${cartQuantity})` : ""}
+            </button> */}
           </Dialog.Panel>
         </Dialog>
       </Transition>
