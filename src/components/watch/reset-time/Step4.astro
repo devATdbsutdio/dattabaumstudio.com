@@ -12,12 +12,12 @@ import StepWrapper from "./StepWrapper.astro";
     <p>
       After you
       <strong> click the “sync” button below</strong>
-       , the browser will stream the time and date data to the watch (by
-      pinging for 10 secs).
+       , the browser will stream the time and date data to the watch (by pinging
+      for 10 secs).
     </p>
     <p>
       During that period,
-      <strong> press the physical button on the watch </strong>
+      <strong> press the physical button on the watch</strong>
        , so that it can wake up and receive the time and date data.
     </p>
   </div>
@@ -75,7 +75,7 @@ import StepWrapper from "./StepWrapper.astro";
         ":" +
         now.getFullYear() +
         ":" +
-        stayAwakeDuration; //stayAwakeDurationMs
+        stayAwakeDuration; // stayAwakeDurationMs;
 
       if (port != null && port.writable) writeToStream(serialData);
       else
