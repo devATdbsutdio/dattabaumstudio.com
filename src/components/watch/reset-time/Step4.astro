@@ -12,13 +12,13 @@ import StepWrapper from "./StepWrapper.astro";
     <p>
       After you
       <strong> click the “sync” button below</strong>
-       , the browser will send the time and date data to the watch for (by
+       , the browser will stream the time and date data to the watch (by
       pinging for 10 secs).
     </p>
     <p>
-      During that period
-      <strong> press the physical button on the watch itself</strong>
-       , so the watch can wake up and receive the time and date data.
+      During that period,
+      <strong> press the physical button on the watch </strong>
+       , so that it can wake up and receive the time and date data.
     </p>
   </div>
   <Button
@@ -58,7 +58,7 @@ import StepWrapper from "./StepWrapper.astro";
       var month_ = now.getMonth() + 1;
 
       let stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || "5";
-      let stayAwakeDurationMs = Number(stayAwakeDuration) * 1000;
+      // let stayAwakeDurationMs = Number(stayAwakeDuration) * 1000;
 
       serialData =
         now.getHours() +
@@ -75,7 +75,7 @@ import StepWrapper from "./StepWrapper.astro";
         ":" +
         now.getFullYear() +
         ":" +
-        stayAwakeDurationMs;
+        stayAwakeDuration; //stayAwakeDurationMs
 
       if (port != null && port.writable) writeToStream(serialData);
       else
