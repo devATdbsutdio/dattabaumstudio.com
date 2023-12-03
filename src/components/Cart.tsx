@@ -106,7 +106,7 @@ const CartComponent = () => {
                               <h1 className="text-2xl font-light lg:text-4xl">
                                 {title}
                               </h1>
-                              <h4 className="flex w-full justify-end text-base font-medium lg:hidden">
+                              <h4 className="flex w-full justify-end text-xs font-medium md:text-base lg:hidden">
                                 {formatPrice(variant.price)}
                               </h4>
                             </div>
@@ -152,7 +152,7 @@ const CartComponent = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="hidden py-10 align-top text-base font-medium lg:flex">
+                      <td className="hidden py-10 align-top text-lg font-medium lg:flex">
                         {formatPrice(variant.price)}
                       </td>
                     </tr>
