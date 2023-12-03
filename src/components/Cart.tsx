@@ -63,7 +63,7 @@ const CartComponent = () => {
                 <th scope="col" className="w-[30%] pb-3">
                   Quantity
                 </th>
-                <th scope="col" className="w-[10%] pb-3">
+                <th scope="col" className="w-[10%] pb-3 text-right">
                   Price
                 </th>
               </tr>
@@ -152,8 +152,8 @@ const CartComponent = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="hidden py-10 align-top text-lg font-medium lg:flex">
-                        {formatPrice(variant.price)}
+                      <td className="hidden py-10 text-right align-top text-lg font-medium lg:flex">
+                        <p className="w-full">{formatPrice(variant.price)}</p>
                       </td>
                     </tr>
                   );
