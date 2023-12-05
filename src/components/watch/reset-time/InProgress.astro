@@ -24,13 +24,14 @@ const syncImg = await getImage({ src: sync });
           class="mb-6 text-center text-3xl font-semibold uppercase md:text-5xl"
         >
         </h4>
+
         <p class="mb-16 text-center">
           Now <strong>press</strong> the button on the watch, <strong
             >twice</strong
           >, slowly, with a small gap in between each press, for it to accept
           the new date and time.
         </p>
-        <div id="sync-time-in-progress" class="mx-auto flex">
+        <div class="mx-auto flex">
           <picture class="h-36 w-36">
             <img
               src={syncImg.src}
@@ -42,22 +43,6 @@ const syncImg = await getImage({ src: sync });
             class="animate-bounceLeft ml-1 mt-10 h-0 w-0 border-b-[10px] border-r-[15px] border-t-[10px] border-b-transparent border-r-black border-t-transparent"
           >
           </div>
-        </div>
-        <div id="sync-time-complete" class="mt-auto hidden items-center gap-4">
-          <Button
-            id="btn-sync-time-restart"
-            variant="primary-light"
-            className="w-full"
-          >
-            Restart
-          </Button>
-          <Button
-            id="btn-sync-time-close"
-            variant="secondary-light"
-            className="w-full"
-          >
-            Close
-          </Button>
         </div>
       </div>
     </div>
@@ -81,28 +66,3 @@ const syncImg = await getImage({ src: sync });
     }
   }
 </style>
-
-<script is:inline>
-  const syncTimeInProgress = document.querySelector("#sync-time-in-progress");
-  const syncTimeComplete = document.querySelector("#sync-time-complete");
-
-  const closeBtn = document.querySelector("#btn-sync-time-close");
-  closeBtn.addEventListener("click", () => {
-    stepsWrapper.dataset.activeStep = "0";
-    console.log("*** CLOSE");
-    syncTimeComplete.classList.remove("flex");
-    syncTimeComplete.classList.add("hidden");
-    syncTimeInProgress.classList.remove("hidden");
-    syncTimeInProgress.classList.add("flex");
-  });
-
-  const restartBtn = document.querySelector("#btn-sync-time-restart");
-  restartBtn.addEventListener("click", () => {
-    stepsWrapper.dataset.activeStep = "1";
-    console.log("*** RESTART");
-    syncTimeComplete.classList.remove("flex");
-    syncTimeComplete.classList.add("hidden");
-    syncTimeInProgress.classList.remove("hidden");
-    syncTimeInProgress.classList.add("flex");
-  });
-</script>
