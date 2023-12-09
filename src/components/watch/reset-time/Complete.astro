@@ -49,6 +49,7 @@ import Button from "@/components/Button";
   const closeBtn = document.querySelector("#btn-sync-time-close");
   closeBtn.addEventListener("click", () => {
     stepsWrapper.dataset.activeStep = "0";
+    stepsWrapper.dataset.stayAwakeDuration = "4";
     console.log("*** CLOSE");
     syncTimeComplete.classList.remove("flex");
     syncTimeComplete.classList.add("hidden");
@@ -59,6 +60,7 @@ import Button from "@/components/Button";
   const restartBtn = document.querySelector("#btn-sync-time-restart");
   restartBtn.addEventListener("click", () => {
     stepsWrapper.dataset.activeStep = "1";
+    stepsWrapper.dataset.stayAwakeDuration = "4";
     console.log("*** RESTART");
     syncTimeComplete.classList.remove("flex");
     syncTimeComplete.classList.add("hidden");
