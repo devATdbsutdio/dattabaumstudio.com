@@ -100,6 +100,7 @@ import StepWrapper from "./StepWrapper.astro";
       serialConnected = false;
       disconnectCounter = 0;
     }
+    currWriteCount = 0;
   };
 
   function writeToStream(...lines) {

@@ -136,7 +136,7 @@ import Complete from "./reset-time/Complete.astro";
     if (navigator.serial) {
       console.log("*** WEB SERIAL SUPPORTED");
 
-      navigator.serial.addEventListener("disconnect", (event) => {
+      navigator.serial.addEventListener("disconnect", async (event) => {
         disconnectCounter += 1;
         if (disconnectCounter <= 1) {
           console.log("*** SERIAL DISCONNECTED BY USER");
@@ -145,14 +145,13 @@ import Complete from "./reset-time/Complete.astro";
             // Close modal
             stepsWrapper.dataset.activeStep = "0";
             console.log("*** PROCESS COMPLETE");
-            return;
+          } else {
+            // -- Reset to Step 2
+            stepsWrapper.dataset.activeStep = "2";
+
+            // Show disconnected message
+            serialDisconnectedMessage.classList.remove("hidden");
           }
-
-          // -- Reset to Step 2
-          stepsWrapper.dataset.activeStep = "2";
-
-          // Show disconnected message
-          serialDisconnectedMessage.classList.remove("hidden");
 
           // -- Update some var's states accordingly
           // ** These vars are used later for serial port interaction
@@ -167,7 +166,9 @@ import Complete from "./reset-time/Complete.astro";
           outputStream = null;
           outputDone = null;
           disconnectCounter = 0;
+          currWriteCount = 0;
         } else {
+          currWriteCount = 0;
           disconnectCounter = 0;
         }
       });
