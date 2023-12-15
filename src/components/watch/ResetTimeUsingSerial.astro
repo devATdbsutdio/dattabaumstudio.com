@@ -121,6 +121,8 @@ import Complete from "./reset-time/Complete.astro";
   const writeFrequency = 1000; // in ms
   let maxWrites = writeFor / writeFrequency;
   let currWriteCount = 0;
+
+  let stayAwakeDuration;
 </script>
 <script is:inline>
   console.log("*** CHECKING WEB SERIAL SUPPORT");
