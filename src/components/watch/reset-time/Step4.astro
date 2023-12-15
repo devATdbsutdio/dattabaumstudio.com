@@ -40,6 +40,7 @@ import StepWrapper from "./StepWrapper.astro";
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const writeDateAndTimeData = async (_) => {
+    let portDisconnected = false;
     console.log("*** START SYNCING");
     stepsWrapper.dataset.activeStep = "5";
 
@@ -75,6 +76,7 @@ import StepWrapper from "./StepWrapper.astro";
 
       if (port != null && port.writable) writeToStream(serialData);
       else {
+        portDisconnected = true;
         console.log("*** PORT NOT FOUND!\n");
         break;
       }
@@ -82,7 +84,9 @@ import StepWrapper from "./StepWrapper.astro";
       await delay(writeFrequency);
     }
 
-    stepsWrapper.dataset.activeStep = "6";
+    if (!portDisconnected) {
+      stepsWrapper.dataset.activeStep = "6";
+    }
 
     if (outputStream) {
       console.log("*** CLOSE OUTPUT STREAM");
