@@ -43,26 +43,15 @@ import Button from "@/components/Button";
 </div>
 
 <script is:inline>
-  const syncTimeInProgress = document.querySelector("#sync-time-in-progress");
-  const syncTimeComplete = document.querySelector("#sync-time-complete");
-
   const closeBtn = document.querySelector("#btn-sync-time-close");
   closeBtn.addEventListener("click", () => {
     console.log("*** CLOSE");
-    syncTimeComplete.classList.remove("flex");
-    syncTimeComplete.classList.add("hidden");
-    syncTimeInProgress.classList.remove("hidden");
-    syncTimeInProgress.classList.add("flex");
     stepsWrapper.dataset.activeStep = "0";
   });
 
   const restartBtn = document.querySelector("#btn-sync-time-restart");
   restartBtn.addEventListener("click", () => {
     console.log("*** RESTART");
-    syncTimeComplete.classList.remove("flex");
-    syncTimeComplete.classList.add("hidden");
-    syncTimeInProgress.classList.remove("hidden");
-    syncTimeInProgress.classList.add("flex");
     stepsWrapper.dataset.activeStep = "1";
   });
 </script>
