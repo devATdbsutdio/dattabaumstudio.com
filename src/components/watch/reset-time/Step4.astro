@@ -16,8 +16,9 @@ import StepWrapper from "./StepWrapper.astro";
       for 10 secs).
     </p>
     <p>
-      During that period,
-      press the physical button on the watch <strong>ONCE</strong>, so that it can wake up and receive the time and date data.
+      During that period, press the physical button on the watch <strong
+        >ONCE</strong
+      >, so that it can wake up and receive the time and date data.
     </p>
   </div>
   <Button
@@ -73,11 +74,10 @@ import StepWrapper from "./StepWrapper.astro";
         stayAwakeDuration; //stayAwakeDurationMs
 
       if (port != null && port.writable) writeToStream(serialData);
-      else
-        console.log(
-          "*** NOT WRITING TO SERIAL PORT AS IT WASN'T CREATED/SELECTED!\n" +
-            serialData,
-        );
+      else {
+        console.log("*** PORT NOT FOUND!\n");
+        break;
+      }
 
       await delay(writeFrequency);
     }
