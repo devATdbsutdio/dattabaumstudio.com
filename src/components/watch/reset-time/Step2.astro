@@ -53,8 +53,23 @@ import StepWrapper from "./StepWrapper.astro";
       }
     }
 
+    // Serial USB Device Filters. Note: More can be added later. 
+    // This enabhles our website to ignore other devices. 
+    // More info here: https://developer.mozilla.org/en-US/docs/Web/API/Serial/requestPort
+    const serial_devices = [
+      { 
+        usbVendorId:  0x1a86, // CH334
+        usbProductId: 0x7523 
+      }, 
+      { 
+        usbVendorId:  0x10C4, // CP210X
+        usbProductId: 0xEA60 
+      }, 
+    ];
+
     console.log("*** ATTEMPTING TO CONNECT TO PORT");
-    port = await navigator.serial.requestPort();
+    // port = await navigator.serial.requestPort(); // without filters
+    port = await navigator.serial.requestPort({ filters: serial_devices}); // with filters
 
     console.log("*** PORT REQUESTED", port);
 
