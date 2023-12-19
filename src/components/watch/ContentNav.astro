@@ -1,4 +1,5 @@
 ---
+import AddToCartButton from "./AddToCart";
 import WaitingListButton from "./WaitingListButton";
 ---
 
@@ -25,7 +26,11 @@ import WaitingListButton from "./WaitingListButton";
     >
       <span class="hidden sm:inline-block">The</span>{" "}Specs</a
     >
-    <WaitingListButton
+    <!-- <WaitingListButton
+      client:idle
+      className="border-none hidden md:h-full md:py-6 md:block rounded-none"
+    /> -->
+    <AddToCartButton
       client:idle
       className="border-none hidden md:h-full md:py-6 md:block rounded-none"
     />

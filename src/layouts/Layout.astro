@@ -1,7 +1,6 @@
 ---
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 interface Props {
   title?: string;
   description?: string;
@@ -76,6 +75,26 @@ const topMargin = Astro.props.topMargin || false;
     max-width: 1920px;
     margin: 0 auto;
   }
+
+  .initial {
+    position: initial;
+  }
+
+
+  .cart-table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .cart-table::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-lg;
+  }
+
+  .cart-table::-webkit-scrollbar-track {
+    @apply bg-gray-400 rounded-lg;
+  }
+
+
+
 
   /* FONTS */
 

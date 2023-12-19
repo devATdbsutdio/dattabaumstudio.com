@@ -11,6 +11,9 @@ interface ImportMetaEnv {
   readonly FIREBASE_AUTH_CERT_URL: string;
   readonly FIREBASE_CLIENT_CERT_URL: string;
   readonly FIREBASE_DATABASE_URL: string;
+  readonly SHOPIFY_ACCESS_TOKEN: string;
+  readonly SHOPIFY_PRODUCT_ID: string;
+  readonly PUBLIC_SHOPIFY_SHOP_NAME: string;
 }
 
 interface ImportMeta {

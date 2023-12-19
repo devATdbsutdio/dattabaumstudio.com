@@ -12,11 +12,13 @@ import StepWrapper from "./StepWrapper.astro";
     <p>
       After you
       <strong> click the “sync” button below</strong>
-       , the browser will stream the time and date data to the watch (by
-      pinging for 10 secs).
+       , the browser will stream the time and date data to the watch (by pinging
+      for 10 secs).
     </p>
     <p>
-      During that period, press the physical button on the watch <strong>ONCE</strong>
+      During that period, press the physical button on the watch <strong
+        >ONCE</strong
+      >
        , so that it can wake up and receive the time and date data.
     </p>
   </div>
@@ -39,6 +41,7 @@ import StepWrapper from "./StepWrapper.astro";
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const writeDateAndTimeData = async (_) => {
+    let portDisconnected = false;
     console.log("*** START SYNCING");
     stepsWrapper.dataset.activeStep = "5";
 
@@ -47,17 +50,13 @@ import StepWrapper from "./StepWrapper.astro";
       console.log(`*** ${currWriteCount} WRITES LEFT`);
       const timeLeft = document.querySelector("#time-left");
 
-      if (currWriteCount > 0) {
-        timeLeft.innerHTML = `${currWriteCount} SECONDS`;
-      } else {
-        timeLeft.innerHTML = `DONE!`;
-      }
+      timeLeft.innerHTML = `${currWriteCount} SECONDS`;
 
       const now = new Date();
       var month_ = now.getMonth() + 1;
 
-      let stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || "5";
-      // let stayAwakeDurationMs = Number(stayAwakeDuration) * 1000;
+      let stayAwakeDuration =
+        stepsWrapper.dataset.stayAwakeDuration || stayAwakeDurationInput.value;
 
       serialData =
         now.getHours() +
@@ -77,24 +76,18 @@ import StepWrapper from "./StepWrapper.astro";
         stayAwakeDuration; //stayAwakeDurationMs
 
       if (port != null && port.writable) writeToStream(serialData);
-      else
-        console.log(
-          "*** NOT WRITING TO SERIAL PORT AS IT WASN'T CREATED/SELECTED!\n" +
-            serialData,
-        );
+      else {
+        portDisconnected = true;
+        console.log("*** PORT NOT FOUND!\n");
+        break;
+      }
 
       await delay(writeFrequency);
     }
 
-    const syncTimeCompleteDiv = document.querySelector("#sync-time-complete");
-    const syncTimeInProgressDiv = document.querySelector(
-      "#sync-time-in-progress",
-    );
-
-    syncTimeCompleteDiv.classList.remove("hidden");
-    syncTimeCompleteDiv.classList.add("flex");
-    syncTimeInProgressDiv.classList.remove("flex");
-    syncTimeInProgressDiv.classList.add("hidden");
+    if (!portDisconnected) {
+      stepsWrapper.dataset.activeStep = "6";
+    }
 
     if (outputStream) {
       console.log("*** CLOSE OUTPUT STREAM");
@@ -111,6 +104,7 @@ import StepWrapper from "./StepWrapper.astro";
       serialConnected = false;
       disconnectCounter = 0;
     }
+    currWriteCount = 0;
   };
 
   function writeToStream(...lines) {

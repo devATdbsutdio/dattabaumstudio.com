@@ -5,6 +5,7 @@ import WaitingListButton from "./WaitingListButton";
 import specs from "@/assets/images/specs.svg";
 import specsMobile from "@/assets/images/specs_mobile.png";
 import DownloadIcon from "../icons/DownloadIcon";
+import AddToCartButton from "./AddToCart";
 
 const SPEC_GROUPS = [
   [
@@ -131,7 +132,8 @@ const SPEC_GROUPS = [
             <img src={specsMobile.src} alt="" class="w-full" />
           </div>
           <div class="mt-12 flex flex-wrap items-center gap-5 md:mt-16">
-            <WaitingListButton client:visible />
+            <!-- <WaitingListButton client:visible /> -->
+            <AddToCartButton client:visible />
             <Button
               variant="secondary-dark"
               href="/watch/faq"

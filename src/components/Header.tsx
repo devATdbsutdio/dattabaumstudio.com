@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import MenuIcon from "@/components/icons/MenuIcon";
 import XIcon from "@/components/icons/XIcon";
@@ -14,12 +14,39 @@ export default function Header({ solidBg }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isWaitingListOpen, setIsWaitingListOpen] = React.useState(false);
 
+  const [cartQuantity, setCartQuantity] = React.useState<number>(0);
+
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      let localStorageSelectedVariants = window.localStorage.getItem(
+        "CART_SELECTED_VARIANTS",
+      );
+      let variant = localStorageSelectedVariants
+        ? JSON.parse(localStorageSelectedVariants)
+        : "";
+      let variantArr = variant?.split("<,>") || [];
+      variantArr = variantArr.filter(Boolean);
+      setCartQuantity(variantArr?.length || 0);
+    };
+
+    handleStorageChange();
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen((v) => !v);
   };
 
   const toggleWaitingList = () => {
     setIsWaitingListOpen((v) => !v);
+  };
+
+  const redirectToCartPage = () => {
+    window.location.href = "/cart";
   };
 
   return (
@@ -61,13 +88,21 @@ export default function Header({ solidBg }: HeaderProps) {
           >
             DATTA + BAUM
           </a>
-          <Button
+          {/* <Button
             variant="tertiary-dark"
             className="ml-auto text-sm sm:text-base md:block md:text-lg"
             onClick={toggleWaitingList}
             ariaLabel="Join the waiting list"
           >
             Join the waiting list
+          </Button> */}
+          <Button
+            variant="tertiary-dark"
+            className="ml-auto text-sm sm:text-base md:block md:text-lg"
+            onClick={redirectToCartPage}
+            ariaLabel="Cart"
+          >
+            Cart {cartQuantity ? `(${cartQuantity})` : ""}
           </Button>
         </div>
       </header>
@@ -104,7 +139,7 @@ export default function Header({ solidBg }: HeaderProps) {
             >
               About
             </a>
-            <button
+            {/* <button
               className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
               onClick={() => {
                 toggleMenu();
@@ -112,7 +147,13 @@ export default function Header({ solidBg }: HeaderProps) {
               }}
             >
               Join the waiting list
-            </button>
+            </button> */}
+            {/* <button
+              className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
+              onClick={redirectToCartPage}
+            >
+              Cart {cartQuantity ? `(${cartQuantity})` : ""}
+            </button> */}
           </Dialog.Panel>
         </Dialog>
       </Transition>

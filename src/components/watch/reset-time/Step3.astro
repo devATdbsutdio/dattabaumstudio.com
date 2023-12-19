@@ -37,15 +37,19 @@ import StepWrapper from "./StepWrapper.astro";
 
 <script is:inline>
   const btnSyncTimeStep3 = document.querySelector("#btn-sync-time-step-3");
-  const stayAwakeDuration = document.querySelector("#stay-awake-duration");
+  const stayAwakeDurationInput = document.querySelector("#stay-awake-duration");
+  stayAwakeDuration = stayAwakeDurationInput.value || "4";
 
   btnSyncTimeStep3.addEventListener("click", () => {
     stepsWrapper.dataset.activeStep = "4";
     console.log("*** MOVE TO STEP 4");
   });
 
-  stayAwakeDuration.addEventListener("change", () => {
-    console.log("*** STAY AWAKE DURATION CHANGED", stayAwakeDuration.value);
-    stepsWrapper.dataset.stayAwakeDuration = stayAwakeDuration.value;
+  stayAwakeDurationInput.addEventListener("change", () => {
+    console.log(
+      "*** STAY AWAKE DURATION CHANGED",
+      stayAwakeDurationInput.value,
+    );
+    stayAwakeDuration = stayAwakeDurationInput.value || "4";
   });
 </script>

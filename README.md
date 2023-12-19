@@ -1,4 +1,4 @@
-# Datta Baum Studio
+# Datta + Baum Studio
 
 The Studio's public facing website with built in store.
 
