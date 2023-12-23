@@ -25,6 +25,12 @@ The policy pages are written in markdown and can be found:
 - When editing any of these care must be taken to ensure that the content is **Valid HTML / JavaScript**.
 - This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
 
+## 🎨 Editing shopify theme
+
+- Click [here](https://admin.shopify.com/store/f2888f-3/themes/154313523532) (Online Store -> Themes -> Edit code (in menu next to **Customize** button)) to edit theme.
+- Search name of file you want to edit in the text field.
+- EDITED (redirecting to main site): _header.liquid_ (Line # 122 - 126)
+
 ## 💾 Where is the content stored?
 
 - All images are stored in the [assets/images](/arc/assets/images) folder.
