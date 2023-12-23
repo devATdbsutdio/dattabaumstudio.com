@@ -21,15 +21,15 @@ The policy pages are written in markdown and can be found:
 
 ## ✍🏼 Editing other content
 
-- Most of the other content is either inline in code or as JavaScript Objects.
-- When editing any of these care must be taken to ensure that the content is **Valid HTML / JavaScript**.
-- This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
+1. Most of the other content is either inline in code or as JavaScript Objects.
+2. When editing any of these care must be taken to ensure that the content is **Valid HTML / JavaScript**.
+3. This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
 
 ## 🎨 Editing shopify theme
-
-- Click [here](https://admin.shopify.com/store/f2888f-3/themes/154313523532) (Online Store -> Themes -> Edit code (in menu next to **Customize** button)) to edit theme.
-- Search name of file you want to edit in the text field.
-- EDITED (redirecting to main site): _header.liquid_ (Line # 122 - 126)
+We needed to edit the Shopify theme because during checkout, our website redirects to Shopify. However, when clicking on the "Datta+baum" header link, it takes you to the Shopify shop, which is not what we wanted. Therefore, we had to modify the themes to redirect to our website instead of the Shopify store. 
+1. Click [here](https://admin.shopify.com/store/f2888f-3/themes/154313523532) (Online Store -> Themes -> Edit code (in menu next to **Customize** button)) to edit theme.
+2. Search name of file you want to edit in the text field.
+3. EDITED (redirecting to main site): _header.liquid_ (Line # 122 - 126)
 
 ## 💾 Where is the content stored?
 
