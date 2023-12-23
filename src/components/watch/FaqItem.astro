@@ -1,6 +1,6 @@
 ---
 import ChevronDownIcon from "../icons/ChevronDownIcon";
-const { title, showBottomBorder, isSmallSize } = Astro.props;
+const { title, showBottomBorder, isSmallSize, id } = Astro.props;
 ---
 
 <div
@@ -9,6 +9,7 @@ const { title, showBottomBorder, isSmallSize } = Astro.props;
     "faq-item group w-full",
     showBottomBorder && "border-b border-black/30",
   ]}
+  id={id}
 >
   <button
     aria-label="Expand FAQ item"

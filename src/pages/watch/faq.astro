@@ -75,17 +75,24 @@ const currentVid =
               <span class="mr-3">1.</span> General
             </h2>
           </div>
-          <div class="basis-full">
-            <FaqItem title="Is it water resistant?" showBottomBorder>
-              Yes! We have received an IP-65 rating, to be precise! <br/>
-              What does that mean? Well, you can shower with it.<br/><br/> 
-              The usb port looks exposed, but don't worry, water won't get through it.<br/>
-              The port, upon drying can become usable again.<br/><br/>
-              In addition to that, we have also conducted durability tests such as salt, sweat, scratch, grind, and more.<br/>
+          <div class="basis-full" id="faq-content">
+            <FaqItem
+              title="Is it water resistant?"
+              showBottomBorder
+              id="water-resistent"
+            >
+              Yes! We have received an IP-65 rating, to be precise! <br />
+               What does that mean? Well, you can shower with it.<br /><br />
+               The usb port looks exposed, but don't worry, water won't get
+              through it.<br />
+               The port, upon drying can become usable again.<br /><br />
+               In addition to that, we have also conducted durability tests such
+              as salt, sweat, scratch, grind, and more.<br />
             </FaqItem>
             <FaqItem
               title="How does it handle high and low temperatures?"
               showBottomBorder
+              id="temperature"
             >
               Pretty well, to our surprise. we tested our samples at a high
               temperature of 85°C and a low of -20°C for 24 hours. We also
@@ -93,7 +100,10 @@ const currentVid =
               Humidity, to be precise) and also tested it for 24 hours under
               thermal shock.
             </FaqItem>
-            <FaqItem title="How often do I have to charge the watch?">
+            <FaqItem
+              title="How often do I have to charge the watch?"
+              id="battery"
+            >
               If you click the watch 25 times per day on a full charge, you may
               need to recharge it after a few weeks (or even a month), depending
               heavily on your usage.
@@ -186,13 +196,18 @@ const currentVid =
             </h2>
           </div>
           <div class="group/maintenance basis-full" id="maintenance-group">
-            <FaqItem title="How do I reset time (and date)?" showBottomBorder>
+            <FaqItem
+              title="How do I reset time (and date)?"
+              showBottomBorder
+              id="reset-time"
+            >
               <ResetTime />
             </FaqItem>
 
             <FaqItem
               title="How can I change the duration for which the watch displays time on button press?"
               showBottomBorder
+              id="stay-awake"
             >
               <div class="group-data-[device=mobile]:hidden">
                 So, we refer to it as the "stay awake" duration, which is
@@ -204,7 +219,7 @@ const currentVid =
                 drainage.
               </div>
             </FaqItem>
-            <FaqItem title="How do I charge the watch?">
+            <FaqItem title="How do I charge the watch?" id="charging">
               Charging the watch is similar to charging other USB devices. Use
               the provided micro USB cable to connect one end to the watch and
               the other end to a standard 5V DC USB power source, such as a
@@ -233,7 +248,7 @@ const currentVid =
             </h2>
           </div>
           <div class="basis-full">
-            <FaqItem title="Can I change the belts?">
+            <FaqItem title="Can I change the belts?" id="change-belt">
               Currently, the watch comes with our custom-designed belt,
               available in 2 sizes. In the near future, we do not have plans to
               create a new belt design. However, if you are interested and have
