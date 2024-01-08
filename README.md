@@ -38,7 +38,7 @@ We needed to edit the Shopify theme because during checkout, our website redirec
 - Content for the main pages is as follows:
 
 1. [Home](/src/pages/index.astro)
-   - [Marquee](/src/components/HeroMarquee.tsx)
+   - [Marquee](/src/components/HeroMarquee.tsx) (_Commented out for now_)
 2. [About](/src/pages/about.astro)
 3. [Contact](/src/pages/contact.astro)
 4. [Watch](/src/pages/watch/index.astro)
