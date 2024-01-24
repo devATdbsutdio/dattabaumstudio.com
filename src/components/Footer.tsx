@@ -45,7 +45,7 @@ export default function Footer() {
             Github
           </a>
           <a
-            href="https://www.instagram.com/dattabaumstudio"
+            href="https://www.instagram.com/dattabaum"
             className="w-full p-5 transition-colors hover:bg-neutral-950"
           >
             Instagram
