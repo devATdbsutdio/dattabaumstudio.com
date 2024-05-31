@@ -2,7 +2,13 @@ import * as React from "react";
 import Button from "../Button";
 import BandSize from "../BandSize";
 
-export default function BandSizeButton({ className }: { className?: string }) {
+export default function BandSizeButton({
+  className,
+  label,
+}: {
+  className?: string;
+  label?: string;
+}) {
   const [isBandSizeOpen, setIsBandSizeOpen] = React.useState(false);
 
   const toggleBandSizeButton = () => {
@@ -14,9 +20,9 @@ export default function BandSizeButton({ className }: { className?: string }) {
         variant="primary-dark"
         onClick={toggleBandSizeButton}
         className={className}
-        ariaLabel="Select the band size"
+        ariaLabel={label || "Select the band size"}
       >
-        Select the band size
+        {label || "Select the band size"}
       </Button>
       <BandSize isOpen={isBandSizeOpen} toggle={toggleBandSizeButton} />
     </>
