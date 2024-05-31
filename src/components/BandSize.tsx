@@ -25,7 +25,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
 
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
-      <Dialog as="div" className="relative z-30" onClose={onClose}>
+      <Dialog as="div" className="relative z-50" onClose={onClose}>
         <Transition.Child
           as={React.Fragment}
           enter="ease-out duration-100"
