@@ -6,6 +6,7 @@ import specs from "@/assets/images/specs.svg";
 import specsMobile from "@/assets/images/specs_mobile.png";
 import DownloadIcon from "../icons/DownloadIcon";
 import AddToCartButton from "./AddToCart";
+import BandSizeButton from "./BandSizeButton";
 
 const SPEC_GROUPS = [
   [
@@ -71,7 +72,7 @@ const SPEC_GROUPS = [
     },
     {
       label: "RTC Accuracy",
-      value: "± 1.5 ppm 0 for to +50°C (give or take 47.25 sec/year)"
+      value: "± 1.5 ppm 0 for to +50°C (give or take 47.25 sec/year)",
     },
     {
       label: "Display",
@@ -132,8 +133,8 @@ const SPEC_GROUPS = [
             <img src={specsMobile.src} alt="" class="w-full" />
           </div>
           <div class="mt-12 flex flex-wrap items-center gap-5 md:mt-16">
-            <!-- <WaitingListButton client:visible /> -->
-            <AddToCartButton client:visible />
+            <BandSizeButton client:load label="Add To Cart" />
+
             <Button
               variant="secondary-dark"
               href="/watch/faq"
@@ -179,16 +180,15 @@ const SPEC_GROUPS = [
         >
           <p>
             Store the watch out of the reach of children and infants. If
-            accidentally swallowed, contact an emergency medicine doctor immediately.
+            accidentally swallowed, contact an emergency medicine doctor
+            immediately.
           </p>
+          <p>Avoid using the watch near nuclear facilities.</p>
           <p>
-            Avoid using the watch near nuclear facilities.
-          </p>
-          <p>
-            The watch should not be exposed to objects filled with liquids,
-            such as vases or swimming pools. As with any electronic product,
-            take care not to spill liquids into any part of the system. Liquids
-            can cause a failure and/or a fire hazard, even though it is IP-65 rated.
+            The watch should not be exposed to objects filled with liquids, such
+            as vases or swimming pools. As with any electronic product, take
+            care not to spill liquids into any part of the system. Liquids can
+            cause a failure and/or a fire hazard, even though it is IP-65 rated.
             Light dripping, like light rain, is fine, but try to avoid it.
           </p>
           <p>
@@ -196,25 +196,26 @@ const SPEC_GROUPS = [
             indicates a need for service. Please contact us and connect us with
             your service technician. We will guide them to use replacement parts
             that has the same characteristics as the original parts.
-            Unauthorized substitutions may cause a risk of fire or other hazards.
+            Unauthorized substitutions may cause a risk of fire or other
+            hazards.
           </p>
           <p>
-            Replacing the batteries with an incorrect type or incorrect orientation
-            may cause shorts, excessive heating, and eventually a potential explosion.
-            Please read the battery details below.
+            Replacing the batteries with an incorrect type or incorrect
+            orientation may cause shorts, excessive heating, and eventually a
+            potential explosion. Please read the battery details below.
           </p>
           <p>
             Disposing of the batteries in a fire or a hot oven, mechanically
             crushing or cutting the battery, may result in explosions. Leaving
             the batteries in an extremely high-temperature environment may also
-            result in explosions or the leakage of flammable liquid or gas from the batteries.
-            Exposing the batteries to extremely low air pressure may result in
-            explosions or the leakage of flammable liquid or gas.
+            result in explosions or the leakage of flammable liquid or gas from
+            the batteries. Exposing the batteries to extremely low air pressure
+            may result in explosions or the leakage of flammable liquid or gas.
           </p>
           <p>
             Do not try to charge or use a unit with a seemingly damaged battery.
-            Only a battery supplied by us, or the model number specified later and
-            installed by qualified personnel should be used.
+            Only a battery supplied by us, or the model number specified later
+            and installed by qualified personnel should be used.
           </p>
           <p>
             Be sure to charge the watch using only a trusted USB power source
