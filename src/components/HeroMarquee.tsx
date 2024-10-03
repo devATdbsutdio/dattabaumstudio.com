@@ -8,7 +8,7 @@ export default function HeroMarquee() {
   // const content = `WATCH ${time} ONLY 200 PIECES PRODUCED`;
 
   // New Marquee content
-  const content = `WATCH V1.0 IS OUT NOW! ONLY 600€ BUY NOW! 150 PIECES REAMINING!`;
+  const content = `WATCH V1.0 IS OUT NOW. 150 PIECES REAMINING! BUY NOW FOR ONLY 600€ `;
 
   return (
     <Marquee
