@@ -20,9 +20,9 @@ export default function BandSizeButton({
         variant="primary-dark"
         onClick={toggleBandSizeButton}
         className={className}
-        ariaLabel={label || "Select the band size"}
+        ariaLabel={label || "Buy"}
       >
-        {label || "Select the band size"}
+        {label || "Buy"}
       </Button>
       <BandSize isOpen={isBandSizeOpen} toggle={toggleBandSizeButton} />
     </>
