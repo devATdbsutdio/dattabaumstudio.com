@@ -4,7 +4,11 @@ import useClock from "@/lib/useClock";
 export default function HeroMarquee() {
   const time = useClock();
 
-  const content = `WATCH ${time} ONLY 200 PIECES PRODUCED`;
+  // On Release, old Marquee content 
+  // const content = `WATCH ${time} ONLY 200 PIECES PRODUCED`;
+
+  // New Marquee content
+  const content = `WATCH V1.0 IS OUT NOW! ONLY 600€ BUY NOW! 150 PIECES REAMINING!`;
 
   return (
     <Marquee
