@@ -61,6 +61,6 @@
 2. ~~[Datta] Check remaining part of Terms Page (TBD Oct)~~
 3. ~~About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).~~
 4. Speed and access test from various regions. 
-5. Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.
-6. [Datta] [WIP] Shopify setup for other things in the backend.
-7. Sync on next engagement with Zaid
+5. ~~Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.~~
+6. ~~[Datta] [WIP] Shopify setup for other things in the backend.~~
+7. ~~Sync on next engagement with Zaid~~
