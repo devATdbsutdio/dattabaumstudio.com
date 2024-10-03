@@ -22,9 +22,7 @@ export default function HeroMarquee() {
       speed={150}
       className="h-fit overflow-y-hidden text-[160px] font-extralight leading-none text-white mix-blend-exclusion sm:text-[180px] md:text-[200px] lg:text-[220px] xl:text-[250px]"
       >
-      <p class="ml-[100vw]">
-        WATCH V1.0 IS OUT NOW. <a href="/watch" class="underline hover:text-gray-300">BUY NOW</a> FOR ONLY 600€
-      </p>
+      <p class="ml-[100vw]">WATCH V1.0 IS OUT NOW. <a href="/watch" class="underline hover:text-gray-300">BUY NOW</a> FOR ONLY 600€</p>
   </Marquee>
   );
 }
