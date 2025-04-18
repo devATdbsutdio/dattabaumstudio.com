@@ -3,11 +3,6 @@ import Shopify from "shopify-api-node";
 
 export const prerender = false;
 
-// Development
-// const PRODUCT_ID = 8189178904828;
-// const SHOP_NAME = "shaukat-store2";
-// const ACCESS_TOKEN = "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"
-
 // Production
 const PRODUCT_ID = import.meta.env.SHOPIFY_PRODUCT_ID; // DBS
 const SHOP_NAME = import.meta.env.PUBLIC_SHOPIFY_SHOP_NAME; // DBS
