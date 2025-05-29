@@ -23,17 +23,16 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.9",
-    "embla-carousel-autoplay": "8.0.0-rc03",
-    "embla-carousel-react": "8.0.0-rc03",
-    "embla-carousel-wheel-gestures": "8.0.0-rc04",
-    "firebase-admin": "^11.10.1",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "embla-carousel-wheel-gestures": "^8.0.2",
+    "firebase-admin": "^13.4.0",
     "powerglitch": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.0",
     "sharp": "^0.32.5",
     "shopify-api-node": "^3.12.7",
-    "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -41,6 +40,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7"
   }
 }
