@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
 import Layout from "@/layouts/Layout.astro";
 
@@ -83,7 +85,10 @@ const contacts = [
   </div>
 </Layout>
 
+
 <style>
+  @reference "../styles/global.css";
+
   @media (min-width: 1920px) {
     .dbs-container {
       @apply px-5;
