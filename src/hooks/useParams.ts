@@ -16,7 +16,7 @@ const useParams = (): Params => {
       paramPairs.forEach((pair) => {
         const [key, value] = pair.split("=");
         if (key && value) {
-          params[key] = decodeURIComponent(value);
+          params[key] = decodeURI(value);
         }
       });
 
