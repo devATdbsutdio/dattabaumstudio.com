@@ -178,7 +178,7 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
   return (
     <div
       onClick={toggleDetail}
-      className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md flex-shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
+      className="embla__slide flex-grow-1 relative mr-5 min-w-0 max-w-md shrink-0 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg"
     >
       <img src={craft.image.src} className="h-full w-full" alt="" />
       <button
