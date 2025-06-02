@@ -1,4 +1,6 @@
 ---
+import "../../styles/global.css";
+
 import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
 import FaqItem from "@/components/watch/FaqItem.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -269,6 +271,8 @@ const currentVid =
 </Layout>
 
 <style>
+  @reference "../../styles/global.css";
+
   @media (min-width: 1920px) {
     .dbs-container {
       @apply px-5;
