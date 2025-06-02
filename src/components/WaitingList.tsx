@@ -116,7 +116,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
                     </Button>
                   ) : (
                     <form
-                      className="flex flex-grow flex-col"
+                      className="flex grow flex-col"
                       onSubmit={onSubmit}
                     >
                       <input

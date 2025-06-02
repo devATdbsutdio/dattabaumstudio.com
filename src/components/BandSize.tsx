@@ -72,7 +72,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
                     <Spinner className="h-16 w-16" />
                   </div>
                 ) : (
-                  <div className="flex flex-grow flex-col">
+                  <div className="flex grow flex-col">
                     <div
                       className={`grid grid-cols-1 place-items-center gap-6 text-center lg:grid-cols-2`}
                     >

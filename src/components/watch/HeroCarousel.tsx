@@ -30,7 +30,7 @@ export default function HeroCarousel({
           <div className="embla__container pointer-events-auto flex">
             {images.map((img, index) => (
               <div
-                className="embla__slide flex-grow-1 relative min-w-0 flex-shrink-0 basis-full"
+                className="embla__slide flex-grow-1 relative min-w-0 shrink-0 basis-full"
                 key={index}
               >
                 <picture className="block h-screen w-screen object-cover">
