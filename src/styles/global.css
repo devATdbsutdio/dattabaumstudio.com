@@ -1,7 +1,8 @@
 @import "tailwindcss";
-@import "@tailwindcss/typography";
-@import "tailwindcss/animate";
-@import "@headlessui/tailwindcss";
+
+@plugin "tailwindcss/animate";
+@plugin "@headlessui/tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --font-display: "Inter", "ui-sans-serif", "sans-serif";
