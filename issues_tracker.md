@@ -16,20 +16,20 @@
    - ~~driver link~~.
 4. ~~Migrate all the big assets (video etc.) to shopify and relink.~~
 5. ~~Check automatic video speeds - _Waiting on Shopify migration and tsting needs to be done from various location_~~
-7. ~~Provide OG Image for link preview [Datta]~~
-8. ~~Implement OG Image for link preview [Zaid]~~
-9. ~~Webserial: Implement~~
-10. Webserial: Thorough Test [Datta]
-11. ~~Check all the copy [Datta]~~
-12. ~~Shopify srtore setup [Datta]~~
-13. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
-14. ~~Lock down firebase.~~
-15. ~~(watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.~~
-16. ~~Implement handling webserial exceptions (as we discussed)~~
-17. ~~Change the favicon (check figma components)~~
-18. ~~Blend mode for Header.~~
-19. Speed test (Mobile images resize and compress for bandwidth)
-20. ~~email template support.~~
+6. ~~Provide OG Image for link preview [Datta]~~
+7. ~~Implement OG Image for link preview [Zaid]~~
+8. ~~Webserial: Implement~~
+9. Webserial: Thorough Test [Datta]
+10. ~~Check all the copy [Datta]~~
+11. ~~Shopify srtore setup [Datta]~~
+12. ~~Cards have a small call to action **+** at the bottom which is not clickable right now (both desktop and mobile). Please make it clickable.~~
+13. ~~Lock down firebase.~~
+14. ~~(watch Page) Remove the Pause Bubble when the video is playing, only show the play bubble.~~
+15. ~~Implement handling webserial exceptions (as we discussed)~~
+16. ~~Change the favicon (check figma components)~~
+17. ~~Blend mode for Header.~~
+18. Speed test (Mobile images resize and compress for bandwidth)
+19. ~~email template support.~~
 
 ### [DESKTOP]
 
@@ -42,8 +42,8 @@
    5. ~~Cards: When the cards open, can the surrounding back mask be a bit more dark (less transparent)~~
    6. ~~Cards: The "close X" has a gray outline when the mouse is hovered on the close button it creates a white box as well (I forgot if there was a call to action size change or something there, if Marina suggested something).~~
    7. ~~[WIP] FAQ Page, content missing on the "Reset Time" cards (Note there's a small anim at the end - refer figma).~~
-   8.  ~~FAQ Page, "Reset Time" cards: Should have all the same size.~~ (Now the last card buttons are un-responsive)
-   9.  ~~Crop the anim page watch image.~~
+   8. ~~FAQ Page, "Reset Time" cards: Should have all the same size.~~ (Now the last card buttons are un-responsive)
+   9. ~~Crop the anim page watch image.~~
 
 ### [MOBILE PAGE]
 
@@ -60,7 +60,7 @@
 1. ~~Cookie Policy? How do we deal with that? The banner need to be deisgned?~~
 2. ~~[Datta] Check remaining part of Terms Page (TBD Oct)~~
 3. ~~About the CICD pipeline (e.g.:When you edit something and commit it pushed dev for the policy pages).~~
-4. Speed and access test from various regions. 
+4. Speed and access test from various regions.
 5. ~~Documentation of the site dev (in README (and remove the astro stuff )). Show and give a light instructions on how and where people can edit contents.~~
 6. ~~[Datta] [WIP] Shopify setup for other things in the backend.~~
 7. ~~Sync on next engagement with Zaid~~

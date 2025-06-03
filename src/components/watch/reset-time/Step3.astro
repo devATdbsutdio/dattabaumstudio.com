@@ -1,55 +1,45 @@
 ---
-import Button from "@/components/Button";
-import StepWrapper from "./StepWrapper.astro";
+import Button from '@/components/Button';
+import StepWrapper from './StepWrapper.astro';
 ---
 
 <StepWrapper step="3" title="3/4: Select “stay awake” duration" showBackBtn>
-  <div class="mb-14 space-y-8">
-    <p>
-      The watch stays in deep-sleep mode to save power and it only wakes up to
-      show the time, when the button is pressed. Thus, we call that duration the
-      “stay awake” duration.
-      <br />
-       The longer you keep the watch on, the more the LEDs drain the battery, so
-      use it at your will. By default, it ships with 4 sec of “stay awake”
-      duration.
-    </p>
-  </div>
-  <label for="stay-awake-duration" class="mb-4 mt-auto text-2xl font-semibold"
-    >Select “stay awake” duration:</label
-  >
-  <select
-    name="stay-awake-duration"
-    id="stay-awake-duration"
-    class="group relative mb-8 inline-flex h-12 items-center justify-center rounded border border-black/30 bg-transparent px-10 text-lg transition-colors hover:border-black disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:h-16"
-  >
-    <option value="3">3 seconds</option>
-    <option value="4" selected>4 seconds</option>
-    <option value="5">5 seconds</option>
-    <option value="6">6 seconds</option>
-    <option value="7">7 seconds</option>
-    <option value="8">8 seconds</option>
-  </select>
-  <Button id="btn-sync-time-step-3" variant="primary-light" className="w-full">
-    Done
-  </Button>
+	<div class="mb-14 space-y-8">
+		<p>
+			The watch stays in deep-sleep mode to save power and it only wakes up to show the time, when the button is
+			pressed. Thus, we call that duration the “stay awake” duration.
+			<br />
+			The longer you keep the watch on, the more the LEDs drain the battery, so use it at your will. By default, it ships
+			with 4 sec of “stay awake” duration.
+		</p>
+	</div>
+	<label for="stay-awake-duration" class="mt-auto mb-4 text-2xl font-semibold">Select “stay awake” duration:</label>
+	<select
+		name="stay-awake-duration"
+		id="stay-awake-duration"
+		class="group relative mb-8 inline-flex h-12 items-center justify-center rounded border border-black/30 bg-transparent px-10 text-lg transition-colors hover:border-black disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:h-16">
+		<option value="3">3 seconds</option>
+		<option value="4" selected>4 seconds</option>
+		<option value="5">5 seconds</option>
+		<option value="6">6 seconds</option>
+		<option value="7">7 seconds</option>
+		<option value="8">8 seconds</option>
+	</select>
+	<Button id="btn-sync-time-step-3" variant="primary-light" className="w-full"> Done </Button>
 </StepWrapper>
 
 <script is:inline>
-  const btnSyncTimeStep3 = document.querySelector("#btn-sync-time-step-3");
-  const stayAwakeDurationInput = document.querySelector("#stay-awake-duration");
-  stayAwakeDuration = stayAwakeDurationInput.value || "4";
+	const btnSyncTimeStep3 = document.querySelector('#btn-sync-time-step-3');
+	const stayAwakeDurationInput = document.querySelector('#stay-awake-duration');
+	stayAwakeDuration = stayAwakeDurationInput.value || '4';
 
-  btnSyncTimeStep3.addEventListener("click", () => {
-    stepsWrapper.dataset.activeStep = "4";
-    console.log("*** MOVE TO STEP 4");
-  });
+	btnSyncTimeStep3.addEventListener('click', () => {
+		stepsWrapper.dataset.activeStep = '4';
+		console.log('*** MOVE TO STEP 4');
+	});
 
-  stayAwakeDurationInput.addEventListener("change", () => {
-    console.log(
-      "*** STAY AWAKE DURATION CHANGED",
-      stayAwakeDurationInput.value,
-    );
-    stayAwakeDuration = stayAwakeDurationInput.value || "4";
-  });
+	stayAwakeDurationInput.addEventListener('change', () => {
+		console.log('*** STAY AWAKE DURATION CHANGED', stayAwakeDurationInput.value);
+		stayAwakeDuration = stayAwakeDurationInput.value || '4';
+	});
 </script>

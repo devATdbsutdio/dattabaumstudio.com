@@ -1,113 +1,93 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
-import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
-import Layout from "@/layouts/Layout.astro";
+import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
+import Layout from '@/layouts/Layout.astro';
 
 const contacts = [
-  {
-    title: "For sales enquiries",
-    description:
-      "For product information, shipping and delivery hiccups, payment safety, returns etc.",
-    email: "sales@dattabaumstudio.com",
-  },
-  {
-    title: "For technical support",
-    description:
-      "For things like troubleshooting, clarifications, or if something is not working as intended.",
-    email: "support@dattabaumstudio.com",
-  },
-  {
-    title: "For everything else",
-    description:
-      "For just dropping by and saying hi. We welcome feedback and are open to collaborations",
-    email: "hi@dattabaumstudio.com",
-  },
+	{
+		title: 'For sales enquiries',
+		description: 'For product information, shipping and delivery hiccups, payment safety, returns etc.',
+		email: 'sales@dattabaumstudio.com',
+	},
+	{
+		title: 'For technical support',
+		description: 'For things like troubleshooting, clarifications, or if something is not working as intended.',
+		email: 'support@dattabaumstudio.com',
+	},
+	{
+		title: 'For everything else',
+		description: 'For just dropping by and saying hi. We welcome feedback and are open to collaborations',
+		email: 'hi@dattabaumstudio.com',
+	},
 ];
 ---
 
 <Layout>
-  <div
-    class="bg-content px-5 pb-8 pt-[80px] md:px-8 md:pb-24 md:pt-[108px] xl:px-12"
-  >
-    <div class="dbs-container relative text-white">
-      <div
-        class="mt-5 flex flex-col md:mt-20 lg:flex-row lg:items-end lg:justify-between"
-      >
-        <h1
-          class="mr-8 text-4xl font-extralight uppercase sm:text-6xl lg:text-7xl xl:text-8xl"
-        >
-          Contacts
-        </h1>
-        <div
-          class="relative mt-8 max-w-lg pr-12 text-right text-xl font-extralight sm:ml-auto md:text-2xl lg:ml-0 lg:mt-0"
-        >
-          <p>
-            Below, are the various ways you can reach us by writing. We usually
-            respond within 48 hours.
-          </p>
-          <button class="scroll-trigger absolute bottom-0.5 right-0">
-            <ArrowDownIcon className="w-10 h-10" />
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="content bg-white px-5 py-10 md:px-8 md:py-16 xl:px-12 xl:py-24">
-    {
-      contacts.map((contact, idx) => (
-        <div
-          class:list={[
-            "border-black py-8 md:py-16 ",
-            {
-              "border-y": idx === 0,
-              "border-b": idx !== 0,
-            },
-          ]}
-        >
-          <div class="dbs-container md:flex md:items-end">
-            <div class="md:w-fit">
-              <h3 class="text-xl font-semibold">{contact.title}</h3>
-              <p class="mr-24 mt-4 md:w-full md:max-w-sm lg:mr-36 xl:mr-52">
-                {contact.description}
-              </p>
-            </div>
-            <a
-              href={`mailto:${contact.email}`}
-              class="mt-6 block w-fit rounded-none text-2xl font-light underline md:text-4xl"
-            >
-              {contact.email}
-            </a>
-          </div>
-        </div>
-      ))
-    }
-  </div>
+	<div class="bg-content px-5 pt-[80px] pb-8 md:px-8 md:pt-[108px] md:pb-24 xl:px-12">
+		<div class="dbs-container relative text-white">
+			<div class="mt-5 flex flex-col md:mt-20 lg:flex-row lg:items-end lg:justify-between">
+				<h1 class="mr-8 text-4xl font-extralight uppercase sm:text-6xl lg:text-7xl xl:text-8xl">Contacts</h1>
+				<div
+					class="relative mt-8 max-w-lg pr-12 text-right text-xl font-extralight sm:ml-auto md:text-2xl lg:mt-0 lg:ml-0">
+					<p>Below, are the various ways you can reach us by writing. We usually respond within 48 hours.</p>
+					<button class="scroll-trigger absolute right-0 bottom-0.5">
+						<ArrowDownIcon className="h-10 w-10" />
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content bg-white px-5 py-10 md:px-8 md:py-16 xl:px-12 xl:py-24">
+		{
+			contacts.map((contact, idx) => (
+				<div
+					class:list={[
+						'border-black py-8 md:py-16',
+						{
+							'border-y': idx === 0,
+							'border-b': idx !== 0,
+						},
+					]}>
+					<div class="dbs-container md:flex md:items-end">
+						<div class="md:w-fit">
+							<h3 class="text-xl font-semibold">{contact.title}</h3>
+							<p class="mt-4 mr-24 md:w-full md:max-w-sm lg:mr-36 xl:mr-52">{contact.description}</p>
+						</div>
+						<a
+							href={`mailto:${contact.email}`}
+							class="mt-6 block w-fit rounded-none text-2xl font-light underline md:text-4xl">
+							{contact.email}
+						</a>
+					</div>
+				</div>
+			))
+		}
+	</div>
 </Layout>
 
-
 <style>
-  @reference "../styles/global.css";
+	@reference "../styles/global.css";
 
-  @media (min-width: 1920px) {
-    .dbs-container {
-      @apply px-5;
-    }
-  }
+	@media (min-width: 1920px) {
+		.dbs-container {
+			@apply px-5;
+		}
+	}
 </style>
 
 <script>
-  const button = document.querySelector(".scroll-trigger");
-  if (button) {
-    button.addEventListener("click", () => {
-      const content = document.querySelector(".content");
-      if (content) {
-        content.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      }
-    });
-  }
+	const button = document.querySelector('.scroll-trigger');
+	if (button) {
+		button.addEventListener('click', () => {
+			const content = document.querySelector('.content');
+			if (content) {
+				content.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'nearest',
+				});
+			}
+		});
+	}
 </script>

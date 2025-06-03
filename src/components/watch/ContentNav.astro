@@ -1,121 +1,110 @@
 ---
-import AddToCartButton from "./AddToCart";
-import BandSizeButton from "./BandSizeButton";
-import WaitingListButton from "./WaitingListButton";
+import AddToCartButton from './AddToCart';
+import BandSizeButton from './BandSizeButton';
+import WaitingListButton from './WaitingListButton';
 ---
 
 <div
-  class="content-nav-container pointer-events-none fixed left-0 right-0 top-6 z-40 hidden items-center justify-center sm:top-6 md:top-10"
->
-  <div
-    class="content-nav pointer-events-auto flex overflow-hidden rounded border border-white/30 bg-black"
-  >
-    <a
-      href="#watch"
-      class="p-5 pl-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pl-12 md:text-base"
-    >
-      <span class="hidden sm:inline-block">The</span>{" "}Watch</a
-    >
-    <a
-      href="#craftsmanship"
-      class="p-5 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:text-base"
-      >Craftsmanship</a
-    >
-    <a
-      href="#specs"
-      class="p-5 pr-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pr-12 md:text-base"
-    >
-      <span class="hidden sm:inline-block">The</span>{" "}Specs</a
-    >
-    <!-- <WaitingListButton
+	class="content-nav-container pointer-events-none fixed top-6 right-0 left-0 z-40 hidden items-center justify-center sm:top-6 md:top-10">
+	<div class="content-nav pointer-events-auto flex overflow-hidden rounded border border-white/30 bg-black">
+		<a
+			href="#watch"
+			class="p-5 pl-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pl-12 md:text-base">
+			<span class="hidden sm:inline-block">The</span>{' '}Watch
+		</a>
+		<a
+			href="#craftsmanship"
+			class="p-5 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:text-base">
+			Craftsmanship
+		</a>
+		<a
+			href="#specs"
+			class="p-5 pr-10 text-sm text-white opacity-30 transition-opacity hover:opacity-100 md:p-6 md:pr-12 md:text-base">
+			<span class="hidden sm:inline-block">The</span>{' '}Specs
+		</a>
+		<!-- <WaitingListButton
       client:idle
       className="border-none hidden md:h-full md:py-6 md:block rounded-none"
     /> -->
-    <BandSizeButton
-      client:idle
-      className="border-none hidden md:h-full md:py-6 md:block rounded-none"
-      label="Add To Cart"
-    />
-  </div>
+		<BandSizeButton
+			client:idle
+			className="hidden rounded-none border-none md:block md:h-full md:py-6"
+			label="Add To Cart"
+		/>
+	</div>
 </div>
 
 <script>
-  const setActiveLink: IntersectionObserverCallback = (entries) => {
-    for (let entry of entries) {
-      const { id } = entry.target;
-      const linkEl = document.querySelector(`.content-nav a[href='#${id}']`);
-      if (!linkEl) return;
+	const setActiveLink: IntersectionObserverCallback = (entries) => {
+		for (let entry of entries) {
+			const { id } = entry.target;
+			const linkEl = document.querySelector(`.content-nav a[href='#${id}']`);
+			if (!linkEl) return;
 
-      if (entry.isIntersecting) {
-        document.querySelectorAll(".content-nav a").forEach((e) => {
-          e.classList.remove("opacity-100");
-          e.classList.add("opacity-30");
-        });
-        linkEl.classList.remove("opacity-30");
-        linkEl.classList.add("opacity-100");
-      }
-    }
-  };
+			if (entry.isIntersecting) {
+				document.querySelectorAll('.content-nav a').forEach((e) => {
+					e.classList.remove('opacity-100');
+					e.classList.add('opacity-30');
+				});
+				linkEl.classList.remove('opacity-30');
+				linkEl.classList.add('opacity-100');
+			}
+		}
+	};
 
-  const observerOptions = {
-    threshold: 0.1,
-  };
+	const observerOptions = {
+		threshold: 0.1,
+	};
 
-  const observer = new IntersectionObserver(setActiveLink, observerOptions);
-  const watchSection = document.querySelector("#watch");
-  const craftsmanshipSection = document.querySelector("#craftsmanship");
-  const specsSection = document.querySelector("#specs");
+	const observer = new IntersectionObserver(setActiveLink, observerOptions);
+	const watchSection = document.querySelector('#watch');
+	const craftsmanshipSection = document.querySelector('#craftsmanship');
+	const specsSection = document.querySelector('#specs');
 
-  if (watchSection) {
-    observer.observe(watchSection);
-  }
+	if (watchSection) {
+		observer.observe(watchSection);
+	}
 
-  if (craftsmanshipSection) {
-    observer.observe(craftsmanshipSection);
-  }
+	if (craftsmanshipSection) {
+		observer.observe(craftsmanshipSection);
+	}
 
-  if (specsSection) {
-    observer.observe(specsSection);
-  }
+	if (specsSection) {
+		observer.observe(specsSection);
+	}
 </script>
 
 <script>
-  const contentNavContainer = document.querySelector(".content-nav-container");
+	const contentNavContainer = document.querySelector('.content-nav-container');
 
-  const showContentNav = () => {
-    if (
-      contentNavContainer &&
-      contentNavContainer.classList.contains("hidden")
-    ) {
-      contentNavContainer.classList.remove("hidden");
-      contentNavContainer.classList.add("flex", "animate-in", "fade-in");
-    }
-  };
+	const showContentNav = () => {
+		if (contentNavContainer && contentNavContainer.classList.contains('hidden')) {
+			contentNavContainer.classList.remove('hidden');
+			contentNavContainer.classList.add('flex', 'animate-in', 'fade-in');
+		}
+	};
 
-  const hideContentNav = () => {
-    if (
-      contentNavContainer &&
-      !contentNavContainer.classList.contains("hidden")
-    ) {
-      contentNavContainer.classList.add("hidden");
-      contentNavContainer.classList.remove("flex", "animate-in", "fade-in");
-    }
-  };
+	const hideContentNav = () => {
+		if (contentNavContainer && !contentNavContainer.classList.contains('hidden')) {
+			contentNavContainer.classList.add('hidden');
+			contentNavContainer.classList.remove('flex', 'animate-in', 'fade-in');
+		}
+	};
 
-  const handleContentNavVisibility = () => {
-    if (contentNavContainer) {
-      const shouldNavBeHidden = window.scrollY < (3 * window.innerHeight) / 4;
-      if (shouldNavBeHidden) {
-        hideContentNav();
-      } else {
-        showContentNav();
-      }
-    }
-  };
+	const handleContentNavVisibility = () => {
+		if (contentNavContainer) {
+			const shouldNavBeHidden = window.scrollY < (3 * window.innerHeight) / 4;
+			if (shouldNavBeHidden) {
+				hideContentNav();
+			} else {
+				showContentNav();
+			}
+		}
+	};
 
-  handleContentNavVisibility();
+	handleContentNavVisibility();
 
-  window.addEventListener("scroll", () => {
-    handleContentNavVisibility();
-  });
+	window.addEventListener('scroll', () => {
+		handleContentNavVisibility();
+	});
 </script>

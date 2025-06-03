@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Disclaimer
 description: This section states our liability for the use of this website and the information it contains
-lastUpdated: "March 22, 2023"
+lastUpdated: 'March 22, 2023'
 ---
 
 ## Interpretation and Definitions

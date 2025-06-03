@@ -1,177 +1,149 @@
 ---
-import "../styles/global.css";
-import Button from "@/components/Button";
-import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
-import Layout from "@/layouts/Layout.astro";
-import aboutUs from "@/assets/images/about_us.png";
-import aboutUsMobile from "@/assets/images/about_us_mobile.png";
-import { getImage } from "astro:assets";
+import '../styles/global.css';
+import Button from '@/components/Button';
+import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
+import Layout from '@/layouts/Layout.astro';
+import aboutUs from '@/assets/images/about_us.png';
+import aboutUsMobile from '@/assets/images/about_us_mobile.png';
+import { getImage } from 'astro:assets';
 
 const aboutUsImg = await getImage({ src: aboutUs });
 const aboutUsImgMobile = await getImage({ src: aboutUsMobile, width: 480 });
 ---
 
 <Layout>
-  <div
-    class="relative px-5 pb-20 pt-[80px] text-white md:px-8 md:pb-32 md:pt-[108px] xl:px-12 xl:pb-60"
-  >
-    <picture
-      class="absolute left-0 right-0 top-0 -z-10 object-cover opacity-20"
-    >
-      <source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
-      <img src={aboutUsImg.src} alt="" class="h-full w-full object-cover object-top" />
-      <span
-        class="absolute bottom-0 left-0 right-0 -z-0 h-full w-full bg-linear-to-t from-black to-transparent to-20%"
-      ></span>
-    </picture>
+	<div class="relative px-5 pt-[80px] pb-20 text-white md:px-8 md:pt-[108px] md:pb-32 xl:px-12 xl:pb-60">
+		<picture class="absolute top-0 right-0 left-0 -z-10 object-cover opacity-20">
+			<source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
+			<img src={aboutUsImg.src} alt="" class="h-full w-full object-cover object-top" />
+			<span class="absolute right-0 bottom-0 left-0 -z-0 h-full w-full bg-linear-to-t from-black to-transparent to-20%">
+			</span>
+		</picture>
 
-    <div class="dbs-container">
-      <h1
-        class="mt-5 text-4xl font-extralight uppercase sm:text-6xl md:mt-20 lg:text-7xl xl:text-8xl"
-      >
-        About
-      </h1>
-      <h2
-        class="mt-2 text-4xl font-extralight uppercase sm:text-6xl md:ml-32 lg:text-7xl xl:ml-48 xl:text-8xl"
-      >
-        DATTA + BAUM
-      </h2>
-      <p
-        class="relative mb-5 ml-20 mt-5 text-xl font-extralight sm:text-5xl md:ml-32 lg:text-6xl xl:ml-48 xl:text-7xl"
-      >
-        <ArrowDownIcon
-          className="absolute -left-14 bottom-0.5 md:bottom-1.5 w-10 h-10"
-        />
-         Datta + Baum Studio is a product design studio co-founded by Saurabh
-        Datta and Benjamin Baum.
-      </p>
-    </div>
-  </div>
-  <div class="dbs-container">
-    <div class="px-5 md:ml-32 md:px-8 lg:ml-64 xl:ml-96 xl:px-12">
-      <div class:list={["max-w-3xl font-light text-white", "copy"]}>
-        <p class="mb-4 text-lg md:text-xl lg:text-2xl">
-          Datta+Baum Studio is driven by the passion for reimagining digital +
-          physical products in a beautiful, honest, and personal manner. They
-          believe in the power of genuine design that has a tangible presence
-          and leaves a lasting impression. Although the products they work on
-          may seem familiar, the studio enjoys experimenting with these ideas to
-          ensure they always have a fresh twist.
-        </p>
-        <p class="text-lg md:text-xl lg:text-2xl">
-          Datta+Baum Studio was founded on the principle of un-compromised
-          creation. They strive to handcraft their designs, steering clear of
-          the mundane and the generic. The Studio hopes that product owners will
-          appreciate the unique experience their products offer and cherish them
-          just as much as the studio has cherished crafting them.
-        </p>
-      </div>
-      <Button
-        href="/contact"
-        className="mt-6 lg:mt-10 mb-16 lg:mb-28"
-        variant="secondary-dark"
-      >
-        Get in touch
-      </Button>
-    </div>
-  </div>
+		<div class="dbs-container">
+			<h1 class="mt-5 text-4xl font-extralight uppercase sm:text-6xl md:mt-20 lg:text-7xl xl:text-8xl">About</h1>
+			<h2 class="mt-2 text-4xl font-extralight uppercase sm:text-6xl md:ml-32 lg:text-7xl xl:ml-48 xl:text-8xl">
+				DATTA + BAUM
+			</h2>
+			<p class="relative mt-5 mb-5 ml-20 text-xl font-extralight sm:text-5xl md:ml-32 lg:text-6xl xl:ml-48 xl:text-7xl">
+				<ArrowDownIcon className="absolute bottom-0.5 -left-14 h-10 w-10 md:bottom-1.5" />
+				Datta + Baum Studio is a product design studio co-founded by Saurabh Datta and Benjamin Baum.
+			</p>
+		</div>
+	</div>
+	<div class="dbs-container">
+		<div class="px-5 md:ml-32 md:px-8 lg:ml-64 xl:ml-96 xl:px-12">
+			<div class:list={['max-w-3xl font-light text-white', 'copy']}>
+				<p class="mb-4 text-lg md:text-xl lg:text-2xl">
+					Datta+Baum Studio is driven by the passion for reimagining digital + physical products in a beautiful, honest,
+					and personal manner. They believe in the power of genuine design that has a tangible presence and leaves a
+					lasting impression. Although the products they work on may seem familiar, the studio enjoys experimenting with
+					these ideas to ensure they always have a fresh twist.
+				</p>
+				<p class="text-lg md:text-xl lg:text-2xl">
+					Datta+Baum Studio was founded on the principle of un-compromised creation. They strive to handcraft their
+					designs, steering clear of the mundane and the generic. The Studio hopes that product owners will appreciate
+					the unique experience their products offer and cherish them just as much as the studio has cherished crafting
+					them.
+				</p>
+			</div>
+			<Button href="/contact" className="mt-6 mb-16 lg:mt-10 lg:mb-28" variant="secondary-dark"> Get in touch </Button>
+		</div>
+	</div>
 </Layout>
 
 <style>
-  @reference '../styles/global.css';
-  @media (min-width: 1920px) {
-    .dbs-container {
-      @apply px-5;
-    }
-  }
+	@reference '../styles/global.css';
+	@media (min-width: 1920px) {
+		.dbs-container {
+			@apply px-5;
+		}
+	}
 </style>
 
 <script>
-  import { PowerGlitch } from "powerglitch";
+	import { PowerGlitch } from 'powerglitch';
 
-  const realCopy = [
-    "Datta+Baum Studio is a design studio that fearlessly confronts the absurdity of our existence. They reject traditional notions of purpose and functionality, instead creating thought-provoking designs that challenge established expectations. By embracing irony and contradiction, they encourage users to question the underlying assumptions of everyday objects and systems. Datta+Baum Studio aims to inspire rebellion, spark conversations, and invite individuals to find their own meaning within the inherent absurdity of the world.",
-    "At Datta+Baum Studio, authenticity and passion drive their designers. They cultivate a culture that embraces the absurdity in their lives and channels it into the creative process. By rebelling against the absurd, they create designs that resonate on a deeper level, evoking emotions and prompting contemplation.",
-  ];
+	const realCopy = [
+		'Datta+Baum Studio is a design studio that fearlessly confronts the absurdity of our existence. They reject traditional notions of purpose and functionality, instead creating thought-provoking designs that challenge established expectations. By embracing irony and contradiction, they encourage users to question the underlying assumptions of everyday objects and systems. Datta+Baum Studio aims to inspire rebellion, spark conversations, and invite individuals to find their own meaning within the inherent absurdity of the world.',
+		'At Datta+Baum Studio, authenticity and passion drive their designers. They cultivate a culture that embraces the absurdity in their lives and channels it into the creative process. By rebelling against the absurd, they create designs that resonate on a deeper level, evoking emotions and prompting contemplation.',
+	];
 
-  let hasReplacedCopy = false;
-  const copyDiv = document.querySelector(".copy");
+	let hasReplacedCopy = false;
+	const copyDiv = document.querySelector('.copy');
 
-  const shouldReplaceCopy = () => {
-    const aboutUsVisited = localStorage.getItem("about-us-visited") === "yes";
+	const shouldReplaceCopy = () => {
+		const aboutUsVisited = localStorage.getItem('about-us-visited') === 'yes';
 
-    if (!aboutUsVisited) {
-      localStorage.setItem("about-us-visited", "yes");
-      return false;
-    }
+		if (!aboutUsVisited) {
+			localStorage.setItem('about-us-visited', 'yes');
+			return false;
+		}
 
-    const skipRandomly = Math.random() < 0.3;
+		const skipRandomly = Math.random() < 0.3;
 
-    if (skipRandomly) {
-      return false;
-    }
+		if (skipRandomly) {
+			return false;
+		}
 
-    return true;
-  };
+		return true;
+	};
 
-  const replaceCopy = () => {
-    if (!copyDiv) return;
+	const replaceCopy = () => {
+		if (!copyDiv) return;
 
-    const { startGlitch, stopGlitch } = PowerGlitch.glitch(
-      copyDiv as HTMLElement,
-      {
-        playMode: "manual",
-        hideOverflow: true,
-        timing: {
-          duration: 250,
-          iterations: 1,
-        },
-        glitchTimeSpan: {
-          start: 0,
-          end: 1,
-        },
-        shake: {
-          velocity: 10,
-          amplitudeX: 0.1,
-          amplitudeY: 0.1,
-        },
-        slice: {
-          count: 6,
-          velocity: 10,
-          minHeight: 0.02,
-          maxHeight: 0.4,
-          hueRotate: true,
-        },
-        pulse: false,
-      },
-    );
+		const { startGlitch, stopGlitch } = PowerGlitch.glitch(copyDiv as HTMLElement, {
+			playMode: 'manual',
+			hideOverflow: true,
+			timing: {
+				duration: 250,
+				iterations: 1,
+			},
+			glitchTimeSpan: {
+				start: 0,
+				end: 1,
+			},
+			shake: {
+				velocity: 10,
+				amplitudeX: 0.1,
+				amplitudeY: 0.1,
+			},
+			slice: {
+				count: 6,
+				velocity: 10,
+				minHeight: 0.02,
+				maxHeight: 0.4,
+				hueRotate: true,
+			},
+			pulse: false,
+		});
 
-    startGlitch();
+		startGlitch();
 
-    setTimeout(() => {
-      stopGlitch();
-      copyDiv.innerHTML = `<p class="text-lg md:text-xl lg:text-2xl mb-4">${realCopy[0]}</p><p class="text-lg md:text-xl lg:text-2xl">${realCopy[1]}</p>`;
-      hasReplacedCopy = true;
-    }, 250);
-  };
+		setTimeout(() => {
+			stopGlitch();
+			copyDiv.innerHTML = `<p class="text-lg md:text-xl lg:text-2xl mb-4">${realCopy[0]}</p><p class="text-lg md:text-xl lg:text-2xl">${realCopy[1]}</p>`;
+			hasReplacedCopy = true;
+		}, 250);
+	};
 
-  window.addEventListener("load", () => {
-    if (!copyDiv) return;
-    if (!shouldReplaceCopy()) return;
+	window.addEventListener('load', () => {
+		if (!copyDiv) return;
+		if (!shouldReplaceCopy()) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!hasReplacedCopy && entry.isIntersecting) {
-            replaceCopy();
-          }
-        });
-      },
-      {
-        threshold: 0.75,
-      },
-    );
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!hasReplacedCopy && entry.isIntersecting) {
+						replaceCopy();
+					}
+				});
+			},
+			{
+				threshold: 0.75,
+			}
+		);
 
-    observer.observe(copyDiv);
-  });
+		observer.observe(copyDiv);
+	});
 </script>

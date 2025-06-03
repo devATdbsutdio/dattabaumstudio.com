@@ -1,100 +1,93 @@
 ---
-import Button from "@/components/Button";
-import StepWrapper from "./StepWrapper.astro";
+import Button from '@/components/Button';
+import StepWrapper from './StepWrapper.astro';
 ---
 
 <StepWrapper step="2" title="2/4: Select the connected computer port">
-  <div class="mb-14 space-y-8">
-    <p>
-      On mac, the right port is going to show up as
-      <strong> /dev/tty/serial.xxx</strong>
-      <br />
-       On windows, the ports are going to show up as
-      <strong> COM-xx</strong>
-    </p>
-    <p>
-      If you have multiple ports showing up and you are not sure which one has
-      been assigned to the watch, firstly, disconnect the watch, check the ports
-      again and reconnect the watch to find the right port.
-    </p>
-    <p id="serial-disconnected-message" class="hidden text-red-500">
-      Serial Port was disconnected. Please connect again.
-    </p>
-  </div>
-  <Button
-    id="btn-sync-time-step-2"
-    variant="primary-light"
-    className="w-full mt-auto"
-  >
-    Select Port
-  </Button>
+	<div class="mb-14 space-y-8">
+		<p>
+			On mac, the right port is going to show up as
+			<strong>/dev/tty/serial.xxx</strong>
+			<br />
+			On windows, the ports are going to show up as
+			<strong>COM-xx</strong>
+		</p>
+		<p>
+			If you have multiple ports showing up and you are not sure which one has been assigned to the watch, firstly,
+			disconnect the watch, check the ports again and reconnect the watch to find the right port.
+		</p>
+		<p id="serial-disconnected-message" class="hidden text-red-500">
+			Serial Port was disconnected. Please connect again.
+		</p>
+	</div>
+	<Button id="btn-sync-time-step-2" variant="primary-light" className="mt-auto w-full"> Select Port </Button>
 </StepWrapper>
 
 <script is:inline>
-  const btnSyncTimeStep2 = document.querySelector("#btn-sync-time-step-2");
+	const btnSyncTimeStep2 = document.querySelector('#btn-sync-time-step-2');
 
-  btnSyncTimeStep2.addEventListener("click", async () => {
-    if (port && port.writable && port.readable) {
-      console.log("*** PORT ALREADY CONNECTED");
+	btnSyncTimeStep2.addEventListener('click', async () => {
+		if (port && port.writable && port.readable) {
+			console.log('*** PORT ALREADY CONNECTED');
 
-      console.log("*** CLOSE PORT");
-      await port.close();
-      console.log("*** SERIAL DISCONNECTED");
-      port = null;
-      serialConnected = false;
-      disconnectCounter = 0;
+			console.log('*** CLOSE PORT');
+			await port.close();
+			console.log('*** SERIAL DISCONNECTED');
+			port = null;
+			serialConnected = false;
+			disconnectCounter = 0;
 
-      if (outputStream) {
-        console.log("*** CLOSE OUTPUT STREAM");
-        await outputStream.getWriter().close();
-        await outputDone;
-        outputStream = null;
-        outputDone = null;
-      }
-    }
+			if (outputStream) {
+				console.log('*** CLOSE OUTPUT STREAM');
+				await outputStream.getWriter().close();
+				await outputDone;
+				outputStream = null;
+				outputDone = null;
+			}
+		}
 
-    // Serial USB Device Filters. Note: More can be added later. 
-    // This enabhles our website to ignore other devices. 
-    // More info here: https://developer.mozilla.org/en-US/docs/Web/API/Serial/requestPort
-    const serial_devices = [
-      { 
-        usbVendorId:  0x1a86, // CH334
-        usbProductId: 0x7523 
-      }, 
-      { 
-        usbVendorId:  0x10C4, // CP210X
-        usbProductId: 0xEA60 
-      }, 
-    ];
+		// Serial USB Device Filters. Note: More can be added later.
+		// This enabhles our website to ignore other devices.
+		// More info here: https://developer.mozilla.org/en-US/docs/Web/API/Serial/requestPort
+		const serial_devices = [
+			{
+				usbVendorId: 0x1a86, // CH334
+				usbProductId: 0x7523,
+			},
+			{
+				usbVendorId: 0x10c4, // CP210X
+				usbProductId: 0xea60,
+			},
+		];
 
-    console.log("*** ATTEMPTING TO CONNECT TO PORT");
-    // port = await navigator.serial.requestPort(); // without filters
-    port = await navigator.serial.requestPort({ filters: serial_devices}); // with filters
+		console.log('*** ATTEMPTING TO CONNECT TO PORT');
+		// port = await navigator.serial.requestPort(); // without filters
+		port = await navigator.serial.requestPort({ filters: serial_devices }); // with filters
 
-    console.log("*** PORT REQUESTED", port);
+		console.log('*** PORT REQUESTED', port);
 
-    try {
-      await port.open({ baudRate: baudrate });
-      console.log("*** PORT OPENED", port);
+		try {
+			await port.open({ baudRate: baudrate });
+			console.log('*** PORT OPENED', port);
 
-      if (port.writable && port.readable) {
-        const encoder = new TextEncoderStream();
-        outputDone = encoder.readable.pipeTo(port.writable);
-        outputStream = encoder.writable;
+			if (port.writable && port.readable) {
+				const encoder = new TextEncoderStream();
+				outputDone = encoder.readable.pipeTo(port.writable);
+				outputStream = encoder.writable;
 
-        serialConnected = true;
+				serialConnected = true;
 
-        disconnectCounter = 0;
+				disconnectCounter = 0;
 
-        console.log("*** PORT CONNECTED");
+				console.log('*** PORT CONNECTED');
 
-        serialDisconnectedMessage.classList.add("hidden");
-        stepsWrapper.dataset.activeStep = "3";
-        console.log("*** MOVE TO STEP 3");
-      }
-    } catch (e) {
-      console.log("*** ERROR OPENING PORT");
-      console.log(e);
-    }
-  });
+				serialDisconnectedMessage.classList.add('hidden');
+				stepsWrapper.dataset.activeStep = '3';
+				console.log('*** MOVE TO STEP 3');
+			}
+		} catch (e) {
+			console.log('*** ERROR OPENING PORT');
+			console.log(e);
+		}
+	});
 </script>

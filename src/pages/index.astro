@@ -1,109 +1,91 @@
 ---
-import "../styles/global.css";
-import Button from "@/components/Button";
-import HeroMarquee from "@/components/HeroMarquee";
-import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
-import Layout from "@/layouts/Layout.astro";
-import home from "@/assets/images/home.png";
-import homeMobile from "@/assets/images/home_mobile.png";
-import { getImage } from "astro:assets";
+import '../styles/global.css';
+import Button from '@/components/Button';
+import HeroMarquee from '@/components/HeroMarquee';
+import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import Layout from '@/layouts/Layout.astro';
+import home from '@/assets/images/home.png';
+import homeMobile from '@/assets/images/home_mobile.png';
+import { getImage } from 'astro:assets';
 
 const homeImg = await getImage({ src: home });
 const homeImgMobile = await getImage({ src: homeMobile, width: 480 });
-const homeVid =
-  "https://cdn.shopify.com/videos/c/o/v/2c1735c530ea4f4db1bc5bba59ac2d48.mp4";
-const homeVidMobile =
-  "https://cdn.shopify.com/videos/c/o/v/674282dbc3f44666bc318c187ef0697a.mp4";
+const homeVid = 'https://cdn.shopify.com/videos/c/o/v/2c1735c530ea4f4db1bc5bba59ac2d48.mp4';
+const homeVidMobile = 'https://cdn.shopify.com/videos/c/o/v/674282dbc3f44666bc318c187ef0697a.mp4';
 ---
 
 <Layout>
-  <div
-    class="relative min-h-[calc(100vh-492px)] overflow-hidden md:min-h-[calc(100vh-196px)] xl:min-h-[calc(100vh-144px)]"
-  >
-    <picture class="bg absolute inset-0 -z-20 object-cover">
-      <source media="(max-width: 480px)" srcset={homeImgMobile.src} />
-      <img src={homeImg.src} alt="" class="h-full w-full object-cover object-center" />
-    </picture>
-    <video
-      preload="auto"
-      autoplay=""
-      loop=""
-      muted=""
-      playsinline=""
-      class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
-      data-desktop={homeVid}
-      data-mobile={homeVidMobile}
-    >
-    </video>
-    <div class="pb-14 pt-32 md:pt-52">
-      <div
-        class="h-[160px] overflow-hidden sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[250px]"
-      >
-      
-      <HeroMarquee client:only />
-      
-      </div>
-      <div class="dbs-container">
-        <div
-          class="ml-28 mt-14 max-w-lg text-lg mix-blend-exclusion md:ml-60 md:text-2xl"
-        >
-          <p class="text-white">
-            Introducing an exquisite timepiece, meticulously handcrafted from
-            the discomforts of a living room workshop.
-          </p>
-          <p class="mt-4 text-white md:mt-6">
-            This functional jewellery is a true masterpiece for all you hipsters
-            and art aficionados out there.
-          </p>
-          <Button
-            variant="primary-dark"
-            href="/watch"
-            className="self-start mt-8 gap-5 md:gap-10 lg:px-20"
-          >
-            <span>
-              Discover
-              <span class="hidden md:inline-block">{" "}more</span>
-            </span>
-            <ArrowRightIcon
-              className="stroke-black group-hover:stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
-            />
-          </Button>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div
+		class="relative min-h-[calc(100vh-492px)] overflow-hidden md:min-h-[calc(100vh-196px)] xl:min-h-[calc(100vh-144px)]">
+		<picture class="bg absolute inset-0 -z-20 object-cover">
+			<source media="(max-width: 480px)" srcset={homeImgMobile.src} />
+			<img src={homeImg.src} alt="" class="h-full w-full object-cover object-center" />
+		</picture>
+		<video
+			preload="auto"
+			autoplay=""
+			loop=""
+			muted=""
+			playsinline=""
+			class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
+			data-desktop={homeVid}
+			data-mobile={homeVidMobile}>
+		</video>
+		<div class="pt-32 pb-14 md:pt-52">
+			<div class="h-[160px] overflow-hidden sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[250px]">
+				<HeroMarquee client:only />
+			</div>
+			<div class="dbs-container">
+				<div class="mt-14 ml-28 max-w-lg text-lg mix-blend-exclusion md:ml-60 md:text-2xl">
+					<p class="text-white">
+						Introducing an exquisite timepiece, meticulously handcrafted from the discomforts of a living room workshop.
+					</p>
+					<p class="mt-4 text-white md:mt-6">
+						This functional jewellery is a true masterpiece for all you hipsters and art aficionados out there.
+					</p>
+					<Button variant="primary-dark" href="/watch" className="mt-8 gap-5 self-start md:gap-10 lg:px-20">
+						<span>
+							Discover
+							<span class="hidden md:inline-block">{' '}more</span>
+						</span>
+						<ArrowRightIcon className="h-8 w-8 stroke-black stroke-1 group-hover:stroke-white md:h-10 md:w-10" />
+					</Button>
+				</div>
+			</div>
+		</div>
+	</div>
 </Layout>
 <script>
-  const isDesktop = window.innerWidth > 480;
-  const bgPicture = document.querySelector<HTMLPictureElement>("picture.bg");
-  const bgVideo = document.querySelector<HTMLVideoElement>("video.bg");
+	const isDesktop = window.innerWidth > 480;
+	const bgPicture = document.querySelector<HTMLPictureElement>('picture.bg');
+	const bgVideo = document.querySelector<HTMLVideoElement>('video.bg');
 
-  const hidePicture = () => {
-    if (!bgPicture) return;
-    bgPicture.classList.add("hidden");
-  };
+	const hidePicture = () => {
+		if (!bgPicture) return;
+		bgPicture.classList.add('hidden');
+	};
 
-  const addSourceToVideo = (src: string) => {
-    if (!bgVideo) return;
-    const source = document.createElement("source");
-    source.src = src;
-    source.type = "video/mp4";
-    bgVideo.appendChild(source);
-    bgVideo.classList.remove("hidden");
-  };
+	const addSourceToVideo = (src: string) => {
+		if (!bgVideo) return;
+		const source = document.createElement('source');
+		source.src = src;
+		source.type = 'video/mp4';
+		bgVideo.appendChild(source);
+		bgVideo.classList.remove('hidden');
+	};
 
-  window.addEventListener("load", () => {
-    if (!bgPicture || !bgVideo) return;
-    if (isDesktop) {
-      if (!bgVideo.dataset.desktop) return;
-      addSourceToVideo(bgVideo.dataset.desktop);
-    } else {
-      if (!bgVideo.dataset.mobile) return;
-      addSourceToVideo(bgVideo.dataset.mobile);
-    }
+	window.addEventListener('load', () => {
+		if (!bgPicture || !bgVideo) return;
+		if (isDesktop) {
+			if (!bgVideo.dataset.desktop) return;
+			addSourceToVideo(bgVideo.dataset.desktop);
+		} else {
+			if (!bgVideo.dataset.mobile) return;
+			addSourceToVideo(bgVideo.dataset.mobile);
+		}
 
-    bgVideo.addEventListener("loadeddata", () => {
-      hidePicture();
-    });
-  });
+		bgVideo.addEventListener('loadeddata', () => {
+			hidePicture();
+		});
+	});
 </script>

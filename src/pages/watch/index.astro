@@ -1,27 +1,27 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import watchHero1 from "@/assets/images/watch_hero_less_grain_01.jpg";
-import watchHero2 from "@/assets/images/watch_hero_less_grain_02.jpg";
-import watchHero3 from "@/assets/images/watch_hero_less_grain_03.jpg";
-import watchHero4 from "@/assets/images/watch_hero_less_grain_04.jpg";
-import watchHero5 from "@/assets/images/watch_hero_less_grain_05.jpg";
-import watchHero1Mobile from "@/assets/images/watch_hero_01_mobile.jpg";
-import watchHero2Mobile from "@/assets/images/watch_hero_02_mobile.jpg";
-import watchHero3Mobile from "@/assets/images/watch_hero_03_mobile.jpg";
-import watchHero4Mobile from "@/assets/images/watch_hero_04_mobile.jpg";
-import watchHero5Mobile from "@/assets/images/watch_hero_05_mobile.jpg";
-import { getImage } from "astro:assets";
-import Button from "@/components/Button";
-import ArrowRightIcon from "@/components/icons/ArrowRightIcon";
-import ArrowDownIcon from "@/components/icons/ArrowDownIcon";
-import HeroCarousel from "@/components/watch/HeroCarousel";
-import WaitingListButton from "@/components/watch/WaitingListButton";
-import WatchSection from "@/components/watch/WatchSection.astro";
-import ContentNav from "@/components/watch/ContentNav.astro";
-import CraftsmanshipSection from "@/components/watch/CraftsmanshipSection.astro";
-import SpecsSection from "@/components/watch/SpecsSection.astro";
-import AddToCartButton from "@/components/watch/AddToCart";
-import BandSizeButton from "@/components/watch/BandSizeButton";
+import Layout from '@/layouts/Layout.astro';
+import watchHero1 from '@/assets/images/watch_hero_less_grain_01.jpg';
+import watchHero2 from '@/assets/images/watch_hero_less_grain_02.jpg';
+import watchHero3 from '@/assets/images/watch_hero_less_grain_03.jpg';
+import watchHero4 from '@/assets/images/watch_hero_less_grain_04.jpg';
+import watchHero5 from '@/assets/images/watch_hero_less_grain_05.jpg';
+import watchHero1Mobile from '@/assets/images/watch_hero_01_mobile.jpg';
+import watchHero2Mobile from '@/assets/images/watch_hero_02_mobile.jpg';
+import watchHero3Mobile from '@/assets/images/watch_hero_03_mobile.jpg';
+import watchHero4Mobile from '@/assets/images/watch_hero_04_mobile.jpg';
+import watchHero5Mobile from '@/assets/images/watch_hero_05_mobile.jpg';
+import { getImage } from 'astro:assets';
+import Button from '@/components/Button';
+import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
+import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
+import HeroCarousel from '@/components/watch/HeroCarousel';
+import WaitingListButton from '@/components/watch/WaitingListButton';
+import WatchSection from '@/components/watch/WatchSection.astro';
+import ContentNav from '@/components/watch/ContentNav.astro';
+import CraftsmanshipSection from '@/components/watch/CraftsmanshipSection.astro';
+import SpecsSection from '@/components/watch/SpecsSection.astro';
+import AddToCartButton from '@/components/watch/AddToCart';
+import BandSizeButton from '@/components/watch/BandSizeButton';
 
 const watchHeroImg1 = await getImage({ src: watchHero1 });
 const watchHeroImg2 = await getImage({ src: watchHero2 });
@@ -29,125 +29,106 @@ const watchHeroImg3 = await getImage({ src: watchHero3 });
 const watchHeroImg4 = await getImage({ src: watchHero4 });
 const watchHeroImg5 = await getImage({ src: watchHero5 });
 const watchHeroImg1Mobile = await getImage({
-  src: watchHero1Mobile,
-  width: 640,
+	src: watchHero1Mobile,
+	width: 640,
 });
 const watchHeroImg2Mobile = await getImage({
-  src: watchHero2Mobile,
-  width: 640,
+	src: watchHero2Mobile,
+	width: 640,
 });
 const watchHeroImg3Mobile = await getImage({
-  src: watchHero3Mobile,
-  width: 640,
+	src: watchHero3Mobile,
+	width: 640,
 });
 const watchHeroImg4Mobile = await getImage({
-  src: watchHero4Mobile,
-  width: 640,
+	src: watchHero4Mobile,
+	width: 640,
 });
 const watchHeroImg5Mobile = await getImage({
-  src: watchHero5Mobile,
-  width: 640,
+	src: watchHero5Mobile,
+	width: 640,
 });
 
 const watchHeroImgs = [
-  {
-    desktop: watchHeroImg1,
-    mobile: watchHeroImg1Mobile,
-  },
-  {
-    desktop: watchHeroImg2,
-    mobile: watchHeroImg2Mobile,
-  },
-  {
-    desktop: watchHeroImg3,
-    mobile: watchHeroImg3Mobile,
-  },
-  {
-    desktop: watchHeroImg4,
-    mobile: watchHeroImg4Mobile,
-  },
-  {
-    desktop: watchHeroImg5,
-    mobile: watchHeroImg5Mobile,
-  },
+	{
+		desktop: watchHeroImg1,
+		mobile: watchHeroImg1Mobile,
+	},
+	{
+		desktop: watchHeroImg2,
+		mobile: watchHeroImg2Mobile,
+	},
+	{
+		desktop: watchHeroImg3,
+		mobile: watchHeroImg3Mobile,
+	},
+	{
+		desktop: watchHeroImg4,
+		mobile: watchHeroImg4Mobile,
+	},
+	{
+		desktop: watchHeroImg5,
+		mobile: watchHeroImg5Mobile,
+	},
 ];
 ---
 
 <Layout>
-  <div class="relative min-h-screen">
-    <HeroCarousel images={watchHeroImgs} client:idle />
-    <div class="pointer-events-none absolute inset-0 z-10">
-      <div
-        class="dbs-container flex h-full flex-col justify-end px-5 pb-10 md:px-8 md:pb-24 xl:px-12"
-      >
-        <h1
-          class="mb-9 text-7xl font-extralight text-white md:mb-10 md:text-9xl lg:text-[144px]"
-        >
-          WATCH
-        </h1>
-        <div
-          class="pointer-events-auto flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between"
-        >
-          <div class="flex flex-wrap items-center gap-5">
-            <BandSizeButton client:load />
-            <Button
-              variant="secondary-dark"
-              href="/watch/faq"
-              className="gap-10"
-              ariaLabel="FAQ"
-            >
-              FAQ
-              <ArrowRightIcon
-                className="stroke-white h-8 w-8 md:h-10 md:w-10 stroke-1"
-              />
-            </Button>
-          </div>
-          <div
-            class="relative ml-auto max-w-xs pr-12 text-right text-base font-extralight text-white sm:max-w-none md:pr-16 md:text-2xl"
-          >
-            <p>Bringing digital watches to a higher pedestal.</p>
-            <button
-              class="scroll-trigger absolute bottom-0.5 right-0"
-              aria-label="Scroll down"
-            >
-              <ArrowDownIcon className="w-10 h-10" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="content relative min-h-screen">
-    <ContentNav />
-    <WatchSection />
-    <CraftsmanshipSection />
-    <SpecsSection />
-  </div>
+	<div class="relative min-h-screen">
+		<HeroCarousel images={watchHeroImgs} client:idle />
+		<div class="pointer-events-none absolute inset-0 z-10">
+			<div class="dbs-container flex h-full flex-col justify-end px-5 pb-10 md:px-8 md:pb-24 xl:px-12">
+				<h1 class="mb-9 text-7xl font-extralight text-white md:mb-10 md:text-9xl lg:text-[144px]">WATCH</h1>
+				<div class="pointer-events-auto flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between">
+					<div class="flex flex-wrap items-center gap-5">
+						<BandSizeButton client:load />
+						<Button variant="secondary-dark" href="/watch/faq" className="gap-10" ariaLabel="FAQ">
+							FAQ
+							<ArrowRightIcon className="h-8 w-8 stroke-white stroke-1 md:h-10 md:w-10" />
+						</Button>
+					</div>
+					<div
+						class="relative ml-auto max-w-xs pr-12 text-right text-base font-extralight text-white sm:max-w-none md:pr-16 md:text-2xl">
+						<p>Bringing digital watches to a higher pedestal.</p>
+						<button class="scroll-trigger absolute right-0 bottom-0.5" aria-label="Scroll down">
+							<ArrowDownIcon className="h-10 w-10" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content relative min-h-screen">
+		<ContentNav />
+		<WatchSection />
+		<CraftsmanshipSection />
+		<SpecsSection />
+	</div>
 </Layout>
 
 <style>
-  @reference "../../styles/global.css";
+	@reference "../../styles/global.css";
 
-  @media (min-width: 1920px) {
-    .dbs-container {
-      @apply px-5;
-    }
-  }
+	@media (min-width: 1920px) {
+		.dbs-container {
+			@apply px-5;
+		}
+	}
 </style>
 
 <script>
-  const button = document.querySelector(".scroll-trigger");
+	const button = document.querySelector('.scroll-trigger');
 
-  if (button) {
-    button.addEventListener("click", () => {
-      const content = document.querySelector(".content");
-      if (content) {
-        content.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      }
-    });
-  }
+	if (button) {
+		button.addEventListener('click', () => {
+			const content = document.querySelector('.content');
+			if (content) {
+				content.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'nearest',
+				});
+			}
+		});
+	}
 </script>
