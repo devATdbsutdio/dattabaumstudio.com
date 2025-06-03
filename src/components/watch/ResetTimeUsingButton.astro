@@ -1,173 +1,134 @@
 ---
-import resetHr from "@/assets/images/reset-hr.png";
-import resetMin from "@/assets/images/reset-min.png";
-import resetSec from "@/assets/images/reset-sec.png";
-import resetDate from "@/assets/images/reset-date.png";
-import resetMonth from "@/assets/images/reset-mon.png";
-import resetYear from "@/assets/images/reset-year.png";
-import { Image } from "astro:assets";
+import resetHr from '@/assets/images/reset-hr.png';
+import resetMin from '@/assets/images/reset-min.png';
+import resetSec from '@/assets/images/reset-sec.png';
+import resetDate from '@/assets/images/reset-date.png';
+import resetMonth from '@/assets/images/reset-mon.png';
+import resetYear from '@/assets/images/reset-year.png';
+import { Image } from 'astro:assets';
 ---
 
 <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm md:text-lg">
-  <div class="col-span-3 sm:col-span-2">
-    <ol class="list-outside list-decimal space-y-6 pl-6 sm:pl-9">
-      <li class="grid-cols-3">
-        <span class="font-medium">Waking Up the Watch:</span>
-         Press the button once to wake up the watch. Upon waking up, the watch
-        will first display the current time.
-      </li>
-      <li>
-        <span class="font-medium">Entering Reset Mode:</span>
-         To make adjustments to the watch settings, perform a long press and
-        hold the button for approximately 1.5 seconds. This will take you to the
-        RESET mode. The first thing you can reset is the hour, meaning you are
-        in "reset hour" mode.
-        <ol class="mt-7 list-outside list-[lower-latin] space-y-5 pl-6 sm:pl-9">
-          <li>
-            <span class="font-medium"> Adjusting the Hour:</span>
-            <ol
-              class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9"
-            >
-              <li>
-                Once in RESET mode, the display will show “hr” (for few
-                seconds), indicating that you can change the HOUR value
-                <span class="font-medium">(Image 1).</span>
-              </li>
-              <li>
-                Use short presses to increase the hour value.{" "}
-                <span class="font-medium">Note:</span> The hour value will cycle
-                back to 0 after reaching 23.
-              </li>
-              <li class="space-x-2">
-                After you land on the desired hour value, confirm it by holding
-                the button for approximately 1 second.
-              </li>
-            </ol>
-            <li>
-              This will now take you to the “reset minute” mode.{" "}
-              <span class="font-medium">(Image 2)</span>
-            </li>
-            <li>
-              <span class="font-medium">Adjusting the Minute</span>
-              <ol
-                class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9"
-              >
-                <li>
-                  Following the hour adjustment, the display will show “nin”.
-                  Due to the limitations of 7-segment displays, "min" for
-                  minutes is represented as “nin”.
-                </li>
-                <li>
-                  Use short presses to increase the minute value (just like the
-                  previous step).
-                </li>
-                <li>
-                  Once you've changed the desired minute value, confirm your
-                  selection with a long press by approximately pressing the
-                  button for 1 sec.
-                </li>
-              </ol>
-            </li>
-            <li>
-              This will now take you the "reset seconds" mode{" "}
-              <span class="font-medium">(Image 3).</span>
-            </li>
-            <li>
-              Repeat the above steps to change the SECONDS, then DATE, MONTH,
-              and YEAR values
-              <span class="font-medium">(Image 4, 5, 6).</span>
-            </li>
-            <li>
-              <span class="font-medium">Note:</span>
-               If you wish to skip adjusting a particular component (e.g. the
-              seconds, the year etc.), simply perform a long press (approx. 1
-              sec) to move on to the next component.
-            </li>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <span class="font-medium">Exiting Reset Mode</span>
-         After setting the YEAR value, the watch will automatically exit the
-        RESET mode, and your adjustments will be saved. Note: If you wish to
-        leave the RESET mode in the middle, just press long enough (2.5 sec) and
-        release.
-      </li>
-    </ol>
-    <p class="mt-6 font-medium">Notes :</p>
-    <ol class="mb-6 mt-5 list-outside list-decimal space-y-1 pl-6 sm:pl-9">
-      <li>
-        The "Year" value rolls over after approaching 2100. This decision was
-        made to make it easier on the fingers while manually resetting
-        components with the button.
-      </li>
-      <li>
-        Always make sure that you have set the correct values for each component
-        before exiting the RESET mode.
-      </li>
-    </ol>
-  </div>
+	<div class="col-span-3 sm:col-span-2">
+		<ol class="list-outside list-decimal space-y-6 pl-6 sm:pl-9">
+			<li class="grid-cols-3">
+				<span class="font-medium">Waking Up the Watch:</span>
+				Press the button once to wake up the watch. Upon waking up, the watch will first display the current time.
+			</li>
+			<li>
+				<span class="font-medium">Entering Reset Mode:</span>
+				To make adjustments to the watch settings, perform a long press and hold the button for approximately 1.5 seconds.
+				This will take you to the RESET mode. The first thing you can reset is the hour, meaning you are in "reset hour"
+				mode.
+				<ol class="mt-7 list-outside list-[lower-latin] space-y-5 pl-6 sm:pl-9">
+					<li>
+						<span class="font-medium">Adjusting the Hour:</span>
+						<ol class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9">
+							<li>
+								Once in RESET mode, the display will show “hr” (for few seconds), indicating that you can change the
+								HOUR value
+								<span class="font-medium">(Image 1).</span>
+							</li>
+							<li>
+								Use short presses to increase the hour value.{' '}
+								<span class="font-medium">Note:</span> The hour value will cycle back to 0 after reaching 23.
+							</li>
+							<li class="space-x-2">
+								After you land on the desired hour value, confirm it by holding the button for approximately 1 second.
+							</li>
+						</ol>
+						<li>
+							This will now take you to the “reset minute” mode.{' '}
+							<span class="font-medium">(Image 2)</span>
+						</li>
+						<li>
+							<span class="font-medium">Adjusting the Minute</span>
+							<ol class="mt-1 list-outside list-[lower-roman] space-y-1 pl-6 sm:pl-9">
+								<li>
+									Following the hour adjustment, the display will show “nin”. Due to the limitations of 7-segment
+									displays, "min" for minutes is represented as “nin”.
+								</li>
+								<li>Use short presses to increase the minute value (just like the previous step).</li>
+								<li>
+									Once you've changed the desired minute value, confirm your selection with a long press by
+									approximately pressing the button for 1 sec.
+								</li>
+							</ol>
+						</li>
+						<li>
+							This will now take you the "reset seconds" mode{' '}
+							<span class="font-medium">(Image 3).</span>
+						</li>
+						<li>
+							Repeat the above steps to change the SECONDS, then DATE, MONTH, and YEAR values
+							<span class="font-medium">(Image 4, 5, 6).</span>
+						</li>
+						<li>
+							<span class="font-medium">Note:</span>
+							If you wish to skip adjusting a particular component (e.g. the seconds, the year etc.), simply perform a long
+							press (approx. 1 sec) to move on to the next component.
+						</li>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<span class="font-medium">Exiting Reset Mode</span>
+				After setting the YEAR value, the watch will automatically exit the RESET mode, and your adjustments will be saved.
+				Note: If you wish to leave the RESET mode in the middle, just press long enough (2.5 sec) and release.
+			</li>
+		</ol>
+		<p class="mt-6 font-medium">Notes :</p>
+		<ol class="mt-5 mb-6 list-outside list-decimal space-y-1 pl-6 sm:pl-9">
+			<li>
+				The "Year" value rolls over after approaching 2100. This decision was made to make it easier on the fingers
+				while manually resetting components with the button.
+			</li>
+			<li>Always make sure that you have set the correct values for each component before exiting the RESET mode.</li>
+		</ol>
+	</div>
 
-  <div class="col-span-3 grid grid-cols-2 gap-8 sm:col-span-1 sm:grid-cols-1">
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetHr} alt="Reset Hour" class="aspect-square w-44" />
-      <div class="w-full text-xs sm:w-44">
-        <p class="font-medium">Image 1</p>
-        <p>HOUR (hr): Now you can change the hour</p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetMin} alt="Reset Minute" class="aspect-square w-44" />
-      <div class="w-full text-xs sm:w-44">
-        <p class="font-medium">Image 2</p>
-        <p>
-          MINUTE (Shown as nin - as it is hard to represent in 7 segment): Now
-          you can change the minute.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetSec} alt="Reset Second" class="aspect-square w-44" />
-      <div class="w-full text-xs sm:w-44">
-        <p class="font-medium">Image 3</p>
-        <p>SECOND (sec) : Now you can change the seconds.</p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetDate} alt="Reset Date" class="aspect-square w-44" />
-      <div class="w-full text-xs sm:w-44">
-        <p class="font-medium">Image 4</p>
-        <p>DATE (date): Now you can change the date.</p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetMonth} alt="Reset Month" class="aspect-square w-44" />
-      <div class="w-full text-xs sm:w-44">
-        <p class="font-medium">Image 5</p>
-        <p>
-          MONTH (Shown as non - as it is hard to represent in 7 segment): Now
-          you change the month.
-        </p>
-      </div>
-    </div>
-    <div
-      class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end"
-    >
-      <Image src={resetYear} alt="Reset Year" class="aspect-square w-44" />
-      <div class="w-44">
-        <p class="font-medium">Image 6</p>
-        <p>YEAR (year ): Now you can change the year.</p>
-      </div>
-    </div>
-  </div>
+	<div class="col-span-3 grid grid-cols-2 gap-8 sm:col-span-1 sm:grid-cols-1">
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetHr} alt="Reset Hour" class="aspect-square w-44" />
+			<div class="w-full text-xs sm:w-44">
+				<p class="font-medium">Image 1</p>
+				<p>HOUR (hr): Now you can change the hour</p>
+			</div>
+		</div>
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetMin} alt="Reset Minute" class="aspect-square w-44" />
+			<div class="w-full text-xs sm:w-44">
+				<p class="font-medium">Image 2</p>
+				<p>MINUTE (Shown as nin - as it is hard to represent in 7 segment): Now you can change the minute.</p>
+			</div>
+		</div>
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetSec} alt="Reset Second" class="aspect-square w-44" />
+			<div class="w-full text-xs sm:w-44">
+				<p class="font-medium">Image 3</p>
+				<p>SECOND (sec) : Now you can change the seconds.</p>
+			</div>
+		</div>
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetDate} alt="Reset Date" class="aspect-square w-44" />
+			<div class="w-full text-xs sm:w-44">
+				<p class="font-medium">Image 4</p>
+				<p>DATE (date): Now you can change the date.</p>
+			</div>
+		</div>
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetMonth} alt="Reset Month" class="aspect-square w-44" />
+			<div class="w-full text-xs sm:w-44">
+				<p class="font-medium">Image 5</p>
+				<p>MONTH (Shown as non - as it is hard to represent in 7 segment): Now you change the month.</p>
+			</div>
+		</div>
+		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
+			<Image src={resetYear} alt="Reset Year" class="aspect-square w-44" />
+			<div class="w-44">
+				<p class="font-medium">Image 6</p>
+				<p>YEAR (year ): Now you can change the year.</p>
+			</div>
+		</div>
+	</div>
 </div>

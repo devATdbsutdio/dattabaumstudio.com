@@ -1,0 +1,14 @@
+# Ignore artifacts:
+./dist
+.astro
+.vscode
+.vercel
+
+# Standard
+**/.git
+**/.svn
+**/.hg
+./node_modules
+
+# lockfiles
+package-lock.json

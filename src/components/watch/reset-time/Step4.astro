@@ -1,119 +1,105 @@
 ---
-import Button from "@/components/Button";
-import StepWrapper from "./StepWrapper.astro";
+import Button from '@/components/Button';
+import StepWrapper from './StepWrapper.astro';
 ---
 
-<StepWrapper
-  step="4"
-  title="4/4: Sync Time and DATE from your computer"
-  showBackBtn
->
-  <div class="mb-14 space-y-8">
-    <p>
-      After you
-      <strong> click the “sync” button below</strong>
-       , the browser will stream the time and date data to the watch (by pinging
-      for 10 secs).
-    </p>
-    <p>
-      During that period, press the physical button on the watch <strong
-        >ONCE</strong
-      >
-       , so that it can wake up and receive the time and date data.
-    </p>
-  </div>
-  <Button
-    id="btn-sync-time-step-4"
-    variant="primary-light"
-    className="w-full mt-auto"
-  >
-    Sync time and date
-  </Button>
+<StepWrapper step="4" title="4/4: Sync Time and DATE from your computer" showBackBtn>
+	<div class="mb-14 space-y-8">
+		<p>
+			After you
+			<strong>click the “sync” button below</strong>
+			, the browser will stream the time and date data to the watch (by pinging for 10 secs).
+		</p>
+		<p>
+			During that period, press the physical button on the watch <strong>ONCE</strong>
+			, so that it can wake up and receive the time and date data.
+		</p>
+	</div>
+	<Button id="btn-sync-time-step-4" variant="primary-light" className="mt-auto w-full"> Sync time and date </Button>
 </StepWrapper>
 
 <script is:inline>
-  const btnSyncTimeStep4 = document.querySelector("#btn-sync-time-step-4");
+	const btnSyncTimeStep4 = document.querySelector('#btn-sync-time-step-4');
 
-  btnSyncTimeStep4.addEventListener("click", () => {
-    writeDateAndTimeData();
-  });
+	btnSyncTimeStep4.addEventListener('click', () => {
+		writeDateAndTimeData();
+	});
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+	const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const writeDateAndTimeData = async (_) => {
-    let portDisconnected = false;
-    console.log("*** START SYNCING");
-    stepsWrapper.dataset.activeStep = "5";
+	const writeDateAndTimeData = async (_) => {
+		let portDisconnected = false;
+		console.log('*** START SYNCING');
+		stepsWrapper.dataset.activeStep = '5';
 
-    for (let i = 1; i < maxWrites + 1; i++) {
-      currWriteCount = maxWrites - i;
-      console.log(`*** ${currWriteCount} WRITES LEFT`);
-      const timeLeft = document.querySelector("#time-left");
+		for (let i = 1; i < maxWrites + 1; i++) {
+			currWriteCount = maxWrites - i;
+			console.log(`*** ${currWriteCount} WRITES LEFT`);
+			const timeLeft = document.querySelector('#time-left');
 
-      timeLeft.innerHTML = `${currWriteCount} SECONDS`;
+			timeLeft.innerHTML = `${currWriteCount} SECONDS`;
 
-      const now = new Date();
-      var month_ = now.getMonth() + 1;
+			const now = new Date();
+			var month_ = now.getMonth() + 1;
 
-      let stayAwakeDuration =
-        stepsWrapper.dataset.stayAwakeDuration || stayAwakeDurationInput.value;
+			let stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || stayAwakeDurationInput.value;
 
-      serialData =
-        now.getHours() +
-        ":" +
-        now.getMinutes() +
-        ":" +
-        now.getSeconds() +
-        ":" +
-        now.getDay() +
-        ":" +
-        now.getDate() +
-        ":" +
-        month_ +
-        ":" +
-        now.getFullYear() +
-        ":" +
-        stayAwakeDuration; //stayAwakeDurationMs
+			serialData =
+				now.getHours() +
+				':' +
+				now.getMinutes() +
+				':' +
+				now.getSeconds() +
+				':' +
+				now.getDay() +
+				':' +
+				now.getDate() +
+				':' +
+				month_ +
+				':' +
+				now.getFullYear() +
+				':' +
+				stayAwakeDuration; //stayAwakeDurationMs
 
-      if (port != null && port.writable) writeToStream(serialData);
-      else {
-        portDisconnected = true;
-        console.log("*** PORT NOT FOUND!\n");
-        break;
-      }
+			if (port != null && port.writable) writeToStream(serialData);
+			else {
+				portDisconnected = true;
+				console.log('*** PORT NOT FOUND!\n');
+				break;
+			}
 
-      await delay(writeFrequency);
-    }
+			await delay(writeFrequency);
+		}
 
-    if (!portDisconnected) {
-      stepsWrapper.dataset.activeStep = "6";
-    }
+		if (!portDisconnected) {
+			stepsWrapper.dataset.activeStep = '6';
+		}
 
-    if (outputStream) {
-      console.log("*** CLOSE OUTPUT STREAM");
-      await outputStream.getWriter().close();
-      await outputDone;
-      outputStream = null;
-      outputDone = null;
-    }
-    if (port) {
-      console.log("*** CLOSE PORT");
-      await port.close();
-      console.log("*** SERIAL DISCONNECTED");
-      port = null;
-      serialConnected = false;
-      disconnectCounter = 0;
-    }
-    currWriteCount = 0;
-  };
+		if (outputStream) {
+			console.log('*** CLOSE OUTPUT STREAM');
+			await outputStream.getWriter().close();
+			await outputDone;
+			outputStream = null;
+			outputDone = null;
+		}
+		if (port) {
+			console.log('*** CLOSE PORT');
+			await port.close();
+			console.log('*** SERIAL DISCONNECTED');
+			port = null;
+			serialConnected = false;
+			disconnectCounter = 0;
+		}
+		currWriteCount = 0;
+	};
 
-  function writeToStream(...lines) {
-    const writer = outputStream.getWriter();
+	function writeToStream(...lines) {
+		const writer = outputStream.getWriter();
 
-    lines.forEach((line) => {
-      console.log("*** [SEND]", line);
-      writer.write(line + "\n");
-    });
-    writer.releaseLock();
-  }
+		lines.forEach((line) => {
+			console.log('*** [SEND]', line);
+			writer.write(line + '\n');
+		});
+		writer.releaseLock();
+	}
 </script>

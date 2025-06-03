@@ -26,7 +26,9 @@ The policy pages are written in markdown and can be found:
 3. This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
 
 ## 🎨 Editing shopify theme
-We needed to edit the Shopify theme because during checkout, our website redirects to Shopify. However, when clicking on the "Datta+baum" header link, it takes you to the Shopify shop, which is not what we wanted. Therefore, we had to modify the themes to redirect to our website instead of the Shopify store. 
+
+We needed to edit the Shopify theme because during checkout, our website redirects to Shopify. However, when clicking on the "Datta+baum" header link, it takes you to the Shopify shop, which is not what we wanted. Therefore, we had to modify the themes to redirect to our website instead of the Shopify store.
+
 1. Click [here](https://admin.shopify.com/store/f2888f-3/themes/154313523532) (Online Store -> Themes -> Edit code (in menu next to **Customize** button)) to edit theme.
 2. Search name of file you want to edit in the text field.
 3. EDITED (redirecting to main site): _header.liquid_ (Line # 122 - 126)

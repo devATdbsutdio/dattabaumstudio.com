@@ -1,239 +1,231 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 interface Props {
-  title?: string;
-  description?: string;
-  topMargin?: boolean;
+	title?: string;
+	description?: string;
+	topMargin?: boolean;
 }
 
-const title = Astro.props.title || "Datta + Baum Studio";
+const title = Astro.props.title || 'Datta + Baum Studio';
 const description =
-  Astro.props.description ||
-  "Datta + Baum Studio is a product design studio co-founded by us; Saurabh Datta and Benjamin Baum.";
+	Astro.props.description ||
+	'Datta + Baum Studio is a product design studio co-founded by us; Saurabh Datta and Benjamin Baum.';
 const topMargin = Astro.props.topMargin || false;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-v3.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content="/og.png" />
-    <!-- twitter meta tags -->
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/og.png" />
-  </head>
-  <body class="font-main bg-black antialiased">
-    <Header solidBg={topMargin} client:load />
-    <main class:list={["relative", { "mt-[80px] md:mt-[108px]": topMargin }]}>
-      <slot />
-    </main>
-    <Footer />
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon-v3.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og.png" />
+		<!-- twitter meta tags -->
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/og.png" />
+	</head>
+	<body class="font-main bg-black antialiased">
+		<Header solidBg={topMargin} client:load />
+		<main class:list={['relative', { 'mt-[80px] md:mt-[108px]': topMargin }]}>
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>
 
 <style is:global>
-  @reference "../styles/global.css";
-  button,
-  a {
-    @apply rounded;
-  }
-  button:focus-visible,
-  a:focus-visible {
-    @apply outline-none ring-1 ring-neutral-400;
-  }
+	@reference "../styles/global.css";
+	button,
+	a {
+		@apply rounded;
+	}
+	button:focus-visible,
+	a:focus-visible {
+		@apply ring-1 ring-neutral-400 outline-none;
+	}
 
-  .font-main {
-    font-family: "ABC Diatype", sans-serif;
-  }
+	.font-main {
+		font-family: 'ABC Diatype', sans-serif;
+	}
 
-  .bg-modal {
-    background-repeat: repeat;
-    background-color: rgba(0, 0, 0, 0.9);
-  }
+	.bg-modal {
+		background-repeat: repeat;
+		background-color: rgba(0, 0, 0, 0.9);
+	}
 
-  .bg-content {
-    background-repeat: repeat;
-    background-image: radial-gradient(
-        circle at 50% 100%,
-        rgba(0, 0, 0, 0.4),
-        rgba(0, 0, 0, 0.5) 10%,
-        rgba(0, 0, 0, 1)
-      ),
-      url("/noise.svg");
-  }
+	.bg-content {
+		background-repeat: repeat;
+		background-image:
+			radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 1)),
+			url('/noise.svg');
+	}
 
-  .dbs-container {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-  }
+	.dbs-container {
+		width: 100%;
+		max-width: 1920px;
+		margin: 0 auto;
+	}
 
-  .initial {
-    position: initial;
-  }
+	.initial {
+		position: initial;
+	}
 
+	.cart-table::-webkit-scrollbar {
+		height: 6px;
+	}
 
-  .cart-table::-webkit-scrollbar {
-    height: 6px;
-  }
+	.cart-table::-webkit-scrollbar-thumb {
+		@apply rounded-lg bg-gray-600;
+	}
 
-  .cart-table::-webkit-scrollbar-thumb {
-    @apply bg-gray-600 rounded-lg;
-  }
+	.cart-table::-webkit-scrollbar-track {
+		@apply rounded-lg bg-gray-400;
+	}
 
-  .cart-table::-webkit-scrollbar-track {
-    @apply bg-gray-400 rounded-lg;
-  }
+	/* FONTS */
 
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-BlackItalic.ttf') format('truetype');
+		font-weight: 900;
+		font-style: italic;
+		font-display: swap;
+	}
 
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Black.ttf') format('truetype');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
 
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-BoldItalic.ttf') format('truetype');
+		font-weight: bold;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  /* FONTS */
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Bold.ttf') format('truetype');
+		font-weight: bold;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-BlackItalic.ttf") format("truetype");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype Ultra';
+		src: url('/fonts/ABCDiatype-UltraItalic.ttf') format('truetype');
+		font-weight: 900;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Black.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype Ultra';
+		src: url('/fonts/ABCDiatype-Ultra.ttf') format('truetype');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-BoldItalic.ttf") format("truetype");
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Regular.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-MediumItalic.ttf') format('truetype');
+		font-weight: 500;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype Ultra";
-    src: url("/fonts/ABCDiatype-UltraItalic.ttf") format("truetype");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-LightItalic.ttf') format('truetype');
+		font-weight: 300;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype Ultra";
-    src: url("/fonts/ABCDiatype-Ultra.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Italic.ttf') format('truetype');
+		font-weight: normal;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Medium.ttf') format('truetype');
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-MediumItalic.ttf") format("truetype");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Thin.ttf') format('truetype');
+		font-weight: 100;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-LightItalic.ttf") format("truetype");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-ThinItalic.ttf') format('truetype');
+		font-weight: 100;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Italic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype Variable';
+		src: url('/fonts/ABCDiatypeVariable-Regular.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Light.ttf') format('truetype');
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Thin.ttf") format("truetype");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-HeavyItalic.ttf') format('truetype');
+		font-weight: 800;
+		font-style: italic;
+		font-display: swap;
+	}
 
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-ThinItalic.ttf") format("truetype");
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "ABC Diatype Variable";
-    src: url("/fonts/ABCDiatypeVariable-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-HeavyItalic.ttf") format("truetype");
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "ABC Diatype";
-    src: url("/fonts/ABCDiatype-Heavy.ttf") format("truetype");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-  }
+	@font-face {
+		font-family: 'ABC Diatype';
+		src: url('/fonts/ABCDiatype-Heavy.ttf') format('truetype');
+		font-weight: 800;
+		font-style: normal;
+		font-display: swap;
+	}
 </style>

@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Terms & Conditions
 description: Our Terms and Conditions below provide a detailed explanation of the terms of use for our products and website
-lastUpdated: "March 22, 2023"
+lastUpdated: 'March 22, 2023'
 ---
 
 ## Interpretation and Definitions
@@ -144,7 +144,6 @@ If You are a European Union consumer, you will benefit from any mandatory provis
 
 United States Legal Compliance
 You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.
-
 
 ## Severability and Waiver
 
