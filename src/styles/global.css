@@ -1,1 +1,10 @@
 @import "tailwindcss";
+@import "@tailwindcss/typography";
+@import "tailwindcss/animate";
+@import "@headlessui/tailwindcss";
+
+@theme {
+    --font-display: "Inter", "ui-sans-serif", "sans-serif";
+}
+
+@config "../../tailwind.config.js"
