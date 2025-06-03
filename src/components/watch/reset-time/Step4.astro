@@ -40,9 +40,9 @@ import StepWrapper from './StepWrapper.astro';
 			timeLeft.innerHTML = `${currWriteCount} SECONDS`;
 
 			const now = new Date();
-			var month_ = now.getMonth() + 1;
+			const month_ = now.getMonth() + 1;
 
-			let stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || stayAwakeDurationInput.value;
+			const stayAwakeDuration = stepsWrapper.dataset.stayAwakeDuration || stayAwakeDurationInput.value;
 
 			serialData =
 				now.getHours() +

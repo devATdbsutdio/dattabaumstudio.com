@@ -16,9 +16,9 @@ const CartComponent = () => {
 	const { selectedTotalQuantity: totalQuantity, selectedVariantsDetails, updateSelectedVariants } = useCart();
 
 	const { VARIANTS, totalPrice } = useMemo(() => {
-		let _variants = variants
+		const _variants = variants
 			?.map((variant: any) => {
-				let selectedQuantity = selectedVariantsDetails[variant.id] || 0;
+				const selectedQuantity = selectedVariantsDetails[variant.id] || 0;
 				if (selectedQuantity)
 					return {
 						...variant,
@@ -27,7 +27,7 @@ const CartComponent = () => {
 				return null;
 			})
 			.filter(Boolean);
-		let totalPrice = _variants?.reduce(
+		const totalPrice = _variants?.reduce(
 			(acc: number, variant: any) => acc + variant.price * variant.selectedQuantity,
 			0
 		);
@@ -78,8 +78,8 @@ const CartComponent = () => {
 								</tr>
 							) : (
 								VARIANTS?.map((variant: any) => {
-									let minusSignDisabled = variant.selectedQuantity === 0;
-									let plusSignDisabled = variant.selectedQuantity >= variant.quantity;
+									const minusSignDisabled = variant.selectedQuantity === 0;
+									const plusSignDisabled = variant.selectedQuantity >= variant.quantity;
 									return (
 										<tr className="flex flex-col align-top lg:table-row" key={variant.id}>
 											<td className="pt-8 pb-4 lg:py-8">
@@ -139,7 +139,7 @@ const CartComponent = () => {
 						className="initial w-full max-w-[400px] gap-6 bg-black text-lg font-light text-white hover:bg-gray-900 lg:max-w-[250px]"
 						disabled={totalQuantity === 0 || isLoading}
 						onClick={() => {
-							let checkoutVariantQuantity = VARIANTS?.reduce((acc: any, variant: any) => {
+							const checkoutVariantQuantity = VARIANTS?.reduce((acc: any, variant: any) => {
 								return acc + `${variant.id}:${variant.selectedQuantity},`;
 							}, '');
 							if (checkoutVariantQuantity)

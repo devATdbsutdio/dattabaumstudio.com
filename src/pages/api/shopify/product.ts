@@ -15,7 +15,7 @@ const shopify = new Shopify({
 
 export const GET: APIRoute = async () => {
 	try {
-		let product = await shopify.product.get(Number(PRODUCT_ID));
+		const product = await shopify.product.get(Number(PRODUCT_ID));
 		return new Response(JSON.stringify(product), {
 			status: 200,
 		});

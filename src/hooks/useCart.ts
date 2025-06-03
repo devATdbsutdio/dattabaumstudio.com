@@ -8,7 +8,7 @@ function useCart() {
 		let variantArr = selectedVariants?.split('<,>') || [];
 		variantArr = variantArr.filter(Boolean);
 
-		let selectedVariantsDetails = variantArr.reduce((acc: any, curr: any) => {
+		const selectedVariantsDetails = variantArr.reduce((acc: any, curr: any) => {
 			return {
 				...acc,
 				[curr]: (acc[curr] || 0) + 1,
@@ -22,7 +22,7 @@ function useCart() {
 	}, [selectedVariants]);
 
 	const updateSelectedVariants = (variantId: any, operation: 'add' | 'remove') => {
-		let varId = String(variantId);
+		const varId = String(variantId);
 		let variantArr: any[] = selectedVariants?.split('<,>') || [];
 		variantArr = variantArr.filter(Boolean);
 
