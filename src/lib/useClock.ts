@@ -21,7 +21,7 @@ export default function useClock() {
 		function tick() {
 			setTime(getCurrentTime());
 		}
-		let id = setInterval(tick, 60000);
+		const id = setInterval(tick, 60000);
 		return () => clearInterval(id);
 	}, []);
 

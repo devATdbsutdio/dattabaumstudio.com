@@ -55,7 +55,7 @@ import Complete from './reset-time/Complete.astro';
 	let footerFont;
 	let mainClockFont;
 
-	let reqIsFromComputerBrowser = false;
+	const reqIsFromComputerBrowser = false;
 	const show_serial_data_on_frontend = true;
 
 	//--------- DATE & TIME RELATED ----------//
@@ -66,37 +66,37 @@ import Complete from './reset-time/Complete.astro';
 	let currHour;
 	let currMinute;
 	let currSeconds;
-	let weekdays = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-	let delay_in_ms = 5;
+	const weekdays = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+	const delay_in_ms = 5;
 
 	//--------- SERIAL PORT RELATED ----------//
-	let webSerialSupported = false;
+	const webSerialSupported = false;
 
-	let disconnectCounter = 0;
+	const disconnectCounter = 0;
 
 	let port;
 
 	const defaultVID = 0x0403;
 	const customVID = 0x2bd3;
-	var filterVID;
+	let filterVID;
 
 	const baudrate = 115200;
 
 	let outputDone;
 	let outputStream;
-	let serialConnected = false;
+	const serialConnected = false;
 	let syncElems;
 
-	var serialData;
+	let serialData;
 
 	/*
 	Variables defining at what frequency data needs to be writtent to serial port and for how long
 	e.g: write data 10 times at a frequency of 1 sec between writes.
 */
-	let writeFor = 10000; // in ms
+	const writeFor = 10000; // in ms
 	const writeFrequency = 1000; // in ms
-	let maxWrites = writeFor / writeFrequency;
-	let currWriteCount = 0;
+	const maxWrites = writeFor / writeFrequency;
+	const currWriteCount = 0;
 
 	let stayAwakeDuration;
 </script>

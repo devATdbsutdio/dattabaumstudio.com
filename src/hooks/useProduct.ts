@@ -18,15 +18,15 @@ function useProduct() {
 	const [status, setStatus] = React.useState<'idle' | 'loading'>('loading');
 
 	const { title, image, variants, color } = React.useMemo(() => {
-		let title = productData?.title;
-		let image = productData?.image?.src;
+		const title = productData?.title;
+		const image = productData?.image?.src;
 
-		let sizeVariantIndex = productData?.options?.findIndex((option: any) => {
+		const sizeVariantIndex = productData?.options?.findIndex((option: any) => {
 			return option?.name.toLowerCase() === 'belt length';
 		});
-		let variants = productData?.variants?.map((variant: any) => {
-			let label = variant[`option${sizeVariantIndex + 1}`];
-			let descriptionDetails = VARIANTS_DATA.find((v) => v.size === label) as any;
+		const variants = productData?.variants?.map((variant: any) => {
+			const label = variant[`option${sizeVariantIndex + 1}`];
+			const descriptionDetails = VARIANTS_DATA.find((v) => v.size === label) as any;
 			return {
 				label,
 				value: variant.id,
@@ -39,7 +39,7 @@ function useProduct() {
 			};
 		});
 
-		let colorOptions = productData?.options?.find((option: any) => {
+		const colorOptions = productData?.options?.find((option: any) => {
 			return option?.name?.toLowerCase() === 'color';
 		});
 
