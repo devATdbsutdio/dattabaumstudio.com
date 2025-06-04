@@ -30,10 +30,11 @@ const homeVidMobile = 'https://cdn.shopify.com/videos/c/o/v/674282dbc3f44666bc31
 			class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
 			data-desktop={homeVid}
 			data-mobile={homeVidMobile}>
+			<track kind="captions" src="" srclang="en" label="English captions" default />
 		</video>
 		<div class="pt-32 pb-14 md:pt-52">
 			<div class="h-[160px] overflow-hidden sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[250px]">
-				<HeroMarquee client:only />
+				<HeroMarquee client:only="react" />
 			</div>
 			<div class="dbs-container">
 				<div class="mt-14 ml-28 max-w-lg text-lg mix-blend-exclusion md:ml-60 md:text-2xl">

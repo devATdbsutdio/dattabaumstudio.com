@@ -29,6 +29,7 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 			class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
 			data-desktop={watchVid}
 			data-mobile={watchVidMobile}>
+			<track kind="captions" label="No captions" srclang="en" src="" default />
 		</video>
 		<button
 			aria-label="Play"
@@ -48,7 +49,7 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 						We set out to create a digital timepiece that is bold yet humble; timeless and yet something that can age
 						with you.
 					</p>
-					<p>A minimal piece of jewellery that is also functional.</p>
+					<p>A minimal piece of jewelry, that is also functional.</p>
 					<p>An elegant product that was meticulously and painstakingly crafted for a select few, like you.</p>
 				</div>
 
@@ -59,8 +60,8 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 					muted=""
 					playsinline=""
 					class="clip-2 z-10 aspect-16/10 h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:ml-auto md:rounded-3xl lg:max-w-[60%]">
-					<source src={watchClip2Vid} type="video/mp4" />
-				</video>
+					<source src={watchClip2Vid} type="video/mp4" ><track kind="captions" label="No captions" srclang="en" src="" default /> </video>	
+				
 			</div>
 			<div class="flex flex-col-reverse gap-6 pb-12 md:mt-20 xl:flex-row">
 				<div class="flex w-full max-w-3xl flex-col gap-4 lg:max-w-[55%]">
@@ -72,6 +73,7 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 						playsinline=""
 						class="clip-1 z-10 aspect-square h-full w-full rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:rounded-3xl">
 						<source src={watchClip1Vid} type="video/mp4" />
+						<track kind="captions" label="No captions" srclang="en" src="" default />
 					</video>
 					<p class="text-sm md:text-base">* Can be worn as a Necklace!</p>
 				</div>

@@ -4,14 +4,22 @@ import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon';
 import { cn } from '@/lib/utils';
 
+interface ImageSource {
+  src: string;
+  // Add other properties if needed (e.g., alt, srcSet)
+}
+
+interface HeroCarouselProps {
+  images: {
+    desktop: ImageSource;
+    mobile: ImageSource;
+  }[];
+}
+
+
 export default function HeroCarousel({
 	images,
-}: {
-	images: {
-		desktop: any;
-		mobile: any;
-	}[];
-}) {
+}: HeroCarouselProps) {
 	const [emblaRef, emblaApi] = useEmblaCarousel(
 		{
 			loop: true,

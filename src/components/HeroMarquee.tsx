@@ -1,14 +1,14 @@
 import Marquee from 'react-fast-marquee';
-import useClock from '@/lib/useClock';
+// import useClock from '@/lib/useClock';
 
 export default function HeroMarquee() {
-	const time = useClock();
+	// const time = useClock();
 
 	// On Release, old Marquee content
 	// const content = `WATCH ${time} ONLY 200 PIECES PRODUCED`;
 
 	// New Marquee content
-	const content = `WATCH V1.0 IS OUT NOW. BUY NOW FOR ONLY 600€ `;
+	// const content = `WATCH V1.0 IS OUT NOW. BUY NOW FOR ONLY 600€ `;
 
 	return (
 		// <Marquee
