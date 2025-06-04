@@ -5,6 +5,7 @@ import Button from './Button';
 import Spinner from './Spinner';
 import useProduct from '@/hooks/useProduct';
 import useCart from '@/hooks/useCart';
+import { cn } from '@/lib/utils';
 
 interface BandSizeProps {
 	isOpen: boolean;
@@ -87,7 +88,7 @@ export default function BandSize({ isOpen, toggle }: BandSizeProps) {
 										</div>
 										<Button
 											disabled={selectedVariant === -1}
-											className={`mt-6 text-center`}
+											className={cn(`mt-6 text-center`)}
 											variant="primary-light"
 											ariaLabel="Add to Cart"
 											onClick={() => {

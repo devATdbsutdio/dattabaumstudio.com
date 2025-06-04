@@ -2,6 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
 import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon';
+import { cn } from '@/lib/utils';
 
 export default function HeroCarousel({
 	images,
@@ -44,7 +45,7 @@ export default function HeroCarousel({
 					<div className="dbs-container relative">
 						<button
 							aria-label="Previous"
-							className="absolute top-1/2 left-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4"
+							className={cn("absolute top-1/2 left-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4")}
 							onClick={() => {
 								emblaApi.scrollPrev();
 								if (emblaApi.plugins().autoplay) {
@@ -55,7 +56,7 @@ export default function HeroCarousel({
 						</button>
 						<button
 							aria-label="Next"
-							className="absolute top-1/2 right-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4"
+							className={cn("absolute top-1/2 right-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4")}
 							onClick={() => {
 								emblaApi.scrollNext();
 								if (emblaApi.plugins().autoplay) {
