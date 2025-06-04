@@ -1,4 +1,5 @@
 ---
+import { cn } from '@/lib/utils';
 import AddToCartButton from './AddToCart';
 import BandSizeButton from './BandSizeButton';
 import WaitingListButton from './WaitingListButton';
@@ -28,7 +29,7 @@ import WaitingListButton from './WaitingListButton';
     /> -->
 		<BandSizeButton
 			client:idle
-			className="hidden rounded-none border-none md:block md:h-full md:py-6"
+			className={cn("hidden rounded-none! border-none md:block md:h-full md:py-6")}
 			label="Add To Cart"
 		/>
 	</div>
