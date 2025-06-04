@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const formatPrice = (price: number) => {
-	if (!price) `€ 0.00`;
+	if (!price) return `€ 0.00`;
 	const formattedPrice = price.toLocaleString('en-US', {
 		style: 'currency',
 		currency: 'EUR',

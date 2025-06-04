@@ -30,7 +30,7 @@ export default function WaitingList({ isOpen, toggle }: WaitingListProps) {
 				throw new Error('Something went wrong');
 			}
 			setStatus('success');
-		} catch (error) {
+		} catch (_) {
 			setStatus('error');
 		}
 	};
