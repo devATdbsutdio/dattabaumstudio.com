@@ -52,7 +52,23 @@ export default defineConfig([
 		},
 		rules: {
 			'no-undef': 'off', // Disable "not defined" errors for specific Astro types that are globally available (ImageMetadata)
-			'@typescript-eslint/no-explicit-any': 'off', // you may want this as it can get annoying
+			'@typescript-eslint/no-explicit-any': 'off', // you may want this as it can get annoying,
+            '@typescript-eslint/no-unused-vars': [
+                "error",
+                {
+                  "args": "all",
+                  "argsIgnorePattern": "^_",
+                  "caughtErrors": "all",
+                  "caughtErrorsIgnorePattern": "^_",
+                  "destructuredArrayIgnorePattern": "^_",
+                  "varsIgnorePattern": "^_",
+                  "ignoreRestSiblings": true
+                }
+              ],
+            "react/react-in-jsx-scope": 0,
+            'no-constant-condition': [2, { checkLoops: false }],
+            'no-cond-assign': [2],
+            'prefer-spread': [1],
 		},
 	},
 
