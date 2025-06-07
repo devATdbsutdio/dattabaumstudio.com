@@ -1,0 +1,51 @@
+graph TD
+  subgraph User Browser
+    A1[User opens site on Browser] --> A2[App from Firebase Hosting]
+    A2 --> A3[Browses Products]
+    A3 --> A4[Adds to Cart]
+    A4 --> A5[Checkout Page]
+  end
+
+  subgraph Firebase Hosting
+    A2
+  end
+
+  subgraph Firestore DB
+    DB1[products]
+    DB2[orders]
+    DB3[users]
+    DB4[shipments]
+  end
+
+  A5 -->|Click Stripe Checkout| P1[Stripe Checkout Page]
+  A5 -->|Click PayPal Checkout| PP1[PayPal Checkout Page]
+
+  subgraph Stripe / PayPal
+    P1 --> P2[Payment Success]
+    PP1 --> PP2[Payment Success]
+    P2 & PP2 --> W1[Webhook to Firebase Function]
+  end
+
+  subgraph Firebase Functions
+    W1 --> F1[Update 'orders' collection in Firestore]
+    F1 --> F2[Send Email to User - Confirmation]
+    F1 --> F3[Send Email to Warehouse - New Order]
+    F3 -->|Warehouse dispatches| SH1[Warehouse updates shipment info]
+
+    SH1 --> F4[Update 'shipments' collection in Firestore]
+    F4 --> F5[Send Email to User - Shipping Update]
+  end
+
+  subgraph Firebase Storage
+    IMG1[Product Images]
+    VID1[Promo Videos]
+  end
+
+  DB1 <-- IMG1
+  DB1 --> A3
+
+  subgraph Admin Dashboard
+    AD1[Admin Panel /admin]
+    AD1 --> AD2[View & Update Orders]
+    AD2 --> F4
+  end
