@@ -3,19 +3,14 @@ import '../styles/global.css';
 import Button from '@/components/Button';
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
 import Layout from '@/layouts/Layout.astro';
-import aboutUs from '@/assets/images/about_us.png';
-import aboutUsMobile from '@/assets/images/about_us_mobile.png';
-import { getImage } from 'astro:assets';
-
-const aboutUsImg = await getImage({ src: aboutUs });
-const aboutUsImgMobile = await getImage({ src: aboutUsMobile, width: 480 });
+import { mediaPath } from '@/constants';
 ---
 
 <Layout>
 	<div class="relative px-5 pt-[80px] pb-20 text-white md:px-8 md:pt-[108px] md:pb-32 xl:px-12 xl:pb-60">
 		<picture class="absolute top-0 right-0 left-0 -z-10 object-cover opacity-20">
-			<source media="(max-width: 480px)" srcset={aboutUsImgMobile.src} />
-			<img src={aboutUsImg.src} alt="" class="h-full w-full object-cover object-top" />
+			<source media="(max-width: 480px)" srcset={`${mediaPath}/about_us_mobile.png?alt=media`} />
+			<img src={`${mediaPath}/about_us.png?alt=media`} alt="about_us" class="h-full w-full object-cover object-top" />
 			<span class="absolute right-0 bottom-0 left-0 -z-0 h-full w-full bg-linear-to-t from-black to-transparent to-20%">
 			</span>
 		</picture>
