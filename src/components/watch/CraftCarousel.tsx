@@ -123,7 +123,11 @@ const CraftDetail = ({ isOpen, toggle, craft }: CraftDetailProps) => {
 								leaveFrom="opacity-100"
 								leaveTo="opacity-0">
 								<Dialog.Panel className="relative flex min-h-screen w-screen transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all md:min-h-fit md:w-full md:max-w-5xl md:rounded-3xl">
-									<img className="hidden h-full object-cover md:block md:w-2/5" alt="" src={craft.detailImage.src} />
+									<img
+										className="hidden h-full object-cover md:block md:w-2/5"
+										alt={craft.title}
+										src={craft.detailImage.src}
+									/>
 									<div className="flex w-full flex-col bg-neutral-100 px-4 py-6 md:w-3/5 md:px-14 md:py-14">
 										<button
 											className="mb-4 ml-auto inline-flex items-center gap-2 self-start p-2 transition-colors"
@@ -162,7 +166,7 @@ const CraftCard = ({ craft }: { craft: (typeof CRAFTS)[0] }) => {
 		<div
 			onClick={toggleDetail}
 			className="embla__slide relative mr-5 max-w-md min-w-0 shrink-0 flex-grow-1 basis-4/5 cursor-pointer overflow-clip rounded-3xl bg-white lg:max-w-lg">
-			<img src={craft.image.src} className="h-full w-full" alt="" />
+			<img src={craft.image.src} className="h-full w-full" alt={craft.title} />
 			<button className="absolute right-2 bottom-2 z-10 p-3 md:right-7 md:bottom-7" aria-label="View details">
 				<PlusIcon className="h-6 w-6 text-black" />
 			</button>
