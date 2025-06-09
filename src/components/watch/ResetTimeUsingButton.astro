@@ -1,10 +1,11 @@
 ---
-import resetHr from '@/assets/images/reset-hr.png';
-import resetMin from '@/assets/images/reset-min.png';
-import resetSec from '@/assets/images/reset-sec.png';
-import resetDate from '@/assets/images/reset-date.png';
-import resetMonth from '@/assets/images/reset-mon.png';
-import resetYear from '@/assets/images/reset-year.png';
+import { mediaPath } from '@/constants';
+const resetHr = { src: `${mediaPath}/reset-hr.png?alt=media` } as ImageMetadata;
+const resetMin = { src: `${mediaPath}/reset-min.png?alt=media` } as ImageMetadata;
+const resetSec = { src: `${mediaPath}/reset-sec.png?alt=media` } as ImageMetadata;
+const resetDate = { src: `${mediaPath}/reset-date.png?alt=media` } as ImageMetadata;
+const resetMonth = { src: `${mediaPath}/reset-mon.png?alt=media` } as ImageMetadata;
+const resetYear = { src: `${mediaPath}/reset-year.png?alt=media` } as ImageMetadata;
 import { Image } from 'astro:assets';
 ---
 
