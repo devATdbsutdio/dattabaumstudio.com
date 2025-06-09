@@ -6,7 +6,11 @@ import { mediaPath } from '@/constants';
 	<div id="watch-video" class="pointer-events-auto relative flex h-screen items-center justify-center overflow-hidden">
 		<picture class="bg absolute inset-0 -z-20 object-cover">
 			<source media="(max-width: 480px)" srcset={`${mediaPath}/watch_trailer_mobile.png?alt=media`} />
-			<img src={`${mediaPath}/watch_trailer.png?alt=media`} alt="" class="h-full w-full object-cover object-center" />
+			<img
+				src={`${mediaPath}/watch_trailer.png?alt=media`}
+				alt="watch trailer"
+				class="h-full w-full object-cover object-center"
+			/>
 		</picture>
 		<video
 			preload="auto"
@@ -72,7 +76,7 @@ import { mediaPath } from '@/constants';
 					<picture class="h-64 w-64 rounded-2xl border border-white/30 md:h-80 md:w-80 md:rounded-3xl">
 						<img
 							src={`${mediaPath}/watch_7_segment.png?alt=media`}
-							alt=""
+							alt="watch 7 segments"
 							class="h-full w-full object-cover object-center"
 						/>
 					</picture>

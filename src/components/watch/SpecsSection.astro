@@ -3,10 +3,10 @@ import Button from '../Button';
 import ArrowRightIcon from '../icons/ArrowRightIcon';
 // import WaitingListButton from './WaitingListButton';
 import specs from '@/assets/images/specs.svg';
-import specsMobile from '@/assets/images/specs_mobile.png';
 import DownloadIcon from '../icons/DownloadIcon';
 // import AddToCartButton from './AddToCart';
 import BandSizeButton from './BandSizeButton';
+import { mediaPath } from '@/constants';
 
 const SPEC_GROUPS = [
 	[
@@ -122,7 +122,7 @@ const SPEC_GROUPS = [
 						</div>
 					</div>
 					<div class="mt-12 block w-full basis-full md:hidden">
-						<img src={specsMobile.src} alt="" class="w-full" />
+						<img src={`${mediaPath}/specs_mobile.png?alt=media`} alt="mobile specs" class="w-full" />
 					</div>
 					<div class="mt-12 flex flex-wrap items-center gap-5 md:mt-16">
 						<BandSizeButton client:load label="Add To Cart" />
@@ -135,7 +135,7 @@ const SPEC_GROUPS = [
 				</div>
 
 				<div class="mb-16 hidden w-full basis-full md:block lg:hidden">
-					<img src={specsMobile.src} alt="" class="w-full" />
+					<img src={`${mediaPath}/specs_mobile.png?alt=media`} alt="mobile specs" class="w-full" />
 				</div>
 				<div class="mb-64 hidden w-full basis-full lg:block">
 					<img src={specs.src} alt="" class="max-h-[733px] w-full object-contain object-center" />

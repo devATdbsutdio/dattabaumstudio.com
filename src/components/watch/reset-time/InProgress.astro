@@ -1,8 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
-import sync from '@/assets/images/sync-in-progress.png';
-
-const syncImg = await getImage({ src: sync });
+import { mediaPath } from '@/constants';
 ---
 
 <div class={`relative z-30 hidden group-data-[active-step='5']/sync-steps:flex`} id="sync-in-progress">
@@ -20,7 +17,11 @@ const syncImg = await getImage({ src: sync });
 				</p>
 				<div class="mx-auto flex">
 					<picture class="h-36 w-36">
-						<img src={syncImg.src} alt="" class="h-full w-full object-contain" />
+						<img
+							src={`${mediaPath}/sync-in-progress.png?alt=media`}
+							alt="sync in progress"
+							class="h-full w-full object-contain"
+						/>
 					</picture>
 					<div
 						class="animate-bounceLeft mt-10 ml-1 h-0 w-0 border-t-10 border-r-15 border-b-10 border-t-transparent border-r-black border-b-transparent">

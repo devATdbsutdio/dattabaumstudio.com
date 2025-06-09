@@ -1,7 +1,6 @@
 ---
 import XIcon from '@/components/icons/XIcon';
-
-const testingVid = 'https://cdn.shopify.com/videos/c/o/v/805ec19fc0454a3ab9883e5b4108f55e.mp4';
+import { mediaPath } from '@/constants';
 ---
 
 <div>
@@ -22,7 +21,7 @@ const testingVid = 'https://cdn.shopify.com/videos/c/o/v/805ec19fc0454a3ab9883e5
 					</div>
 					<div class="absolute inset-0 h-full w-full bg-black">
 						<video id="testing-video" preload="auto" controls="controls" class="h-full w-full">
-							<source src={testingVid} type="video/mp4" />
+							<source src={`${mediaPath}/power_saving_test.mp4?alt=media`} type="video/mp4" />
 							<track kind="captions" label="No captions" srclang="en" src="" default />
 						</video>
 					</div>
