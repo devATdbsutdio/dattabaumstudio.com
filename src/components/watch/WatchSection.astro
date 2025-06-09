@@ -1,34 +1,19 @@
 ---
-import watchTrailer from '@/assets/images/watch_trailer.png';
-import watchTrailerMobile from '@/assets/images/watch_trailer_mobile.png';
-import watch7Segment from '@/assets/images/watch_7_segment.png';
-import { getImage } from 'astro:assets';
-
-const watchTrailerImg = await getImage({ src: watchTrailer });
-const watchTrailerImgMobile = await getImage({
-	src: watchTrailerMobile,
-	width: 480,
-});
-const watchVid = 'https://cdn.shopify.com/videos/c/o/v/30848e7e592f4ba6915d22892eaffb69.mp4';
-const watchVidMobile = 'https://cdn.shopify.com/videos/c/o/v/e839a8815a4f4edbb5c2b62bf5e7479c.mp4';
-
-const watch7SegmentImg = await getImage({ src: watch7Segment });
-const watchClip1Vid = 'https://cdn.shopify.com/videos/c/o/v/931ac53e73ca4ee0baf10197c927de8a.mp4';
-const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153c3798c1efb9f.mp4';
+import { mediaPath } from '@/constants';
 ---
 
 <div id="watch">
 	<div id="watch-video" class="pointer-events-auto relative flex h-screen items-center justify-center overflow-hidden">
 		<picture class="bg absolute inset-0 -z-20 object-cover">
-			<source media="(max-width: 480px)" srcset={watchTrailerImgMobile.src} />
-			<img src={watchTrailerImg.src} alt="" class="h-full w-full object-cover object-center" />
+			<source media="(max-width: 480px)" srcset={`${mediaPath}/watch_trailer_mobile.png?alt=media`} />
+			<img src={`${mediaPath}/watch_trailer.png?alt=media`} alt="" class="h-full w-full object-cover object-center" />
 		</picture>
 		<video
 			preload="auto"
 			playsinline=""
 			class="bg absolute inset-0 -z-10 hidden h-full w-full object-cover object-center"
-			data-desktop={watchVid}
-			data-mobile={watchVidMobile}>
+			data-desktop={`${mediaPath}/watch.mp4?alt=media`}
+			data-mobile={`${mediaPath}/watch_mobile.mp4?alt=media`}>
 			<track kind="captions" label="No captions" srclang="en" src="" default />
 		</video>
 		<button
@@ -60,8 +45,14 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 					muted=""
 					playsinline=""
 					class="clip-2 z-10 aspect-16/10 h-full w-full max-w-3xl rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:ml-auto md:rounded-3xl lg:max-w-[60%]">
-					<source src={watchClip2Vid} type="video/mp4" ><track kind="captions" label="No captions" srclang="en" src="" default /> </video>	
-				
+					<source src={`${mediaPath}/watch_clip_2.mp4?alt=media`} type="video/mp4" /><track
+						kind="captions"
+						label="No captions"
+						srclang="en"
+						src=""
+						default
+					/>
+				</video>
 			</div>
 			<div class="flex flex-col-reverse gap-6 pb-12 md:mt-20 xl:flex-row">
 				<div class="flex w-full max-w-3xl flex-col gap-4 lg:max-w-[55%]">
@@ -72,14 +63,18 @@ const watchClip2Vid = 'https://cdn.shopify.com/videos/c/o/v/8fc7c16bb7184c508153
 						muted=""
 						playsinline=""
 						class="clip-1 z-10 aspect-square h-full w-full rounded-2xl border border-white/30 object-cover object-center mix-blend-exclusion md:rounded-3xl">
-						<source src={watchClip1Vid} type="video/mp4" />
+						<source src={`${mediaPath}/watch_clip_1.mp4?alt=media`} type="video/mp4" />
 						<track kind="captions" label="No captions" srclang="en" src="" default />
 					</video>
 					<p class="text-sm md:text-base">* Can be worn as a Necklace!</p>
 				</div>
 				<div class="flex basis-full flex-col-reverse items-start gap-10 sm:flex-row md:gap-12 xl:flex-col">
 					<picture class="h-64 w-64 rounded-2xl border border-white/30 md:h-80 md:w-80 md:rounded-3xl">
-						<img src={watch7SegmentImg.src} alt="" class="h-full w-full object-cover object-center" />
+						<img
+							src={`${mediaPath}/watch_7_segment.png?alt=media`}
+							alt=""
+							class="h-full w-full object-cover object-center"
+						/>
 					</picture>
 					<p class="max-w-xs space-y-2 text-lg font-light sm:ml-auto md:mt-auto md:space-y-4 md:text-2xl xl:mb-10">
 						This watch incorporates classic LED 7 segment displays and aerospace grade real-time clock housed in a
