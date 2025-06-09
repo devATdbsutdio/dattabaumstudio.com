@@ -1,21 +1,22 @@
 import * as React from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import useEmblaCarousel from 'embla-carousel-react';
-import craft1 from '@/assets/images/craft_1.png';
-import craft2 from '@/assets/images/craft_2.png';
-import craft3 from '@/assets/images/craft_3.png';
-import craft4 from '@/assets/images/craft_4.png';
-import craftDetail1 from '@/assets/images/craft_detail_1.png';
-import craftDetail2 from '@/assets/images/craft_detail_2.png';
-import craftDetail3 from '@/assets/images/craft_detail_3.png';
-import craftDetail4 from '@/assets/images/craft_detail_4.png';
 import PlusIcon from '@/components/icons/PlusIcon';
 import XIcon from '@/components/icons/XIcon';
 import { cn } from '@/lib/utils';
 import ArrowLeftIcon from '../icons/ArrowLeftIcon';
 import ArrowRightIcon from '../icons/ArrowRightIcon';
+import { mediaPath } from '@/constants';
 
-const CRAFTS = [
+type Craft = {
+	title: string;
+	description: string;
+	details: string[];
+	image: { src: string };
+	detailImage: { src: string };
+};
+
+const CRAFTS: Array<Craft> = [
 	{
 		title: 'Unique built quality',
 		description: 'Coated Titanium body for ultimate strength',
@@ -25,8 +26,8 @@ const CRAFTS = [
 			'Even the 4 back screws were custom cast in a brass alloy as nothing off-the-shelf could fit our design.',
 			'Due to the challenges of working with titanium, we use molecular bonding to apply color instead of traditional painting methods. This prevents color from chipping.',
 		],
-		image: craft1,
-		detailImage: craftDetail1,
+		image: { src: `${mediaPath}/craft_1.png?alt=media` },
+		detailImage: { src: `${mediaPath}/craft_detail_1.png?alt=media` },
 	},
 	{
 		title: 'Precision',
@@ -38,8 +39,8 @@ const CRAFTS = [
 			'Additionally, the watch also includes a backup power cell to ensure accurate timekeeping without any loss.',
 			'Check our FAQs for more details',
 		],
-		image: craft2,
-		detailImage: craftDetail2,
+		image: { src: `${mediaPath}/craft_2.png?alt=media` },
+		detailImage: { src: `${mediaPath}/craft_detail_2.png?alt=media` },
 	},
 	{
 		title: 'Durability',
@@ -49,8 +50,8 @@ const CRAFTS = [
 			'We tested our samples rigorously under high & low temperatures, gave them thermal shocks under various humid conditions and found that the functional limit, in terms of temperature and relative humidity, is set between -20°C & 85°C at 85% relative humidity.',
 			'We also tested for dust and liquid ingress under various pressures. The USB port for charging and programming is rated IP65, providing complete protection against dust and liquid over an extended period of time.',
 		],
-		image: craft3,
-		detailImage: craftDetail3,
+		image: { src: `${mediaPath}/craft_3.png?alt=media` },
+		detailImage: { src: `${mediaPath}/craft_detail_3.png?alt=media` },
 	},
 	{
 		title: 'Grip',
@@ -61,8 +62,8 @@ const CRAFTS = [
 			'The wristband is primarily made of high-grade soft silicone material that is skin-friendly. It is embedded with magnets that provide a strong hold on the wrist, while also being easy to remove and clean.',
 			'That being said, you are free to use the watch creatively in various other ways, such as a pocket watch or a pendant. After all, it is a timeless piece of jewelry.',
 		],
-		image: craft4,
-		detailImage: craftDetail4,
+		image: { src: `${mediaPath}/craft_4.png?alt=media` },
+		detailImage: { src: `${mediaPath}/craft_detail_4.png?alt=media` },
 	},
 ];
 

@@ -1,16 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import watchHero1 from '@/assets/images/watch_hero_less_grain_01.jpg';
-import watchHero2 from '@/assets/images/watch_hero_less_grain_02.jpg';
-import watchHero3 from '@/assets/images/watch_hero_less_grain_03.jpg';
-import watchHero4 from '@/assets/images/watch_hero_less_grain_04.jpg';
-import watchHero5 from '@/assets/images/watch_hero_less_grain_05.jpg';
-import watchHero1Mobile from '@/assets/images/watch_hero_01_mobile.jpg';
-import watchHero2Mobile from '@/assets/images/watch_hero_02_mobile.jpg';
-import watchHero3Mobile from '@/assets/images/watch_hero_03_mobile.jpg';
-import watchHero4Mobile from '@/assets/images/watch_hero_04_mobile.jpg';
-import watchHero5Mobile from '@/assets/images/watch_hero_05_mobile.jpg';
-import { getImage } from 'astro:assets';
 import Button from '@/components/Button';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
@@ -22,60 +11,35 @@ import CraftsmanshipSection from '@/components/watch/CraftsmanshipSection.astro'
 import SpecsSection from '@/components/watch/SpecsSection.astro';
 // import AddToCartButton from '@/components/watch/AddToCart';
 import BandSizeButton from '@/components/watch/BandSizeButton';
+import { mediaPath } from '@/constants';
 
-const watchHeroImg1 = await getImage({ src: watchHero1 });
-const watchHeroImg2 = await getImage({ src: watchHero2 });
-const watchHeroImg3 = await getImage({ src: watchHero3 });
-const watchHeroImg4 = await getImage({ src: watchHero4 });
-const watchHeroImg5 = await getImage({ src: watchHero5 });
-const watchHeroImg1Mobile = await getImage({
-	src: watchHero1Mobile,
-	width: 640,
-});
-const watchHeroImg2Mobile = await getImage({
-	src: watchHero2Mobile,
-	width: 640,
-});
-const watchHeroImg3Mobile = await getImage({
-	src: watchHero3Mobile,
-	width: 640,
-});
-const watchHeroImg4Mobile = await getImage({
-	src: watchHero4Mobile,
-	width: 640,
-});
-const watchHeroImg5Mobile = await getImage({
-	src: watchHero5Mobile,
-	width: 640,
-});
-
-const watchHeroImgs = [
+const watchHeroImages = [
 	{
-		desktop: watchHeroImg1,
-		mobile: watchHeroImg1Mobile,
+		desktop: { src: `${mediaPath}/watch_hero_less_grain_01.jpg?alt=media` },
+		mobile: { src: `${mediaPath}/watch_hero_01_mobile.jpg?alt=media` },
 	},
 	{
-		desktop: watchHeroImg2,
-		mobile: watchHeroImg2Mobile,
+		desktop: { src: `${mediaPath}/watch_hero_less_grain_02.jpg?alt=media` },
+		mobile: { src: `${mediaPath}/watch_hero_02_mobile.jpg?alt=media` },
 	},
 	{
-		desktop: watchHeroImg3,
-		mobile: watchHeroImg3Mobile,
+		desktop: { src: `${mediaPath}/watch_hero_less_grain_03.jpg?alt=media` },
+		mobile: { src: `${mediaPath}/watch_hero_03_mobile.jpg?alt=media` },
 	},
 	{
-		desktop: watchHeroImg4,
-		mobile: watchHeroImg4Mobile,
+		desktop: { src: `${mediaPath}/watch_hero_less_grain_04.jpg?alt=media` },
+		mobile: { src: `${mediaPath}/watch_hero_04_mobile.jpg?alt=media` },
 	},
 	{
-		desktop: watchHeroImg5,
-		mobile: watchHeroImg5Mobile,
+		desktop: { src: `${mediaPath}/watch_hero_less_grain_05.jpg?alt=media` },
+		mobile: { src: `${mediaPath}/watch_hero_05_mobile.jpg?alt=media` },
 	},
 ];
 ---
 
 <Layout>
 	<div class="relative min-h-screen">
-		<HeroCarousel images={watchHeroImgs} client:idle />
+		<HeroCarousel images={watchHeroImages} client:idle />
 		<div class="pointer-events-none absolute inset-0 z-10">
 			<div class="dbs-container flex h-full flex-col justify-end px-5 pb-10 md:px-8 md:pb-24 xl:px-12">
 				<h1 class="mb-9 text-7xl font-extralight text-white md:mb-10 md:text-9xl lg:text-[144px]">WATCH</h1>
