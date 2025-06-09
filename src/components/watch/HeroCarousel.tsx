@@ -5,21 +5,18 @@ import ArrowLeftIcon from '@/components/icons/ArrowLeftIcon';
 import { cn } from '@/lib/utils';
 
 interface ImageSource {
-  src: string;
-  // Add other properties if needed (e.g., alt, srcSet)
+	src: string;
+	// Add other properties if needed (e.g., alt, srcSet)
 }
 
 interface HeroCarouselProps {
-  images: {
-    desktop: ImageSource;
-    mobile: ImageSource;
-  }[];
+	images: {
+		desktop: ImageSource;
+		mobile: ImageSource;
+	}[];
 }
 
-
-export default function HeroCarousel({
-	images,
-}: HeroCarouselProps) {
+export default function HeroCarousel({ images }: HeroCarouselProps) {
 	const [emblaRef, emblaApi] = useEmblaCarousel(
 		{
 			loop: true,
@@ -41,7 +38,11 @@ export default function HeroCarousel({
 							<div className="embla__slide relative min-w-0 shrink-0 flex-grow-1 basis-full" key={index}>
 								<picture className="block h-screen w-screen object-cover">
 									<source media="(max-width: 480px)" srcSet={img.mobile.src} />
-									<img alt="" src={img.desktop.src} className="h-screen w-screen object-cover object-center" />
+									<img
+										alt="carousel image"
+										src={img.desktop.src}
+										className="h-screen w-screen object-cover object-center"
+									/>
 								</picture>
 							</div>
 						))}
@@ -53,7 +54,9 @@ export default function HeroCarousel({
 					<div className="dbs-container relative">
 						<button
 							aria-label="Previous"
-							className={cn("absolute top-1/2 left-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4")}
+							className={cn(
+								'absolute top-1/2 left-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:left-4'
+							)}
 							onClick={() => {
 								emblaApi.scrollPrev();
 								if (emblaApi.plugins().autoplay) {
@@ -64,7 +67,9 @@ export default function HeroCarousel({
 						</button>
 						<button
 							aria-label="Next"
-							className={cn("absolute top-1/2 right-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4")}
+							className={cn(
+								'absolute top-1/2 right-0 z-10 flex -translate-y-1/2 items-center justify-center rounded-full! border border-white/30 bg-transparent p-4 text-white transition-colors hover:border-white md:right-4'
+							)}
 							onClick={() => {
 								emblaApi.scrollNext();
 								if (emblaApi.plugins().autoplay) {
