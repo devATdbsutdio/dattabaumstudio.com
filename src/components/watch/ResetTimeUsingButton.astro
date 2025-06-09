@@ -1,12 +1,11 @@
 ---
 import { mediaPath } from '@/constants';
-const resetHr = { src: `${mediaPath}/reset-hr.png?alt=media` } as ImageMetadata;
-const resetMin = { src: `${mediaPath}/reset-min.png?alt=media` } as ImageMetadata;
-const resetSec = { src: `${mediaPath}/reset-sec.png?alt=media` } as ImageMetadata;
-const resetDate = { src: `${mediaPath}/reset-date.png?alt=media` } as ImageMetadata;
-const resetMonth = { src: `${mediaPath}/reset-mon.png?alt=media` } as ImageMetadata;
-const resetYear = { src: `${mediaPath}/reset-year.png?alt=media` } as ImageMetadata;
-import { Image } from 'astro:assets';
+const resetHr = `${mediaPath}/reset-hr.png?alt=media`;
+const resetMin = `${mediaPath}/reset-min.png?alt=media`;
+const resetSec = `${mediaPath}/reset-sec.png?alt=media`;
+const resetDate = `${mediaPath}/reset-date.png?alt=media`;
+const resetMonth = `${mediaPath}/reset-mon.png?alt=media`;
+const resetYear = `${mediaPath}/reset-year.png?alt=media`;
 ---
 
 <div class="grid grid-cols-3 gap-4 text-xs sm:text-sm md:text-lg">
@@ -90,42 +89,42 @@ import { Image } from 'astro:assets';
 
 	<div class="col-span-3 grid grid-cols-2 gap-8 sm:col-span-1 sm:grid-cols-1">
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetHr} alt="Reset Hour" class="aspect-square w-44" />
+			<img src={resetHr} alt="Reset Hour" class="aspect-square w-44" />
 			<div class="w-full text-xs sm:w-44">
 				<p class="font-medium">Image 1</p>
 				<p>HOUR (hr): Now you can change the hour</p>
 			</div>
 		</div>
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetMin} alt="Reset Minute" class="aspect-square w-44" />
+			<img src={resetMin} alt="Reset Minute" class="aspect-square w-44" />
 			<div class="w-full text-xs sm:w-44">
 				<p class="font-medium">Image 2</p>
 				<p>MINUTE (Shown as nin - as it is hard to represent in 7 segment): Now you can change the minute.</p>
 			</div>
 		</div>
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetSec} alt="Reset Second" class="aspect-square w-44" />
+			<img src={resetSec} alt="Reset Second" class="aspect-square w-44" />
 			<div class="w-full text-xs sm:w-44">
 				<p class="font-medium">Image 3</p>
 				<p>SECOND (sec) : Now you can change the seconds.</p>
 			</div>
 		</div>
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetDate} alt="Reset Date" class="aspect-square w-44" />
+			<img src={resetDate} alt="Reset Date" class="aspect-square w-44" />
 			<div class="w-full text-xs sm:w-44">
 				<p class="font-medium">Image 4</p>
 				<p>DATE (date): Now you can change the date.</p>
 			</div>
 		</div>
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetMonth} alt="Reset Month" class="aspect-square w-44" />
+			<img src={resetMonth} alt="Reset Month" class="aspect-square w-44" />
 			<div class="w-full text-xs sm:w-44">
 				<p class="font-medium">Image 5</p>
 				<p>MONTH (Shown as non - as it is hard to represent in 7 segment): Now you change the month.</p>
 			</div>
 		</div>
 		<div class="flex w-full flex-col gap-4 text-xs sm:ml-auto sm:w-44 sm:items-end">
-			<Image src={resetYear} alt="Reset Year" class="aspect-square w-44" />
+			<img src={resetYear} alt="Reset Year" class="aspect-square w-44" />
 			<div class="w-44">
 				<p class="font-medium">Image 6</p>
 				<p>YEAR (year ): Now you can change the year.</p>
