@@ -13,16 +13,16 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^12.5.3",
+		"@astrojs/cloudflare": "^12.5.4",
 		"@astrojs/react": "^4.3.0",
-		"@astrojs/vercel": "^8.1.4",
-		"@fontsource-variable/inter": "^5.0.8",
-		"@headlessui/react": "^1.7.17",
+		"@astrojs/vercel": "^8.1.5",
+		"@fontsource-variable/inter": "^5.2.6",
+		"@headlessui/react": "^2.2.4",
 		"@headlessui/tailwindcss": "^0.2.0",
 		"@tailwindcss/vite": "^4.1.8",
 		"@types/react": "^18.2.21",
 		"@types/react-dom": "^18.2.7",
-		"astro": "^5.8.1",
+		"astro": "^5.9.2",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"dayjs": "^1.11.9",
@@ -51,6 +51,6 @@
 		"prettier-plugin-tailwindcss": "^0.6.12",
 		"tailwind-merge": "^3.3.0",
 		"tailwindcss-animate": "^1.0.7",
-		"typescript-eslint": "^8.33.1"
+		"typescript-eslint": "^8.34.0"
 	}
 }
