@@ -14,8 +14,9 @@ export default function BandSizeButton({ className, label }: { className?: strin
 				variant="primary-dark"
 				onClick={toggleBandSizeButton}
 				className={className}
-				ariaLabel={label || 'Buy now! 600€'}>
-				{label || 'Buy now! 600€'}
+				disabled={true}
+				ariaLabel={label || 'Buy now!'}>
+				{label || 'Buy now!'}
 			</Button>
 			<BandSize isOpen={isBandSizeOpen} toggle={toggleBandSizeButton} />
 		</>
