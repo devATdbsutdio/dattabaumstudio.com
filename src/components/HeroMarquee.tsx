@@ -18,7 +18,7 @@ export default function HeroMarquee() {
 		//   <p className="ml-[100vw]">{content}</p>
 		// </Marquee>
 
-		<Marquee
+		/*<Marquee
 			speed={150}
 			className="h-fit overflow-y-hidden text-[160px] leading-none font-extralight text-white mix-blend-exclusion sm:text-[180px] md:text-[200px] lg:text-[220px] xl:text-[250px]">
 			<p className="ml-[100vw]">
@@ -29,5 +29,6 @@ export default function HeroMarquee() {
 				FOR ONLY 600€
 			</p>
 		</Marquee>
+		*/
 	);
 }
