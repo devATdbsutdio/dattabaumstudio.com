@@ -19,7 +19,7 @@ The words of which the initial letter is capitalized have meanings defined under
 - **Country** refers to: Hong Kong SAR China
 - **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Datta and Baum Studio Company Limited, Room 802, 8/F, iHome Centre, 369 Lockhart Road, Wan Chai, Hong Kong.
 - **Device** means any device that can access the Service such as a computer, a cell phone or a digital tablet.
-- **Goods** refer to the items offered for sale on the Service.
+- **Goods** refer to the products made and sold by the Company.
 - **Orders** mean a request by You to purchase Goods from Us.
 - **Service** refers to the Website.
 - **Terms and Conditions** (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.
@@ -38,67 +38,23 @@ You represent that you are over the age of 18. The Company does not permit those
 
 Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our [Privacy Policy](/privacy) carefully before using Our Service.
 
-## Placing Orders for Goods
+## Purchases
 
-By placing an Order for Goods through the Service, You warrant that You are legally capable of entering into binding contracts.
+We no longer sell Goods through the Website. If You are interested in Our Goods, write to us at <hi@dattabaumstudio.com>.
 
-### Your Information
+If You bought Goods from Us before, these Terms and Conditions still apply to that purchase.
 
-If You wish to place an Order for Goods available on the Service, You may be asked to supply certain information relevant to Your Order including, without limitation, Your name, Your email, Your phone number, Your credit card number, the expiration date of Your credit card, Your billing address, and Your shipping information.
+### Returns
 
-You represent and warrant that:
+Any Goods You purchased can only be returned in accordance with these Terms and Conditions and Our Returns Policy.
 
-1. You have the legal right to use any credit or debit card(s) or other payment method(s) in connection with any Order.
-2. The information You supply to us is true, correct and complete.
+Our Returns Policy forms a part of these Terms and Conditions. Please read our [Returns Policy](/returns) to learn more about your right to cancel Your Order and return Goods.
 
-By submitting such information, You grant us the right to provide the information to payment processing third parties for purposes of facilitating the completion of Your Order.
+### Errors and Inaccuracies
 
-### Order Cancellation
-
-We reserve the right to refuse or cancel Your Order at any time for certain reasons including but not limited to:
-
-- Goods availability.
-- Errors in the description or prices for Goods.
-- Errors in Your Order.
-
-We reserve the right to refuse or cancel Your Order if fraud or an unauthorized or illegal transaction is suspected.
-
-### Your Order Cancellation Rights
-
-Any Goods you purchase can only be returned in accordance with these Terms and Conditions and Our Returns Policy.
-
-Our Returns Policy forms a part of these Terms and Conditions. Please read our [Returns Policy](/returns) to learn more about your right to cancel Your Order.
-
-Your right to cancel an Order only applies to Goods that are returned in the same condition as You received them. You should also include all of the product's instructions, documents and wrappings. Goods that are damaged or not in the same condition as You received them or which are worn simply beyond opening the original packaging will not be refunded. You should therefore take reasonable care of the purchased Goods while they are in Your possession.
-
-We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
-
-You will not have any right to cancel an Order for the supply of any of the following Goods:
-
-- The supply of Goods made to Your specifications or clearly personalized.
-- The supply of Goods which according to their nature are not suitable to be returned, deteriorate rapidly or where the date of expiry is over.
-- The supply of Goods which are not suitable for return due to health protection or hygiene reasons and were unsealed after delivery.
-- The supply of Goods which are, after delivery, according to their nature, inseparably mixed with other items.
-- The supply of digital content which is not supplied on a tangible medium if the performance has begun with
-- Your prior express consent and You have acknowledged Your loss of cancellation right.
-
-### Availability, Errors and Inaccuracies
-
-We are constantly updating Our offerings of Goods on the Service. The Goods available on Our Service may be mispriced, described inaccurately, or unavailable, and We may experience delays in updating information regarding our Goods on the Service and in Our advertising on other websites.
+The information about Our Goods on the Service may be inaccurate or out of date, and We may experience delays in updating it on the Service and in Our advertising on other websites.
 
 We cannot and do not guarantee the accuracy or completeness of any information, including prices, product images, specifications, availability, and services. We reserve the right to change or update information and to correct errors, inaccuracies, or omissions at any time without prior notice.
-
-### Prices Policy
-
-The Company reserves the right to revise its prices at any time prior to accepting an Order.
-
-The prices quoted may be revised by the Company subsequent to accepting an Order in the event of any occurrence affecting delivery caused by government action, variation in customs duties, increased shipping charges, higher foreign exchange costs and any other matter beyond the control of the Company. In that event, You will have the right to cancel Your Order.
-
-### Payments
-
-All Goods purchased are subject to a one-time payment. Payment can be made through various payment methods we have available, such as Visa, MasterCard, Affinity Card, American Express cards or online payment methods (PayPal, for example).
-
-Payment cards (credit cards or debit cards) are subject to validation checks and authorization by Your card issuer. If we do not receive the required authorization, We will not be liable for any delay or non-delivery of Your Order.
 
 ## Intellectual Property
 

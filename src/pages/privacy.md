@@ -55,7 +55,7 @@ While using Our Service, We may ask You to provide Us with certain personally id
 - First name and last name
 - Phone number
 - Address, State, Province, ZIP/Postal code, City
-- Bank account information in order to pay for products and/or services within the Service.
+- Bank account information, if You pay Us directly for products and/or services.
 - Usage Data
 
 When You pay for a product and/or a service via bank transfer, We may ask You to provide information to facilitate this transaction and to verify Your identity. Such information may include, without limitation:
@@ -196,20 +196,11 @@ We may use third-party Service providers to monitor and analyze the use of our S
 
 We may use Your Personal Data to contact You with newsletters, marketing or promotional materials and other information that may be of interest to You. You may opt-out of receiving any, or all, of these communications from Us by following the unsubscribe link or instructions provided in any email We send or by contacting Us.
 
-We may use Email Marketing Service Providers to manage and send emails to You.
-
-- **Mailchimp**: Mailchimp is an email marketing sending service provided by The Rocket Science Group LLC.
-  For more information on the privacy practices of Mailchimp, please visit their Privacy policy: <https://mailchimp.com/legal/privacy/>.
-
 ### Payments
 
-We provide paid products and/or services within the Service. In that case, we may use third-party services for payment processing (e.g. payment processors).
+We no longer take payments through the Service, and We do not store or collect Your payment card details.
 
-We will not store or collect Your payment card details. That information is provided directly to Our third-party payment processors whose use of Your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.
-
-- PayPal: Their Privacy Policy can be viewed at <https://www.paypal.com/webapps/mpp/ua/privacy-full>.
-
-When You use Our Service to pay a product and/or service via bank transfer, We may ask You to provide information to facilitate this transaction and to verify Your identity.
+If You pay Us directly for a product and/or service, for example via bank transfer, We may ask You to provide information to facilitate this transaction and to verify Your identity.
 
 ### Behavioral Remarketing
 

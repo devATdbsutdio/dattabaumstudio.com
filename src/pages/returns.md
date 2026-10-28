@@ -5,8 +5,7 @@ description: We are quite accommodating when it comes to our returns and refunds
 lastUpdated: 'October 28, 2026'
 ---
 
-Thank you for shopping at this website.
-If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy on refunds and returns.
+If You bought Goods from Us and, for any reason, You are not completely satisfied with Your purchase, We invite You to review our policy on refunds and returns.
 
 The following terms are applicable for any products that You purchased with Us.
 
@@ -21,7 +20,7 @@ The words of which the initial letter is capitalized have meanings defined under
 ### For the purposes of this Return and Refund Policy
 
 - **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Datta and Baum Studio Company Limited, Room 802, 8/F, iHome Centre, 369 Lockhart Road, Wan Chai, Hong Kong.
-- **Goods** refer to the items offered for sale on the Service.
+- **Goods** refer to the products made and sold by the Company.
 - **Orders** mean a request by You to purchase Goods from Us.
 - **Service** refers to the Website.
 - **Website** refers to website, accessible from <https://www.dattabaumstudio.com>.

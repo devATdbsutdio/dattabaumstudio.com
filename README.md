@@ -1,6 +1,6 @@
 # Datta + Baum Studio
 
-The Studio's public facing website with built in store.
+The Studio's public facing website.
 
 Public Facing: [dattabaumstudio.com](https://www.dattabaumstudio.com/)
 
@@ -14,7 +14,7 @@ For Testing and unlinked: [dattabaumstudio.vercel.app](https://dattabaumstudio.v
 
 The policy pages are written in markdown and can be found:
 
-1. [Terms](/src/pages/disclaimer.md)
+1. [Terms](/src/pages/terms.md)
 2. [Privacy](/src/pages/privacy.md)
 3. [Returns](/src/pages/returns.md)
 4. [Disclaimer](/src/pages/disclaimer.md)
@@ -25,13 +25,15 @@ The policy pages are written in markdown and can be found:
 2. When editing any of these care must be taken to ensure that the content is **Valid HTML / JavaScript**.
 3. This includes there aren't any syntax errors, missing closing tags, etc. It's best to use a code editor with syntax highlighting and linting, instead of editing directly on GitHub.
 
-## 🎨 Editing shopify theme
+## 🛒 Store (closed)
 
-We needed to edit the Shopify theme because during checkout, our website redirects to Shopify. However, when clicking on the "Datta+baum" header link, it takes you to the Shopify shop, which is not what we wanted. Therefore, we had to modify the themes to redirect to our website instead of the Shopify store.
+The Shopify store is closed. The "Get in touch" buttons on the watch page link to the [contact page](/src/pages/contact.astro). The Cart link in the header is still shown but does nothing.
 
-1. Click [here](https://admin.shopify.com/store/f2888f-3/themes/154313523532) (Online Store -> Themes -> Edit code (in menu next to **Customize** button)) to edit theme.
-2. Search name of file you want to edit in the text field.
-3. EDITED (redirecting to main site): _header.liquid_ (Line # 122 - 126)
+The old store code is still in the repo, unused:
+
+1. [Cart page](/src/pages/cart.astro) and [Cart component](/src/components/Cart.tsx)
+2. [Strap size picker](/src/components/BandSize.tsx) and [its button](/src/components/watch/BandSizeButton.tsx)
+3. [Shopify product API route](/src/pages/api/shopify/product.ts)
 
 ## 💾 Where is the content stored?
 
@@ -66,10 +68,6 @@ sequenceDiagram
         participant FirebaseFunction as Firebase cloudfunction
         participant Email
     end
-    box Red Order Fulfilment Stuff
-        participant ShopifyStore as Shopify (Store)
-        participant ShopifyAgent as Shopify (Dropshipping Agent)
-    end
 
     Github->>Website: Static Small Assets (images, files etc.)
     FirebaseStorage->>Website: Photos and videos
@@ -79,10 +77,6 @@ sequenceDiagram
     FirebaseDB->>-FirebaseFunction: Event
     FirebaseFunction->>FirebaseDB: [Description of Action]
     FirebaseFunction->>Email: Autoreply
-    Website->>ShopifyStore: Checkout
-    ShopifyStore->>ShopifyAgent: Order details
-    ShopifyAgent->>ShopifyStore: Fulfilment Status
-    ShopifyStore->>Website: Fulfilment Status
 ```
 
 ## 👨🏻‍💻 Deployment
