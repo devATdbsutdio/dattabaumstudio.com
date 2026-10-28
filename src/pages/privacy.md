@@ -118,16 +118,14 @@ The Company may use Personal Data for the following purposes:
 - To contact You: To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.
 - To provide You with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.
 - To manage Your requests: To attend and manage Your requests to Us.
-- To deliver targeted self-advertising to You: We may use Your information to develop and display content and advertising (and work with third-party vendors who do so) tailored to Your interests and/or location and to measure its effectiveness.
 - For business transfers: We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.
-- For other purposes: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.
+- For other purposes: We may use Your information for other purposes, such as to evaluate and improve our Service, products and services.
 
 We may share Your personal information in the following situations:
 
-- With Service Providers: We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to advertise on third party websites to You after You visited our Service, for payment processing, to contact You.
+- With Service Providers: We may share Your personal information with Service Providers that host and deliver our Service, or help Us contact You.
 - For business transfers: We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.
 - With Affiliates: We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.
-- With business partners: We may share Your information with Our business partners to offer You certain products, services or promotions.
 - With other users: when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside. If You interact with other users or register through a Third-Party Social Media Service, Your contacts on the Third-Party Social Media Service may see Your name, profile, pictures and description of Your activity. Similarly, other users will be able to view descriptions of Your activity, communicate with You and view Your profile.
 - With Your consent: We may disclose Your personal information for any other purpose with Your consent.
 
@@ -254,7 +252,7 @@ Please note that the categories and examples provided in the list below are thos
   - Examples: Genetic, physiological, behavioral, and biological characteristics, or activity patterns used to extract a template or other identifier or identifying information, such as, fingerprints, faceprints, and voiceprints, iris or retina scans, keystroke, gait, or other physical patterns, and sleep, health, or exercise data.
   - Collected: No.
 - Category F: Internet or other similar network activity.
-  - Examples: Interaction with our Service or advertisement.
+  - Examples: Interaction with our Service.
   - Collected: Yes.
 - Category G: Geolocation data.
   - Examples: Approximate physical location.
@@ -287,10 +285,10 @@ Under CCPA/CPRA, personal information does not include:
 
 We obtain the categories of personal information listed above from the following categories of sources:
 
-- Directly from You. For example, from the forms You complete on our Service, preferences You express or provide through our Service, or from Your purchases on our Service.
+- Directly from You. For example, from the forms You complete on our Service, preferences You express or provide through our Service, or from Your past purchases from Us.
 - Indirectly from You. For example, from observing Your activity on our Service.
 - Automatically from You. For example, through cookies We or our Service Providers set on Your Device as You navigate through our Service.
-- From Service Providers. For example, third-party vendors to monitor and analyze the use of our Service, third-party vendors to deliver targeted advertising to You, third-party vendors for payment processing, or other third-party vendors that We use to provide the Service to You.
+- From Service Providers. For example, the hosting providers that We use to deliver the Service to You.
 
 ### Use of Personal Information
 
@@ -326,31 +324,20 @@ When We disclose personal information for a business purpose or a commercial pur
 We may share, and have shared in the last twelve (12) months, Your personal information identified in the above categories with the following categories of third parties:
 
 - Service Providers.
-- Payment processors.
 - Our affiliates.
-- Our business partners.
 - Third party vendors to whom You or Your agents authorize Us to disclose Your personal information in connection with products or services We provide to You.
 
 ### Sale of Personal Information
 
 As defined in the CCPA/CPRA, "sell" and "sale" mean selling, renting, releasing, disclosing, disseminating, making available, transferring, or otherwise communicating orally, in writing, or by electronic or other means, a Consumer's personal information by the Business to a third party for valuable consideration. This means that We may have received some kind of benefit in return for sharing personal information, but not necessarily a monetary benefit.
 
-We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, for activities such as advertising, marketing, and analytics, and these may be deemed a sale under CCPA/CPRA.
-
-We may sell and may have sold in the last twelve (12) months the following categories of personal information:
-
-- Category A: Identifiers.
-- Category B: Personal information categories listed in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)).
-- Category D: Commercial information.
-- Category F: Internet or other similar network activity.
-
-Please note that the categories listed above are those defined in the CCPA/CPRA. This does not mean that all examples of that category of personal information were in fact sold, but reflects our good faith belief to the best of Our knowledge that some of that information from the applicable category may be and may have been shared for value in return.
+We do not sell Your personal information, and We do not share it for cross-context behavioral advertising. We have not sold or shared personal information in the last twelve (12) months.
 
 ### Sale of Personal Information of Minors Under 16 Years of Age
 
 We do not knowingly collect personal information from minors under the age of 16 through our Service, although certain third party websites that we link to may do so. These third-party websites have their own terms of use and privacy policies and We encourage parents and legal guardians to monitor their children's Internet usage and instruct their children to never provide information on other websites without their permission.
 
-We do not sell the personal information of Consumers We actually know are less than 16 years of age, unless We receive affirmative authorization (the "right to opt-in") from either the Consumer who is between 13 and 16 years of age, or the parent or guardian of a Consumer less than 13 years of age. Consumers who opt-in to the sale of personal information may opt-out of future sales at any time. To exercise the right to opt-out, You (or Your authorized representative) may submit a request to Us by contacting Us.
+We do not sell or share the personal information of any Consumer, including Consumers under 16 years of age.
 
 If You have reason to believe that a child under the age of 13 (or 16) has provided Us with personal information, please contact Us with sufficient detail to enable Us to delete that information.
 
@@ -368,7 +355,7 @@ The CCPA/CPRA provides California residents with specific rights regarding their
   - If we sold Your personal information or disclosed Your personal information for a business purpose, We will disclose to You:
     - The categories of personal information categories sold.
     - The categories of personal information categories disclosed.
-  - The right to say no to the sale or sharing of Personal Data (opt-out). You have the right to direct Us to not sell Your personal information. To submit an opt-out request, please see the "Do Not Sell My Personal Information" section or contact Us.
+  - The right to say no to the sale or sharing of Personal Data (opt-out). You have the right to direct Us to not sell or share Your personal information. We do not sell or share it, but You can contact Us at any time to make this request.
   - The right to correct Personal Data. You have the right to correct or rectify any inaccurate personal information about You that We collected. Once We receive and confirm Your request, We will use commercially reasonable efforts to correct (and direct our Service Providers to correct) Your personal information, unless an exception applies.
   - The right to limit use and disclosure of sensitive Personal Data. You have the right to request to limit the use or disclosure of certain sensitive personal information We collected about You, unless an exception applies. To submit, please see the "Limit the Use or Disclosure of My Sensitive Personal Information" section or contact Us.
   - The right to delete Personal Data. You have the right to request the deletion of Your Personal Data under certain circumstances, subject to certain exceptions. Once We receive and confirm Your request, We will delete (and direct Our Service Providers to delete) Your personal information from our records, unless an exception applies. We may deny Your deletion request if retaining the information is necessary for Us or Our Service Providers to:
@@ -414,34 +401,9 @@ For data portability requests, We will select a format to provide Your personal 
 
 As defined in the CCPA/CPRA, "sell" and "sale" mean selling, renting, releasing, disclosing, disseminating, making available, transferring, or otherwise communicating orally, in writing, or by electronic or other means, a Consumer's personal information by the Business to a third party for valuable consideration. This means that We may have received some kind of benefit in return for sharing personal information, but not necessarily a monetary benefit.
 
-We do not sell personal information as the term sell is commonly understood. We do allow Service Providers to use Your personal information for the business purposes described in Our Privacy Policy, for activities such as advertising, marketing, and analytics, and these may be deemed a sale under CCPA/CPRA.
+We do not sell or share Your personal information, and We do not use advertising or analytics services on the Service.
 
-You have the right to opt-out of the sale of Your personal information. Once We receive and confirm a verifiable consumer request from You, we will stop selling Your personal information. To exercise Your right to opt-out, please contact Us.
-
-The Service Providers we partner with (for example, our analytics or advertising partners) may use technology on the Service that sells personal information as defined by the CCPA/CPRA law. If you wish to opt out of the use of Your personal information for interest-based advertising purposes and these potential sales as defined under CCPA/CPRA law, you may do so by following the instructions below.
-
-Please note that any opt out is specific to the browser You use. You may need to opt out of every browser or device that You use.
-
-### Website
-
-If applicable, click "Privacy Preferences", "Update Privacy Preferences" or "Do Not Sell My Personal Information" buttons listed on the Service to review your privacy preferences and opt out of cookies and other technologies that We may use. Please note that You will need to opt out from each browser that You use to access the Service.
-
-Additionally, You can opt out of receiving ads that are personalized as served by our Service Providers by following our instructions presented on the Service:
-
-- The NAI's opt-out platform: <http://www.networkadvertising.org/choices/>.
-- The EDAA's opt-out platform <http://www.youronlinechoices.com/>.
-- The DAA's opt-out platform: <http://optout.aboutads.info/?c=2&lang=EN>.
-
-The opt out will place a cookie on Your computer that is unique to the browser You use to opt out. If you change browsers or delete the cookies saved by your browser, You will need to opt out again.
-
-### Mobile Devices
-
-Your mobile device may give You the ability to opt out of the use of information about the apps You use in order to serve You ads that are targeted to Your interests:
-
-- "Opt out of Interest-Based Ads" or "Opt out of Ads Personalization" on Android devices.
-- "Limit Ad Tracking" on iOS devices.
-
-You can also stop the collection of location information from Your mobile device by changing the preferences on Your mobile device.
+If this ever changes, We will update this Privacy Policy first, and You will be able to opt out. You can also contact Us at any time to make a request.
 
 ## Limit the Use or Disclosure of My Sensitive Personal Information
 
