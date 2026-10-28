@@ -3,6 +3,7 @@ import { useState } from 'react';
 const useLocalStorage = <T>(key: string, initialValue?: T): [T | undefined, (value: T) => void] => {
 	// Get the initial value from localStorage or use the provided initialValue
 	const initialStoredValue = (): T | undefined => {
+		if (typeof window === 'undefined') return initialValue;
 		try {
 			const storedItem = window.localStorage.getItem(key);
 			return storedItem ? JSON.parse(storedItem) : initialValue;
