@@ -39,6 +39,9 @@ Why: the pages described services the site no longer uses. A policy should say w
 4. `@astrojs/cloudflare` removed. It was installed but never used. The site builds with the Vercel adapter.
 5. `npm audit` went from 54 findings to 0.
 
+> [!Warning]
+> Astro 7 needs Node `22.23.4` or newer. The Vercel project builds with Node `22.x`. Keep that setting at 22 or higher, or builds will fail.
+
 A few fixes sit inside packages we do not control. The `overrides` block in `package.json` pins patched versions of them:
 
 ```json
