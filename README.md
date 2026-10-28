@@ -31,11 +31,22 @@ The policy pages are written in markdown and can be found:
 
 The Shopify store is closed. The "Get in touch" buttons on the watch page link to the [contact page](/src/pages/contact.astro). The Cart link in the header is still shown but does nothing.
 
-The old store code is still in the repo, unused:
+The old store code is removed from the repo. That was the cart page, the strap size picker, the Shopify product route, the "BUY NOW" home marquee and the `shopify-api-node` package. It is all kept in the tag `archive/shopify-store`.
 
-1. [Cart page](/src/pages/cart.astro) and [Cart component](/src/components/Cart.tsx)
-2. [Strap size picker](/src/components/BandSize.tsx) and [its button](/src/components/watch/BandSizeButton.tsx)
-3. [Shopify product API route](/src/pages/api/shopify/product.ts)
+To look at a file from the old store:
+
+```bash
+git show archive/shopify-store:src/components/Cart.tsx
+```
+
+To bring a file back into the repo:
+
+```bash
+git checkout archive/shopify-store -- src/components/Cart.tsx
+```
+
+> [!Tip]
+> If you bring any of it back, add a line about it to [LOG.md](/LOG.md).
 
 The waiting list is switched off too. Its [form](/src/components/WaitingList.tsx) and [API route](/src/pages/api/join/index.ts) are still in the repo, unused. The route saves sign-ups to the Firebase Realtime Database, which is why the `FIREBASE_*` env vars are still set in Vercel.
 
@@ -46,7 +57,6 @@ The waiting list is switched off too. Its [form](/src/components/WaitingList.tsx
 - Content for the main pages is as follows:
 
 1. [Home](/src/pages/index.astro)
-   - [Marquee](/src/components/HeroMarquee.tsx) (_Commented out for now_)
 2. [About](/src/pages/about.astro)
 3. [Contact](/src/pages/contact.astro)
 4. [Watch](/src/pages/watch/index.astro)

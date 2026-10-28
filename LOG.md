@@ -19,7 +19,22 @@ A dated record of changes to the site and its setup, newest first. Each entry sa
 
 Why: with the store closed, every path that led to a checkout had to lead to a conversation instead.
 
-The old store code stays in the repo, unused. See the "Store (closed)" section in the [README](/README.md).
+### Store code removed
+
+The unused store code is deleted, so the repo only holds what the site runs:
+
+1. The cart page and cart component.
+2. The strap size picker and its button.
+3. The Shopify product route and the `shopify-api-node` package.
+4. The "BUY NOW FOR ONLY 600€" home marquee, its clock helper and the `react-fast-marquee` package.
+5. The header's cart counter. "Cart" is still shown and still does nothing.
+6. The Shopify entries in `src/env.d.ts` and the cart table styles.
+
+Why: none of it ran on the site any more. Keeping dead code means keeping its dependencies, its updates and its security alerts.
+
+The last version with all of it is kept in the tag `archive/shopify-store`. The "Store (closed)" section in the [README](/README.md) shows how to look at it or bring a file back. If anything comes back, log it here.
+
+How it was checked: the site builds, the type check has no errors, and every page's HTML was compared before and after. Nothing visitors see changed, and `/cart` is gone.
 
 ### Policy pages
 
@@ -81,7 +96,7 @@ Why: access to the project changed, and keys made years ago never expire. Rotati
 
 ### Open
 
-- [ ] Decide whether to remove the unused store code and the `shopify-api-node` package.
+- [x] Remove the unused store code and the `shopify-api-node` package. Done, kept in the tag `archive/shopify-store`.
 - [ ] If the waiting list ever comes back, move Firebase sign-in to keyless access (Workload Identity Federation), so no key needs storing at all.
 - [ ] Remove the npm overrides once the upstream fixes ship.
 - [ ] Read the new Terms and Privacy wording together with Benjamin.

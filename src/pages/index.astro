@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Button from '@/components/Button';
-import HeroMarquee from '@/components/HeroMarquee';
 import ArrowRightIcon from '@/components/icons/ArrowRightIcon';
 import Layout from '@/layouts/Layout.astro';
 import { mediaPath } from '@/constants';
@@ -26,9 +25,6 @@ import { mediaPath } from '@/constants';
 			<track kind="captions" src="" srclang="en" label="English captions" default />
 		</video>
 		<div class="pt-32 pb-14 md:pt-52">
-			<!--<div class="h-[160px] overflow-hidden sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[250px]">
-				<HeroMarquee client:only="react" />
-			</div>-->
 			<div class="dbs-container">
 				<div class="mt-14 ml-28 max-w-lg text-lg mix-blend-exclusion md:ml-60 md:text-2xl">
 					<p class="text-white">

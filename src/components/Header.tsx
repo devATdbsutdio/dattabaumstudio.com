@@ -14,25 +14,6 @@ export default function Header({ solidBg }: HeaderProps) {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 	const [isWaitingListOpen, setIsWaitingListOpen] = React.useState(false);
 
-	const [cartQuantity, setCartQuantity] = React.useState<number>(0);
-
-	React.useEffect(() => {
-		const handleStorageChange = () => {
-			const localStorageSelectedVariants = window.localStorage.getItem('CART_SELECTED_VARIANTS');
-			const variant = localStorageSelectedVariants ? JSON.parse(localStorageSelectedVariants) : '';
-			let variantArr = variant?.split('<,>') || [];
-			variantArr = variantArr.filter(Boolean);
-			setCartQuantity(variantArr?.length || 0);
-		};
-
-		handleStorageChange();
-		window.addEventListener('storage', handleStorageChange);
-
-		return () => {
-			window.removeEventListener('storage', handleStorageChange);
-		};
-	}, []);
-
 	const toggleMenu = () => {
 		setIsMenuOpen((v) => !v);
 	};
@@ -40,11 +21,6 @@ export default function Header({ solidBg }: HeaderProps) {
 	const toggleWaitingList = () => {
 		setIsWaitingListOpen((v) => !v);
 	};
-
-	// Store closed: the Cart link stays visible but does nothing.
-	// const redirectToCartPage = () => {
-	// 	window.location.href = '/cart';
-	// };
 
 	return (
 		<>
@@ -88,7 +64,7 @@ export default function Header({ solidBg }: HeaderProps) {
 						variant="tertiary-dark"
 						className="pointer-events-none ml-auto text-sm sm:text-base md:block md:text-lg"
 						ariaLabel="Cart">
-						Cart {cartQuantity ? `(${cartQuantity})` : ''}
+						Cart
 					</Button>
 				</div>
 			</header>
@@ -121,12 +97,6 @@ export default function Header({ solidBg }: HeaderProps) {
               }}
             >
               Join the waiting list
-            </button> */}
-						{/* <button
-              className="px-3 py-5 text-left transition-colors hover:bg-neutral-950"
-              onClick={redirectToCartPage}
-            >
-              Cart {cartQuantity ? `(${cartQuantity})` : ""}
             </button> */}
 					</Dialog.Panel>
 				</Dialog>
