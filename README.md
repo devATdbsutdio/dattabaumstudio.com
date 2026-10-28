@@ -10,6 +10,8 @@ For Testing and unlinked: [dattabaumstudio.vercel.app](https://dattabaumstudio.v
 
 🌐 Built with [Astro](https://astro.build/) and [TailwindCSS](https://tailwindcss.com/) and hosted in (Linked To) [Vercel](https://vercel.com/dev-datta-baum-studio)
 
+📒 What changed and why is logged in [LOG.md](/LOG.md).
+
 ## ⚖️ Editing policy pages
 
 The policy pages are written in markdown and can be found:
