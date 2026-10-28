@@ -16,11 +16,11 @@
 		"@astrojs/react": "^7.1.2",
 		"@astrojs/vercel": "^11.0.17",
 		"@fontsource-variable/inter": "^5.0.8",
-		"@headlessui/react": "^1.7.17",
+		"@headlessui/react": "^2.2.10",
 		"@headlessui/tailwindcss": "^0.2.0",
 		"@tailwindcss/vite": "^4.1.8",
-		"@types/react": "^18.2.21",
-		"@types/react-dom": "^18.2.7",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
 		"astro": "^7.4.3",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
@@ -30,8 +30,8 @@
 		"embla-carousel-wheel-gestures": "^8.0.2",
 		"firebase-admin": "^14.5.0",
 		"powerglitch": "^2.3.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
+		"react": "^19.3.1",
+		"react-dom": "^19.3.1",
 		"react-fast-marquee": "^1.6.0",
 		"sharp": "^0.35.5",
 		"shopify-api-node": "^3.12.7",
@@ -51,5 +51,17 @@
 		"tailwind-merge": "^3.3.0",
 		"tailwindcss-animate": "^1.0.7",
 		"typescript-eslint": "^8.33.1"
+	},
+	"overrides": {
+		"@vercel/routing-utils": {
+			"path-to-regexp": "^6.3.0"
+		},
+		"@vercel/cli-config": {
+			"zod": "^4.6.7"
+		},
+		"@tailwindcss/typography": {
+			"postcss-selector-parser": "^6.1.5"
+		},
+		"rimraf": "^6.1.3"
 	}
 }
