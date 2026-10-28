@@ -41,9 +41,10 @@ export default function Header({ solidBg }: HeaderProps) {
 		setIsWaitingListOpen((v) => !v);
 	};
 
-	const redirectToCartPage = () => {
-		window.location.href = '/cart';
-	};
+	// Store closed: the Cart link stays visible but does nothing.
+	// const redirectToCartPage = () => {
+	// 	window.location.href = '/cart';
+	// };
 
 	return (
 		<>
@@ -85,8 +86,7 @@ export default function Header({ solidBg }: HeaderProps) {
           </Button> */}
 					<Button
 						variant="tertiary-dark"
-						className="ml-auto text-sm sm:text-base md:block md:text-lg"
-						onClick={redirectToCartPage}
+						className="pointer-events-none ml-auto text-sm sm:text-base md:block md:text-lg"
 						ariaLabel="Cart">
 						Cart {cartQuantity ? `(${cartQuantity})` : ''}
 					</Button>

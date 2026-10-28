@@ -35,8 +35,8 @@ We needed to edit the Shopify theme because during checkout, our website redirec
 
 ## 💾 Where is the content stored?
 
-- All images are stored in the [assets/images](/arc/assets/images) folder.
-- All videos are stored in [shopify](https://admin.shopify.com/store/f2888f-3/content/files).
+- Photos and videos are stored in Firebase Storage. The site gets the storage URL from the `PUBLIC_FIREBASE_STORAGE_URL` env variable, see [constants.ts](/src/constants.ts).
+- A few small SVGs are in the [assets/images](/src/assets/images) folder.
 - Content for the main pages is as follows:
 
 1. [Home](/src/pages/index.astro)
@@ -57,7 +57,7 @@ We needed to edit the Shopify theme because during checkout, our website redirec
 sequenceDiagram
     box Gray Asset Hosting
         participant Github
-        participant ShopifyContent as Shopify (Content)
+        participant FirebaseStorage as Firebase Storage
         participant AmazonS3
     end
     participant Website
@@ -72,7 +72,7 @@ sequenceDiagram
     end
 
     Github->>Website: Static Small Assets (images, files etc.)
-    ShopifyContent->>Website: Static Large Assets (videos etc.)
+    FirebaseStorage->>Website: Photos and videos
     AmazonS3->>Website: Drivers
     Note over AmazonS3,Website: For serial port access in Windows
     Website->>+FirebaseDB: "Waiting List" data

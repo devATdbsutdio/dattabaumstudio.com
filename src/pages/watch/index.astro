@@ -10,7 +10,7 @@ import ContentNav from '@/components/watch/ContentNav.astro';
 import CraftsmanshipSection from '@/components/watch/CraftsmanshipSection.astro';
 import SpecsSection from '@/components/watch/SpecsSection.astro';
 // import AddToCartButton from '@/components/watch/AddToCart';
-import BandSizeButton from '@/components/watch/BandSizeButton';
+// import BandSizeButton from '@/components/watch/BandSizeButton';
 import { mediaPath } from '@/constants';
 
 const watchHeroImages = [
@@ -45,7 +45,8 @@ const watchHeroImages = [
 				<h1 class="mb-9 text-7xl font-extralight text-white md:mb-10 md:text-9xl lg:text-[144px]">WATCH</h1>
 				<div class="pointer-events-auto flex flex-col gap-11 xl:flex-row xl:items-center xl:justify-between">
 					<div class="flex flex-wrap items-center gap-5">
-						<BandSizeButton client:load />
+						{/* <BandSizeButton client:load /> */}
+						<Button variant="primary-dark" href="/contact" ariaLabel="Get in touch">Get in touch</Button>
 						<Button variant="secondary-dark" href="/watch/faq" className="gap-10" ariaLabel="FAQ">
 							FAQ
 							<ArrowRightIcon className="h-8 w-8 stroke-white stroke-1 md:h-10 md:w-10" />

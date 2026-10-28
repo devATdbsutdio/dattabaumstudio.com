@@ -1,6 +1,7 @@
 ---
 import { cn } from '@/lib/utils';
-import BandSizeButton from './BandSizeButton';
+import Button from '../Button';
+// import BandSizeButton from './BandSizeButton';
 // import AddToCartButton from './AddToCart';
 // import WaitingListButton from './WaitingListButton';
 ---
@@ -27,11 +28,18 @@ import BandSizeButton from './BandSizeButton';
       client:idle
       className="border-none hidden md:h-full md:py-6 md:block rounded-none"
     /> -->
-		<BandSizeButton
+		{/* <BandSizeButton
 			client:idle
 			className={cn('hidden rounded-none! border-none md:block md:h-full md:py-6')}
 			label="Add To Cart"
-		/>
+		/> */}
+		<Button
+			variant="primary-dark"
+			href="/contact"
+			className={cn('hidden rounded-none! border-none md:inline-flex md:h-full md:py-6')}
+			ariaLabel="Get in touch">
+			Get in touch
+		</Button>
 	</div>
 </div>
 
