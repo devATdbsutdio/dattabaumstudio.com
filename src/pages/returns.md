@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Returns & Refunds
 description: We are quite accommodating when it comes to our returns and refunds policy, as outlined below
-lastUpdated: 'March 22, 2023'
+lastUpdated: 'October 28, 2026'
 ---
 
 Thank you for shopping at this website.
@@ -33,7 +33,7 @@ You are entitled to cancel Your Order within 14 days without giving any reason f
 
 The deadline for canceling an Order is 14 days from the date on which You received the Goods or on which a third party you have appointed, who is not the carrier, takes possession of the product delivered.
 
-In order to exercise Your right of cancellation, You must inform Us, before the return period has expired, of your decision by means of a clear statement, with the invoice and or purchase receipt. You can inform us of your decision by email: <sales@dattabaumstudio.com>
+In order to exercise Your right of cancellation, You must inform Us, before the return period has expired, of your decision by means of a clear statement, with the invoice and or purchase receipt. You can inform us of your decision by email: <hi@dattabaumstudio.com>
 
 We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
 
@@ -71,4 +71,4 @@ If the Goods weren't marked as a gift when purchased, or the gift giver had the 
 
 ## Contact Us
 
-If you have any questions about our Returns and Refunds Policy, please contact us by email: <sales@dattabaumstudio.com> .
+If you have any questions about our Returns and Refunds Policy, please contact us by email: <hi@dattabaumstudio.com> .

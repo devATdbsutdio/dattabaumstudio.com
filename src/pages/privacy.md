@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Privacy Policy
 description: We care about your privacy, and our policy below explains how we handle your data
-lastUpdated: 'March 22, 2023'
+lastUpdated: 'October 28, 2026'
 ---
 
 This Privacy Policy describes our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
@@ -207,11 +207,7 @@ We provide paid products and/or services within the Service. In that case, we ma
 
 We will not store or collect Your payment card details. That information is provided directly to Our third-party payment processors whose use of Your personal information is governed by their Privacy Policy. These payment processors adhere to the standards set by PCI-DSS as managed by the PCI Security Standards Council, which is a joint effort of brands like Visa, Mastercard, American Express and Discover. PCI-DSS requirements help ensure the secure handling of payment information.
 
-- Stripe: Their Privacy Policy can be viewed at <https://stripe.com/us/privacy>.
-- Shopify: Their Privacy Policy can be viewed at <https://www.shopify.com/legal/privacy>.
 - PayPal: Their Privacy Policy can be viewed at <https://www.paypal.com/webapps/mpp/ua/privacy-full>.
-- WeChat: Their Privacy Policy can be viewed at <https://www.wechat.com/en/privacy_policy.html>.
-- Alipay: Their Privacy Policy can be viewed at <https://render.alipay.com/p/f/agreementpages/alipayglobalprivacypolicy.html>.
 
 When You use Our Service to pay a product and/or service via bank transfer, We may ask You to provide information to facilitate this transaction and to verify Your identity.
 
@@ -435,7 +431,7 @@ The CCPA/CPRA provides California residents with specific rights regarding their
 ### Exercising Your CCPA/CPRA Data Protection Rights
 
 Please see the "Do Not Sell My Personal Information" section and "Limit the Use or Disclosure of My Sensitive Personal Information" section for more information on how to opt out and limit the use of sensitive information collected.
-Additionally, in order to exercise any of Your rights under the CCPA/CPRA, and if You are a California resident, You can contact Us: By email: <legal@dattabaumstudio.com>.
+Additionally, in order to exercise any of Your rights under the CCPA/CPRA, and if You are a California resident, You can contact Us: By email: <hi@dattabaumstudio.com>.
 
 Only You, or a person registered with the California Secretary of State that You authorize to act on Your behalf, may make a verifiable request related to Your personal information.
 
@@ -536,4 +532,4 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 
 ## Contact Us
 
-If you have any questions about this Privacy Policy, You can contact us by email: <legal@dattabaumstudio.com>.
+If you have any questions about this Privacy Policy, You can contact us by email: <hi@dattabaumstudio.com>.

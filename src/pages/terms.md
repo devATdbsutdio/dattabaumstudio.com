@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Terms & Conditions
 description: Our Terms and Conditions below provide a detailed explanation of the terms of use for our products and website
-lastUpdated: 'March 22, 2023'
+lastUpdated: 'October 28, 2026'
 ---
 
 ## Interpretation and Definitions
@@ -96,7 +96,7 @@ The prices quoted may be revised by the Company subsequent to accepting an Order
 
 ### Payments
 
-All Goods purchased are subject to a one-time payment. Payment can be made through various payment methods we have available, such as Visa, MasterCard, Affinity Card, American Express cards or online payment methods (PayPal, for example), WeChat Pay, Alipay.
+All Goods purchased are subject to a one-time payment. Payment can be made through various payment methods we have available, such as Visa, MasterCard, Affinity Card, American Express cards or online payment methods (PayPal, for example).
 
 Payment cards (credit cards or debit cards) are subject to validation checks and authorization by Your card issuer. If we do not receive the required authorization, We will not be liable for any delay or non-delivery of Your Order.
 
@@ -168,4 +168,4 @@ By continuing to access or use Our Service after those revisions become effectiv
 
 ## Contact Us
 
-If you have any questions about these Terms and Conditions, You can contact us by email: <legal@dattabaumstudio.com>.
+If you have any questions about these Terms and Conditions, You can contact us by email: <hi@dattabaumstudio.com>.

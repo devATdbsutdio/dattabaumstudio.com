@@ -2,7 +2,7 @@
 layout: ../layouts/PolicyPageLayout.astro
 title: Disclaimer
 description: This section states our liability for the use of this website and the information it contains
-lastUpdated: 'March 22, 2023'
+lastUpdated: 'October 28, 2026'
 ---
 
 ## Interpretation and Definitions
@@ -69,4 +69,4 @@ The Company will not be liable to You or anyone else for any decision made or ac
 
 ## Contact Us
 
-If you have any questions about this Disclaimer, You can contact Us by email: <legal@dattabaumstudio.com> .
+If you have any questions about this Disclaimer, You can contact Us by email: <hi@dattabaumstudio.com> .
