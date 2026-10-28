@@ -182,15 +182,9 @@ The security of Your Personal Data is important to Us, but remember that no meth
 
 The Service Providers We use may have access to Your Personal Data. These third-party vendors collect, store, use, process and transfer information about Your activity on Our Service in accordance with their Privacy Policies.
 
-### Analytics
+### Hosting
 
-We may use third-party Service providers to monitor and analyze the use of our Service.
-
-- **Google Analytics**: Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.
-  You can opt-out of having made your activity on the Service available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js and dc.js) from sharing information with Google Analytics about visits activity.
-  For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <https://policies.google.com/privacy>.
-- **Firebase**: Firebase is an analytics service provided by Google Inc.
-  You may opt-out of certain Firebase features through your mobile device settings, such as your device advertising settings or by following the instructions provided by Google in their Privacy Policy: <https://policies.google.com/privacy>. We also encourage you to review the Google's policy for safeguarding your data: <https://support.google.com/analytics/answer/6004245>. For more information on what type of information Firebase collects, please visit the How Google uses data when you use our partners' sites or apps webpage: <https://policies.google.com/technologies/partner-sites>.
+The Website is hosted on Vercel, and its photos and videos are served from Google Firebase Storage. These providers may process Usage Data, such as Your IP address, to deliver the Website to You.
 
 ### Email Marketing
 
@@ -201,32 +195,6 @@ We may use Your Personal Data to contact You with newsletters, marketing or prom
 We no longer take payments through the Service, and We do not store or collect Your payment card details.
 
 If You pay Us directly for a product and/or service, for example via bank transfer, We may ask You to provide information to facilitate this transaction and to verify Your identity.
-
-### Behavioral Remarketing
-
-The Company uses remarketing services to advertise to You after You accessed or visited our Service. We and Our third-party vendors use cookies and non-cookie technologies to help Us recognize Your Device and understand how You use our Service so that We can improve our Service to reflect Your interests and serve You advertisements that are likely to be of more interest to You.
-
-These third-party vendors collect, store, use, process and transfer information about Your activity on Our Service in accordance with their Privacy Policies and to enable Us to:
-
-- Measure and analyze traffic and browsing activity on Our Service.
-- Show advertisements for our products and/or services to You on third-party websites or apps.
-- Measure and analyze the performance of Our advertising campaigns.
-
-Some of these third-party vendors may use non-cookie technologies that may not be impacted by browser settings that block cookies. Your browser may not permit You to block such technologies. You can use the following third-party tools to decline the collection and use of information for the purpose of serving You interest-based advertising:
-
-- The NAI's opt-out platform: <http://www.networkadvertising.org/choices/>.
-- The EDAA's opt-out platform <http://www.youronlinechoices.com/>.
-- The DAA's opt-out platform: <http://optout.aboutads.info/?c=2&lang=EN>.
-
-You may opt-out of all personalized advertising by enabling privacy features on Your mobile device such as Limit Ad Tracking (iOS) and Opt Out of Ads Personalization (Android). See Your mobile device Help system for more information.
-
-We may share information, such as hashed email addresses (if available) or other online identifiers collected on Our Service with these third-party vendors. This allows Our third-party vendors to recognize and deliver You ads across devices and browsers. To read more about the technologies used by these third-party vendors and their cross-device capabilities please refer to the Privacy Policy of each vendor listed below.
-
-The third-party vendors We use are:
-
-- **Google Ads (AdWords)**: Google Ads (AdWords) remarketing service is provided by Google Inc. You can opt-out of Google Analytics for Display Advertising and customize the Google Display Network ads by visiting the Google Ads Settings page: <http://www.google.com/settings/ads>. Google also recommends installing the Google Analytics Opt-out Browser Add-on - <https://tools.google.com/dlpage/gaoptout> - for your web browser. Google Analytics Opt-out Browser Add-on provides visitors with the ability to prevent their data from being collected and used by Google Analytics. For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <https://policies.google.com/privacy>.
-- **Twitter**: Twitter remarketing service is provided by Twitter Inc. You can opt-out from Twitter's interest-based ads by following their instructions: <https://support.twitter.com/articles/20170405>. You can learn more about the privacy practices and policies of Twitter by visiting their Privacy Policy page: <https://twitter.com/privacy>.
-- **Facebook**: Facebook remarketing service is provided by Facebook Inc. You can learn more about interest-based advertising from Facebook by visiting this page: <https://www.facebook.com/help/516147308587266>.To opt-out from Facebook's interest-based ads, follow these instructions from Facebook: <https://www.facebook.com/help/568137493302217>. Facebook adheres to the Self-Regulatory Principles for Online Behavioural Advertising established by the Digital Advertising Alliance. You can also opt-out from Facebook and other participating companies through the Digital Advertising Alliance in the USA <http://www.aboutads.info/choices/>, the Digital Advertising Alliance of Canada in Canada <http://youradchoices.ca/> or the European Interactive Digital Advertising Alliance in Europe <http://www.youronlinechoices.eu/>, or opt-out using your mobile device settings. For more information on the privacy practices of Facebook, please visit Facebook's Data Policy: <https://www.facebook.com/privacy/explanation>.
 
 ## GDPR Privacy
 

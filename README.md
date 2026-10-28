@@ -35,6 +35,8 @@ The old store code is still in the repo, unused:
 2. [Strap size picker](/src/components/BandSize.tsx) and [its button](/src/components/watch/BandSizeButton.tsx)
 3. [Shopify product API route](/src/pages/api/shopify/product.ts)
 
+The waiting list is switched off too. Its [form](/src/components/WaitingList.tsx) and [API route](/src/pages/api/join/index.ts) are still in the repo, unused. The route saves sign-ups to the Firebase Realtime Database, which is why the `FIREBASE_*` env vars are still set in Vercel.
+
 ## 💾 Where is the content stored?
 
 - Photos and videos are stored in Firebase Storage. The site gets the storage URL from the `PUBLIC_FIREBASE_STORAGE_URL` env variable, see [constants.ts](/src/constants.ts).
@@ -63,20 +65,11 @@ sequenceDiagram
         participant AmazonS3
     end
     participant Website
-    box Purple Waiting List Stuff
-        participant FirebaseDB as Firebase RTDB
-        participant FirebaseFunction as Firebase cloudfunction
-        participant Email
-    end
 
     Github->>Website: Static Small Assets (images, files etc.)
     FirebaseStorage->>Website: Photos and videos
     AmazonS3->>Website: Drivers
     Note over AmazonS3,Website: For serial port access in Windows
-    Website->>+FirebaseDB: "Waiting List" data
-    FirebaseDB->>-FirebaseFunction: Event
-    FirebaseFunction->>FirebaseDB: [Description of Action]
-    FirebaseFunction->>Email: Autoreply
 ```
 
 ## 👨🏻‍💻 Deployment
